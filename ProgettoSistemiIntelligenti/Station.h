@@ -16,17 +16,19 @@ namespace Station {
 class Station::Station_i
 {
 public:
-	void define_n_bikes(int k);													//MI DEFINISCE IL NUMERO DI BICI
-	void define_n_columns(int c);												//MI DEFINISCE IL NUMERO DI COLONNINE
+	/*-------------------DEFINISCO N° BICI E N° COLONNINE------------------------*/
+	void define_station(int c, int b, int av_b, int fr_c);
+
 	void remove_bike(int i);													//RIMUOVE UNA BICI DALLA STAZIONE
 	void add_bike(int j);														//AGGIUNGE UNA BICI ALLA STAZIONE
 	int n_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
-	int av_columns;																//RESTITUISCE N° COLONNINE LIBERE
+	int av_columns();																//RESTITUISCE N° COLONNINE LIBERE
 
 private:
-	int b;																		//BICI TOTALI POSIZIONABILI
+	int columns;
+	int bikes;																		//BICI TOTALI POSIZIONABILI
 	int available_bikes;														//BICI DISPONIBILI
-	int columns;																//NUMERO COLONNINE LIBERE
+	int free_columns;																//NUMERO COLONNINE LIBERE
 };
 
 /*---------------------PARAMETRI CHE POSSONO CAMBIARE--------------------*/

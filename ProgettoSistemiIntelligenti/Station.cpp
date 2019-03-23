@@ -1,22 +1,30 @@
-#include "Station.h"
+#include "Station.h"								//PER POTER DEFINIRE I METODI DI QUESTA CLASSE
+#include <cmath>
 
-void Station::Station_i::define_n_bikes(int k)
+void Station::Station_i::define_station(int c, int b, int av_b, int fr_c)
 {
-}
+	bikes = b;
+	columns = c;
 
-void Station::Station_i::define_n_columns(int c)
-{
-}
-
-void Station::Station_i::remove_bike(int i)
-{
-}
-
-void Station::Station_i::add_bike(int j)
-{
 }
 
 int Station::Station_i::n_bikes()
 {
-	return 0;
+	return available_bikes;
+}
+
+int Station::Station_i::av_columns()
+{
+	return free_columns;
+}
+
+void Station::Station_i::remove_bike(int i)
+{
+	available_bikes--;
+
+}
+
+void Station::Station_i::add_bike(int j)
+{
+	available_bikes++;
 }
