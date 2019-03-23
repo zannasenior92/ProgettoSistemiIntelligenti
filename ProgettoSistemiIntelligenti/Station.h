@@ -10,6 +10,8 @@
 #include <string.h> 
 #include <stdio.h>  
 
+#define VERBOSE 50
+
 namespace Station {
 	class Station_i;
 }
@@ -23,18 +25,22 @@ public:
 		this->columns = c;
 		this->free_columns = this->columns - this->available_bikes;
 	}
-
-	void remove_bike(int i);													//RIMUOVE UNA BICI DALLA STAZIONE
-	void add_bike(int j);														//AGGIUNGE UNA BICI ALLA STAZIONE
+	/*-------------------------------------METHODS-------------------------------*/
+	void remove_bike();															//RIMUOVE UNA BICI DALLA STAZIONE
+	void add_bike();															//AGGIUNGE UNA BICI ALLA STAZIONE
+	void set_money(double val);													//SETTA LA MONETA OFFERTA DALLA STAZIONE
 	int n_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
-	int av_columns();																//RESTITUISCE N° COLONNINE LIBERE
-
+	int av_columns();															//RESTITUISCE N° COLONNINE LIBERE
+	int g_o_m();																//RESTITUISCE I SOLDI CHE OFFRE QUELLA STAZIONE	
+	
+/*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
+	int gift_of_money;															//REGALO DI DENARO CHE OFFRE LA STAZIONE
 	int columns;																//COLONNINE TOTALI
 	int available_bikes;														//BICI DISPONIBILI
 	int free_columns;															//NUMERO COLONNINE LIBERE
 };
 
-/*---------------------PARAMETRI CHE POSSONO CAMBIARE--------------------*/
+/*---------------------PARAMETRI CHE POSSONO CAMBIARE----------------------------*/
 																
 #endif // !station_h

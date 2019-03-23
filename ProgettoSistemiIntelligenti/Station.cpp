@@ -12,13 +12,23 @@ int Station::Station_i::av_columns()
 	return free_columns;
 }
 
+int Station::Station_i::g_o_m()
+{
+	return gift_of_money;
+}
 
-void Station::Station_i::remove_bike(int i)
+
+void Station::Station_i::remove_bike()
 {
 	available_bikes--;
 }
 
-void Station::Station_i::add_bike(int j)
+void Station::Station_i::add_bike()
 {
 	available_bikes++;
+}
+
+void Station::Station_i::set_money(double val)
+{
+	gift_of_money = val;
 }
