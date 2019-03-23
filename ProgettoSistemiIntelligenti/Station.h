@@ -31,11 +31,13 @@ public:
 	void set_money(double val);													//SETTA LA MONETA OFFERTA DALLA STAZIONE
 	int n_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
 	int av_columns();															//RESTITUISCE N° COLONNINE LIBERE
-	int g_o_m();																//RESTITUISCE I SOLDI CHE OFFRE QUELLA STAZIONE	
+	int g_m_r();																//RESTITUISCE PREMIO PER LA STAZIONE DI PARTENZA
+	int g_m_t();																//RESTITUISCE PREMIO PER LA STAZIONE DI RILASCIO
 	
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
-	int gift_of_money;															//REGALO DI DENARO CHE OFFRE LA STAZIONE
+	int gift_money_release;														//REGALO SCELTA STAZIONE PARTENZA
+	int gift_money_take;														//REGALO SCELTA STAZIONE RILASCIO
 	int columns;																//COLONNINE TOTALI
 	int available_bikes;														//BICI DISPONIBILI
 	int free_columns;															//NUMERO COLONNINE LIBERE

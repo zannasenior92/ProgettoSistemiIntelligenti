@@ -24,9 +24,15 @@
     <ClCompile Include="Parser.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Station.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

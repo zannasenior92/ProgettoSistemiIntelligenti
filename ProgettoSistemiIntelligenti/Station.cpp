@@ -12,9 +12,14 @@ int Station::Station_i::av_columns()
 	return free_columns;
 }
 
-int Station::Station_i::g_o_m()
+int Station::Station_i::g_m_t()
 {
-	return gift_of_money;
+	return gift_money_take;
+}
+
+int Station::Station_i::g_m_r()
+{
+	return gift_money_release;
 }
 
 
@@ -30,5 +35,10 @@ void Station::Station_i::add_bike()
 
 void Station::Station_i::set_money(double val)
 {
-	gift_of_money = val;
+	gift_money_take = val;
+}
+
+void Station::Station_i::set_money(double val)
+{
+	gift_money_take = val;
 }
