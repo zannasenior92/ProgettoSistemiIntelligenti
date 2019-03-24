@@ -28,6 +28,11 @@ void Station::Station_i::remove_bike()
 	available_bikes--;
 }
 
+void Station::Station_i::reserve_col(int i)
+{
+	reserve_up_col[i] = 1;
+}
+
 void Station::Station_i::add_bike()
 {
 	available_bikes++;
