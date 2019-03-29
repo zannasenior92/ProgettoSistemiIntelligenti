@@ -2,48 +2,60 @@
 #include <cmath>
 
 
-int Station::Station_i::n_bikes()
+
+/*----------------------------METODI CLASSE STATION-----------------------------*/
+int Station_i::n_bikes()
 {
 	return available_bikes;
 }
 
-int Station::Station_i::av_columns()
+int Station_i::av_columns()
 {
 	return free_columns;
 }
 
-int Station::Station_i::g_m_t()
+double Station_i::g_m_t()
 {
 	return gift_money_take;
 }
 
-int Station::Station_i::g_m_r()
+double Station_i::get_x_coord()
+{
+	return xcoord;
+}
+
+double Station_i::get_y_coord()
+{
+	return ycoord;
+}
+
+double Station_i::g_m_r()
 {
 	return gift_money_release;
 }
 
 
-void Station::Station_i::remove_bike()
+void Station_i::remove_bike()
 {
 	available_bikes--;
 }
 
-void Station::Station_i::reserve_col(int i)
+void Station_i::reserve_col(int i)
 {
 	reserve_up_col[i] = 1;
 }
 
-void Station::Station_i::add_bike()
+void Station_i::add_bike()
 {
 	available_bikes++;
 }
 
-void Station::Station_i::set_money(double val)
+void Station_i::set_money(double val)
 {
 	gift_money_take = val;
 }
 
-void Station::Station_i::set_money(double val)
-{
-	gift_money_take = val;
-}
+/*---------------------------------------------------------------------------------*/
+
+
+/*--------------------------------METODI STATIONS----------------------------------*/

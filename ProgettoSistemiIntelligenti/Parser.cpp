@@ -1,28 +1,26 @@
 /*--------------------PARSER PER INCLUDERE I DATI DELLE STAZIONI------------------*/
 
 /*-----------------------------------PARSER FUNCTION------------------------------------*/
-#include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include <malloc.h>
-#include <stdio.h>
+#include <fstream>
 #include "Station.h"
 
-
-char input_file[1000];
 /*----------------------------------COMMAND LINE PARSING--------------------------------*/
-void parse_command_line(int argc, char** argv) {
-
+void parse_command_line(int argc, char** argv, Stations *inst) {
+	
 	for (int i = 0; i < argc; i++) 
 	{
-		if (strcmp(argv[i], "-input") == 0) { strcpy(input_file, argv[++i]); continue; }
+		if (strcmp(argv[i], "-input") == 0) { strcpy(inst->input_used, argv[++i]); continue; }
 	}
+	printf("Input used %s\n", inst->input_used);
 }
 
 /*-----------------------------------READ THE INPUT-------------------------------------*/
-void read_input(char file) {
-
-	FILE *input = fopen(file, "r");
+void read_input(Stations *inst) {
+	
+	FILE *input = fopen(inst->input_used, "r");
 	if (input == NULL) { printf(" input file not found!"); exit(1); }
 
 	char line[180];
@@ -30,26 +28,39 @@ void read_input(char file) {
 	char *token1;
 	char *token2;
 	int coord_section = 0;													// =1 NODE_COORD_SECTION
-
+	
 	/*------------------------------------READER----------------------------------------*/
-	while(fgets(line, sizeof(line), input) != NULL)
+	while (fgets(line, sizeof(line), input) != NULL)
 	{
+		
 
 		if (strlen(line) <= 1) continue;									// SKIP BLANK LINES
 		par_name = strtok(line, " :");										// " :" as delimiter
-
-		if (VERBOSE >= 300)
+		if (strncmp(line, "Stations", 8) == 0) continue;					//SKIP LINE Stations(first line of file)
+		if (strncmp(par_name, "NAME", 4) == 0)
 		{
-			printf("par_name= %s \n", par_name);
+			token1 = strtok(NULL, " :");
+			strcpy(inst->name, token1);
+			continue;
 		}
-
-		if (strncmp(par_name, "STAT_COORD", 10) == 0)
+		if (strncmp(par_name, "DIMENSION", 9) == 0)
 		{
+			token1 = strtok(NULL, " :");									//NULL gives the following word
+			inst->n_stations = atoi(token1);								//string argument to integer
+			inst->xcoords = (double *)calloc(inst->n_stations, sizeof(double));
+			inst->ycoords = (double *)calloc(inst->n_stations, sizeof(double));
+
+			printf("Number of stations: %d \n", inst->n_stations);
 			continue;
 		}
 
-		/*---------------SELECT THE RIGHT TYPE DISTANCE--------------------*/
-	
+
+		if (strncmp(par_name, "NODE_COORD_SECTION", 18) == 0)
+		{
+			if (inst->n_stations <= 0) { printf(" DIMENSION section should appear before NODE_COORD_SECTION section"); exit(1); }
+			coord_section = 1;
+			continue;
+		}
 		if (strncmp(par_name, "EOF", 3) == 0)								//END OF FILE
 		{
 			coord_section = 0;
@@ -59,9 +70,11 @@ void read_input(char file) {
 			int i = atoi(par_name) - 1;										//FIRST COORD INDEX (-1 because indexes start from 0)
 			token1 = strtok(NULL, " ");										// x COORDINATE
 			token2 = strtok(NULL, " ");										// y COORDINATE
-			inst->xcoord[i] = atof(token1);
-			inst->ycoord[i] = atof(token2);
+			inst->xcoords[i] = atof(token1);
+			inst->ycoords[i] = atof(token2);
 			continue;
 		}
 	}
+	
+	fclose(input);
 }

@@ -11,10 +11,8 @@
 #include <stdio.h>  
 
 
-namespace User {
-	class User_i;
-}
-class User::User_i
+
+class User_i
 {
 public:
 	/*-------------------DEFINISCO MONETA INIZIALE UTENTE------------------------*/
