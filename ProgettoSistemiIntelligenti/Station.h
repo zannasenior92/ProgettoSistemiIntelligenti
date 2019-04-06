@@ -67,10 +67,18 @@ public:
 	int n_stations;
 	double *xcoords;
 	double *ycoords;
+	int num_bikes;
+	int num_columns;
 
+
+	/*-------------------------------------METHODS---------------------------*/
+	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI
+	void set_n_stations(int num);												//SETTO IL NUMERO DI STAZIONI PRESENTI 
+	void set_n_columns_for_station(int n_c);									//SETTO IL NUMERO DI COLONNE PER OGNI STAZIONE
+	void set_n_bikes_for_stations(int n_b);
 
 private:
-
+	
 };
 
 /*---------------------PARAMETRI CHE POSSONO CAMBIARE----------------------------*/

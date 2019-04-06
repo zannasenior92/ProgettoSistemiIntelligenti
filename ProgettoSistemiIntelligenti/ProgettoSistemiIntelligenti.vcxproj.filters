@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="SimulationSystem">
+      <UniqueIdentifier>{796dc19f-64a7-4b7f-96bd-7146476d1320}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -29,6 +32,12 @@
     </ClCompile>
     <ClCompile Include="Gnuplot.cpp">
       <Filter>File di risorse</Filter>
+    </ClCompile>
+    <ClCompile Include="LiveSystem.cpp">
+      <Filter>SimulationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdatePrizes.cpp">
+      <Filter>SimulationSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

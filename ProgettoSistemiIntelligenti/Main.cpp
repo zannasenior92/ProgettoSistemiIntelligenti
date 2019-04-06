@@ -10,6 +10,9 @@ void free_instance(Stations *inst) {
 	free(inst->xcoords);
 	free(inst->ycoords);
 }
+void generateTraffic(Stations *inst);
+void createEnv(Stations *inst);
+void freeStations(Station_i *inst);
 
 
 
@@ -20,21 +23,17 @@ int main(int argc, char **argv)
 	read_input(&stat);
 	plot_gnuplot(&stat);
 	
-
-	const int n = 10;												//n° STAZIONI
-	int n_b = 5;													//n° BICI STAZIONE i
-	int n_c = 10;													//n° COLONNINE STAZIONE i
+	const int n = stat.n_stations;												//n° STAZIONI
+	int n_b = 5;																//n° BICI STAZIONE i
+	int n_c = 10;																//n° COLONNINE STAZIONE i
+	/*-------------------------INSERT BIKES AND COLUMNS IN EVERY STATION---------------------*/
+	stat.set_n_bikes_for_stations(n_b);
+	stat.set_n_columns_for_station(n_c);
 	/*se volessi inserirle random basta fare "rand() % 10" per generare da 0 a 10*/
 
-	/*----------------------CREO ARRAY DI STAZIONI E LO INIZIALIZZO--------------------------*/
-	Station_i *stations[n];
-	for (int i = 0; i < n; i++)
-	{
-		stations[i] = new Station_i(n_b,n_c);
-	}
 	
-	stations[2]->add_bike();
-	stations[3]->remove_bike();
+	/*------------------------CREATE THE ENVIROENMENTS(BIKE & USERS)-------------------------*/
+	createEnv(&stat);
 	
 	
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS---------------------*/
@@ -42,11 +41,11 @@ int main(int argc, char **argv)
 	{
 		for (int k = 0; k < n; k++)
 		{
-			printf("Biciclette Presenti Stazione %d: %d \n",k, stations[k]->n_bikes());
-			printf("Colonnine libere Stazione    %d: %d \n",k ,stations[k]->av_columns());
+			printf("Biciclette Presenti Stazione %d: %d \n",k, stations[k].n_bikes());
+			printf("Colonnine libere Stazione    %d: %d \n",k ,stations[k].av_columns());
 		}
 
 	}
-	free_instance(&stat);
+	free_instance(&stat);																		//LIBERO LA MEMORIA OCCUPATA DA stat
 	return 0;
 }

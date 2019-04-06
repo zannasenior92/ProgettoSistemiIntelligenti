@@ -59,3 +59,23 @@ void Station_i::set_money(double val)
 
 
 /*--------------------------------METODI STATIONS----------------------------------*/
+
+int Stations::n_stat()
+{
+	return n_stations;
+}
+
+void Stations::set_n_stations(int num)
+{
+	this->n_stations = num;
+}
+
+void Stations::set_n_columns_for_station(int n_c)
+{
+	this->num_columns = n_c;
+}
+
+void Stations::set_n_bikes_for_stations(int n_b)
+{
+	this->num_bikes = n_b;
+}

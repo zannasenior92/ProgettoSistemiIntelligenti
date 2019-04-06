@@ -46,7 +46,7 @@ void read_input(Stations *inst) {
 		if (strncmp(par_name, "DIMENSION", 9) == 0)
 		{
 			token1 = strtok(NULL, " :");									//NULL gives the following word
-			inst->n_stations = atoi(token1);								//string argument to integer
+			inst->n_stations = atoi(token1);								//NUMBER OF STATIONS (atoi = string argument to integer)
 			inst->xcoords = (double *)calloc(inst->n_stations, sizeof(double));
 			inst->ycoords = (double *)calloc(inst->n_stations, sizeof(double));
 
@@ -55,7 +55,7 @@ void read_input(Stations *inst) {
 		}
 
 
-		if (strncmp(par_name, "NODE_COORD_SECTION", 18) == 0)
+		if (strncmp(par_name, "NODE_COORD_SECTION", 18) == 0)				//COORD SECTION
 		{
 			if (inst->n_stations <= 0) { printf(" DIMENSION section should appear before NODE_COORD_SECTION section"); exit(1); }
 			coord_section = 1;

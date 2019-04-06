@@ -26,7 +26,7 @@ void plot_gnuplot(Stations *inst) {
 		/*------------------------------------------------------------------------------*/
 	};
 	/*----------------------------------------------------------------------------------*/
-
+	   
 	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
 	int n_commands = sizeof(commandsForGnuplot) / sizeof(commandsForGnuplot[0]);
 	if (VERBOSE > 200)
@@ -57,3 +57,15 @@ void plot_gnuplot(Stations *inst) {
 	_pclose(gnuplotPipe);
 }
 /*--------------------------------------------------------------------------------------*/
+
+
+/*--------------------------------METHOD TO REFRESH GNUPLOT GRAPH-----------------------*/
+void refresh_plot(Stations *inst)
+{
+	const char* commGnuRefresh[] = {
+
+		"plot 'stations.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
+		"pause 1",
+		"reread"
+	};
+}
