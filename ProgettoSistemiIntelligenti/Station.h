@@ -69,6 +69,7 @@ public:
 	double *ycoords;
 	int num_bikes;
 	int num_columns;
+	Station_i* all_stations;
 
 
 	/*-------------------------------------METHODS---------------------------*/

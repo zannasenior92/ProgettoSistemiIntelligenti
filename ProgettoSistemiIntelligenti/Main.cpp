@@ -9,10 +9,10 @@ void plot_gnuplot(Stations *inst);
 void free_instance(Stations *inst) {
 	free(inst->xcoords);
 	free(inst->ycoords);
+	free(inst->all_stations);
 }
 void generateTraffic(Stations *inst);
 void createEnv(Stations *inst);
-void freeStations(Station_i *inst);
 
 
 
@@ -34,18 +34,10 @@ int main(int argc, char **argv)
 	
 	/*------------------------CREATE THE ENVIROENMENTS(BIKE & USERS)-------------------------*/
 	createEnv(&stat);
+	generateTraffic(&stat);																		//GENERO IL TRAFFICO DI UTENTI
 	
 	
-	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS---------------------*/
-	if (VERBOSE >= 50)
-	{
-		for (int k = 0; k < n; k++)
-		{
-			printf("Biciclette Presenti Stazione %d: %d \n",k, stations[k].n_bikes());
-			printf("Colonnine libere Stazione    %d: %d \n",k ,stations[k].av_columns());
-		}
-
-	}
+	
 	free_instance(&stat);																		//LIBERO LA MEMORIA OCCUPATA DA stat
 	return 0;
 }

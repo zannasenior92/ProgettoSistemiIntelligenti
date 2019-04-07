@@ -14,7 +14,7 @@ void parse_command_line(int argc, char** argv, Stations *inst) {
 	{
 		if (strcmp(argv[i], "-input") == 0) { strcpy(inst->input_used, argv[++i]); continue; }
 	}
-	printf("Input used %s\n", inst->input_used);
+	printf("Input used %s\n\n", inst->input_used);
 }
 
 /*-----------------------------------READ THE INPUT-------------------------------------*/

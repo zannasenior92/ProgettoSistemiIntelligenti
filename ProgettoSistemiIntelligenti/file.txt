@@ -1,0 +1,574 @@
+Input used C:\Users\Luca\source\repos\ProgettoSistemiIntelligenti\ProgettoSistemiIntelligenti\Stazioni1.dat
+
+Number of stations: 51 
+Available Bike Station 0: 5 
+Free Columns Station    0: 5 
+Available Bike Station 1: 5 
+Free Columns Station    1: 5 
+Available Bike Station 2: 5 
+Free Columns Station    2: 5 
+Available Bike Station 3: 5 
+Free Columns Station    3: 5 
+Available Bike Station 4: 5 
+Free Columns Station    4: 5 
+Available Bike Station 5: 5 
+Free Columns Station    5: 5 
+Available Bike Station 6: 5 
+Free Columns Station    6: 5 
+Available Bike Station 7: 5 
+Free Columns Station    7: 5 
+Available Bike Station 8: 5 
+Free Columns Station    8: 5 
+Available Bike Station 9: 5 
+Free Columns Station    9: 5 
+Available Bike Station 10: 5 
+Free Columns Station    10: 5 
+Available Bike Station 11: 5 
+Free Columns Station    11: 5 
+Available Bike Station 12: 5 
+Free Columns Station    12: 5 
+Available Bike Station 13: 5 
+Free Columns Station    13: 5 
+Available Bike Station 14: 5 
+Free Columns Station    14: 5 
+Available Bike Station 15: 5 
+Free Columns Station    15: 5 
+Available Bike Station 16: 5 
+Free Columns Station    16: 5 
+Available Bike Station 17: 5 
+Free Columns Station    17: 5 
+Available Bike Station 18: 5 
+Free Columns Station    18: 5 
+Available Bike Station 19: 5 
+Free Columns Station    19: 5 
+Available Bike Station 20: 5 
+Free Columns Station    20: 5 
+Available Bike Station 21: 5 
+Free Columns Station    21: 5 
+Available Bike Station 22: 5 
+Free Columns Station    22: 5 
+Available Bike Station 23: 5 
+Free Columns Station    23: 5 
+Available Bike Station 24: 5 
+Free Columns Station    24: 5 
+Available Bike Station 25: 5 
+Free Columns Station    25: 5 
+Available Bike Station 26: 5 
+Free Columns Station    26: 5 
+Available Bike Station 27: 5 
+Free Columns Station    27: 5 
+Available Bike Station 28: 5 
+Free Columns Station    28: 5 
+Available Bike Station 29: 5 
+Free Columns Station    29: 5 
+Available Bike Station 30: 5 
+Free Columns Station    30: 5 
+Available Bike Station 31: 5 
+Free Columns Station    31: 5 
+Available Bike Station 32: 5 
+Free Columns Station    32: 5 
+Available Bike Station 33: 5 
+Free Columns Station    33: 5 
+Available Bike Station 34: 5 
+Free Columns Station    34: 5 
+Available Bike Station 35: 5 
+Free Columns Station    35: 5 
+Available Bike Station 36: 5 
+Free Columns Station    36: 5 
+Available Bike Station 37: 5 
+Free Columns Station    37: 5 
+Available Bike Station 38: 5 
+Free Columns Station    38: 5 
+Available Bike Station 39: 5 
+Free Columns Station    39: 5 
+Available Bike Station 40: 5 
+Free Columns Station    40: 5 
+Available Bike Station 41: 5 
+Free Columns Station    41: 5 
+Available Bike Station 42: 5 
+Free Columns Station    42: 5 
+Available Bike Station 43: 5 
+Free Columns Station    43: 5 
+Available Bike Station 44: 5 
+Free Columns Station    44: 5 
+Available Bike Station 45: 5 
+Free Columns Station    45: 5 
+Available Bike Station 46: 5 
+Free Columns Station    46: 5 
+Available Bike Station 47: 5 
+Free Columns Station    47: 5 
+Available Bike Station 48: 5 
+Free Columns Station    48: 5 
+Available Bike Station 49: 5 
+Free Columns Station    49: 5 
+Available Bike Station 50: 5 
+Free Columns Station    50: 5 
+------------------------------------------------------------------------------
+
+Utente partito dalla stazione: 41
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 5
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 10
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 31
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 44
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 16
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 3
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 33
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 34
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 35
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 44
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 44
+Bici rimaste: 4
+Colonnine libere: 6
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 25
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 48
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 16
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 32
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 37
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 8
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 33
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 30
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 6
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 18
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 26
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 0
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 37
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 40
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 30
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 50
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 32
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 5
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 41
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 0
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 32
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 12
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 33
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 22
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 14
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 34
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 1
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 0
+Bici rimaste: 8
+Colonnine libere: 2
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 41
+Bici rimaste: 2
+Colonnine libere: 8
+Utente arrivato dalla stazione: 45
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 8
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 39
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 27
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 23
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 45
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 10
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 50
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 34
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 47
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 2
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 22
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 15
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 45
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 7
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 2
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 0
+Bici rimaste: 9
+Colonnine libere: 1
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 40
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 13
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 25
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 26
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 5
+Bici rimaste: 6
+Colonnine libere: 4
+Utente arrivato dalla stazione: 6
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 33
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 16
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 13
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 17
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 37
+Bici rimaste: 2
+Colonnine libere: 8
+Utente arrivato dalla stazione: 4
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 8
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 39
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 29
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 48
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 43
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 50
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 12
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 42
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 15
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 29
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 45
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 26
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 12
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 13
+Bici rimaste: 6
+Colonnine libere: 4
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 39
+Bici rimaste: 6
+Colonnine libere: 4
+Utente arrivato dalla stazione: 8
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 19
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 32
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 8
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 43
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 12
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 3
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 44
+Bici rimaste: 3
+Colonnine libere: 7
+Utente arrivato dalla stazione: 1
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 29
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 16
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 2
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 42
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 30
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 17
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 39
+Bici rimaste: 5
+Colonnine libere: 5
+Utente arrivato dalla stazione: 5
+Bici rimaste: 7
+Colonnine libere: 3
+------------------------------------------------------------------------------
+Utente partito dalla stazione: 49
+Bici rimaste: 4
+Colonnine libere: 6
+Utente arrivato dalla stazione: 27
+Bici rimaste: 5
+Colonnine libere: 5
+------------------------------------------------------------------------------
+Biciclette Presenti Stazione 0: 9 
+Colonnine libere Stazione    0: 1 
+Biciclette Presenti Stazione 1: 5 
+Colonnine libere Stazione    1: 5 
+Biciclette Presenti Stazione 2: 4 
+Colonnine libere Stazione    2: 6 
+Biciclette Presenti Stazione 3: 5 
+Colonnine libere Stazione    3: 5 
+Biciclette Presenti Stazione 4: 6 
+Colonnine libere Stazione    4: 4 
+Biciclette Presenti Stazione 5: 7 
+Colonnine libere Stazione    5: 3 
+Biciclette Presenti Stazione 6: 5 
+Colonnine libere Stazione    6: 5 
+Biciclette Presenti Stazione 7: 6 
+Colonnine libere Stazione    7: 4 
+Biciclette Presenti Stazione 8: 4 
+Colonnine libere Stazione    8: 6 
+Biciclette Presenti Stazione 9: 5 
+Colonnine libere Stazione    9: 5 
+Biciclette Presenti Stazione 10: 5 
+Colonnine libere Stazione    10: 5 
+Biciclette Presenti Stazione 11: 5 
+Colonnine libere Stazione    11: 5 
+Biciclette Presenti Stazione 12: 3 
+Colonnine libere Stazione    12: 7 
+Biciclette Presenti Stazione 13: 6 
+Colonnine libere Stazione    13: 4 
+Biciclette Presenti Stazione 14: 4 
+Colonnine libere Stazione    14: 6 
+Biciclette Presenti Stazione 15: 5 
+Colonnine libere Stazione    15: 5 
+Biciclette Presenti Stazione 16: 7 
+Colonnine libere Stazione    16: 3 
+Biciclette Presenti Stazione 17: 7 
+Colonnine libere Stazione    17: 3 
+Biciclette Presenti Stazione 18: 6 
+Colonnine libere Stazione    18: 4 
+Biciclette Presenti Stazione 19: 4 
+Colonnine libere Stazione    19: 6 
+Biciclette Presenti Stazione 20: 5 
+Colonnine libere Stazione    20: 5 
+Biciclette Presenti Stazione 21: 5 
+Colonnine libere Stazione    21: 5 
+Biciclette Presenti Stazione 22: 5 
+Colonnine libere Stazione    22: 5 
+Biciclette Presenti Stazione 23: 6 
+Colonnine libere Stazione    23: 4 
+Biciclette Presenti Stazione 24: 5 
+Colonnine libere Stazione    24: 5 
+Biciclette Presenti Stazione 25: 3 
+Colonnine libere Stazione    25: 7 
+Biciclette Presenti Stazione 26: 6 
+Colonnine libere Stazione    26: 4 
+Biciclette Presenti Stazione 27: 5 
+Colonnine libere Stazione    27: 5 
+Biciclette Presenti Stazione 28: 5 
+Colonnine libere Stazione    28: 5 
+Biciclette Presenti Stazione 29: 4 
+Colonnine libere Stazione    29: 6 
+Biciclette Presenti Stazione 30: 4 
+Colonnine libere Stazione    30: 6 
+Biciclette Presenti Stazione 31: 6 
+Colonnine libere Stazione    31: 4 
+Biciclette Presenti Stazione 32: 5 
+Colonnine libere Stazione    32: 5 
+Biciclette Presenti Stazione 33: 3 
+Colonnine libere Stazione    33: 7 
+Biciclette Presenti Stazione 34: 6 
+Colonnine libere Stazione    34: 4 
+Biciclette Presenti Stazione 35: 6 
+Colonnine libere Stazione    35: 4 
+Biciclette Presenti Stazione 36: 5 
+Colonnine libere Stazione    36: 5 
+Biciclette Presenti Stazione 37: 2 
+Colonnine libere Stazione    37: 8 
+Biciclette Presenti Stazione 38: 5 
+Colonnine libere Stazione    38: 5 
+Biciclette Presenti Stazione 39: 5 
+Colonnine libere Stazione    39: 5 
+Biciclette Presenti Stazione 40: 5 
+Colonnine libere Stazione    40: 5 
+Biciclette Presenti Stazione 41: 2 
+Colonnine libere Stazione    41: 8 
+Biciclette Presenti Stazione 42: 7 
+Colonnine libere Stazione    42: 3 
+Biciclette Presenti Stazione 43: 5 
+Colonnine libere Stazione    43: 5 
+Biciclette Presenti Stazione 44: 3 
+Colonnine libere Stazione    44: 7 
+Biciclette Presenti Stazione 45: 3 
+Colonnine libere Stazione    45: 7 
+Biciclette Presenti Stazione 46: 5 
+Colonnine libere Stazione    46: 5 
+Biciclette Presenti Stazione 47: 4 
+Colonnine libere Stazione    47: 6 
+Biciclette Presenti Stazione 48: 7 
+Colonnine libere Stazione    48: 3 
+Biciclette Presenti Stazione 49: 4 
+Colonnine libere Stazione    49: 6 
+Biciclette Presenti Stazione 50: 6 
+Colonnine libere Stazione    50: 4 
+------------------------------------------------------------------------------
