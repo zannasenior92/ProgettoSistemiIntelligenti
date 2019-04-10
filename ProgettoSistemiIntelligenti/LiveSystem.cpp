@@ -54,7 +54,7 @@ void generateTraffic(Stations *inst)
 		printf("Free Columns:     %d\n",inst->all_stations[rand_start].av_columns());
 		
 		/*------------------------------------STAZIONE DI ARRIVO AGGIUNGO BICI-------------------------------*/
-		printf("User arrived from stations: %d\n", rand_arrive);
+		printf("User arrived to stations: %d\n", rand_arrive);
 		inst->all_stations[rand_arrive].add_bike();
 		printf("Remaining bikes: %d\n", inst->all_stations[rand_arrive].n_bikes());
 		printf("Free Columns:    %d\n", inst->all_stations[rand_arrive].av_columns());

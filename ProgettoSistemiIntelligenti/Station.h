@@ -1,6 +1,5 @@
-/*----------------------------STAZIONE BICI------------------------------*/
-#pragma warning(suppress : 4996)
 
+#pragma warning(suppress : 4996)
 
 #ifndef station_h
 #define station_h
@@ -12,7 +11,7 @@
 
 #define VERBOSE 50
 
-
+/*------------------------------------------------STAZIONE BICI-----------------------------------*/
 class Station_i
 {
 public:
@@ -52,11 +51,10 @@ private:
 	double xcoord;																//COORDINATA x
 	double ycoord;																//COORDINATA y
 };
+/**************************************************************************************************/
 
 																
-
-
-/*--------------------------CLASSE CHE GESTISCE LE STAZIONI------------------*/
+/*-------------------------------------CLASSE CHE GESTISCE LE STAZIONI----------------------------*/
 class Stations
 {
 public:
@@ -64,11 +62,11 @@ public:
 	/*----------------------------PUBLIC VARIABLES---------------------------*/
 	char input_used[200];
 	char name[20];																//NAME OF FILE USED
-	int n_stations;
-	double *xcoords;
-	double *ycoords;
-	int num_bikes;
-	int num_columns;
+	int n_stations;																//NUMERO STAZIONI
+	double *xcoords;															//COORDINATE x STAZIONI
+	double *ycoords;															//COORDINATE y STAZIONI
+	int num_bikes;																//NUMERO TOTALE BICI PRESENTI
+	int num_columns;															//NUMERO TOTALE COLONNINE
 	Station_i* all_stations;
 
 
@@ -76,7 +74,7 @@ public:
 	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI
 	void set_n_stations(int num);												//SETTO IL NUMERO DI STAZIONI PRESENTI 
 	void set_n_columns_for_station(int n_c);									//SETTO IL NUMERO DI COLONNE PER OGNI STAZIONE
-	void set_n_bikes_for_stations(int n_b);
+	void set_n_bikes_for_stations(int n_b);										//SETTO IL NUMERO DI BICI PER OGNI STAZIONE
 
 private:
 	

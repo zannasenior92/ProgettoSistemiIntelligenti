@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	createEnv(&stat);
 	generateTraffic(&stat);																		//GENERO IL TRAFFICO DI UTENTI
 	
-	
+	printf("FIVOEV");
 	
 	free_instance(&stat);																		//LIBERO LA MEMORIA OCCUPATA DA stat
 	return 0;
