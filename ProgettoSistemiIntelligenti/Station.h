@@ -26,6 +26,14 @@ public:
 		{
 			reserve_up_col[i] = 0;
 		}
+		this->gift_money_take = 0;												//ALL'INIZIO NON VIENE DATA MONETA-STAZIONE PARTENZA(5 BICI E 5 COLONNINE LIBERE)
+		this->gift_money_release = 0;											//ALL'INIZIO NON VIENE DATA MONETA-STAZIONE ARRIVO(5 BICI E 5 COLONNINE LIBERE)
+		
+																				
+		/*IMPORTANTE: POTREI DECIDERE DI DARE GIA' ALL'INIZIO PIU' MONETA A UNA STAZIONE PERCHE' MAGARI E' PIU' SOGGETTA AL PRELIEVO DI BICI
+		E QUINDI QUANDO INIZIALIZZO UNA STAZIONE DOVREI PASSARGLI IL PARAMETRO RELATIVO(PENSARCI)*/
+	
+	
 	}
 	/*-------------------------------------METHODS---------------------------*/
 	void remove_bike();															//RIMUOVE UNA BICI DALLA STAZIONE
@@ -38,7 +46,8 @@ public:
 	double g_m_t();																//RESTITUISCE PREMIO PER LA STAZIONE DI RILASCIO
 	double get_x_coord();														//RESTITUISCE LA COORDINATA x
 	double get_y_coord();														//RESTITUISCE LA COORDINATA y
-	
+	double get_gift_release();													//RESTITUISCE IL PREMIO DELLA STAZIONE DI PARTENZA
+	double get_gift_take();														//RESTITUISCE IL PREMIO DELLA STAZIONE DI ARRIVO
 
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:

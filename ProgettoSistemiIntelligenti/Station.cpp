@@ -29,6 +29,16 @@ double Station_i::get_y_coord()
 	return this->ycoord;
 }
 
+double Station_i::get_gift_release()
+{
+	return this->gift_money_release;
+}
+
+double Station_i::get_gift_take()
+{
+	return this->gift_money_take;
+}
+
 double Station_i::g_m_r()
 {
 	return this->gift_money_release;
@@ -36,8 +46,10 @@ double Station_i::g_m_r()
 
 
 void Station_i::remove_bike(){
-	this->available_bikes--;
-	this->free_columns++;
+	this->available_bikes--;									//DECREMENTO NUMERO BICI DISPONIBILI
+	this->free_columns++;										//INCREMENTO COLONNINE DISPONIBILI
+	this->gift_money_take--;									//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+	this->gift_money_release++;									//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 }
 
 void Station_i::reserve_col(int i){
@@ -45,8 +57,10 @@ void Station_i::reserve_col(int i){
 }
 
 void Station_i::add_bike(){
-	this->available_bikes++;
-	this->free_columns--;
+	this->available_bikes++;									//INCREMENTO NUMERO BICI DISPONIBILI
+	this->free_columns--;										//DECREMENTO COLONNINE LIBERE
+	this->gift_money_take++;									//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO INCENTIVARE LA PARTENZA DA QUESTA STAZIONE)
+	this->gift_money_release--;									//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO EVITARE CHE LE BICI SIANO CONVOGLIATE QUI)
 }
 
 void Station_i::set_money(double val){
