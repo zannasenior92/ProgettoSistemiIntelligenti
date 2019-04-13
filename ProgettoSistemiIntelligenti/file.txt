@@ -3,428 +3,412 @@ Input used C:\Users\Luca\source\repos\ProgettoSistemiIntelligenti\ProgettoSistem
 Number of stations: 51 
 Available Bike Station 0: 5 
 Free Columns Station   0: 5 
+
 Available Bike Station 1: 5 
 Free Columns Station   1: 5 
+
 Available Bike Station 2: 5 
 Free Columns Station   2: 5 
+
 Available Bike Station 3: 5 
 Free Columns Station   3: 5 
+
 Available Bike Station 4: 5 
 Free Columns Station   4: 5 
+
 Available Bike Station 5: 5 
 Free Columns Station   5: 5 
+
 Available Bike Station 6: 5 
 Free Columns Station   6: 5 
+
 Available Bike Station 7: 5 
 Free Columns Station   7: 5 
+
 Available Bike Station 8: 5 
 Free Columns Station   8: 5 
+
 Available Bike Station 9: 5 
 Free Columns Station   9: 5 
+
 Available Bike Station 10: 5 
 Free Columns Station   10: 5 
+
 Available Bike Station 11: 5 
 Free Columns Station   11: 5 
+
 Available Bike Station 12: 5 
 Free Columns Station   12: 5 
+
 Available Bike Station 13: 5 
 Free Columns Station   13: 5 
+
 Available Bike Station 14: 5 
 Free Columns Station   14: 5 
+
 Available Bike Station 15: 5 
 Free Columns Station   15: 5 
+
 Available Bike Station 16: 5 
 Free Columns Station   16: 5 
+
 Available Bike Station 17: 5 
 Free Columns Station   17: 5 
+
 Available Bike Station 18: 5 
 Free Columns Station   18: 5 
+
 Available Bike Station 19: 5 
 Free Columns Station   19: 5 
+
 Available Bike Station 20: 5 
 Free Columns Station   20: 5 
+
 Available Bike Station 21: 5 
 Free Columns Station   21: 5 
+
 Available Bike Station 22: 5 
 Free Columns Station   22: 5 
+
 Available Bike Station 23: 5 
 Free Columns Station   23: 5 
+
 Available Bike Station 24: 5 
 Free Columns Station   24: 5 
+
 Available Bike Station 25: 5 
 Free Columns Station   25: 5 
+
 Available Bike Station 26: 5 
 Free Columns Station   26: 5 
+
 Available Bike Station 27: 5 
 Free Columns Station   27: 5 
+
 Available Bike Station 28: 5 
 Free Columns Station   28: 5 
+
 Available Bike Station 29: 5 
 Free Columns Station   29: 5 
+
 Available Bike Station 30: 5 
 Free Columns Station   30: 5 
+
 Available Bike Station 31: 5 
 Free Columns Station   31: 5 
+
 Available Bike Station 32: 5 
 Free Columns Station   32: 5 
+
 Available Bike Station 33: 5 
 Free Columns Station   33: 5 
+
 Available Bike Station 34: 5 
 Free Columns Station   34: 5 
+
 Available Bike Station 35: 5 
 Free Columns Station   35: 5 
+
 Available Bike Station 36: 5 
 Free Columns Station   36: 5 
+
 Available Bike Station 37: 5 
 Free Columns Station   37: 5 
+
 Available Bike Station 38: 5 
 Free Columns Station   38: 5 
+
 Available Bike Station 39: 5 
 Free Columns Station   39: 5 
+
 Available Bike Station 40: 5 
 Free Columns Station   40: 5 
+
 Available Bike Station 41: 5 
 Free Columns Station   41: 5 
+
 Available Bike Station 42: 5 
 Free Columns Station   42: 5 
+
 Available Bike Station 43: 5 
 Free Columns Station   43: 5 
+
 Available Bike Station 44: 5 
 Free Columns Station   44: 5 
+
 Available Bike Station 45: 5 
 Free Columns Station   45: 5 
+
 Available Bike Station 46: 5 
 Free Columns Station   46: 5 
+
 Available Bike Station 47: 5 
 Free Columns Station   47: 5 
+
 Available Bike Station 48: 5 
 Free Columns Station   48: 5 
+
 Available Bike Station 49: 5 
 Free Columns Station   49: 5 
+
 Available Bike Station 50: 5 
 Free Columns Station   50: 5 
-------------------------------------------------------------------------------
-
-User left from station:     41
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  41: -0.738906
-Gift given by arrive station  41: 0.738906
--------------------------------------------------
-User arrived to stations:   5
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  41: 0.738906
-Gift given by arrive station 5: -0.013534
 
 ------------------------------------------------------------------------------
 
-User left from station:     10
+User left from station:     5
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  10: -0.738906
-Gift given by arrive station  10: 0.738906
+Gift given by start station  5: 0.855117
+Gift given by arrive station  5: -0.855117
 -------------------------------------------------
-User arrived to stations:   31
+User arrived to stations:   10
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  10: 0.738906
-Gift given by arrive station 31: -0.013534
+Gift given by start station  5: -0.855117
+Gift given by arrive station 10: 0.997346
 
+-------------------------------------------------
+User 1 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     44
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  44: -0.738906
-Gift given by arrive station  44: 0.738906
+Gift given by start station  44: 0.855117
+Gift given by arrive station  44: -0.855117
 -------------------------------------------------
 User arrived to stations:   16
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  44: 0.738906
-Gift given by arrive station 16: -0.013534
+Gift given by start station  44: -0.855117
+Gift given by arrive station 16: 0.997346
 
+-------------------------------------------------
+User 0 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     3
+User left from station:     33
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  3: -0.738906
-Gift given by arrive station  3: 0.738906
+Gift given by start station  33: 0.855117
+Gift given by arrive station  33: -0.855117
 -------------------------------------------------
-User arrived to stations:   33
+User arrived to stations:   34
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  3: 0.738906
-Gift given by arrive station 33: -0.013534
+Gift given by start station  33: -0.855117
+Gift given by arrive station 34: 0.997346
 
-------------------------------------------------------------------------------
-
-User left from station:     34
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  34: -0.738906
-Gift given by arrive station  34: 0.738906
 -------------------------------------------------
-User arrived to stations:   35
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  34: 0.738906
-Gift given by arrive station 35: -0.013534
-
+User 8 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     44
 Remaining bikes:  3
 Free Columns:     7
-Gift given by start station  44: -5.459815
-Gift given by arrive station  44: 5.459815
+Gift given by start station  44: -0.070552
+Gift given by arrive station  44: 0.070552
 -------------------------------------------------
 User arrived to stations:   44
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  44: -0.738906
-Gift given by arrive station 44: 0.738906
+Gift given by start station  44: 0.855117
+Gift given by arrive station 44: -0.855117
 
+-------------------------------------------------
+User 4 has 0.000000 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     25
+User left from station:     48
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  25: -0.738906
-Gift given by arrive station  25: 0.738906
+Gift given by start station  48: 0.855117
+Gift given by arrive station  48: -0.855117
 -------------------------------------------------
-User arrived to stations:   48
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  25: 0.738906
-Gift given by arrive station 48: -0.013534
+User arrived to stations:   16
+Remaining bikes:  7
+Free Columns:     3
+Gift given by start station  48: 0.070552
+Gift given by arrive station 16: 0.999641
 
-------------------------------------------------------------------------------
-
-User left from station:     16
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  16: 0.000000
-Gift given by arrive station  16: 0.000000
 -------------------------------------------------
-User arrived to stations:   32
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  16: 0.738906
-Gift given by arrive station 32: -0.013534
-
+User 1 has 3.707220 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     37
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  37: -0.738906
-Gift given by arrive station  37: 0.738906
+Gift given by start station  37: 0.855117
+Gift given by arrive station  37: -0.855117
 -------------------------------------------------
 User arrived to stations:   8
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  37: 0.738906
-Gift given by arrive station 8: -0.013534
+Gift given by start station  37: -0.855117
+Gift given by arrive station 8: 0.997346
 
-------------------------------------------------------------------------------
-
-User left from station:     33
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  33: 0.000000
-Gift given by arrive station  33: 0.000000
 -------------------------------------------------
-User arrived to stations:   30
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  33: 0.738906
-Gift given by arrive station 30: -0.013534
-
+User 1 has 5.559683 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     6
+User left from station:     30
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  6: -0.738906
-Gift given by arrive station  6: 0.738906
+Gift given by start station  30: 0.855117
+Gift given by arrive station  30: -0.855117
 -------------------------------------------------
-User arrived to stations:   18
+User arrived to stations:   6
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  6: 0.738906
-Gift given by arrive station 18: -0.013534
+Gift given by start station  30: -0.855117
+Gift given by arrive station 6: 0.997346
 
+-------------------------------------------------
+User 7 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     26
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  26: -0.738906
-Gift given by arrive station  26: 0.738906
+Gift given by start station  26: 0.855117
+Gift given by arrive station  26: -0.855117
 -------------------------------------------------
 User arrived to stations:   0
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  26: 0.738906
-Gift given by arrive station 0: -0.013534
+Gift given by start station  26: -0.855117
+Gift given by arrive station 0: 0.997346
 
-------------------------------------------------------------------------------
-
-User left from station:     37
-Remaining bikes:  3
-Free Columns:     7
-Gift given by start station  37: -5.459815
-Gift given by arrive station  37: 5.459815
 -------------------------------------------------
-User arrived to stations:   40
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  37: 0.738906
-Gift given by arrive station 40: -0.013534
-
+User 4 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     30
+User left from station:     40
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  40: 0.855117
+Gift given by arrive station  40: -0.855117
+-------------------------------------------------
+User arrived to stations:   30
 Remaining bikes:  5
 Free Columns:     5
-Gift given by start station  30: 0.000000
-Gift given by arrive station  30: 0.000000
--------------------------------------------------
-User arrived to stations:   50
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  30: 0.738906
-Gift given by arrive station 50: -0.013534
+Gift given by start station  40: 0.000000
+Gift given by arrive station 30: 0.000000
 
+-------------------------------------------------
+User 2 has 0.855117 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     32
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  32: 0.855117
+Gift given by arrive station  32: -0.855117
+-------------------------------------------------
+User arrived to stations:   5
 Remaining bikes:  5
 Free Columns:     5
 Gift given by start station  32: 0.000000
-Gift given by arrive station  32: 0.000000
--------------------------------------------------
-User arrived to stations:   5
-Remaining bikes:  7
-Free Columns:     3
-Gift given by start station  32: 5.459815
-Gift given by arrive station 5: -0.001832
+Gift given by arrive station 5: 0.000000
 
+-------------------------------------------------
+User 6 has 0.855117 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     41
-Remaining bikes:  3
-Free Columns:     7
-Gift given by start station  41: -5.459815
-Gift given by arrive station  41: 5.459815
+User left from station:     0
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  0: 0.000000
+Gift given by arrive station  0: 0.000000
 -------------------------------------------------
-User arrived to stations:   0
-Remaining bikes:  7
-Free Columns:     3
-Gift given by start station  41: 5.459815
-Gift given by arrive station 0: -0.001832
+User arrived to stations:   32
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  0: 0.000000
+Gift given by arrive station 32: 0.000000
 
-------------------------------------------------------------------------------
-
-User left from station:     32
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  32: -0.738906
-Gift given by arrive station  32: 0.738906
 -------------------------------------------------
-User arrived to stations:   12
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  32: 0.738906
-Gift given by arrive station 12: -0.013534
-
+User 7 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     33
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  33: -0.738906
-Gift given by arrive station  33: 0.738906
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  33: -0.070552
+Gift given by arrive station  33: 0.070552
 -------------------------------------------------
 User arrived to stations:   22
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  33: 0.738906
-Gift given by arrive station 22: -0.013534
+Gift given by start station  33: -0.855117
+Gift given by arrive station 22: 0.997346
 
+-------------------------------------------------
+User 8 has 2.779257 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     14
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  14: -0.738906
-Gift given by arrive station  14: 0.738906
--------------------------------------------------
-User arrived to stations:   34
+User left from station:     34
 Remaining bikes:  5
 Free Columns:     5
-Gift given by start station  14: 0.000000
-Gift given by arrive station 34: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     1
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  1: -0.738906
-Gift given by arrive station  1: 0.738906
+Gift given by start station  34: 0.000000
+Gift given by arrive station  34: 0.000000
 -------------------------------------------------
-User arrived to stations:   0
-Remaining bikes:  8
-Free Columns:     2
-Gift given by start station  1: 40.342879
-Gift given by arrive station 0: -0.000248
+User arrived to stations:   1
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  34: -0.855117
+Gift given by arrive station 1: 0.997346
 
+-------------------------------------------------
+User 7 has 2.849809 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     41
-Remaining bikes:  2
-Free Columns:     8
-Gift given by start station  41: -40.342879
-Gift given by arrive station  41: 40.342879
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  41: 0.855117
+Gift given by arrive station  41: -0.855117
 -------------------------------------------------
 User arrived to stations:   45
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  41: 0.738906
-Gift given by arrive station 45: -0.013534
+Gift given by start station  41: -0.855117
+Gift given by arrive station 45: 0.997346
 
-------------------------------------------------------------------------------
-
-User left from station:     8
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  8: 0.000000
-Gift given by arrive station  8: 0.000000
 -------------------------------------------------
-User arrived to stations:   39
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  8: 0.738906
-Gift given by arrive station 39: -0.013534
-
+User 4 has 3.704926 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     27
+User left from station:     39
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  27: -0.738906
-Gift given by arrive station  27: 0.738906
+Gift given by start station  39: 0.855117
+Gift given by arrive station  39: -0.855117
 -------------------------------------------------
-User arrived to stations:   23
+User arrived to stations:   27
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  27: 0.738906
-Gift given by arrive station 23: -0.013534
+Gift given by start station  39: -0.855117
+Gift given by arrive station 27: 0.997346
 
+-------------------------------------------------
+User 2 has 2.707579 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     45
@@ -434,39 +418,31 @@ Gift given by start station  45: 0.000000
 Gift given by arrive station  45: 0.000000
 -------------------------------------------------
 User arrived to stations:   10
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  45: 0.000000
-Gift given by arrive station 10: 0.000000
+Remaining bikes:  7
+Free Columns:     3
+Gift given by start station  45: 0.070552
+Gift given by arrive station 10: 0.999641
 
-------------------------------------------------------------------------------
-
-User left from station:     50
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  50: 0.000000
-Gift given by arrive station  50: 0.000000
 -------------------------------------------------
-User arrived to stations:   34
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  50: 0.738906
-Gift given by arrive station 34: -0.013534
-
+User 4 has 4.704567 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     47
+User left from station:     34
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  47: -0.738906
-Gift given by arrive station  47: 0.738906
+Gift given by start station  34: 0.855117
+Gift given by arrive station  34: -0.855117
 -------------------------------------------------
-User arrived to stations:   2
+User arrived to stations:   47
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  47: 0.738906
-Gift given by arrive station 2: -0.013534
+Gift given by start station  34: -0.855117
+Gift given by arrive station 47: 0.997346
 
+-------------------------------------------------
+User 3 has 1.852463 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     22
@@ -478,177 +454,352 @@ Gift given by arrive station  22: 0.000000
 User arrived to stations:   15
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  22: 0.738906
-Gift given by arrive station 15: -0.013534
+Gift given by start station  22: -0.855117
+Gift given by arrive station 15: 0.997346
 
+-------------------------------------------------
+User 4 has 5.701913 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     45
+User left from station:     7
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  45: -0.738906
-Gift given by arrive station  45: 0.738906
+Gift given by start station  7: 0.855117
+Gift given by arrive station  7: -0.855117
 -------------------------------------------------
-User arrived to stations:   7
+User arrived to stations:   2
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  45: 0.738906
-Gift given by arrive station 7: -0.013534
+Gift given by start station  7: -0.855117
+Gift given by arrive station 2: 0.997346
 
-------------------------------------------------------------------------------
-
-User left from station:     2
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  2: 0.000000
-Gift given by arrive station  2: 0.000000
 -------------------------------------------------
-User arrived to stations:   0
-Remaining bikes:  9
-Free Columns:     1
-Gift given by start station  2: 298.095799
-Gift given by arrive station 0: -0.000034
-
+User 7 has 4.702272 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     40
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  40: 0.000000
-Gift given by arrive station  40: 0.000000
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  40: -0.070552
+Gift given by arrive station  40: 0.070552
 -------------------------------------------------
 User arrived to stations:   13
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  40: 0.738906
-Gift given by arrive station 13: -0.013534
+Gift given by start station  40: -0.855117
+Gift given by arrive station 13: 0.997346
 
+-------------------------------------------------
+User 1 has 6.486478 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     25
+User left from station:     26
 Remaining bikes:  3
 Free Columns:     7
-Gift given by start station  25: -5.459815
-Gift given by arrive station  25: 5.459815
+Gift given by start station  26: -0.070552
+Gift given by arrive station  26: 0.070552
 -------------------------------------------------
-User arrived to stations:   26
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  25: 0.000000
-Gift given by arrive station 26: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     5
+User arrived to stations:   5
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  5: 0.738906
-Gift given by arrive station  5: -0.013534
--------------------------------------------------
-User arrived to stations:   6
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  5: 0.000000
-Gift given by arrive station 6: 0.000000
+Gift given by start station  26: -0.855117
+Gift given by arrive station 5: 0.997346
 
+-------------------------------------------------
+User 6 has 1.781911 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     33
-Remaining bikes:  3
-Free Columns:     7
-Gift given by start station  33: -5.459815
-Gift given by arrive station  33: 5.459815
--------------------------------------------------
-User arrived to stations:   16
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  33: 0.738906
-Gift given by arrive station 16: -0.013534
-
-------------------------------------------------------------------------------
-
-User left from station:     13
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  13: 0.000000
-Gift given by arrive station  13: 0.000000
--------------------------------------------------
-User arrived to stations:   17
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  13: 0.738906
-Gift given by arrive station 17: -0.013534
-
-------------------------------------------------------------------------------
-
-User left from station:     37
 Remaining bikes:  2
 Free Columns:     8
-Gift given by start station  37: -40.342879
-Gift given by arrive station  37: 40.342879
+Gift given by start station  33: -6.910368
+Gift given by arrive station  33: 6.910368
 -------------------------------------------------
-User arrived to stations:   4
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  37: 0.738906
-Gift given by arrive station 4: -0.013534
+User arrived to stations:   16
+Remaining bikes:  8
+Free Columns:     2
+Gift given by start station  33: 6.910368
+Gift given by arrive station 16: 0.999951
 
+-------------------------------------------------
+User 2 has -3.202838 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     17
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  17: 0.855117
+Gift given by arrive station  17: -0.855117
+-------------------------------------------------
+User arrived to stations:   37
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  17: 0.000000
+Gift given by arrive station 37: 0.000000
+
+-------------------------------------------------
+User 0 has 2.707579 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     8
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  8: -0.738906
-Gift given by arrive station  8: 0.738906
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  8: 0.000000
+Gift given by arrive station  8: 0.000000
 -------------------------------------------------
 User arrived to stations:   39
-Remaining bikes:  7
-Free Columns:     3
-Gift given by start station  8: 5.459815
-Gift given by arrive station 39: -0.001832
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  8: 0.000000
+Gift given by arrive station 39: 0.000000
 
+-------------------------------------------------
+User 8 has 2.779257 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     48
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  48: -0.070552
+Gift given by arrive station  48: 0.070552
+-------------------------------------------------
+User arrived to stations:   43
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  48: -0.855117
+Gift given by arrive station 43: 0.997346
+
+-------------------------------------------------
+User 0 has 3.634374 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     12
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  12: 0.855117
+Gift given by arrive station  12: -0.855117
+-------------------------------------------------
+User arrived to stations:   42
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  12: -0.855117
+Gift given by arrive station 42: 0.997346
+
+-------------------------------------------------
+User 0 has 5.486837 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     29
 Remaining bikes:  4
 Free Columns:     6
-Gift given by start station  29: -0.738906
-Gift given by arrive station  29: 0.738906
+Gift given by start station  29: 0.855117
+Gift given by arrive station  29: -0.855117
 -------------------------------------------------
-User arrived to stations:   48
-Remaining bikes:  7
-Free Columns:     3
-Gift given by start station  29: 5.459815
-Gift given by arrive station 48: -0.001832
-
-------------------------------------------------------------------------------
-
-User left from station:     43
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  43: -0.738906
-Gift given by arrive station  43: 0.738906
--------------------------------------------------
-User arrived to stations:   50
+User arrived to stations:   45
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  43: 0.738906
-Gift given by arrive station 50: -0.013534
+Gift given by start station  29: -0.855117
+Gift given by arrive station 45: 0.997346
 
+-------------------------------------------------
+User 3 has 3.704926 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     12
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  12: 0.000000
-Gift given by arrive station  12: 0.000000
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  12: -0.070552
+Gift given by arrive station  12: 0.070552
 -------------------------------------------------
-User arrived to stations:   42
+User arrived to stations:   13
+Remaining bikes:  7
+Free Columns:     3
+Gift given by start station  12: 0.070552
+Gift given by arrive station 13: 0.999641
+
+-------------------------------------------------
+User 3 has 4.634015 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     8
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  8: 0.855117
+Gift given by arrive station  8: -0.855117
+-------------------------------------------------
+User arrived to stations:   19
 Remaining bikes:  6
 Free Columns:     4
-Gift given by start station  12: 0.738906
-Gift given by arrive station 42: -0.013534
+Gift given by start station  8: -0.855117
+Gift given by arrive station 19: 0.997346
 
+-------------------------------------------------
+User 6 has 3.634374 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     8
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  8: -0.070552
+Gift given by arrive station  8: 0.070552
+-------------------------------------------------
+User arrived to stations:   43
+Remaining bikes:  7
+Free Columns:     3
+Gift given by start station  8: 0.070552
+Gift given by arrive station 43: 0.999641
+
+-------------------------------------------------
+User 6 has 4.563463 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     3
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  3: 0.855117
+Gift given by arrive station  3: -0.855117
+-------------------------------------------------
+User arrived to stations:   44
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  3: 0.000000
+Gift given by arrive station 44: 0.000000
+
+-------------------------------------------------
+User 4 has 6.557030 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     29
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  29: -0.070552
+Gift given by arrive station  29: 0.070552
+-------------------------------------------------
+User arrived to stations:   16
+Remaining bikes:  9
+Free Columns:     1
+Gift given by start station  29: 57.450157
+Gift given by arrive station 16: 0.999993
+
+-------------------------------------------------
+User 3 has 5.563456 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     42
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  42: 0.000000
+Gift given by arrive station  42: 0.000000
+-------------------------------------------------
+User arrived to stations:   30
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  42: -0.855117
+Gift given by arrive station 30: 0.997346
+
+-------------------------------------------------
+User 8 has 3.776604 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     39
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  39: 0.855117
+Gift given by arrive station  39: -0.855117
+-------------------------------------------------
+User arrived to stations:   5
+Remaining bikes:  7
+Free Columns:     3
+Gift given by start station  39: 0.070552
+Gift given by arrive station 5: 0.999641
+
+-------------------------------------------------
+User 1 has 8.341235 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     27
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  27: 0.000000
+Gift given by arrive station  27: 0.000000
+-------------------------------------------------
+User arrived to stations:   9
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  27: -0.855117
+Gift given by arrive station 9: 0.997346
+
+-------------------------------------------------
+User 9 has 0.997346 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     3
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  3: -0.070552
+Gift given by arrive station  3: 0.070552
+-------------------------------------------------
+User arrived to stations:   11
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  3: -0.855117
+Gift given by arrive station 11: 0.997346
+
+-------------------------------------------------
+User 0 has 6.413631 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     48
+Remaining bikes:  2
+Free Columns:     8
+Gift given by start station  48: -6.910368
+Gift given by arrive station  48: 6.910368
+-------------------------------------------------
+User arrived to stations:   23
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  48: -0.855117
+Gift given by arrive station 23: 0.997346
+
+-------------------------------------------------
+User 3 has -0.349566 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     47
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  47: 0.000000
+Gift given by arrive station  47: 0.000000
+-------------------------------------------------
+User arrived to stations:   49
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  47: -0.855117
+Gift given by arrive station 49: 0.997346
+
+-------------------------------------------------
+User 5 has 0.997346 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     15
@@ -657,222 +808,278 @@ Free Columns:     5
 Gift given by start station  15: 0.000000
 Gift given by arrive station  15: 0.000000
 -------------------------------------------------
-User arrived to stations:   29
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  15: 0.000000
-Gift given by arrive station 29: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     45
-Remaining bikes:  3
-Free Columns:     7
-Gift given by start station  45: -5.459815
-Gift given by arrive station  45: 5.459815
--------------------------------------------------
-User arrived to stations:   26
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  45: 0.738906
-Gift given by arrive station 26: -0.013534
-
-------------------------------------------------------------------------------
-
-User left from station:     12
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  12: -0.738906
-Gift given by arrive station  12: 0.738906
--------------------------------------------------
-User arrived to stations:   13
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  12: 0.738906
-Gift given by arrive station 13: -0.013534
-
-------------------------------------------------------------------------------
-
-User left from station:     39
-Remaining bikes:  6
-Free Columns:     4
-Gift given by start station  39: 0.738906
-Gift given by arrive station  39: -0.013534
--------------------------------------------------
-User arrived to stations:   8
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  39: 0.000000
-Gift given by arrive station 8: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     19
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  19: -0.738906
-Gift given by arrive station  19: 0.738906
--------------------------------------------------
-User arrived to stations:   32
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  19: 0.000000
-Gift given by arrive station 32: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     8
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  8: -0.738906
-Gift given by arrive station  8: 0.738906
--------------------------------------------------
-User arrived to stations:   43
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  8: 0.000000
-Gift given by arrive station 43: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     12
-Remaining bikes:  3
-Free Columns:     7
-Gift given by start station  12: -5.459815
-Gift given by arrive station  12: 5.459815
--------------------------------------------------
-User arrived to stations:   3
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  12: 0.000000
-Gift given by arrive station 3: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     44
-Remaining bikes:  3
-Free Columns:     7
-Gift given by start station  44: -5.459815
-Gift given by arrive station  44: 5.459815
--------------------------------------------------
-User arrived to stations:   1
-Remaining bikes:  5
-Free Columns:     5
-Gift given by start station  44: 0.000000
-Gift given by arrive station 1: 0.000000
-
-------------------------------------------------------------------------------
-
-User left from station:     29
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  29: -0.738906
-Gift given by arrive station  29: 0.738906
--------------------------------------------------
-User arrived to stations:   16
+User arrived to stations:   2
 Remaining bikes:  7
 Free Columns:     3
-Gift given by start station  29: 5.459815
-Gift given by arrive station 16: -0.001832
+Gift given by start station  15: 0.070552
+Gift given by arrive station 2: 0.999641
 
+-------------------------------------------------
+User 0 has 7.413272 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-User left from station:     2
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  2: -0.738906
-Gift given by arrive station  2: 0.738906
+User left from station:     48
+Remaining bikes:  1
+Free Columns:     9
+Gift given by start station  48: -57.450157
+Gift given by arrive station  48: 57.450157
 -------------------------------------------------
-User arrived to stations:   42
-Remaining bikes:  7
-Free Columns:     3
-Gift given by start station  2: 5.459815
-Gift given by arrive station 42: -0.001832
+User arrived to stations:   39
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  48: 0.000000
+Gift given by arrive station 39: 0.000000
 
+-------------------------------------------------
+User 3 has -57.799723 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     30
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  30: -0.738906
-Gift given by arrive station  30: 0.738906
--------------------------------------------------
-User arrived to stations:   17
-Remaining bikes:  7
-Free Columns:     3
-Gift given by start station  30: 5.459815
-Gift given by arrive station 17: -0.001832
-
-------------------------------------------------------------------------------
-
-User left from station:     39
 Remaining bikes:  5
 Free Columns:     5
-Gift given by start station  39: 0.000000
-Gift given by arrive station  39: 0.000000
+Gift given by start station  30: 0.000000
+Gift given by arrive station  30: 0.000000
 -------------------------------------------------
-User arrived to stations:   5
+User arrived to stations:   32
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  30: -0.855117
+Gift given by arrive station 32: 0.997346
+
+-------------------------------------------------
+User 6 has 5.560809 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     17
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  17: -0.070552
+Gift given by arrive station  17: 0.070552
+-------------------------------------------------
+User arrived to stations:   32
 Remaining bikes:  7
 Free Columns:     3
-Gift given by start station  39: 5.459815
-Gift given by arrive station 5: -0.001832
+Gift given by start station  17: 0.070552
+Gift given by arrive station 32: 0.999641
 
+-------------------------------------------------
+User 6 has 6.489898 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     19
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  19: 0.000000
+Gift given by arrive station  19: 0.000000
+-------------------------------------------------
+User arrived to stations:   2
+Remaining bikes:  8
+Free Columns:     2
+Gift given by start station  19: 6.910368
+Gift given by arrive station 2: 0.999951
+
+-------------------------------------------------
+User 5 has 1.997298 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     14
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  14: 0.855117
+Gift given by arrive station  14: -0.855117
+-------------------------------------------------
+User arrived to stations:   28
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  14: -0.855117
+Gift given by arrive station 28: 0.997346
+
+-------------------------------------------------
+User 2 has -1.350375 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
 User left from station:     49
-Remaining bikes:  4
-Free Columns:     6
-Gift given by start station  49: -0.738906
-Gift given by arrive station  49: 0.738906
--------------------------------------------------
-User arrived to stations:   27
 Remaining bikes:  5
 Free Columns:     5
 Gift given by start station  49: 0.000000
-Gift given by arrive station 27: 0.000000
+Gift given by arrive station  49: 0.000000
+-------------------------------------------------
+User arrived to stations:   43
+Remaining bikes:  8
+Free Columns:     2
+Gift given by start station  49: 6.910368
+Gift given by arrive station 43: 0.999951
 
+-------------------------------------------------
+User 1 has 9.341186 money
+-------------------------------------------------
 ------------------------------------------------------------------------------
 
-Biciclette Presenti Stazione 0: 9 
-Colonnine libere Stazione    0: 1 
-Biciclette Presenti Stazione 1: 5 
-Colonnine libere Stazione    1: 5 
-Biciclette Presenti Stazione 2: 4 
-Colonnine libere Stazione    2: 6 
-Biciclette Presenti Stazione 3: 5 
-Colonnine libere Stazione    3: 5 
+User left from station:     48
+Remaining bikes:  0
+Free Columns:     10
+Gift given by start station  48: -430.891486
+Gift given by arrive station  48: 430.891486
+-------------------------------------------------
+User arrived to stations:   50
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  48: -0.855117
+Gift given by arrive station 50: 0.997346
+
+-------------------------------------------------
+User 0 has -422.480868 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     15
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  15: 0.855117
+Gift given by arrive station  15: -0.855117
+-------------------------------------------------
+User arrived to stations:   4
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  15: -0.855117
+Gift given by arrive station 4: 0.997346
+
+-------------------------------------------------
+User 7 has 6.554735 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     9
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  9: 0.000000
+Gift given by arrive station  9: 0.000000
+-------------------------------------------------
+User arrived to stations:   30
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  9: -0.855117
+Gift given by arrive station 30: 0.997346
+
+-------------------------------------------------
+User 7 has 7.552081 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     35
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  35: 0.855117
+Gift given by arrive station  35: -0.855117
+-------------------------------------------------
+User arrived to stations:   28
+Remaining bikes:  7
+Free Columns:     3
+Gift given by start station  35: 0.070552
+Gift given by arrive station 28: 0.999641
+
+-------------------------------------------------
+User 5 has 3.852055 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     47
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  47: 0.855117
+Gift given by arrive station  47: -0.855117
+-------------------------------------------------
+User arrived to stations:   24
+Remaining bikes:  6
+Free Columns:     4
+Gift given by start station  47: -0.855117
+Gift given by arrive station 24: 0.997346
+
+-------------------------------------------------
+User 8 has 5.629067 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     7
+Remaining bikes:  3
+Free Columns:     7
+Gift given by start station  7: -0.070552
+Gift given by arrive station  7: 0.070552
+-------------------------------------------------
+User arrived to stations:   17
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  7: 0.855117
+Gift given by arrive station 17: -0.855117
+
+-------------------------------------------------
+User 2 has -2.276043 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+User left from station:     42
+Remaining bikes:  4
+Free Columns:     6
+Gift given by start station  42: 0.855117
+Gift given by arrive station  42: -0.855117
+-------------------------------------------------
+User arrived to stations:   47
+Remaining bikes:  5
+Free Columns:     5
+Gift given by start station  42: 0.000000
+Gift given by arrive station 47: 0.000000
+
+-------------------------------------------------
+User 0 has -421.625751 money
+-------------------------------------------------
+------------------------------------------------------------------------------
+
+Biciclette Presenti Stazione 0: 5 
+Colonnine libere Stazione    0: 5 
+Biciclette Presenti Stazione 1: 6 
+Colonnine libere Stazione    1: 4 
+Biciclette Presenti Stazione 2: 8 
+Colonnine libere Stazione    2: 2 
+Biciclette Presenti Stazione 3: 3 
+Colonnine libere Stazione    3: 7 
 Biciclette Presenti Stazione 4: 6 
 Colonnine libere Stazione    4: 4 
 Biciclette Presenti Stazione 5: 7 
 Colonnine libere Stazione    5: 3 
-Biciclette Presenti Stazione 6: 5 
-Colonnine libere Stazione    6: 5 
-Biciclette Presenti Stazione 7: 6 
-Colonnine libere Stazione    7: 4 
-Biciclette Presenti Stazione 8: 4 
-Colonnine libere Stazione    8: 6 
+Biciclette Presenti Stazione 6: 6 
+Colonnine libere Stazione    6: 4 
+Biciclette Presenti Stazione 7: 3 
+Colonnine libere Stazione    7: 7 
+Biciclette Presenti Stazione 8: 3 
+Colonnine libere Stazione    8: 7 
 Biciclette Presenti Stazione 9: 5 
 Colonnine libere Stazione    9: 5 
-Biciclette Presenti Stazione 10: 5 
-Colonnine libere Stazione    10: 5 
-Biciclette Presenti Stazione 11: 5 
-Colonnine libere Stazione    11: 5 
+Biciclette Presenti Stazione 10: 7 
+Colonnine libere Stazione    10: 3 
+Biciclette Presenti Stazione 11: 6 
+Colonnine libere Stazione    11: 4 
 Biciclette Presenti Stazione 12: 3 
 Colonnine libere Stazione    12: 7 
-Biciclette Presenti Stazione 13: 6 
-Colonnine libere Stazione    13: 4 
+Biciclette Presenti Stazione 13: 7 
+Colonnine libere Stazione    13: 3 
 Biciclette Presenti Stazione 14: 4 
 Colonnine libere Stazione    14: 6 
-Biciclette Presenti Stazione 15: 5 
-Colonnine libere Stazione    15: 5 
-Biciclette Presenti Stazione 16: 7 
-Colonnine libere Stazione    16: 3 
-Biciclette Presenti Stazione 17: 7 
-Colonnine libere Stazione    17: 3 
-Biciclette Presenti Stazione 18: 6 
-Colonnine libere Stazione    18: 4 
-Biciclette Presenti Stazione 19: 4 
-Colonnine libere Stazione    19: 6 
+Biciclette Presenti Stazione 15: 4 
+Colonnine libere Stazione    15: 6 
+Biciclette Presenti Stazione 16: 9 
+Colonnine libere Stazione    16: 1 
+Biciclette Presenti Stazione 17: 4 
+Colonnine libere Stazione    17: 6 
+Biciclette Presenti Stazione 18: 5 
+Colonnine libere Stazione    18: 5 
+Biciclette Presenti Stazione 19: 5 
+Colonnine libere Stazione    19: 5 
 Biciclette Presenti Stazione 20: 5 
 Colonnine libere Stazione    20: 5 
 Biciclette Presenti Stazione 21: 5 
@@ -881,58 +1088,58 @@ Biciclette Presenti Stazione 22: 5
 Colonnine libere Stazione    22: 5 
 Biciclette Presenti Stazione 23: 6 
 Colonnine libere Stazione    23: 4 
-Biciclette Presenti Stazione 24: 5 
-Colonnine libere Stazione    24: 5 
-Biciclette Presenti Stazione 25: 3 
-Colonnine libere Stazione    25: 7 
-Biciclette Presenti Stazione 26: 6 
-Colonnine libere Stazione    26: 4 
+Biciclette Presenti Stazione 24: 6 
+Colonnine libere Stazione    24: 4 
+Biciclette Presenti Stazione 25: 5 
+Colonnine libere Stazione    25: 5 
+Biciclette Presenti Stazione 26: 3 
+Colonnine libere Stazione    26: 7 
 Biciclette Presenti Stazione 27: 5 
 Colonnine libere Stazione    27: 5 
-Biciclette Presenti Stazione 28: 5 
-Colonnine libere Stazione    28: 5 
-Biciclette Presenti Stazione 29: 4 
-Colonnine libere Stazione    29: 6 
-Biciclette Presenti Stazione 30: 4 
-Colonnine libere Stazione    30: 6 
-Biciclette Presenti Stazione 31: 6 
-Colonnine libere Stazione    31: 4 
-Biciclette Presenti Stazione 32: 5 
-Colonnine libere Stazione    32: 5 
-Biciclette Presenti Stazione 33: 3 
-Colonnine libere Stazione    33: 7 
-Biciclette Presenti Stazione 34: 6 
-Colonnine libere Stazione    34: 4 
-Biciclette Presenti Stazione 35: 6 
-Colonnine libere Stazione    35: 4 
+Biciclette Presenti Stazione 28: 7 
+Colonnine libere Stazione    28: 3 
+Biciclette Presenti Stazione 29: 3 
+Colonnine libere Stazione    29: 7 
+Biciclette Presenti Stazione 30: 6 
+Colonnine libere Stazione    30: 4 
+Biciclette Presenti Stazione 31: 5 
+Colonnine libere Stazione    31: 5 
+Biciclette Presenti Stazione 32: 7 
+Colonnine libere Stazione    32: 3 
+Biciclette Presenti Stazione 33: 2 
+Colonnine libere Stazione    33: 8 
+Biciclette Presenti Stazione 34: 4 
+Colonnine libere Stazione    34: 6 
+Biciclette Presenti Stazione 35: 4 
+Colonnine libere Stazione    35: 6 
 Biciclette Presenti Stazione 36: 5 
 Colonnine libere Stazione    36: 5 
-Biciclette Presenti Stazione 37: 2 
-Colonnine libere Stazione    37: 8 
+Biciclette Presenti Stazione 37: 5 
+Colonnine libere Stazione    37: 5 
 Biciclette Presenti Stazione 38: 5 
 Colonnine libere Stazione    38: 5 
 Biciclette Presenti Stazione 39: 5 
 Colonnine libere Stazione    39: 5 
-Biciclette Presenti Stazione 40: 5 
-Colonnine libere Stazione    40: 5 
-Biciclette Presenti Stazione 41: 2 
-Colonnine libere Stazione    41: 8 
-Biciclette Presenti Stazione 42: 7 
-Colonnine libere Stazione    42: 3 
-Biciclette Presenti Stazione 43: 5 
-Colonnine libere Stazione    43: 5 
-Biciclette Presenti Stazione 44: 3 
-Colonnine libere Stazione    44: 7 
-Biciclette Presenti Stazione 45: 3 
-Colonnine libere Stazione    45: 7 
+Biciclette Presenti Stazione 40: 3 
+Colonnine libere Stazione    40: 7 
+Biciclette Presenti Stazione 41: 4 
+Colonnine libere Stazione    41: 6 
+Biciclette Presenti Stazione 42: 4 
+Colonnine libere Stazione    42: 6 
+Biciclette Presenti Stazione 43: 8 
+Colonnine libere Stazione    43: 2 
+Biciclette Presenti Stazione 44: 5 
+Colonnine libere Stazione    44: 5 
+Biciclette Presenti Stazione 45: 6 
+Colonnine libere Stazione    45: 4 
 Biciclette Presenti Stazione 46: 5 
 Colonnine libere Stazione    46: 5 
-Biciclette Presenti Stazione 47: 4 
-Colonnine libere Stazione    47: 6 
-Biciclette Presenti Stazione 48: 7 
-Colonnine libere Stazione    48: 3 
-Biciclette Presenti Stazione 49: 4 
-Colonnine libere Stazione    49: 6 
+Biciclette Presenti Stazione 47: 5 
+Colonnine libere Stazione    47: 5 
+Biciclette Presenti Stazione 48: 0 
+Colonnine libere Stazione    48: 10 
+Biciclette Presenti Stazione 49: 5 
+Colonnine libere Stazione    49: 5 
 Biciclette Presenti Stazione 50: 6 
 Colonnine libere Stazione    50: 4 
 ------------------------------------------------------------------------------

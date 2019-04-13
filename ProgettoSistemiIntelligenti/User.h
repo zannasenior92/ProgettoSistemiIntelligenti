@@ -18,20 +18,22 @@ public:
 	User_i(double M, int n_s)													//M = soldi iniziali; t = velocità utente  
 	{
 		this->money_pocket = M;
-		this->stations_used = new int[n_s];
+		this->start_stations_used = new int[n_s];
 	}
 	/*-------------------------------------METHODS-------------------------------*/
-	void decrement_money();
-	void increment_money();
-	void visit_counter(int i);													//QUANDO VISITA UNA STAZIONE NE INCREMENTA IL CONTATORE
+	void update_budget(double start, double arrive);							//AGGIORNA IL BUDGET DELL'UTENTE(PREMIO STAZIONE PARTENZA+PREMIO STAZIONE ARRIVO)
+	double get_budget();														//MI RESTITUISCE IL BUDGET DELL'UTENTE
+	void visit_counter_start(int i);											//QUANDO VISITA UNA STAZIONE(DI PARTENZA) NE INCREMENTA IL CONTATORE
+	void visit_countet_arrive(int i);											//QUANDO VISITA UNA STAZIONE(DI ARRIVO) NE INCREMENTA IL CONTATORE
 	void clear_visits(int n_s);													//AZZERA LE VISITE IN TUTTE LE STAZIONI
 
 
 
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
-	int *stations_used;															//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE
-	double money_pocket;															//SOLDI INIZIALI DI BUDGET
+	int *start_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI PARTENZA
+	int *arrive_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI ARRIVO
+	double money_pocket;														//SOLDI INIZIALI DI BUDGET
 	int travel_time;															//VELOCITA' MEDIA UTENTE
 };
 
@@ -46,7 +48,8 @@ public:
 	int n_users;
 	User_i* all_users;
 
-
+	/*-------------------------------------METHODS-------------------------------*/
+	
 	
 private:
 

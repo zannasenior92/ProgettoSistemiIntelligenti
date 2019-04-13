@@ -27,6 +27,7 @@ void createEnv(Stations *inststations, Users *users)
 		for (int k = 0; k < inststations->n_stations; k++){
 			printf("Available Bike Station %d: %d \n", k, inststations->all_stations[k].n_bikes());
 			printf("Free Columns Station   %d: %d \n", k, inststations->all_stations[k].av_columns());
+			printf("\n");
 		}
 		printf("------------------------------------------------------------------------------\n\n");
 	}
@@ -44,6 +45,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 {
 	int n = 0;
 	bool done = true;
+	int rand_user;
 	int rand_start;																							//INDEX START'S STATION
 	int rand_arrive;																						//INDES END'S STATION
 
@@ -51,30 +53,46 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	while (done)
 	{
 		
+		int numS = inststations->n_stations;
+		int numU = instusers->n_users;
+
+		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;
 		rand_arrive = rand() % inststations->n_stations;
+
+		
+
 		/*------------------------------------STAZIONE DI PARTENZA RIMUOVO BICI-----------------------------*/
 		printf("User left from station:     %d\n",rand_start);
-		inststations->all_stations[rand_start].remove_bike(instusers);
+		inststations->all_stations[rand_start].remove_bike(numU,numS);
 		printf("Remaining bikes:  %d\n", inststations->all_stations[rand_start].n_bikes());
 		printf("Free Columns:     %d\n", inststations->all_stations[rand_start].av_columns());
 		printf("Gift given by start station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_take());
 		printf("Gift given by arrive station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_release());
+
 		printf("-------------------------------------------------\n");
 		
 		/*------------------------------------STAZIONE DI ARRIVO AGGIUNGO BICI-------------------------------*/
 		printf("User arrived to stations:   %d\n", rand_arrive);
-		inststations->all_stations[rand_arrive].add_bike(instusers);
+		inststations->all_stations[rand_arrive].add_bike(numU,numS);
 		printf("Remaining bikes:  %d\n", inststations->all_stations[rand_arrive].n_bikes());
 		printf("Free Columns:     %d\n", inststations->all_stations[rand_arrive].av_columns());
 		printf("Gift given by start station  %d: %lf\n", rand_start, inststations->all_stations[rand_arrive].get_gift_take());
 		printf("Gift given by arrive station %d: %lf\n\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_release());
 
+		printf("-------------------------------------------------\n");
+
+		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
+		instusers->all_users[rand_user].update_budget(inststations->all_stations[rand_start].get_gift_take(), inststations->all_stations[rand_arrive].get_gift_release());
+		printf("User %d has %lf money\n", rand_user, instusers->all_users[rand_user].get_budget());
+		
+		printf("-------------------------------------------------\n");
+
 
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		Sleep(100);
+		Sleep(10);
 		if (n > 50)
 		{
 			done = false;

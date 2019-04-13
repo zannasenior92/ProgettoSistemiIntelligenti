@@ -1,24 +1,33 @@
 #include "User.h"
+#include "Station.h"
 
-void User_i::decrement_money()
+/*--------------------------------USER METHODS----------------------------------*/
+void User_i::update_budget(double start,double arrive)
 {
-	money_pocket--;
+	money_pocket = money_pocket + start + arrive;
 }
 
-void User_i::increment_money()
+double User_i::get_budget()
 {
-	money_pocket++;
+	return this->money_pocket;
 }
-void User_i::visit_counter(int i)
+
+void User_i::visit_counter_start(int i)
 {
-	stations_used[i]++;
+	start_stations_used[i]++;
+}
+
+void User_i::visit_countet_arrive(int i)
+{
+	arrive_stations_used[i]++;
 }
 
 void User_i::clear_visits(int n_s)
 {
 	for (int i = 0; i < n_s; i++)
 	{
-		stations_used[i] = 0;
+		start_stations_used[i] = 0;
+		arrive_stations_used[i] = 0;
 	}
 }
 

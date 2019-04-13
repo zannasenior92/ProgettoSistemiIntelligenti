@@ -37,9 +37,9 @@ public:
 	
 	}
 	/*-------------------------------------METHODS---------------------------*/
-	void remove_bike(Users *instusers);											//RIMUOVE UNA BICI DALLA STAZIONE
+	void remove_bike(int u,int s);													//RIMUOVE UNA BICI DALLA STAZIONE
 	void reserve_col(int i);													//PRENOTA COLONNINA
-	void add_bike(Users *instusers);											//AGGIUNGE UNA BICI ALLA STAZIONE
+	void add_bike(int u,int s);														//AGGIUNGE UNA BICI ALLA STAZIONE
 	void set_money(double val);													//SETTA LA MONETA OFFERTA DALLA STAZIONE
 	int n_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
 	int av_columns();															//RESTITUISCE N° COLONNINE LIBERE
