@@ -4,37 +4,43 @@
 #include "User.h"
 #include <Windows.h>
 /*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
-void generateTraffic(Stations *inst);
-void createEnv(Stations *inst);
+void generateTraffic(Stations *inststations, Users *instusers);
+void createEnv(Stations *inststations,Users *instusers);
 	
 
 
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
 
-/*----------------------CREO ARRAY DI STAZIONI E LO INIZIALIZZO--------------------------*/
-void createEnv(Stations *inst)
+/*----------------------CREO ARRAY DI STAZIONI E UTENTI E LO INIZIALIZZO--------------------------*/
+void createEnv(Stations *inststations, Users *users)
 {
-	inst->all_stations = (Station_i*)malloc(inst->n_stations * sizeof(Station_i));
-	for (int i = 0; i < inst->n_stations; i++)
+	inststations->all_stations = (Station_i*)malloc(inststations->n_stations * sizeof(Station_i));
+	for (int i = 0; i < inststations->n_stations; i++)
 	{
-		inst->all_stations[i] = Station_i(inst->num_bikes, inst->num_columns);
+		inststations->all_stations[i] = Station_i(inststations->num_bikes, inststations->num_columns);
 	}
 
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (VERBOSE >= 50){
-		for (int k = 0; k < inst->n_stations; k++){
-			printf("Available Bike Station %d: %d \n", k, inst->all_stations[k].n_bikes());
-			printf("Free Columns Station   %d: %d \n", k, inst->all_stations[k].av_columns());
+		for (int k = 0; k < inststations->n_stations; k++){
+			printf("Available Bike Station %d: %d \n", k, inststations->all_stations[k].n_bikes());
+			printf("Free Columns Station   %d: %d \n", k, inststations->all_stations[k].av_columns());
 		}
 		printf("------------------------------------------------------------------------------\n\n");
+	}
+
+	users->all_users = (User_i*)malloc(users->n_users * sizeof(User_i));
+	for (int j = 0; j < users->n_users; j++)
+	{
+		users->all_users[j] = User_i(0, inststations->n_stations);
 	}
 }
 
 
 /*------------------------------------------GENERATE BIKE/USERS TRAFFIC-------------------------------------*/
-void generateTraffic(Stations *inst)
+void generateTraffic(Stations *inststations, Users *instusers)
 {
 	int n = 0;
 	bool done = true;
@@ -45,24 +51,24 @@ void generateTraffic(Stations *inst)
 	while (done)
 	{
 		
-		rand_start = rand() % inst->n_stations;
-		rand_arrive = rand() % inst->n_stations;
+		rand_start = rand() % inststations->n_stations;
+		rand_arrive = rand() % inststations->n_stations;
 		/*------------------------------------STAZIONE DI PARTENZA RIMUOVO BICI-----------------------------*/
 		printf("User left from station:     %d\n",rand_start);
-		inst->all_stations[rand_start].remove_bike();
-		printf("Remaining bikes:  %d\n", inst->all_stations[rand_start].n_bikes());
-		printf("Free Columns:     %d\n",inst->all_stations[rand_start].av_columns());
-		printf("Gift given by start station  %d: %lf\n", rand_start, inst->all_stations[rand_start].get_gift_take());
-		printf("Gift given by arrive station  %d: %lf\n", rand_start, inst->all_stations[rand_start].get_gift_release());
+		inststations->all_stations[rand_start].remove_bike(instusers);
+		printf("Remaining bikes:  %d\n", inststations->all_stations[rand_start].n_bikes());
+		printf("Free Columns:     %d\n", inststations->all_stations[rand_start].av_columns());
+		printf("Gift given by start station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_take());
+		printf("Gift given by arrive station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_release());
 		printf("-------------------------------------------------\n");
 		
 		/*------------------------------------STAZIONE DI ARRIVO AGGIUNGO BICI-------------------------------*/
 		printf("User arrived to stations:   %d\n", rand_arrive);
-		inst->all_stations[rand_arrive].add_bike();
-		printf("Remaining bikes:  %d\n", inst->all_stations[rand_arrive].n_bikes());
-		printf("Free Columns:     %d\n", inst->all_stations[rand_arrive].av_columns());
-		printf("Gift given by start station  %d: %lf\n", rand_start, inst->all_stations[rand_arrive].get_gift_take());
-		printf("Gift given by arrive station %d: %lf\n\n", rand_arrive, inst->all_stations[rand_arrive].get_gift_release());
+		inststations->all_stations[rand_arrive].add_bike(instusers);
+		printf("Remaining bikes:  %d\n", inststations->all_stations[rand_arrive].n_bikes());
+		printf("Free Columns:     %d\n", inststations->all_stations[rand_arrive].av_columns());
+		printf("Gift given by start station  %d: %lf\n", rand_start, inststations->all_stations[rand_arrive].get_gift_take());
+		printf("Gift given by arrive station %d: %lf\n\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_release());
 
 
 		printf("------------------------------------------------------------------------------\n\n");
@@ -78,9 +84,9 @@ void generateTraffic(Stations *inst)
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (VERBOSE >= 50){
-		for (int k = 0; k < inst->n_stations; k++){
-			printf("Biciclette Presenti Stazione %d: %d \n", k, inst->all_stations[k].n_bikes());
-			printf("Colonnine libere Stazione    %d: %d \n", k, inst->all_stations[k].av_columns());
+		for (int k = 0; k < inststations->n_stations; k++){
+			printf("Biciclette Presenti Stazione %d: %d \n", k, inststations->all_stations[k].n_bikes());
+			printf("Colonnine libere Stazione    %d: %d \n", k, inststations->all_stations[k].av_columns());
 		}
 		printf("------------------------------------------------------------------------------\n");
 	}

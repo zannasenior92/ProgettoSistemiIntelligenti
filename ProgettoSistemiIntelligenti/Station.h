@@ -7,10 +7,11 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h> 
-#include <stdio.h>  
+#include <stdio.h> 
+#include "User.h"
 
 #define VERBOSE 50
-
+#define COEFF 1000//COEFFICIENTE DA USARE NEL CALCOLO DEI PREMI (VORREI METTERE IL NUMERO DI STAZIONI)
 /*------------------------------------------------STAZIONE BICI-----------------------------------*/
 class Station_i
 {
@@ -36,9 +37,9 @@ public:
 	
 	}
 	/*-------------------------------------METHODS---------------------------*/
-	void remove_bike();															//RIMUOVE UNA BICI DALLA STAZIONE
-	void reserve_col(int i);
-	void add_bike();															//AGGIUNGE UNA BICI ALLA STAZIONE
+	void remove_bike(Users *instusers);											//RIMUOVE UNA BICI DALLA STAZIONE
+	void reserve_col(int i);													//PRENOTA COLONNINA
+	void add_bike(Users *instusers);											//AGGIUNGE UNA BICI ALLA STAZIONE
 	void set_money(double val);													//SETTA LA MONETA OFFERTA DALLA STAZIONE
 	int n_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
 	int av_columns();															//RESTITUISCE N° COLONNINE LIBERE
@@ -60,11 +61,11 @@ private:
 	double xcoord;																//COORDINATA x
 	double ycoord;																//COORDINATA y
 };
-/**************************************************************************************************/
 
-																
+/**************************************************************************************************/
+															
 /*-------------------------------------CLASSE CHE GESTISCE LE STAZIONI----------------------------*/
-class Stations
+class Stations 
 {
 public:
 	

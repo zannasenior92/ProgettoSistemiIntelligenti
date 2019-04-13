@@ -1,11 +1,11 @@
 #include "User.h"
 
-void User_i::decrement_money(int p)
+void User_i::decrement_money()
 {
 	money_pocket--;
 }
 
-void User_i::increment_money(int m)
+void User_i::increment_money()
 {
 	money_pocket++;
 }
@@ -21,3 +21,8 @@ void User_i::clear_visits(int n_s)
 		stations_used[i] = 0;
 	}
 }
+
+/************************************************************************************/
+
+/*--------------------------------USERS METHODS----------------------------------*/
+
