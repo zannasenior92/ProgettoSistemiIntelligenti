@@ -11,7 +11,8 @@
 #include "User.h"
 
 #define VERBOSE 50
-#define COEFF 1000//COEFFICIENTE DA USARE NEL CALCOLO DEI PREMI (VORREI METTERE IL NUMERO DI STAZIONI)
+#define SUBSCRIPTION 25															//SOLDI ABBONAMENTO
+
 /*------------------------------------------------STAZIONE BICI-----------------------------------*/
 class Station_i
 {
@@ -77,17 +78,22 @@ public:
 	double *ycoords;															//COORDINATE y STAZIONI
 	int num_bikes;																//NUMERO TOTALE BICI PRESENTI
 	int num_columns;															//NUMERO TOTALE COLONNINE
-	Station_i* all_stations;
-
+	Station_i* all_stations;													//ARRAY DELLE STAZIONI
 
 	/*-------------------------------------METHODS---------------------------*/
 	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI
 	void set_n_stations(int num);												//SETTO IL NUMERO DI STAZIONI PRESENTI 
 	void set_n_columns_for_station(int n_c);									//SETTO IL NUMERO DI COLONNE PER OGNI STAZIONE
 	void set_n_bikes_for_stations(int n_b);										//SETTO IL NUMERO DI BICI PER OGNI STAZIONE
+	void set_cash_desk(Users u);												//SETTO IL DENARO TOTALE PRESENTE NEL SISTEMA
+	void update_cash_desk(Users *u,double t,double r);							//AGGIORNO DELLA QUANTITA' r IL DENARO TOTALE PRESENTE NEL SISTEMA
+	double get_cash_desk();														//RITORNA LA QUANTITA' DI DENARO PRESENTE NEL SISTEMA
 
 private:
-	
+	/*----------------------------PRIVATE VARIABLES--------------------------*/
+
+	double cash_desk;															//SOLDI PRESENTI NEL SISTEMA
+
 };
 
 /*---------------------PARAMETRI CHE POSSONO CAMBIARE----------------------------*/

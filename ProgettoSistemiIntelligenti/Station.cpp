@@ -66,7 +66,7 @@ void Station_i::remove_bike(int u,int s){
 	else
 	{		
 		this->gift_money_take = exp(this->available_bikes - this->free_columns) / s -1;		//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-		this->gift_money_release = -exp(this->free_columns - this->available_bikes) / s +1;	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+		this->gift_money_release = -exp(this->available_bikes - this->free_columns) / s +1;	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 	}
 }
 
@@ -94,12 +94,12 @@ void Station_i::add_bike(int u,int s){
 	else
 	{
 		this->gift_money_take = exp(this->available_bikes - this->free_columns) / s -1;		//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-		this->gift_money_release = -exp(this->free_columns - this->available_bikes) / s +1;	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+		this->gift_money_release = -exp(this->available_bikes - this->free_columns) / s +1;	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 	}
 }
 
 void Station_i::set_money(double val){
-	this->gift_money_take = val;
+	
 }
 
 
@@ -122,4 +122,19 @@ void Stations::set_n_columns_for_station(int n_c){
 
 void Stations::set_n_bikes_for_stations(int n_b){
 	this->num_bikes = n_b;
+}
+
+void Stations::set_cash_desk(Users u)
+{
+	this->cash_desk = SUBSCRIPTION * u.n_users;
+}
+
+void Stations::update_cash_desk(Users *u, double t, double r)
+{
+	this->cash_desk = this->cash_desk - t - r;
+}
+
+double Stations::get_cash_desk()
+{
+	return this->cash_desk;
 }

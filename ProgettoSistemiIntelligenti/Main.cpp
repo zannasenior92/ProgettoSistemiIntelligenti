@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 
 	/*-----------------------------------INSERT NUMBER OF USERS------------------------------*/
 	usrs.n_users = 10;
-	
+	stat.set_cash_desk(usrs);
 	/*------------------------CREATE THE ENVIROENMENTS(BIKE & USERS)-------------------------*/
 	createEnv(&stat,&usrs);
 	generateTraffic(&stat,&usrs);																		//GENERO IL TRAFFICO DI UTENTI

@@ -46,9 +46,12 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int n = 0;
 	bool done = true;
 	int rand_user;
-	int rand_start;																							//INDEX START'S STATION
-	int rand_arrive;																						//INDES END'S STATION
+	int rand_start;																								//INDEX START'S STATION
+	int rand_arrive;																							//INDES END'S STATION
 
+	/*------------------------------------------STAZIONI INIZIALI---------------------------------------*/
+	printf("Money in the system at time 0: %lf \n\n\n", inststations->get_cash_desk());
+	
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{
@@ -60,34 +63,40 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		rand_start = rand() % inststations->n_stations;
 		rand_arrive = rand() % inststations->n_stations;
 
+		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
+		double take = inststations->all_stations[rand_start].get_gift_take();
+		double release = inststations->all_stations[rand_arrive].get_gift_release();
+		instusers->all_users[rand_user].update_budget(take, release);											//AGGIORNO IL BUDGET DELL'UTENTE
+		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
+		printf("User %d left from station:    %d\n", rand_user, rand_start);
+		printf("User %d arrived to stations:   %d\n", rand_user, rand_arrive);
 		
+		printf("Gift given by start station   %d: %lf\n", rand_start, take);
+		printf("Gift given by arrive station  %d: %lf\n\n", rand_arrive, release);
+
+		printf("User %d has %lf money\n", rand_user, instusers->all_users[rand_user].get_budget());
+
+		printf("-------------------------------------------------\n");
 
 		/*------------------------------------STAZIONE DI PARTENZA RIMUOVO BICI-----------------------------*/
-		printf("User left from station:     %d\n",rand_start);
 		inststations->all_stations[rand_start].remove_bike(numU,numS);
-		printf("Remaining bikes:  %d\n", inststations->all_stations[rand_start].n_bikes());
-		printf("Free Columns:     %d\n", inststations->all_stations[rand_start].av_columns());
-		printf("Gift given by start station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_take());
-		printf("Gift given by arrive station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_release());
+		printf("Remaining bikes station %d:  %d \n",rand_start, inststations->all_stations[rand_start].n_bikes());
+		printf("Free Columns station    %d:  %d \n\n",rand_start,inststations->all_stations[rand_start].av_columns());
+		printf("Gift that will be give by start station   %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_take());
+		printf("Gift that will be give by arrive station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_release());
 
 		printf("-------------------------------------------------\n");
 		
 		/*------------------------------------STAZIONE DI ARRIVO AGGIUNGO BICI-------------------------------*/
-		printf("User arrived to stations:   %d\n", rand_arrive);
 		inststations->all_stations[rand_arrive].add_bike(numU,numS);
-		printf("Remaining bikes:  %d\n", inststations->all_stations[rand_arrive].n_bikes());
-		printf("Free Columns:     %d\n", inststations->all_stations[rand_arrive].av_columns());
-		printf("Gift given by start station  %d: %lf\n", rand_start, inststations->all_stations[rand_arrive].get_gift_take());
-		printf("Gift given by arrive station %d: %lf\n\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_release());
+		printf("Remaining bikes station %d: %d\n",rand_arrive, inststations->all_stations[rand_arrive].n_bikes());
+		printf("Free Columns station    %d: %d \n\n",rand_arrive,inststations->all_stations[rand_arrive].av_columns());
+		printf("Gift that will be give by start station   %d: %lf\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_take());
+		printf("Gift that will be give by arrive station  %d: %lf\n\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_release());
 
 		printf("-------------------------------------------------\n");
 
-		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
-		instusers->all_users[rand_user].update_budget(inststations->all_stations[rand_start].get_gift_take(), inststations->all_stations[rand_arrive].get_gift_release());
-		printf("User %d has %lf money\n", rand_user, instusers->all_users[rand_user].get_budget());
-		
-		printf("-------------------------------------------------\n");
-
+		printf("Money in the system: %lf \n", inststations->get_cash_desk());
 
 		printf("------------------------------------------------------------------------------\n\n");
 
