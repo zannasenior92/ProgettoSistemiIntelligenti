@@ -93,7 +93,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("Gift that will be give by arrive station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_release());
 		
 		int startCounter = instusers->all_users[rand_user].get_counter_Start_Visits(rand_start);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
-		printf("Number of Visit of start station %d by the user %d = %d \n",rand_start,rand_user,startCounter);	//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
+		printf("Number of Visit of start station %d by the user %d = %d \n",rand_start,rand_user,startCounter);	
 		printf("-------------------------------------------------\n");
 		/*---------------------------------------------------------------------------------------------------*/
 
@@ -148,6 +148,9 @@ void selectBestStations(Stations *inststations, Users *instusers)
 	double x_a = inststations->all_stations[arrive].get_x_coord();
 	double y_a = inststations->all_stations[arrive].get_y_coord();
 
+	int max_columns = 0;																//MASSIMO NUMERO DI COLONNINE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
+	int max_bikes = 0;																	//MASSIMO NUMERO DI BICI NELLE STAZIONI VICINE A QUELLA DI PARTENZA
+
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
 		/*--------------COORDINATE DA CONFRONTARE-------------*/
@@ -158,6 +161,13 @@ void selectBestStations(Stations *inststations, Users *instusers)
 		double dist_a = sqrt(pow(abs(x_a-x_i), 2) + pow(abs(y_a-y_i), 2));
 		/*---------------SE LA DISTANZA E' PICCOLA E LA STAZIONE HA BISOGNO DI BICI O DI LIBERARE COLONNINE ALLORA INDIRIZZO L'UTENTE AUMENTANDO IL BUDGET-------------*/
 		if (dist_s < 100)
+		{
+			if (inststations->all_stations[i].av_columns() > max_columns)
+			{
+				max_columns = inststations->all_stations[i].av_columns();
+			}
+		}
+		if (dist_a < 100)
 		{
 
 		}
