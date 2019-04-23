@@ -6,7 +6,7 @@
 /*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
-	
+void selectBestStations(Stations *inststations, Users *instusers);
 
 
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
@@ -64,6 +64,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;
 		rand_arrive = rand() % inststations->n_stations;
+
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
@@ -137,3 +138,28 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	}
 }
 
+void selectBestStations(Stations *inststations, Users *instusers)
+{
+	int start = rand() % inststations->n_stations;														//STAZIONE DA CUI VOGLIO PARTIRE
+	double x_s = inststations->all_stations[start].get_x_coord();
+	double y_s = inststations->all_stations[start].get_y_coord();
+	
+	int arrive = rand() % inststations->n_stations;
+	double x_a = inststations->all_stations[arrive].get_x_coord();
+	double y_a = inststations->all_stations[arrive].get_y_coord();
+
+	for (int i = 0; i < inststations->n_stations; i++)
+	{
+		/*--------------COORDINATE DA CONFRONTARE-------------*/
+		double x_i = inststations->all_stations[i].get_x_coord();
+		double y_i = inststations->all_stations[i].get_y_coord();
+
+		double dist_s = sqrt(pow(abs(x_s-x_i), 2) + pow(abs(y_s-y_i), 2));
+		double dist_a = sqrt(pow(abs(x_a-x_i), 2) + pow(abs(y_a-y_i), 2));
+		/*---------------SE LA DISTANZA E' PICCOLA E LA STAZIONE HA BISOGNO DI BICI O DI LIBERARE COLONNINE ALLORA INDIRIZZO L'UTENTE AUMENTANDO IL BUDGET-------------*/
+		if (dist_s < 100)
+		{
+
+		}
+	}
+}
