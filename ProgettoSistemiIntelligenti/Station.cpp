@@ -46,11 +46,11 @@ double Station_i::g_m_r()
 }
 
 
-void Station_i::remove_bike(int u,int s){
+void Station_i::remove_bike(double u,double s){
 	
 	if (available_bikes == 0)
 	{
-		printf("NO bike avaiable! Choose another station");
+		printf("***NO bike avaiable! Choose another station*** \n\n");
 	}
 	else
 	{
@@ -60,8 +60,9 @@ void Station_i::remove_bike(int u,int s){
 		/*---------------------------------FEW BIKES AVAIABLE------------------------------*/
 		if (this->available_bikes < 5)
 		{
-			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* u / s);		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((this->free_columns - this->available_bikes)* u / s);		//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			
+			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* (log(u) / s));			//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((this->free_columns - this->available_bikes)* (log(u) / s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
@@ -72,8 +73,8 @@ void Station_i::remove_bike(int u,int s){
 		/*---------------------------------FEW FREE COLUMNS--------------------------------*/
 		else
 		{
-			this->gift_money_take = exp((this->available_bikes - this->free_columns)* u / s);			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-			this->gift_money_release = -exp((this->available_bikes - this->free_columns)* u / s);		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_take = exp((this->available_bikes - this->free_columns)* (log(u) / s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_release = -exp((this->available_bikes - this->free_columns)* (log(u) / s));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 		}
 	}
 }
@@ -82,11 +83,11 @@ void Station_i::reserve_col(int i){
 	this->reserve_up_col[i] = 1;
 }
 
-void Station_i::add_bike(int u,int s){
+void Station_i::add_bike(double u,double s){
 	
 	if (free_columns == 0)
 	{
-	printf("NO columns avaiable! Please put the bike in another station");
+	printf("***NO columns avaiable! Please put the bike in another station*** \n\n");
 	}
 	else
 	{
@@ -96,8 +97,9 @@ void Station_i::add_bike(int u,int s){
 		/*---------------------------------FEW BIKES AVAIABLE------------------------------*/
 		if (this->available_bikes < 5)
 		{
-			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* u / s);			//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((this->free_columns - this->available_bikes)* u / s);		//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			printf("Cciao dibvbuibbuib %lf \n",u / s);
+			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* (log(u) / s));			//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((this->free_columns - this->available_bikes)* (log(u) / s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
@@ -108,8 +110,8 @@ void Station_i::add_bike(int u,int s){
 		/*---------------------------------FEW FREE COLUMNS--------------------------------*/
 		else
 		{
-			this->gift_money_take = exp((this->available_bikes - this->free_columns)* u / s);			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-			this->gift_money_release = -exp((this->available_bikes - this->free_columns)* u / s);		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_take = exp((this->available_bikes - this->free_columns)* (log(u) / s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_release = -exp((this->available_bikes - this->free_columns)* (log(u) / s));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 		}
 	}
 }

@@ -15,11 +15,12 @@ class User_i
 {
 public:
 	/*-------------------DEFINISCO MONETA INIZIALE UTENTE------------------------*/
-	User_i(double M, int n_s)													//M = soldi iniziali; t = velocità utente  
+	User_i(double M, int n_s , int t)													//M = soldi iniziali; t = velocità utente  
 	{
 		this->money_pocket = M;
 		this->start_stations_used = new int[n_s] {0};
 		this->arrive_stations_used = new int[n_s] {0};
+		this->travel_time = t;
 	}
 	/*-------------------------------------METHODS-------------------------------*/
 	void update_budget(double start, double arrive);							//AGGIORNA IL BUDGET DELL'UTENTE(PREMIO STAZIONE PARTENZA+PREMIO STAZIONE ARRIVO)
