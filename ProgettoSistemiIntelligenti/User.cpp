@@ -14,12 +14,12 @@ double User_i::get_budget()
 
 void User_i::visit_counter_start(int i)
 {
-	start_stations_used[i]++;
+	this->start_stations_used[i]++;
 }
 
 void User_i::visit_countet_arrive(int i)
 {
-	arrive_stations_used[i]++;
+	this->arrive_stations_used[i]++;
 }
 
 void User_i::clear_visits(int n_s)
@@ -29,6 +29,16 @@ void User_i::clear_visits(int n_s)
 		start_stations_used[i] = 0;
 		arrive_stations_used[i] = 0;
 	}
+}
+
+int User_i::get_counter_Arrive_Visits(int i)
+{
+	return this->arrive_stations_used[i];
+}
+
+int User_i::get_counter_Start_Visits(int i)
+{
+	return this->start_stations_used[i];
 }
 
 /************************************************************************************/

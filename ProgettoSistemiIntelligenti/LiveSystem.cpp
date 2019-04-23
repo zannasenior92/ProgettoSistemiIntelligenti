@@ -68,9 +68,9 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		double release = inststations->all_stations[rand_arrive].get_gift_release();
 		instusers->all_users[rand_user].update_budget(take, release);											//AGGIORNO IL BUDGET DELL'UTENTE
 		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
-		printf("User %d left from station:    %d\n", rand_user, rand_start);
+		printf("User %d left from station:     %d\n", rand_user, rand_start);
 		printf("User %d arrived to stations:   %d\n", rand_user, rand_arrive);
-		
+
 		printf("Gift given by start station   %d: %lf\n", rand_start, take);
 		printf("Gift given by arrive station  %d: %lf\n\n", rand_arrive, release);
 
@@ -79,20 +79,27 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("-------------------------------------------------\n");
 
 		/*------------------------------------STAZIONE DI PARTENZA RIMUOVO BICI-----------------------------*/
-		inststations->all_stations[rand_start].remove_bike(numU,numS);
+		inststations->all_stations[rand_start].remove_bike(numU,numS);											//RIMUOVO LA BICI
+		instusers->all_users[rand_user].visit_counter_start(rand_start);										//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
 		printf("Remaining bikes station %d:  %d \n",rand_start, inststations->all_stations[rand_start].n_bikes());
 		printf("Free Columns station    %d:  %d \n\n",rand_start,inststations->all_stations[rand_start].av_columns());
 		printf("Gift that will be give by start station   %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_take());
 		printf("Gift that will be give by arrive station  %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_release());
-
+		
+		int startCounter = instusers->all_users[rand_user].get_counter_Start_Visits(rand_start);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
+		printf("Number of Visit of start station %d by the user %d = %d \n",rand_start,rand_user,startCounter);	//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
 		printf("-------------------------------------------------\n");
 		
 		/*------------------------------------STAZIONE DI ARRIVO AGGIUNGO BICI-------------------------------*/
 		inststations->all_stations[rand_arrive].add_bike(numU,numS);
+		instusers->all_users[rand_user].visit_countet_arrive(rand_arrive);										//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
 		printf("Remaining bikes station %d: %d\n",rand_arrive, inststations->all_stations[rand_arrive].n_bikes());
 		printf("Free Columns station    %d: %d \n\n",rand_arrive,inststations->all_stations[rand_arrive].av_columns());
 		printf("Gift that will be give by start station   %d: %lf\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_take());
 		printf("Gift that will be give by arrive station  %d: %lf\n\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_release());
+		
+		int arriveCounter = instusers->all_users[rand_user].get_counter_Arrive_Visits(rand_arrive);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
+		printf("Number of Visit of arrive station %d by the user %d = %d \n", rand_arrive, rand_user, arriveCounter);		//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
 
 		printf("-------------------------------------------------\n");
 
