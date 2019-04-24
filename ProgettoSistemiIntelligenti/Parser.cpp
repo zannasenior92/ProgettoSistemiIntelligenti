@@ -70,8 +70,8 @@ void read_input(Stations *inst) {
 			int i = atoi(par_name) - 1;										//FIRST COORD INDEX (-1 because indexes start from 0)
 			token1 = strtok(NULL, " ");										// x COORDINATE
 			token2 = strtok(NULL, " ");										// y COORDINATE
-			inst->xcoords[i] = atof(token1);
-			inst->ycoords[i] = atof(token2);
+			inst->xcoords[i] = atof(token1);								// COORDINATA x STAZIONE i (ISTANZA STAZIONI)
+			inst->ycoords[i] = atof(token2);								// COORDINATA y STAZIONE i (ISTANZA STAZIONI)
 			continue;
 		}
 	}

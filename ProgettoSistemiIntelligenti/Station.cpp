@@ -5,7 +5,7 @@
 
 
 /*----------------------------METODI CLASSE STATION-----------------------------*/
-int Station_i::n_bikes()
+int Station_i::av_bikes()
 {
 	return this->available_bikes;
 }

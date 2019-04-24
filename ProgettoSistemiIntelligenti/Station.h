@@ -42,7 +42,7 @@ public:
 	void reserve_col(int i);													//PRENOTA COLONNINA
 	void add_bike(double u,double s);														//AGGIUNGE UNA BICI ALLA STAZIONE
 	void set_money(double val);													//SETTA LA MONETA OFFERTA DALLA STAZIONE
-	int n_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
+	int av_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
 	int av_columns();															//RESTITUISCE N° COLONNINE LIBERE
 	double g_m_r();																//RESTITUISCE PREMIO PER LA STAZIONE DI PARTENZA
 	double g_m_t();																//RESTITUISCE PREMIO PER LA STAZIONE DI RILASCIO
@@ -50,6 +50,8 @@ public:
 	double get_y_coord();														//RESTITUISCE LA COORDINATA y
 	double get_gift_release();													//RESTITUISCE IL PREMIO DELLA STAZIONE DI PARTENZA
 	double get_gift_take();														//RESTITUISCE IL PREMIO DELLA STAZIONE DI ARRIVO
+	double xcoord;																//COORDINATA x
+	double ycoord;																//COORDINATA y
 
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
@@ -59,8 +61,7 @@ private:
 	int available_bikes;														//BICI DISPONIBILI
 	int free_columns;															//NUMERO COLONNINE LIBERE
 	int *reserve_up_col;														//ARRAY COLONNINA LIBERA PRENOTATO
-	double xcoord;																//COORDINATA x
-	double ycoord;																//COORDINATA y
+	
 };
 
 /**************************************************************************************************/

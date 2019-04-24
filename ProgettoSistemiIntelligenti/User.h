@@ -37,6 +37,7 @@ private:
 	int *arrive_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI ARRIVO
 	double money_pocket;														//SOLDI INIZIALI DI BUDGET
 	int travel_time;															//VELOCITA' MEDIA UTENTE
+	int value_decision;															//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA PER LA SCELTA DELLA STAZIONE
 };
 
 /**************************************************************************************************/

@@ -6,7 +6,9 @@
 /*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
-void selectBestStations(Stations *inststations, Users *instusers);
+int selectBestStartStations(Stations *inststations, Users *instusers, int start_station, int arrive_station);
+int selectBestArriveStations(Stations *inststations, Users *instusers, int start_station, int arrive_station);
+
 
 
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
@@ -25,7 +27,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (VERBOSE >= 100){
 		for (int k = 0; k < inststations->n_stations; k++){
-			printf("Available Bike Station %d: %d \n", k, inststations->all_stations[k].n_bikes());
+			printf("Available Bike Station %d: %d \n", k, inststations->all_stations[k].av_bikes());
 			printf("Free Columns Station   %d: %d \n", k, inststations->all_stations[k].av_columns());
 			printf("\n");
 		}
@@ -62,9 +64,10 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		
 
 		rand_user = rand() % instusers->n_users;
-		rand_start = rand() % inststations->n_stations;
-		rand_arrive = rand() % inststations->n_stations;
-
+		rand_start = rand() % inststations->n_stations;															//STAZIONE DA CUI VORREBBE PARTIRE L'UTENTE
+		rand_arrive = rand() % inststations->n_stations;														//STAZIONE IN CUI VORREBBE ARRIVARE L'UTENTE
+		selectBestStartStations(inststations, instusers,rand_start,rand_arrive);								//SELEZIONA LA MIGLIOR STAZIONE DI PARTENZA
+		selectBestArriveStations(inststations, instusers, rand_start, rand_arrive);								//SELEZIONA LA MIGLIOR STAZIONE DI ARRIVO
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
@@ -86,7 +89,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		instusers->all_users[rand_user].visit_counter_start(rand_start);										//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
 																												
 											/*COLONNINE LIBERE E BICI MANCANTI*/
-		printf("Remaining bikes station %d:  %d \n",rand_start, inststations->all_stations[rand_start].n_bikes());
+		printf("Remaining bikes station %d:  %d \n",rand_start, inststations->all_stations[rand_start].av_bikes());
 		printf("Free Columns station    %d:  %d \n\n",rand_start,inststations->all_stations[rand_start].av_columns());
 											/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
 		printf("Gift that will be give by start station   %d: %lf\n", rand_start, inststations->all_stations[rand_start].get_gift_take());
@@ -103,14 +106,14 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		instusers->all_users[rand_user].visit_countet_arrive(rand_arrive);										//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
 
 											/*COLONNINE LIBERE E BICI MANCANTI*/
-		printf("Remaining bikes station %d: %d\n",rand_arrive, inststations->all_stations[rand_arrive].n_bikes());
+		printf("Remaining bikes station %d: %d\n",rand_arrive, inststations->all_stations[rand_arrive].av_bikes());
 		printf("Free Columns station    %d: %d \n\n",rand_arrive,inststations->all_stations[rand_arrive].av_columns());
 		
 											/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
 		printf("Gift that will be give by start station   %d: %lf\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_take());
 		printf("Gift that will be give by arrive station  %d: %lf\n\n", rand_arrive, inststations->all_stations[rand_arrive].get_gift_release());
 		
-		int arriveCounter = instusers->all_users[rand_user].get_counter_Arrive_Visits(rand_arrive);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
+		int arriveCounter = instusers->all_users[rand_user].get_counter_Arrive_Visits(rand_arrive);							//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
 		printf("Number of Visit of arrive station %d by the user %d = %d \n", rand_arrive, rand_user, arriveCounter);		//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
 
 		printf("-------------------------------------------------\n");
@@ -131,37 +134,78 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (VERBOSE >= 50){
 		for (int k = 0; k < inststations->n_stations; k++){
-			printf("Biciclette Presenti Stazione %d: %d \n", k, inststations->all_stations[k].n_bikes());
+			printf("Biciclette Presenti Stazione %d: %d \n", k, inststations->all_stations[k].av_bikes());
 			printf("Colonnine libere Stazione    %d: %d \n", k, inststations->all_stations[k].av_columns());
 		}
 		printf("------------------------------------------------------------------------------\n");
 	}
 }
 
-void selectBestStations(Stations *inststations, Users *instusers)
-{
-	int start = rand() % inststations->n_stations;														//STAZIONE DA CUI VOGLIO PARTIRE
-	double x_s = inststations->all_stations[start].get_x_coord();
-	double y_s = inststations->all_stations[start].get_y_coord();
-	
-	int arrive = rand() % inststations->n_stations;
-	double x_a = inststations->all_stations[arrive].get_x_coord();
-	double y_a = inststations->all_stations[arrive].get_y_coord();
 
-	int max_columns = 0;																//MASSIMO NUMERO DI COLONNINE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
-	int max_bikes = 0;																	//MASSIMO NUMERO DI BICI NELLE STAZIONI VICINE A QUELLA DI PARTENZA
+/*-----------MI RESTITUISCE LA STAZIONE SCELTA DALL'UTENTE(POTREBBE NON ESSERE QUELLA INIZIALE)--------------*/
+int selectBestStartStations(Stations *inststations, Users *instusers,int start_station , int arrive_station)
+{
+	//--------------STAZIONE DA CUI VOGLIO PARTIRE
+	int start = start_station;														
+	double x_s = inststations->xcoords[start];
+	double y_s = inststations->ycoords[start];
+	
+	/*-------------------------------------------------------------------------------------------------------*/
+
+	
+	int start_selected;															//STAZIONE DI PARTENZA SELEZIONATA
+	int max_columns = inststations->all_stations[start].av_columns();			//MASSIMO NUMERO DI COLONNINE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
+	int max_bikes = inststations->all_stations[arrive_station].av_bikes();		//MASSIMO NUMERO DI BICI NELLE STAZIONI VICINE A QUELLA DI PARTENZA
 
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
 		/*--------------COORDINATE DA CONFRONTARE-------------*/
-		double x_i = inststations->all_stations[i].get_x_coord();
-		double y_i = inststations->all_stations[i].get_y_coord();
+		double x_i = inststations->xcoords[i];
+		double y_i = inststations->ycoords[i];
 
 		double dist_s = sqrt(pow(abs(x_s-x_i), 2) + pow(abs(y_s-y_i), 2));
-		double dist_a = sqrt(pow(abs(x_a-x_i), 2) + pow(abs(y_a-y_i), 2));
 		/*---------------SE LA DISTANZA E' PICCOLA E LA STAZIONE HA BISOGNO DI BICI O DI LIBERARE COLONNINE ALLORA INDIRIZZO L'UTENTE AUMENTANDO IL BUDGET-------------*/
-		if (dist_s < 100)
+		if (dist_s < 5 && i != start && i != arrive_station)
 		{
+			printf("Stazione vicina %d con distanza %lf \n",i,dist_s);
+			
+			/*-------------------------------SE LA STAZIONE E' VICINA------------------------*/
+			if (inststations->all_stations[i].av_bikes() > max_bikes)
+			{
+				max_bikes = inststations->all_stations[i].av_bikes();
+				start_selected = i;
+			}
+		}
+		
+	}
+	return 0;
+}
+
+
+int selectBestArriveStations(Stations *inststations, Users *instusers, int start_station, int arrive_station)
+{
+	//--------------STAZIONE A CUI VOGLIO ARRIVARE
+	int arrive = arrive_station;
+	double x_a = inststations->xcoords[arrive];
+	double y_a = inststations->ycoords[arrive];
+	/*-------------------------------------------------------------------------------------------------------*/
+
+
+	int arrive_selected;														//STAZIONE DI ARRIVO SELEZIONATA
+	int max_columns = inststations->all_stations[start_station].av_columns();	//MASSIMO NUMERO DI COLONNINE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
+	int max_bikes = inststations->all_stations[arrive].av_bikes();				//MASSIMO NUMERO DI BICI NELLE STAZIONI VICINE A QUELLA DI PARTENZA
+
+	for (int i = 0; i < inststations->n_stations; i++)
+	{
+		/*--------------COORDINATE DA CONFRONTARE-------------*/
+		double x_i = inststations->xcoords[i];
+		double y_i = inststations->ycoords[i];
+
+		double dist_a = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));
+		/*---------------SE LA DISTANZA E' PICCOLA E LA STAZIONE HA BISOGNO DI BICI O DI LIBERARE COLONNINE ALLORA INDIRIZZO L'UTENTE AUMENTANDO IL BUDGET-------------*/
+		if (dist_a < 5 && i != arrive)
+		{
+			printf("Stazione %d con distanza %lf \n", i, dist_a);
 			if (inststations->all_stations[i].av_columns() > max_columns)
 			{
 				max_columns = inststations->all_stations[i].av_columns();
@@ -172,4 +216,5 @@ void selectBestStations(Stations *inststations, Users *instusers)
 
 		}
 	}
+	return 0;
 }
