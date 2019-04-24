@@ -6,8 +6,8 @@
 /*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
-int selectBestStartStations(Stations *inststations, Users *instusers, int start_station, int arrive_station);
-int selectBestArriveStations(Stations *inststations, Users *instusers, int start_station, int arrive_station);
+void inductedBestStartStations(Stations *inststations, Users *instusers, int start_station, int arrive_station);
+void inductedBestArriveStations(Stations *inststations, Users *instusers, int start_station, int arrive_station);
 
 
 
@@ -66,8 +66,8 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;															//STAZIONE DA CUI VORREBBE PARTIRE L'UTENTE
 		rand_arrive = rand() % inststations->n_stations;														//STAZIONE IN CUI VORREBBE ARRIVARE L'UTENTE
-		selectBestStartStations(inststations, instusers,rand_start,rand_arrive);								//SELEZIONA LA MIGLIOR STAZIONE DI PARTENZA
-		selectBestArriveStations(inststations, instusers, rand_start, rand_arrive);								//SELEZIONA LA MIGLIOR STAZIONE DI ARRIVO
+		inductedBestStartStations(inststations, instusers,rand_start,rand_arrive);								//SELEZIONA LA MIGLIOR STAZIONE DI PARTENZA
+		inductedBestArriveStations(inststations, instusers, rand_start, rand_arrive);								//SELEZIONA LA MIGLIOR STAZIONE DI ARRIVO
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
@@ -142,19 +142,16 @@ void generateTraffic(Stations *inststations, Users *instusers)
 }
 
 
-/*-----------MI RESTITUISCE LA STAZIONE SCELTA DALL'UTENTE(POTREBBE NON ESSERE QUELLA INIZIALE)--------------*/
-int selectBestStartStations(Stations *inststations, Users *instusers,int start_station , int arrive_station)
+/*-----------INDUCE L'UTENTE A PRENDERE LA MIGLIOR STAZIONE DI PARTENZA(POTREBBE NON ESSERE QUELLA INIZIALE)--------------*/
+void inductedBestStartStations(Stations *inststations, Users *instusers,int start_station , int arrive_station)
 {
-	//--------------STAZIONE DA CUI VOGLIO PARTIRE
-	int start = start_station;														
-	double x_s = inststations->xcoords[start];
-	double y_s = inststations->ycoords[start];
+	//----------STAZIONE DA CUI VOGLIO PARTIRE
+	double x_s = inststations->xcoords[start_station];
+	double y_s = inststations->ycoords[start_station];
 	
 	/*-------------------------------------------------------------------------------------------------------*/
 
 	
-	int start_selected;															//STAZIONE DI PARTENZA SELEZIONATA
-	int max_columns = inststations->all_stations[start].av_columns();			//MASSIMO NUMERO DI COLONNINE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
 	int max_bikes = inststations->all_stations[arrive_station].av_bikes();		//MASSIMO NUMERO DI BICI NELLE STAZIONI VICINE A QUELLA DI PARTENZA
 
 	for (int i = 0; i < inststations->n_stations; i++)
@@ -165,35 +162,29 @@ int selectBestStartStations(Stations *inststations, Users *instusers,int start_s
 
 		double dist_s = sqrt(pow(abs(x_s-x_i), 2) + pow(abs(y_s-y_i), 2));
 		/*---------------SE LA DISTANZA E' PICCOLA E LA STAZIONE HA BISOGNO DI BICI O DI LIBERARE COLONNINE ALLORA INDIRIZZO L'UTENTE AUMENTANDO IL BUDGET-------------*/
-		if (dist_s < 5 && i != start && i != arrive_station)
+		if (dist_s < 5 && (i != start_station) && (i != arrive_station))
 		{
 			printf("Stazione vicina %d con distanza %lf \n",i,dist_s);
 			
 			/*-------------------------------SE LA STAZIONE E' VICINA------------------------*/
 			if (inststations->all_stations[i].av_bikes() > max_bikes)
 			{
-				max_bikes = inststations->all_stations[i].av_bikes();
-				start_selected = i;
 			}
 		}
 		
 	}
-	return 0;
 }
 
-
-int selectBestArriveStations(Stations *inststations, Users *instusers, int start_station, int arrive_station)
+/*-----------INDUCE L'UTENTE A SCEGLIERE LA MIGLIOR STAZIONE DI ARRIVO(POTREBBE NON ESSERE QUELLA INIZIALE)--------------*/
+void inductedBestArriveStations(Stations *inststations, Users *instusers, int start_station, int arrive_station)
 {
-	//--------------STAZIONE A CUI VOGLIO ARRIVARE
-	int arrive = arrive_station;
-	double x_a = inststations->xcoords[arrive];
-	double y_a = inststations->ycoords[arrive];
+	//-----------STAZIONE A CUI VOGLIO ARRIVARE
+	double x_a = inststations->xcoords[arrive_station];
+	double y_a = inststations->ycoords[arrive_station];
 	/*-------------------------------------------------------------------------------------------------------*/
 
 
-	int arrive_selected;														//STAZIONE DI ARRIVO SELEZIONATA
-	int max_columns = inststations->all_stations[start_station].av_columns();	//MASSIMO NUMERO DI COLONNINE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
-	int max_bikes = inststations->all_stations[arrive].av_bikes();				//MASSIMO NUMERO DI BICI NELLE STAZIONI VICINE A QUELLA DI PARTENZA
+	int max_columns = inststations->all_stations[start_station].av_columns();				//MASSIMO NUMERO DI COLONNINE LIBERE NELLE STAZIONI VICINE A QUELLA DI DESTINAZIONE
 
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
@@ -203,18 +194,14 @@ int selectBestArriveStations(Stations *inststations, Users *instusers, int start
 
 		double dist_a = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));
 		/*---------------SE LA DISTANZA E' PICCOLA E LA STAZIONE HA BISOGNO DI BICI O DI LIBERARE COLONNINE ALLORA INDIRIZZO L'UTENTE AUMENTANDO IL BUDGET-------------*/
-		if (dist_a < 5 && i != arrive)
+		if (dist_a < 5 && (i != arrive_station) && (i!=start_station))
 		{
+
 			printf("Stazione %d con distanza %lf \n", i, dist_a);
 			if (inststations->all_stations[i].av_columns() > max_columns)
 			{
-				max_columns = inststations->all_stations[i].av_columns();
+
 			}
 		}
-		if (dist_a < 100)
-		{
-
-		}
 	}
-	return 0;
 }

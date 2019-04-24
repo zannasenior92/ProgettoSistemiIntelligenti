@@ -39,6 +39,9 @@
     <ClCompile Include="UpdatePrizes.cpp">
       <Filter>SimulationSystem</Filter>
     </ClCompile>
+    <ClCompile Include="inducted_choice.cpp">
+      <Filter>SimulationSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Station.h">

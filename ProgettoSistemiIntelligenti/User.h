@@ -38,6 +38,7 @@ private:
 	double money_pocket;														//SOLDI INIZIALI DI BUDGET
 	int travel_time;															//VELOCITA' MEDIA UTENTE
 	int value_decision;															//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA PER LA SCELTA DELLA STAZIONE
+	double *added_gift;
 };
 
 /**************************************************************************************************/
