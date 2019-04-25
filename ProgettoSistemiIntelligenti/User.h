@@ -21,6 +21,7 @@ public:
 		this->start_stations_used = new int[n_s] {0};
 		this->arrive_stations_used = new int[n_s] {0};
 		this->travel_time = t;
+		this->added_gift = new double[n_s] {0};
 	}
 	/*-------------------------------------METHODS-------------------------------*/
 	void update_budget(double start, double arrive);							//AGGIORNA IL BUDGET DELL'UTENTE(PREMIO STAZIONE PARTENZA+PREMIO STAZIONE ARRIVO)
@@ -28,8 +29,10 @@ public:
 	void visit_counter_start(int i);											//QUANDO VISITA UNA STAZIONE(DI PARTENZA) NE INCREMENTA IL CONTATORE
 	void visit_countet_arrive(int i);											//QUANDO VISITA UNA STAZIONE(DI ARRIVO) NE INCREMENTA IL CONTATORE
 	void clear_visits(int n_s);													//AZZERA LE VISITE IN TUTTE LE STAZIONI
-	int get_counter_Arrive_Visits(int i);
-	int get_counter_Start_Visits(int i);
+	int get_counter_Start_Visits(int i);										//MI DICE QUANTE VOLTE HO VISITATO QUELLA STAZIONE IN PARTENZA
+	int get_counter_Arrive_Visits(int i);										//MI DICE QUANTE VOLTE HO VISITATO QUELLA STAZIONE IN ARRIVO
+	void add_gift(int station_i,double quantity);								//AGGIUNGE CREDITO DA GUADAGNARE ALLA STAZIONE i
+	double get_added_gift(int station_i);
 
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
@@ -38,7 +41,7 @@ private:
 	double money_pocket;														//SOLDI INIZIALI DI BUDGET
 	int travel_time;															//VELOCITA' MEDIA UTENTE
 	int value_decision;															//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA PER LA SCELTA DELLA STAZIONE
-	double *added_gift;
+	double *added_gift;															//GIFT AGGIUNTIVI RELATIVI AD OGNI STAZIONE
 };
 
 /**************************************************************************************************/

@@ -41,6 +41,16 @@ int User_i::get_counter_Start_Visits(int i)
 	return this->start_stations_used[i];
 }
 
+void User_i::add_gift(int station_i,double quantity)
+{
+	this->added_gift[station_i] = cbrt(quantity);
+}
+
+double User_i::get_added_gift(int station_i)
+{
+	return this->added_gift[station_i];
+}
+
 /************************************************************************************/
 
 /*--------------------------------USERS METHODS----------------------------------*/
