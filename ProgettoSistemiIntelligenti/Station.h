@@ -10,7 +10,7 @@
 #include <stdio.h> 
 #include "User.h"
 
-#define VERBOSE 50
+#define VERBOSE 300
 #define SUBSCRIPTION 25															//SOLDI ABBONAMENTO
 
 /*------------------------------------------------STAZIONE BICI-----------------------------------*/

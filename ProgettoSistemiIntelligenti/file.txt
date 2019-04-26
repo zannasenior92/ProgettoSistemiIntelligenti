@@ -1,22 +1,73 @@
 Input used C:\Users\Luca\source\repos\ProgettoSistemiIntelligenti\ProgettoSistemiIntelligenti\Stazioni2.tsp
 
 Number of stations: 16 
+Numero comandi gnuplot: 10 
 N° of users: 40
+Available Bike Station 0: 5 
+Free Columns Station   0: 5 
+
+Available Bike Station 1: 5 
+Free Columns Station   1: 5 
+
+Available Bike Station 2: 5 
+Free Columns Station   2: 5 
+
+Available Bike Station 3: 5 
+Free Columns Station   3: 5 
+
+Available Bike Station 4: 5 
+Free Columns Station   4: 5 
+
+Available Bike Station 5: 5 
+Free Columns Station   5: 5 
+
+Available Bike Station 6: 5 
+Free Columns Station   6: 5 
+
+Available Bike Station 7: 5 
+Free Columns Station   7: 5 
+
+Available Bike Station 8: 5 
+Free Columns Station   8: 5 
+
+Available Bike Station 9: 5 
+Free Columns Station   9: 5 
+
+Available Bike Station 10: 5 
+Free Columns Station   10: 5 
+
+Available Bike Station 11: 5 
+Free Columns Station   11: 5 
+
+Available Bike Station 12: 5 
+Free Columns Station   12: 5 
+
+Available Bike Station 13: 5 
+Free Columns Station   13: 5 
+
+Available Bike Station 14: 5 
+Free Columns Station   14: 5 
+
+Available Bike Station 15: 5 
+Free Columns Station   15: 5 
+
+------------------------------------------------------------------------------
+
 Money in the system at time 0: 1000.000000 
 
 
-User 11 left from station:     11
-User 11 arrived to stations:   14
+User 11 want left from station:     11
+User 11 want arrive to stations:   14
 
-Stazione di arrivo 14 vicina a 6 con distanza 2.980419 
-Stazione di arrivo 14 vicina a 7 con distanza 2.252044 
-Stazione di arrivo 14 vicina a 12 con distanza 0.960833 
-Stazione di arrivo 14 vicina a 13 con distanza 0.664831 
-Stazione di arrivo 14 vicina a 15 con distanza 2.191552 
+Bikes available at station   11 = 5 bikes 
+
+Columns available at station 14 = 5 columns 
+
 
 Gift given by start station   11: 0.000000
 Gift given by arrive station  14: 0.000000
 
+-------BIKE REMOVED-------
 User 11 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 11:  4 
@@ -26,6 +77,7 @@ Gift that will be give by start station   11: -1.585833
 Gift that will be give by arrive station  11: 1.585833
 Number of Visit of start station 11 by the user 11 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 14: 6
 Free Columns station    14: 4 
 
@@ -38,16 +90,18 @@ Money in the system: 1000.000000
 
 ------------------------------------------------------------------------------
 
-User 33 left from station:     9
-User 33 arrived to stations:   6
+User 33 want left from station:     9
+User 33 want arrive to stations:   6
 
-Stazione di arrivo 6 vicina a 7 con distanza 1.259365 
-Stazione di arrivo 6 vicina a 14 con distanza 2.980419 
-Stazione di arrivo 6 vicina a 15 con distanza 2.970152 
+Bikes available at station   9 = 5 bikes 
+
+Columns available at station 6 = 5 columns 
+
 
 Gift given by start station   9: 0.000000
 Gift given by arrive station  6: 0.000000
 
+-------BIKE REMOVED-------
 User 33 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 9:  4 
@@ -57,6 +111,7 @@ Gift that will be give by start station   9: -1.585833
 Gift that will be give by arrive station  9: 1.585833
 Number of Visit of start station 9 by the user 33 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 6: 6
 Free Columns station    6: 4 
 
@@ -69,13 +124,18 @@ Money in the system: 1000.000000
 
 ------------------------------------------------------------------------------
 
-User 31 left from station:     14
-User 31 arrived to stations:   5
+User 31 want left from station:     14
+User 31 want arrive to stations:   5
+
+Bikes available at station   14 = 6 bikes 
+
+Columns available at station 5 = 5 columns 
 
 
 Gift given by start station   14: 1.585833
 Gift given by arrive station  5: 0.000000
 
+-------BIKE REMOVED-------
 User 31 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 14:  5 
@@ -85,6 +145,7 @@ Gift that will be give by start station   14: 0.000000
 Gift that will be give by arrive station  14: 0.000000
 Number of Visit of start station 14 by the user 31 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 5: 6
 Free Columns station    5: 4 
 
@@ -97,17 +158,18 @@ Money in the system: 998.414167
 
 ------------------------------------------------------------------------------
 
-User 27 left from station:     13
-User 27 arrived to stations:   7
+User 27 want left from station:     13
+User 27 want arrive to stations:   7
 
-Stazione di arrivo 7 vicina a 6 con distanza 1.259365 
-Stazione di arrivo 7 vicina a 10 con distanza 2.750654 
-Stazione di arrivo 7 vicina a 12 con distanza 2.020619 
-Stazione di arrivo 7 vicina a 14 con distanza 2.252044 
+Bikes available at station   13 = 5 bikes 
+
+Columns available at station 7 = 5 columns 
+
 
 Gift given by start station   13: 0.000000
 Gift given by arrive station  7: 0.000000
 
+-------BIKE REMOVED-------
 User 27 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 13:  4 
@@ -117,6 +179,7 @@ Gift that will be give by start station   13: -1.585833
 Gift that will be give by arrive station  13: 1.585833
 Number of Visit of start station 13 by the user 27 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 7: 6
 Free Columns station    7: 4 
 
@@ -129,16 +192,21 @@ Money in the system: 998.414167
 
 ------------------------------------------------------------------------------
 
-User 37 left from station:     6
-User 37 arrived to stations:   12
+User 37 want left from station:     6
+User 37 want arrive to stations:   12
 
-Stazione di arrivo 12 vicina a 7 con distanza 2.020619 
-Stazione di arrivo 12 vicina a 13 con distanza 0.388330 
-Stazione di arrivo 12 vicina a 14 con distanza 0.960833 
+Bikes available at station   6 = 6 bikes 
+
+Columns available at station 12 = 5 columns 
+Near arrive station 13 has 6 columns 
+Distance from arrive station 12 to 13 = 0.388330 
+Money added station 13 = 0.729570 
+
 
 Gift given by start station   6: 1.585833
 Gift given by arrive station  12: 0.000000
 
+-------BIKE REMOVED-------
 User 37 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 6:  5 
@@ -148,6 +216,7 @@ Gift that will be give by start station   6: 0.000000
 Gift that will be give by arrive station  6: 0.000000
 Number of Visit of start station 6 by the user 37 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 12: 6
 Free Columns station    12: 4 
 
@@ -160,15 +229,24 @@ Money in the system: 996.828334
 
 ------------------------------------------------------------------------------
 
-User 3 left from station:     14
-User 3 arrived to stations:   10
-Stazione di partenza 14 vicina a 12 con distanza 0.960833 
+User 3 want left from station:     14
+User 3 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   14 = 5 bikes 
+Near start station 7 has 6 bikes 
+Distance from start station 14 to 7 = 2.252044 
+Money added station 7 = 1.310767 
+Near start station 12 has 6 bikes 
+Distance from start station 14 to 12 = 0.960833 
+Money added station 12 = 0.986770 
+
+Columns available at station 10 = 5 columns 
+
 
 Gift given by start station   14: 0.000000
 Gift given by arrive station  10: 0.000000
 
+-------BIKE REMOVED-------
 User 3 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 14:  4 
@@ -178,6 +256,7 @@ Gift that will be give by start station   14: -1.585833
 Gift that will be give by arrive station  14: 1.585833
 Number of Visit of start station 14 by the user 3 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 6
 Free Columns station    10: 4 
 
@@ -190,15 +269,27 @@ Money in the system: 996.828334
 
 ------------------------------------------------------------------------------
 
-User 18 left from station:     13
-User 18 arrived to stations:   12
+User 18 want left from station:     13
+User 18 want arrive to stations:   12
 
-Stazione di arrivo 12 vicina a 7 con distanza 2.020619 
-Stazione di arrivo 12 vicina a 14 con distanza 0.960833 
+Bikes available at station   13 = 4 bikes 
+Near start station 7 has 6 bikes 
+Distance from start station 13 to 7 = 2.256214 
+Money added station 7 = 1.311576 
+Near start station 15 has 5 bikes 
+Distance from start station 13 to 15 = 2.852455 
+Money added station 15 = 1.418207 
+
+Columns available at station 12 = 4 columns 
+Near arrive station 14 has 6 columns 
+Distance from arrive station 12 to 14 = 0.960833 
+Money added station 14 = 0.986770 
+
 
 Gift given by start station   13: -1.585833
 Gift given by arrive station  12: -1.585833
 
+-------BIKE REMOVED-------
 User 18 has -3.171666 money
 -------------------------------------------------
 Remaining bikes station 13:  3 
@@ -208,6 +299,7 @@ Gift that will be give by start station   13: -2.514867
 Gift that will be give by arrive station  13: 2.514867
 Number of Visit of start station 13 by the user 18 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 12: 7
 Free Columns station    12: 3 
 
@@ -220,15 +312,18 @@ Money in the system: 1000.000000
 
 ------------------------------------------------------------------------------
 
-User 30 left from station:     3
-User 30 arrived to stations:   1
+User 30 want left from station:     3
+User 30 want arrive to stations:   1
 
-Stazione di arrivo 1 vicina a 8 con distanza 0.720278 
-Stazione di arrivo 1 vicina a 16 con distanza 1.412091 
+Bikes available at station   3 = 5 bikes 
+
+Columns available at station 1 = 5 columns 
+
 
 Gift given by start station   3: 0.000000
 Gift given by arrive station  1: 0.000000
 
+-------BIKE REMOVED-------
 User 30 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 3:  4 
@@ -238,6 +333,7 @@ Gift that will be give by start station   3: -1.585833
 Gift that will be give by arrive station  3: 1.585833
 Number of Visit of start station 3 by the user 30 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 1: 6
 Free Columns station    1: 4 
 
@@ -250,16 +346,24 @@ Money in the system: 1000.000000
 
 ------------------------------------------------------------------------------
 
-User 26 left from station:     1
-User 26 arrived to stations:   15
+User 26 want left from station:     1
+User 26 want arrive to stations:   15
 
-Stazione di arrivo 15 vicina a 6 con distanza 2.970152 
-Stazione di arrivo 15 vicina a 13 con distanza 2.852455 
-Stazione di arrivo 15 vicina a 14 con distanza 2.191552 
+Bikes available at station   1 = 6 bikes 
+
+Columns available at station 15 = 5 columns 
+Near arrive station 13 has 7 columns 
+Distance from arrive station 15 to 13 = 2.852455 
+Money added station 13 = 1.418207 
+Near arrive station 14 has 6 columns 
+Distance from arrive station 15 to 14 = 2.191552 
+Money added station 14 = 1.298925 
+
 
 Gift given by start station   1: 1.585833
 Gift given by arrive station  15: 0.000000
 
+-------BIKE REMOVED-------
 User 26 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 1:  5 
@@ -269,6 +373,7 @@ Gift that will be give by start station   1: 0.000000
 Gift that will be give by arrive station  1: 0.000000
 Number of Visit of start station 1 by the user 26 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 15: 6
 Free Columns station    15: 4 
 
@@ -281,18 +386,27 @@ Money in the system: 998.414167
 
 ------------------------------------------------------------------------------
 
-User 24 left from station:     9
-User 24 arrived to stations:   7
+User 24 want left from station:     9
+User 24 want arrive to stations:   7
 
-Stazione di arrivo 7 vicina a 6 con distanza 1.259365 
-Stazione di arrivo 7 vicina a 10 con distanza 2.750654 
-Stazione di arrivo 7 vicina a 12 con distanza 2.020619 
-Stazione di arrivo 7 vicina a 13 con distanza 2.256214 
-Stazione di arrivo 7 vicina a 14 con distanza 2.252044 
+Bikes available at station   9 = 4 bikes 
+
+Columns available at station 7 = 4 columns 
+Near arrive station 6 has 5 columns 
+Distance from arrive station 7 to 6 = 1.259365 
+Money added station 6 = 1.079901 
+Near arrive station 13 has 7 columns 
+Distance from arrive station 7 to 13 = 2.256214 
+Money added station 13 = 1.311576 
+Near arrive station 14 has 6 columns 
+Distance from arrive station 7 to 14 = 2.252044 
+Money added station 14 = 1.310767 
+
 
 Gift given by start station   9: -1.585833
 Gift given by arrive station  7: -1.585833
 
+-------BIKE REMOVED-------
 User 24 has -3.171666 money
 -------------------------------------------------
 Remaining bikes station 9:  3 
@@ -302,6 +416,7 @@ Gift that will be give by start station   9: -2.514867
 Gift that will be give by arrive station  9: 2.514867
 Number of Visit of start station 9 by the user 24 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 7: 7
 Free Columns station    7: 3 
 
@@ -314,15 +429,21 @@ Money in the system: 1001.585833
 
 ------------------------------------------------------------------------------
 
-User 5 left from station:     3
-User 5 arrived to stations:   10
-Stazione di partenza 3 vicina a 2 con distanza 1.291898 
+User 5 want left from station:     3
+User 5 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   3 = 4 bikes 
+Near start station 2 has 5 bikes 
+Distance from start station 3 to 2 = 1.291898 
+Money added station 2 = 1.089121 
+
+Columns available at station 10 = 4 columns 
+
 
 Gift given by start station   3: -1.585833
 Gift given by arrive station  10: -1.585833
 
+-------BIKE REMOVED-------
 User 5 has -3.171666 money
 -------------------------------------------------
 Remaining bikes station 3:  3 
@@ -332,6 +453,7 @@ Gift that will be give by start station   3: -2.514867
 Gift that will be give by arrive station  3: 2.514867
 Number of Visit of start station 3 by the user 5 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 7
 Free Columns station    10: 3 
 
@@ -344,16 +466,27 @@ Money in the system: 1004.757500
 
 ------------------------------------------------------------------------------
 
-User 10 left from station:     7
-User 10 arrived to stations:   15
+User 10 want left from station:     7
+User 10 want arrive to stations:   15
 
-Stazione di arrivo 15 vicina a 6 con distanza 2.970152 
-Stazione di arrivo 15 vicina a 13 con distanza 2.852455 
-Stazione di arrivo 15 vicina a 14 con distanza 2.191552 
+Bikes available at station   7 = 7 bikes 
+
+Columns available at station 15 = 4 columns 
+Near arrive station 6 has 5 columns 
+Distance from arrive station 15 to 6 = 2.970152 
+Money added station 6 = 1.437450 
+Near arrive station 13 has 7 columns 
+Distance from arrive station 15 to 13 = 2.852455 
+Money added station 13 = 1.418207 
+Near arrive station 14 has 6 columns 
+Distance from arrive station 15 to 14 = 2.191552 
+Money added station 14 = 1.298925 
+
 
 Gift given by start station   7: 2.514867
 Gift given by arrive station  15: -1.585833
 
+-------BIKE REMOVED-------
 User 10 has 0.929034 money
 -------------------------------------------------
 Remaining bikes station 7:  6 
@@ -363,6 +496,7 @@ Gift that will be give by start station   7: 1.585833
 Gift that will be give by arrive station  7: -1.585833
 Number of Visit of start station 7 by the user 10 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 15: 7
 Free Columns station    15: 3 
 
@@ -375,17 +509,18 @@ Money in the system: 1003.828466
 
 ------------------------------------------------------------------------------
 
-User 21 left from station:     10
-User 21 arrived to stations:   13
+User 21 want left from station:     10
+User 21 want arrive to stations:   13
 
-Stazione di arrivo 13 vicina a 7 con distanza 2.256214 
-Stazione di arrivo 13 vicina a 12 con distanza 0.388330 
-Stazione di arrivo 13 vicina a 14 con distanza 0.664831 
-Stazione di arrivo 13 vicina a 15 con distanza 2.852455 
+Bikes available at station   10 = 7 bikes 
+
+Columns available at station 13 = 7 columns 
+
 
 Gift given by start station   10: 2.514867
 Gift given by arrive station  13: 2.514867
 
+-------BIKE REMOVED-------
 User 21 has 5.029734 money
 -------------------------------------------------
 Remaining bikes station 10:  6 
@@ -395,6 +530,7 @@ Gift that will be give by start station   10: 1.585833
 Gift that will be give by arrive station  10: -1.585833
 Number of Visit of start station 10 by the user 21 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 13: 4
 Free Columns station    13: 6 
 
@@ -407,13 +543,18 @@ Money in the system: 998.798732
 
 ------------------------------------------------------------------------------
 
-User 29 left from station:     16
-User 29 arrived to stations:   5
+User 29 want left from station:     16
+User 29 want arrive to stations:   5
+
+Bikes available at station   16 = 5 bikes 
+
+Columns available at station 5 = 4 columns 
 
 
 Gift given by start station   16: 0.000000
 Gift given by arrive station  5: -1.585833
 
+-------BIKE REMOVED-------
 User 29 has -1.585833 money
 -------------------------------------------------
 Remaining bikes station 16:  4 
@@ -423,6 +564,7 @@ Gift that will be give by start station   16: -1.585833
 Gift that will be give by arrive station  16: 1.585833
 Number of Visit of start station 16 by the user 29 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 5: 7
 Free Columns station    5: 3 
 
@@ -435,15 +577,21 @@ Money in the system: 1000.384565
 
 ------------------------------------------------------------------------------
 
-User 34 left from station:     5
-User 34 arrived to stations:   1
+User 34 want left from station:     5
+User 34 want arrive to stations:   1
 
-Stazione di arrivo 1 vicina a 8 con distanza 0.720278 
-Stazione di arrivo 1 vicina a 16 con distanza 1.412091 
+Bikes available at station   5 = 7 bikes 
+
+Columns available at station 1 = 5 columns 
+Near arrive station 16 has 6 columns 
+Distance from arrive station 1 to 16 = 1.412091 
+Money added station 16 = 1.121900 
+
 
 Gift given by start station   5: 2.514867
 Gift given by arrive station  1: 0.000000
 
+-------BIKE REMOVED-------
 User 34 has 2.514867 money
 -------------------------------------------------
 Remaining bikes station 5:  6 
@@ -453,6 +601,7 @@ Gift that will be give by start station   5: 1.585833
 Gift that will be give by arrive station  5: -1.585833
 Number of Visit of start station 5 by the user 34 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 1: 6
 Free Columns station    1: 4 
 
@@ -465,16 +614,27 @@ Money in the system: 997.869698
 
 ------------------------------------------------------------------------------
 
-User 6 left from station:     1
-User 6 arrived to stations:   12
+User 6 want left from station:     1
+User 6 want arrive to stations:   12
 
-Stazione di arrivo 12 vicina a 7 con distanza 2.020619 
-Stazione di arrivo 12 vicina a 13 con distanza 0.388330 
-Stazione di arrivo 12 vicina a 14 con distanza 0.960833 
+Bikes available at station   1 = 6 bikes 
+
+Columns available at station 12 = 3 columns 
+Near arrive station 7 has 4 columns 
+Distance from arrive station 12 to 7 = 2.020619 
+Money added station 7 = 1.264236 
+Near arrive station 13 has 6 columns 
+Distance from arrive station 12 to 13 = 0.388330 
+Money added station 13 = 0.729570 
+Near arrive station 14 has 6 columns 
+Distance from arrive station 12 to 14 = 0.960833 
+Money added station 14 = 0.986770 
+
 
 Gift given by start station   1: 1.585833
 Gift given by arrive station  12: -2.514867
 
+-------BIKE REMOVED-------
 User 6 has -0.929034 money
 -------------------------------------------------
 Remaining bikes station 1:  5 
@@ -484,6 +644,7 @@ Gift that will be give by start station   1: 0.000000
 Gift that will be give by arrive station  1: 0.000000
 Number of Visit of start station 1 by the user 6 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 12: 8
 Free Columns station    12: 2 
 
@@ -496,15 +657,21 @@ Money in the system: 998.798732
 
 ------------------------------------------------------------------------------
 
-User 28 left from station:     1
-User 28 arrived to stations:   8
+User 28 want left from station:     1
+User 28 want arrive to stations:   8
 
-Stazione di arrivo 8 vicina a 4 con distanza 2.961419 
-Stazione di arrivo 8 vicina a 16 con distanza 2.039608 
+Bikes available at station   1 = 5 bikes 
+
+Columns available at station 8 = 5 columns 
+Near arrive station 16 has 6 columns 
+Distance from arrive station 8 to 16 = 2.039608 
+Money added station 16 = 1.268184 
+
 
 Gift given by start station   1: 0.000000
 Gift given by arrive station  8: 0.000000
 
+-------BIKE REMOVED-------
 User 28 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 1:  4 
@@ -514,6 +681,7 @@ Gift that will be give by start station   1: -1.585833
 Gift that will be give by arrive station  1: 1.585833
 Number of Visit of start station 1 by the user 28 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 8: 6
 Free Columns station    8: 4 
 
@@ -526,14 +694,21 @@ Money in the system: 998.798732
 
 ------------------------------------------------------------------------------
 
-User 26 left from station:     12
-User 26 arrived to stations:   2
+User 26 want left from station:     12
+User 26 want arrive to stations:   2
 
-Stazione di arrivo 2 vicina a 3 con distanza 1.291898 
+Bikes available at station   12 = 8 bikes 
+
+Columns available at station 2 = 5 columns 
+Near arrive station 3 has 7 columns 
+Distance from arrive station 2 to 3 = 1.291898 
+Money added station 3 = 1.089121 
+
 
 Gift given by start station   12: 3.988159
 Gift given by arrive station  2: 0.000000
 
+-------BIKE REMOVED-------
 User 26 has 5.573992 money
 -------------------------------------------------
 Remaining bikes station 12:  7 
@@ -543,6 +718,7 @@ Gift that will be give by start station   12: 2.514867
 Gift that will be give by arrive station  12: -2.514867
 Number of Visit of start station 12 by the user 26 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 2: 6
 Free Columns station    2: 4 
 
@@ -555,14 +731,21 @@ Money in the system: 994.810573
 
 ------------------------------------------------------------------------------
 
-User 18 left from station:     7
-User 18 arrived to stations:   3
+User 18 want left from station:     7
+User 18 want arrive to stations:   3
 
-Stazione di arrivo 3 vicina a 2 con distanza 1.291898 
+Bikes available at station   7 = 6 bikes 
+Near start station 12 has 7 bikes 
+Distance from start station 7 to 12 = 2.020619 
+Money added station 12 = 1.264236 
+
+Columns available at station 3 = 7 columns 
+
 
 Gift given by start station   7: 1.585833
 Gift given by arrive station  3: 2.514867
 
+-------BIKE REMOVED-------
 User 18 has 0.929034 money
 -------------------------------------------------
 Remaining bikes station 7:  5 
@@ -572,6 +755,7 @@ Gift that will be give by start station   7: 0.000000
 Gift that will be give by arrive station  7: 0.000000
 Number of Visit of start station 7 by the user 18 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 3: 4
 Free Columns station    3: 6 
 
@@ -584,15 +768,33 @@ Money in the system: 990.709873
 
 ------------------------------------------------------------------------------
 
-User 9 left from station:     14
-User 9 arrived to stations:   2
-Stazione di partenza 14 vicina a 12 con distanza 0.960833 
+User 9 want left from station:     14
+User 9 want arrive to stations:   2
 
-Stazione di arrivo 2 vicina a 3 con distanza 1.291898 
+Bikes available at station   14 = 4 bikes 
+Near start station 6 has 5 bikes 
+Distance from start station 14 to 6 = 2.980419 
+Money added station 6 = 1.439105 
+Near start station 7 has 5 bikes 
+Distance from start station 14 to 7 = 2.252044 
+Money added station 7 = 1.310767 
+Near start station 12 has 7 bikes 
+Distance from start station 14 to 12 = 0.960833 
+Money added station 12 = 0.986770 
+Near start station 15 has 7 bikes 
+Distance from start station 14 to 15 = 2.191552 
+Money added station 15 = 1.298925 
+
+Columns available at station 2 = 4 columns 
+Near arrive station 3 has 6 columns 
+Distance from arrive station 2 to 3 = 1.291898 
+Money added station 3 = 1.089121 
+
 
 Gift given by start station   14: -1.585833
 Gift given by arrive station  2: -1.585833
 
+-------BIKE REMOVED-------
 User 9 has -3.171666 money
 -------------------------------------------------
 Remaining bikes station 14:  3 
@@ -602,6 +804,7 @@ Gift that will be give by start station   14: -2.514867
 Gift that will be give by arrive station  14: 2.514867
 Number of Visit of start station 14 by the user 9 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 2: 7
 Free Columns station    2: 3 
 
@@ -614,13 +817,21 @@ Money in the system: 993.881539
 
 ------------------------------------------------------------------------------
 
-User 35 left from station:     16
-User 35 arrived to stations:   11
+User 35 want left from station:     16
+User 35 want arrive to stations:   11
+
+Bikes available at station   16 = 4 bikes 
+Near start station 8 has 6 bikes 
+Distance from start station 16 to 8 = 2.039608 
+Money added station 8 = 1.268184 
+
+Columns available at station 11 = 6 columns 
 
 
 Gift given by start station   16: -1.585833
 Gift given by arrive station  11: 1.585833
 
+-------BIKE REMOVED-------
 User 35 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 16:  3 
@@ -630,6 +841,7 @@ Gift that will be give by start station   16: -2.514867
 Gift that will be give by arrive station  16: 2.514867
 Number of Visit of start station 16 by the user 35 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 11: 5
 Free Columns station    11: 5 
 
@@ -642,14 +854,21 @@ Money in the system: 993.881539
 
 ------------------------------------------------------------------------------
 
-User 24 left from station:     11
-User 24 arrived to stations:   10
+User 24 want left from station:     11
+User 24 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   11 = 5 bikes 
+
+Columns available at station 10 = 4 columns 
+Near arrive station 7 has 5 columns 
+Distance from arrive station 10 to 7 = 2.750654 
+Money added station 7 = 1.401131 
+
 
 Gift given by start station   11: 0.000000
 Gift given by arrive station  10: -1.585833
 
+-------BIKE REMOVED-------
 User 24 has -4.757500 money
 -------------------------------------------------
 Remaining bikes station 11:  4 
@@ -659,6 +878,7 @@ Gift that will be give by start station   11: -1.585833
 Gift that will be give by arrive station  11: 1.585833
 Number of Visit of start station 11 by the user 24 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 7
 Free Columns station    10: 3 
 
@@ -671,15 +891,19 @@ Money in the system: 995.467372
 
 ------------------------------------------------------------------------------
 
-User 26 left from station:     10
-User 26 arrived to stations:   3
+User 26 want left from station:     10
+User 26 want arrive to stations:   3
 
-Stazione di arrivo 3 vicina a 2 con distanza 1.291898 
+Bikes available at station   10 = 7 bikes 
+
+Columns available at station 3 = 6 columns 
+
 
 Gift given by start station   10: 2.514867
 Gift given by arrive station  3: 1.585833
 
-User 26 has 9.674693 money
+-------BIKE REMOVED-------
+User 26 has 10.763813 money
 -------------------------------------------------
 Remaining bikes station 10:  6 
 Free Columns station    10:  4 
@@ -688,6 +912,7 @@ Gift that will be give by start station   10: 1.585833
 Gift that will be give by arrive station  10: -1.585833
 Number of Visit of start station 10 by the user 26 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 3: 5
 Free Columns station    3: 5 
 
@@ -700,17 +925,21 @@ Money in the system: 991.366672
 
 ------------------------------------------------------------------------------
 
-User 21 left from station:     10
-User 21 arrived to stations:   13
+User 21 want left from station:     10
+User 21 want arrive to stations:   13
 
-Stazione di arrivo 13 vicina a 7 con distanza 2.256214 
-Stazione di arrivo 13 vicina a 12 con distanza 0.388330 
-Stazione di arrivo 13 vicina a 14 con distanza 0.664831 
-Stazione di arrivo 13 vicina a 15 con distanza 2.852455 
+Bikes available at station   10 = 6 bikes 
+
+Columns available at station 13 = 6 columns 
+Near arrive station 14 has 7 columns 
+Distance from arrive station 13 to 14 = 0.664831 
+Money added station 14 = 0.872778 
+
 
 Gift given by start station   10: 1.585833
 Gift given by arrive station  13: 1.585833
 
+-------BIKE REMOVED-------
 User 21 has 8.201400 money
 -------------------------------------------------
 Remaining bikes station 10:  5 
@@ -720,6 +949,7 @@ Gift that will be give by start station   10: 0.000000
 Gift that will be give by arrive station  10: 0.000000
 Number of Visit of start station 10 by the user 21 = 2 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 13: 5
 Free Columns station    13: 5 
 
@@ -732,15 +962,21 @@ Money in the system: 988.195006
 
 ------------------------------------------------------------------------------
 
-User 32 left from station:     15
-User 32 arrived to stations:   6
+User 32 want left from station:     15
+User 32 want arrive to stations:   6
 
-Stazione di arrivo 6 vicina a 7 con distanza 1.259365 
-Stazione di arrivo 6 vicina a 14 con distanza 2.980419 
+Bikes available at station   15 = 7 bikes 
+
+Columns available at station 6 = 5 columns 
+Near arrive station 14 has 7 columns 
+Distance from arrive station 6 to 14 = 2.980419 
+Money added station 14 = 1.439105 
+
 
 Gift given by start station   15: 2.514867
 Gift given by arrive station  6: 0.000000
 
+-------BIKE REMOVED-------
 User 32 has 2.514867 money
 -------------------------------------------------
 Remaining bikes station 15:  6 
@@ -750,6 +986,7 @@ Gift that will be give by start station   15: 1.585833
 Gift that will be give by arrive station  15: -1.585833
 Number of Visit of start station 15 by the user 32 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 6: 6
 Free Columns station    6: 4 
 
@@ -762,14 +999,18 @@ Money in the system: 985.680139
 
 ------------------------------------------------------------------------------
 
-User 17 left from station:     6
-User 17 arrived to stations:   10
+User 17 want left from station:     6
+User 17 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   6 = 6 bikes 
+
+Columns available at station 10 = 5 columns 
+
 
 Gift given by start station   6: 1.585833
 Gift given by arrive station  10: 0.000000
 
+-------BIKE REMOVED-------
 User 17 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 6:  5 
@@ -779,6 +1020,7 @@ Gift that will be give by start station   6: 0.000000
 Gift that will be give by arrive station  6: 0.000000
 Number of Visit of start station 6 by the user 17 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 6
 Free Columns station    10: 4 
 
@@ -791,14 +1033,21 @@ Money in the system: 984.094306
 
 ------------------------------------------------------------------------------
 
-User 32 left from station:     3
-User 32 arrived to stations:   11
-Stazione di partenza 3 vicina a 2 con distanza 1.291898 
+User 32 want left from station:     3
+User 32 want arrive to stations:   11
+
+Bikes available at station   3 = 5 bikes 
+Near start station 2 has 7 bikes 
+Distance from start station 3 to 2 = 1.291898 
+Money added station 2 = 1.089121 
+
+Columns available at station 11 = 6 columns 
 
 
 Gift given by start station   3: 0.000000
 Gift given by arrive station  11: 1.585833
 
+-------BIKE REMOVED-------
 User 32 has 4.100700 money
 -------------------------------------------------
 Remaining bikes station 3:  4 
@@ -808,6 +1057,7 @@ Gift that will be give by start station   3: -1.585833
 Gift that will be give by arrive station  3: 1.585833
 Number of Visit of start station 3 by the user 32 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 11: 5
 Free Columns station    11: 5 
 
@@ -820,15 +1070,24 @@ Money in the system: 982.508473
 
 ------------------------------------------------------------------------------
 
-User 1 left from station:     13
-User 1 arrived to stations:   4
-Stazione di partenza 13 vicina a 12 con distanza 0.388330 
+User 1 want left from station:     13
+User 1 want arrive to stations:   4
 
-Stazione di arrivo 4 vicina a 8 con distanza 2.961419 
+Bikes available at station   13 = 5 bikes 
+Near start station 12 has 7 bikes 
+Distance from start station 13 to 12 = 0.388330 
+Money added station 12 = 0.729570 
+Near start station 15 has 6 bikes 
+Distance from start station 13 to 15 = 2.852455 
+Money added station 15 = 1.418207 
+
+Columns available at station 4 = 5 columns 
+
 
 Gift given by start station   13: 0.000000
 Gift given by arrive station  4: 0.000000
 
+-------BIKE REMOVED-------
 User 1 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 13:  4 
@@ -838,6 +1097,7 @@ Gift that will be give by start station   13: -1.585833
 Gift that will be give by arrive station  13: 1.585833
 Number of Visit of start station 13 by the user 1 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 4: 6
 Free Columns station    4: 4 
 
@@ -850,18 +1110,24 @@ Money in the system: 982.508473
 
 ------------------------------------------------------------------------------
 
-User 7 left from station:     8
-User 7 arrived to stations:   7
+User 7 want left from station:     8
+User 7 want arrive to stations:   7
 
-Stazione di arrivo 7 vicina a 6 con distanza 1.259365 
-Stazione di arrivo 7 vicina a 10 con distanza 2.750654 
-Stazione di arrivo 7 vicina a 12 con distanza 2.020619 
-Stazione di arrivo 7 vicina a 13 con distanza 2.256214 
-Stazione di arrivo 7 vicina a 14 con distanza 2.252044 
+Bikes available at station   8 = 6 bikes 
+
+Columns available at station 7 = 5 columns 
+Near arrive station 13 has 6 columns 
+Distance from arrive station 7 to 13 = 2.256214 
+Money added station 13 = 1.311576 
+Near arrive station 14 has 7 columns 
+Distance from arrive station 7 to 14 = 2.252044 
+Money added station 14 = 1.310767 
+
 
 Gift given by start station   8: 1.585833
 Gift given by arrive station  7: 0.000000
 
+-------BIKE REMOVED-------
 User 7 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 8:  5 
@@ -871,6 +1137,7 @@ Gift that will be give by start station   8: 0.000000
 Gift that will be give by arrive station  8: 0.000000
 Number of Visit of start station 8 by the user 7 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 7: 6
 Free Columns station    7: 4 
 
@@ -883,18 +1150,27 @@ Money in the system: 980.922640
 
 ------------------------------------------------------------------------------
 
-User 31 left from station:     5
-User 31 arrived to stations:   7
+User 31 want left from station:     5
+User 31 want arrive to stations:   7
 
-Stazione di arrivo 7 vicina a 6 con distanza 1.259365 
-Stazione di arrivo 7 vicina a 10 con distanza 2.750654 
-Stazione di arrivo 7 vicina a 12 con distanza 2.020619 
-Stazione di arrivo 7 vicina a 13 con distanza 2.256214 
-Stazione di arrivo 7 vicina a 14 con distanza 2.252044 
+Bikes available at station   5 = 6 bikes 
+
+Columns available at station 7 = 4 columns 
+Near arrive station 6 has 5 columns 
+Distance from arrive station 7 to 6 = 1.259365 
+Money added station 6 = 1.079901 
+Near arrive station 13 has 6 columns 
+Distance from arrive station 7 to 13 = 2.256214 
+Money added station 13 = 1.311576 
+Near arrive station 14 has 7 columns 
+Distance from arrive station 7 to 14 = 2.252044 
+Money added station 14 = 1.310767 
+
 
 Gift given by start station   5: 1.585833
 Gift given by arrive station  7: -1.585833
 
+-------BIKE REMOVED-------
 User 31 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 5:  5 
@@ -904,6 +1180,7 @@ Gift that will be give by start station   5: 0.000000
 Gift that will be give by arrive station  5: 0.000000
 Number of Visit of start station 5 by the user 31 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 7: 7
 Free Columns station    7: 3 
 
@@ -916,17 +1193,30 @@ Money in the system: 980.922640
 
 ------------------------------------------------------------------------------
 
-User 30 left from station:     14
-User 30 arrived to stations:   13
-Stazione di partenza 14 vicina a 12 con distanza 0.960833 
+User 30 want left from station:     14
+User 30 want arrive to stations:   13
 
-Stazione di arrivo 13 vicina a 7 con distanza 2.256214 
-Stazione di arrivo 13 vicina a 12 con distanza 0.388330 
-Stazione di arrivo 13 vicina a 15 con distanza 2.852455 
+Bikes available at station   14 = 3 bikes 
+Near start station 6 has 5 bikes 
+Distance from start station 14 to 6 = 2.980419 
+Money added station 6 = 1.439105 
+Near start station 7 has 7 bikes 
+Distance from start station 14 to 7 = 2.252044 
+Money added station 7 = 1.310767 
+Near start station 12 has 7 bikes 
+Distance from start station 14 to 12 = 0.960833 
+Money added station 12 = 0.986770 
+Near start station 15 has 6 bikes 
+Distance from start station 14 to 15 = 2.191552 
+Money added station 15 = 1.298925 
+
+Columns available at station 13 = 6 columns 
+
 
 Gift given by start station   14: -2.514867
 Gift given by arrive station  13: 1.585833
 
+-------BIKE REMOVED-------
 User 30 has -0.929034 money
 -------------------------------------------------
 Remaining bikes station 14:  2 
@@ -936,6 +1226,7 @@ Gift that will be give by start station   14: -3.988159
 Gift that will be give by arrive station  14: 3.988159
 Number of Visit of start station 14 by the user 30 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 13: 5
 Free Columns station    13: 5 
 
@@ -948,15 +1239,22 @@ Money in the system: 981.851673
 
 ------------------------------------------------------------------------------
 
-User 6 left from station:     7
-User 6 arrived to stations:   4
+User 6 want left from station:     7
+User 6 want arrive to stations:   4
 
-Stazione di arrivo 4 vicina a 8 con distanza 2.961419 
+Bikes available at station   7 = 7 bikes 
+
+Columns available at station 4 = 4 columns 
+Near arrive station 8 has 5 columns 
+Distance from arrive station 4 to 8 = 2.961419 
+Money added station 8 = 1.436040 
+
 
 Gift given by start station   7: 2.514867
 Gift given by arrive station  4: -1.585833
 
-User 6 has 0.000000 money
+-------BIKE REMOVED-------
+User 6 has 1.264236 money
 -------------------------------------------------
 Remaining bikes station 7:  6 
 Free Columns station    7:  4 
@@ -965,6 +1263,7 @@ Gift that will be give by start station   7: 1.585833
 Gift that will be give by arrive station  7: -1.585833
 Number of Visit of start station 7 by the user 6 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 4: 7
 Free Columns station    4: 3 
 
@@ -977,14 +1276,21 @@ Money in the system: 980.922640
 
 ------------------------------------------------------------------------------
 
-User 31 left from station:     8
-User 31 arrived to stations:   10
+User 31 want left from station:     8
+User 31 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   8 = 5 bikes 
+Near start station 4 has 7 bikes 
+Distance from start station 8 to 4 = 2.961419 
+Money added station 4 = 1.436040 
+
+Columns available at station 10 = 4 columns 
+
 
 Gift given by start station   8: 0.000000
 Gift given by arrive station  10: -1.585833
 
+-------BIKE REMOVED-------
 User 31 has 0.000000 money
 -------------------------------------------------
 Remaining bikes station 8:  4 
@@ -994,6 +1300,7 @@ Gift that will be give by start station   8: -1.585833
 Gift that will be give by arrive station  8: 1.585833
 Number of Visit of start station 8 by the user 31 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 7
 Free Columns station    10: 3 
 
@@ -1006,15 +1313,27 @@ Money in the system: 982.508473
 
 ------------------------------------------------------------------------------
 
-User 17 left from station:     16
-User 17 arrived to stations:   10
-Stazione di partenza 16 vicina a 1 con distanza 1.412091 
+User 17 want left from station:     16
+User 17 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   16 = 3 bikes 
+Near start station 1 has 4 bikes 
+Distance from start station 16 to 1 = 1.412091 
+Money added station 1 = 1.121900 
+Near start station 8 has 4 bikes 
+Distance from start station 16 to 8 = 2.039608 
+Money added station 8 = 1.268184 
+
+Columns available at station 10 = 3 columns 
+Near arrive station 7 has 4 columns 
+Distance from arrive station 10 to 7 = 2.750654 
+Money added station 7 = 1.401131 
+
 
 Gift given by start station   16: -2.514867
 Gift given by arrive station  10: -2.514867
 
+-------BIKE REMOVED-------
 User 17 has -3.443901 money
 -------------------------------------------------
 Remaining bikes station 16:  2 
@@ -1024,6 +1343,7 @@ Gift that will be give by start station   16: -3.988159
 Gift that will be give by arrive station  16: 3.988159
 Number of Visit of start station 16 by the user 17 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 8
 Free Columns station    10: 2 
 
@@ -1036,18 +1356,18 @@ Money in the system: 987.538206
 
 ------------------------------------------------------------------------------
 
-User 23 left from station:     2
-User 23 arrived to stations:   14
+User 23 want left from station:     2
+User 23 want arrive to stations:   14
 
-Stazione di arrivo 14 vicina a 6 con distanza 2.980419 
-Stazione di arrivo 14 vicina a 7 con distanza 2.252044 
-Stazione di arrivo 14 vicina a 12 con distanza 0.960833 
-Stazione di arrivo 14 vicina a 13 con distanza 0.664831 
-Stazione di arrivo 14 vicina a 15 con distanza 2.191552 
+Bikes available at station   2 = 7 bikes 
+
+Columns available at station 14 = 8 columns 
+
 
 Gift given by start station   2: 2.514867
 Gift given by arrive station  14: 3.988159
 
+-------BIKE REMOVED-------
 User 23 has 6.503026 money
 -------------------------------------------------
 Remaining bikes station 2:  6 
@@ -1057,6 +1377,7 @@ Gift that will be give by start station   2: 1.585833
 Gift that will be give by arrive station  2: -1.585833
 Number of Visit of start station 2 by the user 23 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 14: 3
 Free Columns station    14: 7 
 
@@ -1069,17 +1390,18 @@ Money in the system: 981.035180
 
 ------------------------------------------------------------------------------
 
-User 9 left from station:     15
-User 9 arrived to stations:   14
+User 9 want left from station:     15
+User 9 want arrive to stations:   14
 
-Stazione di arrivo 14 vicina a 6 con distanza 2.980419 
-Stazione di arrivo 14 vicina a 7 con distanza 2.252044 
-Stazione di arrivo 14 vicina a 12 con distanza 0.960833 
-Stazione di arrivo 14 vicina a 13 con distanza 0.664831 
+Bikes available at station   15 = 6 bikes 
+
+Columns available at station 14 = 7 columns 
+
 
 Gift given by start station   15: 1.585833
 Gift given by arrive station  14: 2.514867
 
+-------BIKE REMOVED-------
 User 9 has 0.929034 money
 -------------------------------------------------
 Remaining bikes station 15:  5 
@@ -1089,6 +1411,7 @@ Gift that will be give by start station   15: 0.000000
 Gift that will be give by arrive station  15: 0.000000
 Number of Visit of start station 15 by the user 9 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 14: 4
 Free Columns station    14: 6 
 
@@ -1101,14 +1424,24 @@ Money in the system: 976.934480
 
 ------------------------------------------------------------------------------
 
-User 28 left from station:     7
-User 28 arrived to stations:   3
+User 28 want left from station:     7
+User 28 want arrive to stations:   3
 
-Stazione di arrivo 3 vicina a 2 con distanza 1.291898 
+Bikes available at station   7 = 6 bikes 
+Near start station 10 has 8 bikes 
+Distance from start station 7 to 10 = 2.750654 
+Money added station 10 = 1.401131 
+Near start station 12 has 7 bikes 
+Distance from start station 7 to 12 = 2.020619 
+Money added station 12 = 1.264236 
+
+Columns available at station 3 = 6 columns 
+
 
 Gift given by start station   7: 1.585833
 Gift given by arrive station  3: 1.585833
 
+-------BIKE REMOVED-------
 User 28 has 3.171666 money
 -------------------------------------------------
 Remaining bikes station 7:  5 
@@ -1118,6 +1451,7 @@ Gift that will be give by start station   7: 0.000000
 Gift that will be give by arrive station  7: 0.000000
 Number of Visit of start station 7 by the user 28 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 3: 5
 Free Columns station    3: 5 
 
@@ -1130,18 +1464,25 @@ Money in the system: 973.762814
 
 ------------------------------------------------------------------------------
 
-User 26 left from station:     7
-User 26 arrived to stations:   14
+User 26 want left from station:     7
+User 26 want arrive to stations:   14
 
-Stazione di arrivo 14 vicina a 6 con distanza 2.980419 
-Stazione di arrivo 14 vicina a 12 con distanza 0.960833 
-Stazione di arrivo 14 vicina a 13 con distanza 0.664831 
-Stazione di arrivo 14 vicina a 15 con distanza 2.191552 
+Bikes available at station   7 = 5 bikes 
+Near start station 10 has 8 bikes 
+Distance from start station 7 to 10 = 2.750654 
+Money added station 10 = 1.401131 
+Near start station 12 has 7 bikes 
+Distance from start station 7 to 12 = 2.020619 
+Money added station 12 = 1.264236 
+
+Columns available at station 14 = 6 columns 
+
 
 Gift given by start station   7: 0.000000
 Gift given by arrive station  14: 1.585833
 
-User 26 has 11.260526 money
+-------BIKE REMOVED-------
+User 26 has 12.349646 money
 -------------------------------------------------
 Remaining bikes station 7:  4 
 Free Columns station    7:  6 
@@ -1150,6 +1491,7 @@ Gift that will be give by start station   7: -1.585833
 Gift that will be give by arrive station  7: 1.585833
 Number of Visit of start station 7 by the user 26 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 14: 5
 Free Columns station    14: 5 
 
@@ -1162,15 +1504,18 @@ Money in the system: 972.176981
 
 ------------------------------------------------------------------------------
 
-User 8 left from station:     5
-User 8 arrived to stations:   16
+User 8 want left from station:     5
+User 8 want arrive to stations:   16
 
-Stazione di arrivo 16 vicina a 1 con distanza 1.412091 
-Stazione di arrivo 16 vicina a 8 con distanza 2.039608 
+Bikes available at station   5 = 5 bikes 
+
+Columns available at station 16 = 8 columns 
+
 
 Gift given by start station   5: 0.000000
 Gift given by arrive station  16: 3.988159
 
+-------BIKE REMOVED-------
 User 8 has 3.988159 money
 -------------------------------------------------
 Remaining bikes station 5:  4 
@@ -1180,6 +1525,7 @@ Gift that will be give by start station   5: -1.585833
 Gift that will be give by arrive station  5: 1.585833
 Number of Visit of start station 5 by the user 8 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 16: 3
 Free Columns station    16: 7 
 
@@ -1192,14 +1538,21 @@ Money in the system: 968.188821
 
 ------------------------------------------------------------------------------
 
-User 2 left from station:     8
-User 2 arrived to stations:   3
+User 2 want left from station:     8
+User 2 want arrive to stations:   3
 
-Stazione di arrivo 3 vicina a 2 con distanza 1.291898 
+Bikes available at station   8 = 4 bikes 
+Near start station 4 has 7 bikes 
+Distance from start station 8 to 4 = 2.961419 
+Money added station 4 = 1.436040 
+
+Columns available at station 3 = 5 columns 
+
 
 Gift given by start station   8: -1.585833
 Gift given by arrive station  3: 0.000000
 
+-------BIKE REMOVED-------
 User 2 has -1.585833 money
 -------------------------------------------------
 Remaining bikes station 8:  3 
@@ -1209,6 +1562,7 @@ Gift that will be give by start station   8: -2.514867
 Gift that will be give by arrive station  8: 2.514867
 Number of Visit of start station 8 by the user 2 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 3: 6
 Free Columns station    3: 4 
 
@@ -1221,14 +1575,21 @@ Money in the system: 969.774655
 
 ------------------------------------------------------------------------------
 
-User 39 left from station:     9
-User 39 arrived to stations:   10
+User 39 want left from station:     9
+User 39 want arrive to stations:   10
 
-Stazione di arrivo 10 vicina a 7 con distanza 2.750654 
+Bikes available at station   9 = 3 bikes 
+
+Columns available at station 10 = 2 columns 
+Near arrive station 7 has 6 columns 
+Distance from arrive station 10 to 7 = 2.750654 
+Money added station 7 = 1.401131 
+
 
 Gift given by start station   9: -2.514867
 Gift given by arrive station  10: -3.988159
 
+-------BIKE REMOVED-------
 User 39 has -6.503026 money
 -------------------------------------------------
 Remaining bikes station 9:  2 
@@ -1238,6 +1599,7 @@ Gift that will be give by start station   9: -3.988159
 Gift that will be give by arrive station  9: 3.988159
 Number of Visit of start station 9 by the user 39 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 10: 9
 Free Columns station    10: 1 
 
@@ -1250,16 +1612,27 @@ Money in the system: 976.277681
 
 ------------------------------------------------------------------------------
 
-User 28 left from station:     4
-User 28 arrived to stations:   12
+User 28 want left from station:     4
+User 28 want arrive to stations:   12
 
-Stazione di arrivo 12 vicina a 7 con distanza 2.020619 
-Stazione di arrivo 12 vicina a 13 con distanza 0.388330 
-Stazione di arrivo 12 vicina a 14 con distanza 0.960833 
+Bikes available at station   4 = 7 bikes 
+
+Columns available at station 12 = 3 columns 
+Near arrive station 7 has 6 columns 
+Distance from arrive station 12 to 7 = 2.020619 
+Money added station 7 = 1.264236 
+Near arrive station 13 has 5 columns 
+Distance from arrive station 12 to 13 = 0.388330 
+Money added station 13 = 0.729570 
+Near arrive station 14 has 5 columns 
+Distance from arrive station 12 to 14 = 0.960833 
+Money added station 14 = 0.986770 
+
 
 Gift given by start station   4: 2.514867
 Gift given by arrive station  12: -2.514867
 
+-------BIKE REMOVED-------
 User 28 has 3.171666 money
 -------------------------------------------------
 Remaining bikes station 4:  6 
@@ -1269,6 +1642,7 @@ Gift that will be give by start station   4: 1.585833
 Gift that will be give by arrive station  4: -1.585833
 Number of Visit of start station 4 by the user 28 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 12: 8
 Free Columns station    12: 2 
 
@@ -1281,16 +1655,18 @@ Money in the system: 976.277681
 
 ------------------------------------------------------------------------------
 
-User 1 left from station:     3
-User 1 arrived to stations:   15
+User 1 want left from station:     3
+User 1 want arrive to stations:   15
 
-Stazione di arrivo 15 vicina a 6 con distanza 2.970152 
-Stazione di arrivo 15 vicina a 13 con distanza 2.852455 
-Stazione di arrivo 15 vicina a 14 con distanza 2.191552 
+Bikes available at station   3 = 6 bikes 
+
+Columns available at station 15 = 5 columns 
+
 
 Gift given by start station   3: 1.585833
 Gift given by arrive station  15: 0.000000
 
+-------BIKE REMOVED-------
 User 1 has 1.585833 money
 -------------------------------------------------
 Remaining bikes station 3:  5 
@@ -1300,6 +1676,7 @@ Gift that will be give by start station   3: 0.000000
 Gift that will be give by arrive station  3: 0.000000
 Number of Visit of start station 3 by the user 1 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 15: 6
 Free Columns station    15: 4 
 
@@ -1312,16 +1689,27 @@ Money in the system: 974.691848
 
 ------------------------------------------------------------------------------
 
-User 11 left from station:     5
-User 11 arrived to stations:   15
+User 11 want left from station:     5
+User 11 want arrive to stations:   15
 
-Stazione di arrivo 15 vicina a 6 con distanza 2.970152 
-Stazione di arrivo 15 vicina a 13 con distanza 2.852455 
-Stazione di arrivo 15 vicina a 14 con distanza 2.191552 
+Bikes available at station   5 = 4 bikes 
+
+Columns available at station 15 = 4 columns 
+Near arrive station 6 has 5 columns 
+Distance from arrive station 15 to 6 = 2.970152 
+Money added station 6 = 1.437450 
+Near arrive station 13 has 5 columns 
+Distance from arrive station 15 to 13 = 2.852455 
+Money added station 13 = 1.418207 
+Near arrive station 14 has 5 columns 
+Distance from arrive station 15 to 14 = 2.191552 
+Money added station 14 = 1.298925 
+
 
 Gift given by start station   5: -1.585833
 Gift given by arrive station  15: -1.585833
 
+-------BIKE REMOVED-------
 User 11 has -3.171666 money
 -------------------------------------------------
 Remaining bikes station 5:  3 
@@ -1331,6 +1719,7 @@ Gift that will be give by start station   5: -2.514867
 Gift that will be give by arrive station  5: 2.514867
 Number of Visit of start station 5 by the user 11 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 15: 7
 Free Columns station    15: 3 
 
@@ -1343,16 +1732,21 @@ Money in the system: 977.863514
 
 ------------------------------------------------------------------------------
 
-User 20 left from station:     5
-User 20 arrived to stations:   6
+User 20 want left from station:     5
+User 20 want arrive to stations:   6
 
-Stazione di arrivo 6 vicina a 7 con distanza 1.259365 
-Stazione di arrivo 6 vicina a 14 con distanza 2.980419 
-Stazione di arrivo 6 vicina a 15 con distanza 2.970152 
+Bikes available at station   5 = 3 bikes 
+
+Columns available at station 6 = 5 columns 
+Near arrive station 7 has 6 columns 
+Distance from arrive station 6 to 7 = 1.259365 
+Money added station 7 = 1.079901 
+
 
 Gift given by start station   5: -2.514867
 Gift given by arrive station  6: 0.000000
 
+-------BIKE REMOVED-------
 User 20 has -2.514867 money
 -------------------------------------------------
 Remaining bikes station 5:  2 
@@ -1362,6 +1756,7 @@ Gift that will be give by start station   5: -3.988159
 Gift that will be give by arrive station  5: 3.988159
 Number of Visit of start station 5 by the user 20 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 6: 6
 Free Columns station    6: 4 
 
@@ -1374,14 +1769,21 @@ Money in the system: 980.378381
 
 ------------------------------------------------------------------------------
 
-User 28 left from station:     16
-User 28 arrived to stations:   5
-Stazione di partenza 16 vicina a 1 con distanza 1.412091 
+User 28 want left from station:     16
+User 28 want arrive to stations:   5
+
+Bikes available at station   16 = 3 bikes 
+Near start station 1 has 4 bikes 
+Distance from start station 16 to 1 = 1.412091 
+Money added station 1 = 1.121900 
+
+Columns available at station 5 = 8 columns 
 
 
 Gift given by start station   16: -2.514867
 Gift given by arrive station  5: 3.988159
 
+-------BIKE REMOVED-------
 User 28 has 4.644959 money
 -------------------------------------------------
 Remaining bikes station 16:  2 
@@ -1391,6 +1793,7 @@ Gift that will be give by start station   16: -3.988159
 Gift that will be give by arrive station  16: 3.988159
 Number of Visit of start station 16 by the user 28 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 5: 3
 Free Columns station    5: 7 
 
@@ -1403,16 +1806,27 @@ Money in the system: 978.905088
 
 ------------------------------------------------------------------------------
 
-User 4 left from station:     10
-User 4 arrived to stations:   15
+User 4 want left from station:     10
+User 4 want arrive to stations:   15
 
-Stazione di arrivo 15 vicina a 6 con distanza 2.970152 
-Stazione di arrivo 15 vicina a 13 con distanza 2.852455 
-Stazione di arrivo 15 vicina a 14 con distanza 2.191552 
+Bikes available at station   10 = 9 bikes 
+
+Columns available at station 15 = 3 columns 
+Near arrive station 6 has 4 columns 
+Distance from arrive station 15 to 6 = 2.970152 
+Money added station 6 = 1.437450 
+Near arrive station 13 has 5 columns 
+Distance from arrive station 15 to 13 = 2.852455 
+Money added station 13 = 1.418207 
+Near arrive station 14 has 5 columns 
+Distance from arrive station 15 to 14 = 2.191552 
+Money added station 14 = 1.298925 
+
 
 Gift given by start station   10: 6.324555
 Gift given by arrive station  15: -2.514867
 
+-------BIKE REMOVED-------
 User 4 has 3.809688 money
 -------------------------------------------------
 Remaining bikes station 10:  8 
@@ -1422,6 +1836,7 @@ Gift that will be give by start station   10: 3.988159
 Gift that will be give by arrive station  10: -3.988159
 Number of Visit of start station 10 by the user 4 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 15: 8
 Free Columns station    15: 2 
 
@@ -1434,15 +1849,24 @@ Money in the system: 975.095400
 
 ------------------------------------------------------------------------------
 
-User 13 left from station:     16
-User 13 arrived to stations:   3
-Stazione di partenza 16 vicina a 1 con distanza 1.412091 
+User 13 want left from station:     16
+User 13 want arrive to stations:   3
 
-Stazione di arrivo 3 vicina a 2 con distanza 1.291898 
+Bikes available at station   16 = 2 bikes 
+Near start station 1 has 4 bikes 
+Distance from start station 16 to 1 = 1.412091 
+Money added station 1 = 1.121900 
+Near start station 8 has 3 bikes 
+Distance from start station 16 to 8 = 2.039608 
+Money added station 8 = 1.268184 
+
+Columns available at station 3 = 5 columns 
+
 
 Gift given by start station   16: -3.988159
 Gift given by arrive station  3: 0.000000
 
+-------BIKE REMOVED-------
 User 13 has -3.988159 money
 -------------------------------------------------
 Remaining bikes station 16:  1 
@@ -1452,6 +1876,7 @@ Gift that will be give by start station   16: -6.324555
 Gift that will be give by arrive station  16: 6.324555
 Number of Visit of start station 16 by the user 13 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 3: 6
 Free Columns station    3: 4 
 
@@ -1464,17 +1889,21 @@ Money in the system: 979.083559
 
 ------------------------------------------------------------------------------
 
-User 18 left from station:     5
-User 18 arrived to stations:   13
+User 18 want left from station:     5
+User 18 want arrive to stations:   13
 
-Stazione di arrivo 13 vicina a 7 con distanza 2.256214 
-Stazione di arrivo 13 vicina a 12 con distanza 0.388330 
-Stazione di arrivo 13 vicina a 14 con distanza 0.664831 
-Stazione di arrivo 13 vicina a 15 con distanza 2.852455 
+Bikes available at station   5 = 3 bikes 
+
+Columns available at station 13 = 5 columns 
+Near arrive station 7 has 6 columns 
+Distance from arrive station 13 to 7 = 2.256214 
+Money added station 7 = 1.311576 
+
 
 Gift given by start station   5: -2.514867
 Gift given by arrive station  13: 0.000000
 
+-------BIKE REMOVED-------
 User 18 has -1.585833 money
 -------------------------------------------------
 Remaining bikes station 5:  2 
@@ -1484,6 +1913,7 @@ Gift that will be give by start station   5: -3.988159
 Gift that will be give by arrive station  5: 3.988159
 Number of Visit of start station 5 by the user 18 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 13: 6
 Free Columns station    13: 4 
 
@@ -1496,15 +1926,24 @@ Money in the system: 981.598426
 
 ------------------------------------------------------------------------------
 
-User 7 left from station:     4
-User 7 arrived to stations:   1
+User 7 want left from station:     4
+User 7 want arrive to stations:   1
 
-Stazione di arrivo 1 vicina a 8 con distanza 0.720278 
-Stazione di arrivo 1 vicina a 16 con distanza 1.412091 
+Bikes available at station   4 = 6 bikes 
+
+Columns available at station 1 = 6 columns 
+Near arrive station 8 has 7 columns 
+Distance from arrive station 1 to 8 = 0.720278 
+Money added station 8 = 0.896396 
+Near arrive station 16 has 9 columns 
+Distance from arrive station 1 to 16 = 1.412091 
+Money added station 16 = 1.121900 
+
 
 Gift given by start station   4: 1.585833
 Gift given by arrive station  1: 1.585833
 
+-------BIKE REMOVED-------
 User 7 has 4.757500 money
 -------------------------------------------------
 Remaining bikes station 4:  5 
@@ -1514,6 +1953,7 @@ Gift that will be give by start station   4: 0.000000
 Gift that will be give by arrive station  4: 0.000000
 Number of Visit of start station 4 by the user 7 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 1: 5
 Free Columns station    1: 5 
 
@@ -1526,14 +1966,21 @@ Money in the system: 978.426760
 
 ------------------------------------------------------------------------------
 
-User 13 left from station:     9
-User 13 arrived to stations:   4
+User 13 want left from station:     9
+User 13 want arrive to stations:   4
 
-Stazione di arrivo 4 vicina a 8 con distanza 2.961419 
+Bikes available at station   9 = 2 bikes 
+
+Columns available at station 4 = 5 columns 
+Near arrive station 8 has 7 columns 
+Distance from arrive station 4 to 8 = 2.961419 
+Money added station 8 = 1.436040 
+
 
 Gift given by start station   9: -3.988159
 Gift given by arrive station  4: 0.000000
 
+-------BIKE REMOVED-------
 User 13 has -7.976319 money
 -------------------------------------------------
 Remaining bikes station 9:  1 
@@ -1543,6 +1990,7 @@ Gift that will be give by start station   9: -6.324555
 Gift that will be give by arrive station  9: 6.324555
 Number of Visit of start station 9 by the user 13 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 4: 6
 Free Columns station    4: 4 
 
@@ -1555,17 +2003,21 @@ Money in the system: 982.414919
 
 ------------------------------------------------------------------------------
 
-User 7 left from station:     6
-User 7 arrived to stations:   7
+User 7 want left from station:     6
+User 7 want arrive to stations:   7
 
-Stazione di arrivo 7 vicina a 10 con distanza 2.750654 
-Stazione di arrivo 7 vicina a 12 con distanza 2.020619 
-Stazione di arrivo 7 vicina a 13 con distanza 2.256214 
-Stazione di arrivo 7 vicina a 14 con distanza 2.252044 
+Bikes available at station   6 = 6 bikes 
+Near start station 15 has 8 bikes 
+Distance from start station 6 to 15 = 2.970152 
+Money added station 15 = 1.437450 
+
+Columns available at station 7 = 6 columns 
+
 
 Gift given by start station   6: 1.585833
 Gift given by arrive station  7: 1.585833
 
+-------BIKE REMOVED-------
 User 7 has 7.929166 money
 -------------------------------------------------
 Remaining bikes station 6:  5 
@@ -1575,6 +2027,7 @@ Gift that will be give by start station   6: 0.000000
 Gift that will be give by arrive station  6: 0.000000
 Number of Visit of start station 6 by the user 7 = 1 
 -------------------------------------------------
+-------BIKE RELEASED------
 Remaining bikes station 7: 5
 Free Columns station    7: 5 
 

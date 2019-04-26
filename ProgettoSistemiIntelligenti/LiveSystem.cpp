@@ -39,7 +39,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	int time_user = rand() % 30;																				//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15);
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, rand() % 10);
 	}
 	
 }
@@ -73,17 +73,18 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
 		double release = inststations->all_stations[rand_arrive].get_gift_release();
-		instusers->all_users[rand_user].update_budget(take, release);											//AGGIORNO IL BUDGET DELL'UTENTE
+		instusers->all_users[rand_user].update_budget(take, release,rand_start,rand_arrive);											//AGGIORNO IL BUDGET DELL'UTENTE
 		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
-		printf("User %d left from station:     %d\n", rand_user, rand_start + 1);
-		printf("User %d arrived to stations:   %d\n", rand_user, rand_arrive + 1);
-
+		printf("User %d want left from station:     %d\n", rand_user, rand_start + 1);
+		printf("User %d want arrive to stations:   %d\n", rand_user, rand_arrive + 1);
+		printf("\n");
 		inductedBestStartStations(inststations, instusers, rand_user, rand_start, rand_arrive);					//GIFT SE SCELGO UN'ALTRA STAZIONE DI PARTENZA
 		inductedBestArriveStations(inststations, instusers, rand_user, rand_start, rand_arrive);				//GIFT SE SCELGO UN'ALTRA STAZIONE DI ARRIVO
-
+		printf("\n");
 		printf("Gift given by start station   %d: %lf\n", rand_start + 1, take);
 		printf("Gift given by arrive station  %d: %lf\n\n", rand_arrive + 1, release);
 
+		printf("-------BIKE REMOVED-------\n");
 		printf("User %d has %lf money\n", rand_user, instusers->all_users[rand_user].get_budget());
 
 		printf("-------------------------------------------------\n");
@@ -108,6 +109,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*------------------------------------STAZIONE DI ARRIVO AGGIUNGO BICI-------------------------------*/
 		inststations->all_stations[rand_arrive].add_bike(instusers,numU,numS,rand_user);
 		instusers->all_users[rand_user].visit_countet_arrive(rand_arrive);										//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
+		printf("-------BIKE RELEASED------\n");
 
 											/*COLONNINE LIBERE E BICI MANCANTI*/
 		printf("Remaining bikes station %d: %d\n",rand_arrive + 1, inststations->all_stations[rand_arrive].av_bikes());
