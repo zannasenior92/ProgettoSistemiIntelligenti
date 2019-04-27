@@ -2,11 +2,9 @@
 #include "Station.h"
 
 /*--------------------------------USER METHODS----------------------------------*/
-void User_i::update_budget(double start,double arrive,int start_s,int arrive_s)
+void User_i::update_budget(double start,double arrive)
 {
-	/*IL PREMIO E' CALCOLATO PER LA STAZIONE DI PARTENZA IN BASE AL NUMERO DI BICI/COLONNINE E INOLTRE A QUESTO E' AGGIUNTO IL FATTO CHE L'UTENTE
-	E' PARTITO DA QUESTA STAZIONE PUR DOVENDO PARTIRE DA UN'ALTRA. STESSA COSA PER LA STAZIONE DI ARRIVO*/
-	money_pocket = money_pocket + start + arrive + this->added_gift[start_s] + this->added_gift[arrive_s];
+	money_pocket = money_pocket + start + arrive;
 }
 
 double User_i::get_budget()

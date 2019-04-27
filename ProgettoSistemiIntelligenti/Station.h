@@ -62,6 +62,7 @@ private:
 	int free_columns;															//NUMERO COLONNINE LIBERE
 	int *reserve_up_col;														//ARRAY COLONNINA LIBERA PRENOTATO
 	
+	
 };
 
 /**************************************************************************************************/
@@ -72,6 +73,8 @@ class Stations
 public:
 	
 	/*----------------------------PUBLIC VARIABLES---------------------------*/
+	Station_i* all_stations;													//ARRAY DELLE STAZIONI
+
 	char input_used[200];
 	char name[20];																//NAME OF FILE USED
 	int n_stations;																//NUMERO STAZIONI
@@ -79,7 +82,10 @@ public:
 	double *ycoords;															//COORDINATE y STAZIONI
 	int num_bikes;																//NUMERO TOTALE BICI PRESENTI
 	int num_columns;															//NUMERO TOTALE COLONNINE
-	Station_i* all_stations;													//ARRAY DELLE STAZIONI
+	double *critical_station;													//ARRAY CHE IDENTIFICA COME CRITICA UNA STAZIONE
+	double *station_empty_time;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RESTA VUOTA
+	double *station_full_time;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RIMANE PIENA
+
 
 	/*-------------------------------------METHODS---------------------------*/
 	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI

@@ -25,7 +25,7 @@ public:
 		this->value_decision = v_d;
 	}
 	/*-------------------------------------METHODS-------------------------------*/
-	void update_budget(double start, double arrive, int start_s,int arrive_s);	//AGGIORNA IL BUDGET DELL'UTENTE(PREMIO STAZIONE PARTENZA+PREMIO STAZIONE ARRIVO)
+	void update_budget(double start, double arrive);							//AGGIORNA IL BUDGET DELL'UTENTE(PREMIO STAZIONE PARTENZA+PREMIO STAZIONE ARRIVO)
 	double get_budget();														//MI RESTITUISCE IL BUDGET DELL'UTENTE
 	void visit_counter_start(int i);											//QUANDO VISITA UNA STAZIONE(DI PARTENZA) NE INCREMENTA IL CONTATORE
 	void visit_countet_arrive(int i);											//QUANDO VISITA UNA STAZIONE(DI ARRIVO) NE INCREMENTA IL CONTATORE

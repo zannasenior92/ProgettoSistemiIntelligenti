@@ -3,6 +3,7 @@
 #include "Station.h"
 #include "User.h"
 #include <Windows.h>
+#include <time.h>
 /*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
@@ -42,6 +43,20 @@ void createEnv(Stations *inststations, Users *instusers)
 		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, rand() % 10);
 	}
 	
+
+	/*INIZIALIZZO CRITICITA' STAZIONI*/
+	inststations->critical_station = (double*)calloc(inststations->n_stations , sizeof(double));
+	if (VERBOSE >200)
+	{
+		for (int i = 0; i < inststations->n_stations; i++)
+		{
+			printf("%lf \n", inststations->critical_station[i]);
+		}
+	}
+
+	/*INIZIALIZZO TEMPO STAZIONI VUOTE E PIENE*/
+	inststations->station_empty_time = (double*)calloc(inststations->n_stations, sizeof(double));
+	inststations->station_full_time = (double*)calloc(inststations->n_stations, sizeof(double));
 }
 
 
@@ -60,10 +75,12 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int numS = inststations->n_stations;
 	int numU = instusers->n_users;
 
+	double time0 = 0; //PRENDO IL TEMPO INIZIALE PER POTER AGGIORNARE I PREMI DELLE STATIONI CRITICHE
+
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{
-		
+		/*PRENDERE IL TEMPO QUI DENTRO PER POTER AGGIORNARE LE STAZIONI CRITICHE*/
 
 		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;															//STAZIONE DA CUI VORREBBE PARTIRE L'UTENTE
@@ -73,13 +90,12 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
 		double release = inststations->all_stations[rand_arrive].get_gift_release();
-		instusers->all_users[rand_user].update_budget(take, release,rand_start,rand_arrive);											//AGGIORNO IL BUDGET DELL'UTENTE
+		instusers->all_users[rand_user].update_budget(take, release);											//AGGIORNO IL BUDGET DELL'UTENTE
 		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
 		printf("User %d want left from station:     %d\n", rand_user, rand_start + 1);
 		printf("User %d want arrive to stations:   %d\n", rand_user, rand_arrive + 1);
 		printf("\n");
-		inductedBestStartStations(inststations, instusers, rand_user, rand_start, rand_arrive);					//GIFT SE SCELGO UN'ALTRA STAZIONE DI PARTENZA
-		inductedBestArriveStations(inststations, instusers, rand_user, rand_start, rand_arrive);				//GIFT SE SCELGO UN'ALTRA STAZIONE DI ARRIVO
+		
 		printf("\n");
 		printf("Gift given by start station   %d: %lf\n", rand_start + 1, take);
 		printf("Gift given by arrive station  %d: %lf\n\n", rand_arrive + 1, release);
@@ -129,7 +145,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		Sleep(10);
+		Sleep(10);		//RITARDO DI 10 MILLISECONDI
 		if (n > 50)
 		{
 			done = false;
@@ -147,3 +163,46 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	}
 }
 
+
+/*AD OGNI PARTENZA CONTROLLA LO STATO DELLE COLONNINE E DELLE BICI DI OGNI STAZIONE*/
+void budget_time_update(Stations *inststations)
+{
+	//PRENDO IL TEMPO CORRENTE
+	clock_t current_time = clock();
+
+	for (int i = 0; i < inststations->n_stations; i++)
+	{
+		int columns = inststations->all_stations[i].av_columns();
+		int bikes = inststations->all_stations[i].av_bikes();
+		
+		/*SE CI SONO SOLO BICI O SOLO COLONNINE VUOTE ALLORA SPINGO PER PRELEVARE/DEPOSITARE*/
+
+		if ((columns == 0))//STAZIONE SENZA COLONNINE LIBERE
+		{
+			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO
+			{
+				inststations->critical_station[i] = 1;
+			}
+			else//QUALORA FOSSE GIA' CRITICA PRENDO IL TEMPO PER CUI E' CRITICA
+			{
+				inststations->station_full_time[i] = current_time;
+			}
+		}
+		else if((bikes == 0))//STAZIONE SENZA BICI
+		{
+			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO
+			{
+				inststations->critical_station[i] = 1;
+			}
+			else
+			{
+				inststations->station_empty_time[i] = current_time;
+			}
+
+		}
+		else//DICO CHE LA STAZIONE NON E' PIU' CRITICA
+		{
+			inststations->critical_station[i] = 0;
+		}
+	}
+}
