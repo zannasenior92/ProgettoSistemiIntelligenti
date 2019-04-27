@@ -200,9 +200,12 @@ void budget_time_update(Stations *inststations)
 			}
 
 		}
-		else//DICO CHE LA STAZIONE NON E' PIU' CRITICA
+		else//DICO CHE LA STAZIONE NON E' PIU' CRITICA E AZZERO I TEMPI PER CUI E' STATA CRITICA IN MODO DA RIPARTIRE DA 0 SUCESSIVAMENTE
 		{
 			inststations->critical_station[i] = 0;
+
+			inststations->station_empty_time[i] = 0;
+			inststations->station_full_time[i] = 0;
 		}
 	}
 }
