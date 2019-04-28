@@ -85,7 +85,8 @@ public:
 	double *critical_station;													//ARRAY CHE IDENTIFICA COME CRITICA UNA STAZIONE
 	double *station_empty_time;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RESTA VUOTA
 	double *station_full_time;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RIMANE PIENA
-
+	double *time0_empty_station;												//TEMPO 0 STAZIONI SENZA BICI
+	double *time0_full_station;													//TEMPO 0 STAZIONI SENZA COLONNINE LIBERE
 
 	/*-------------------------------------METHODS---------------------------*/
 	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI

@@ -9,6 +9,7 @@ void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
 void inductedBestStartStations(Stations *inststations, Users *instusers,int user, int start_station, int arrive_station);
 void inductedBestArriveStations(Stations *inststations, Users *instusers,int user, int start_station, int arrive_station);
+void budget_time_update(Stations *inststations);
 
 
 
@@ -54,9 +55,14 @@ void createEnv(Stations *inststations, Users *instusers)
 		}
 	}
 
-	/*INIZIALIZZO TEMPO STAZIONI VUOTE E PIENE*/
+	/*-------------------------INIZIALIZZO TEMPO STAZIONI VUOTE E PIENE------------------------*/
+	/*TEMPI INIZIALI DA QUANDO INIZIANO LE AD ESSERE VUOTE/PIENE LE STAZIONI*/
+	inststations->time0_empty_station = (double*)calloc(inststations->n_stations, sizeof(double));
+	inststations->time0_full_station = (double*)calloc(inststations->n_stations, sizeof(double));
+	/*TEMPI CORRENTI IN CUI LE STAZIONI SONO ANCORA VUOTE/PIENE*/
 	inststations->station_empty_time = (double*)calloc(inststations->n_stations, sizeof(double));
 	inststations->station_full_time = (double*)calloc(inststations->n_stations, sizeof(double));
+	
 }
 
 
@@ -75,8 +81,6 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int numS = inststations->n_stations;
 	int numU = instusers->n_users;
 
-	double time0 = 0; //PRENDO IL TEMPO INIZIALE PER POTER AGGIORNARE I PREMI DELLE STATIONI CRITICHE
-
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{
@@ -85,14 +89,13 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;															//STAZIONE DA CUI VORREBBE PARTIRE L'UTENTE
 		rand_arrive = rand() % inststations->n_stations;														//STAZIONE IN CUI VORREBBE ARRIVARE L'UTENTE
-		
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
 		double release = inststations->all_stations[rand_arrive].get_gift_release();
 		instusers->all_users[rand_user].update_budget(take, release);											//AGGIORNO IL BUDGET DELL'UTENTE
 		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
-		printf("User %d want left from station:     %d\n", rand_user, rand_start + 1);
+		printf("User %d want left from station:    %d\n", rand_user, rand_start + 1);
 		printf("User %d want arrive to stations:   %d\n", rand_user, rand_arrive + 1);
 		printf("\n");
 		
@@ -142,11 +145,14 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		printf("Money in the system: %lf \n\n", inststations->get_cash_desk());
 		/*---------------------------------------------------------------------------------------------------*/
+		
+		/*-------------------------------CONTROLLO LA CRITICITA' DELLE STAZIONI------------------------------*/
+		budget_time_update(inststations);
 		printf("------------------------------------------------------------------------------\n\n");
 
 
 		Sleep(10);		//RITARDO DI 10 MILLISECONDI
-		if (n > 50)
+		if (n > 100)
 		{
 			done = false;
 		}
@@ -156,10 +162,23 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (VERBOSE >= 50){
 		for (int k = 0; k < inststations->n_stations; k++){
-			printf("Biciclette Presenti Stazione %d: %d \n", k + 1, inststations->all_stations[k].av_bikes());
-			printf("Colonnine libere Stazione    %d: %d \n", k + 1, inststations->all_stations[k].av_columns());
+			printf("Bikes present in station %d: %d \n", k + 1, inststations->all_stations[k].av_bikes());
+			printf("Free columns station     %d: %d \n", k + 1, inststations->all_stations[k].av_columns());
 		}
-		printf("------------------------------------------------------------------------------\n");
+		printf("------------------------------------------------------------------------------\n\n");
+	}
+	if (VERBOSE >= 50 )
+	{
+		printf("++++++++------------CRITICAL STATIONS------------++++++++\n\n");
+		for (int m = 0; m < inststations->n_stations; m++)
+		{
+			if (inststations->critical_station[m]== 1)
+			{
+				printf("Station %d is critical\n",m + 1);
+
+			}
+		}
+
 	}
 }
 
@@ -167,9 +186,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 /*AD OGNI PARTENZA CONTROLLA LO STATO DELLE COLONNINE E DELLE BICI DI OGNI STAZIONE*/
 void budget_time_update(Stations *inststations)
 {
-	//PRENDO IL TEMPO CORRENTE
-	clock_t current_time = clock();
-
+	printf("++++++++------------CRITICAL STATIONS------------++++++++\n\n");
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
 		int columns = inststations->all_stations[i].av_columns();
@@ -179,24 +196,34 @@ void budget_time_update(Stations *inststations)
 
 		if ((columns == 0))//STAZIONE SENZA COLONNINE LIBERE
 		{
-			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO
+			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
 			{
+				printf("Station %d is critical(full of bikes) \n",i + 1);
+
 				inststations->critical_station[i] = 1;
+				inststations->time0_full_station[i] = (double)clock();
 			}
 			else//QUALORA FOSSE GIA' CRITICA PRENDO IL TEMPO PER CUI E' CRITICA
 			{
-				inststations->station_full_time[i] = current_time;
+				double current_time_full = (double)clock();
+				inststations->station_full_time[i] = (double)(current_time_full - inststations->time0_full_station[i])/CLOCKS_PER_SEC;
+				printf("Station %d full of bikes for %lf seconds \n", i + 1, inststations->station_full_time[i]);
 			}
 		}
 		else if((bikes == 0))//STAZIONE SENZA BICI
 		{
-			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO
+			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
 			{
+				printf("Station %d is critical(empty of bikes) \n", i + 1);
+
 				inststations->critical_station[i] = 1;
+				inststations->time0_empty_station[i] = (double)clock();
 			}
 			else
 			{
-				inststations->station_empty_time[i] = current_time;
+				double current_time_empty = (double)clock();
+				inststations->station_empty_time[i] = (double)(current_time_empty - inststations->time0_empty_station[i])/CLOCKS_PER_SEC;
+				printf("Station %d empty of bikes for %lf seconds \n", i + 1, inststations->station_empty_time[i]);
 			}
 
 		}
