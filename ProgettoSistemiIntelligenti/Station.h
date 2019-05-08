@@ -52,7 +52,8 @@ public:
 	double get_gift_take();														//RESTITUISCE IL PREMIO DELLA STAZIONE DI ARRIVO
 	double xcoord;																//COORDINATA x
 	double ycoord;																//COORDINATA y
-
+	int critical_empty_counter = 0;												//CONTATORE CRITICITA' STAZIONE VUOTA
+	int critical_full_counter = 0;												//CONTATORE CRITICITA' STAZIONE PIENA
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
 	double gift_money_release;													//PREMIO SCELTA STAZIONE PARTENZA

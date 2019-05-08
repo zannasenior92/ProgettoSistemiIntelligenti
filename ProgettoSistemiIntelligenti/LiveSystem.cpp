@@ -196,11 +196,13 @@ void budget_time_update(Stations *inststations)
 
 		if ((columns == 0))//STAZIONE SENZA COLONNINE LIBERE
 		{
-			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
+			//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
+			if (inststations->critical_station[i] == 0)
 			{
 				printf("Station %d is critical(full of bikes) \n",i + 1);
 
 				inststations->critical_station[i] = 1;
+				inststations->all_stations[i].critical_full_counter++;//AGGIORNO CONTATORE CRITICITA' STAZIONE i-ESIMA PIENA
 				inststations->time0_full_station[i] = (double)clock();
 			}
 			else//QUALORA FOSSE GIA' CRITICA PRENDO IL TEMPO PER CUI E' CRITICA
@@ -212,11 +214,13 @@ void budget_time_update(Stations *inststations)
 		}
 		else if((bikes == 0))//STAZIONE SENZA BICI
 		{
-			if (inststations->critical_station[i] == 0)//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
+			//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
+			if (inststations->critical_station[i] == 0)
 			{
 				printf("Station %d is critical(empty of bikes) \n", i + 1);
 
 				inststations->critical_station[i] = 1;
+				inststations->all_stations[i].critical_empty_counter++;//AGGIORNO CONTATORE CRITICITA' STAZIONE i-ESIMA VUOTA
 				inststations->time0_empty_station[i] = (double)clock();
 			}
 			else

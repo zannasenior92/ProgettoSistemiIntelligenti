@@ -46,7 +46,7 @@ double Station_i::g_m_r()
 }
 
 /*INSERIRE CHE SE IN UNA STAZIONE NON CI SONO PIU' BICI CON L'AUMENTARE DEL TEMPO AUMENTA ANCHE L'OFFERTA DATA DALLA PARTENZA DA QUELLA POSTAZIONE*/
-void Station_i::remove_bike(Users *instusers,double n_u,double n_s,int user){
+void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 	
 	if (available_bikes == 0)
 	{
@@ -61,8 +61,8 @@ void Station_i::remove_bike(Users *instusers,double n_u,double n_s,int user){
 		if (this->available_bikes < 5)
 		{
 			
-			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s));			//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s)*cbrt(this->critical_empty_counter + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
