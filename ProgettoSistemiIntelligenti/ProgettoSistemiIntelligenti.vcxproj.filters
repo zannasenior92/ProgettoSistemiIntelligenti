@@ -42,6 +42,9 @@
     <ClCompile Include="inducted_choice.cpp">
       <Filter>SimulationSystem</Filter>
     </ClCompile>
+    <ClCompile Include="CriticalStations.cpp">
+      <Filter>SimulationSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Station.h">

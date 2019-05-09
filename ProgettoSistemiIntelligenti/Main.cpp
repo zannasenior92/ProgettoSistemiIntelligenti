@@ -13,10 +13,6 @@ void free_instance(Stations *inststations,Users *instusers) {
 	free(inststations->all_stations);
 	free(instusers->all_users);
 	free(inststations->critical_station);
-	free(inststations->time0_empty_station);
-	free(inststations->time0_full_station);
-	free(inststations->station_empty_time);
-	free(inststations->station_full_time);
 }
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);

@@ -54,6 +54,11 @@ public:
 	double ycoord;																//COORDINATA y
 	int critical_empty_counter = 0;												//CONTATORE CRITICITA' STAZIONE VUOTA
 	int critical_full_counter = 0;												//CONTATORE CRITICITA' STAZIONE PIENA
+	double station_empty_time = 0;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RESTA VUOTA
+	double station_full_time = 0;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RIMANE PIENA
+	double time0_empty_station = 0;													//TEMPO 0 STAZIONI SENZA BICI
+	double time0_full_station = 0;													//TEMPO 0 STAZIONI SENZA COLONNINE LIBERE
+
 /*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
 	double gift_money_release;													//PREMIO SCELTA STAZIONE PARTENZA
@@ -84,10 +89,7 @@ public:
 	int num_bikes;																//NUMERO TOTALE BICI PRESENTI
 	int num_columns;															//NUMERO TOTALE COLONNINE
 	double *critical_station;													//ARRAY CHE IDENTIFICA COME CRITICA UNA STAZIONE
-	double *station_empty_time;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RESTA VUOTA
-	double *station_full_time;													//ARRAY RIFERITO AI TEMPI IN CUI LA STAZIONE RIMANE PIENA
-	double *time0_empty_station;												//TEMPO 0 STAZIONI SENZA BICI
-	double *time0_full_station;													//TEMPO 0 STAZIONI SENZA COLONNINE LIBERE
+	
 
 	/*-------------------------------------METHODS---------------------------*/
 	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI

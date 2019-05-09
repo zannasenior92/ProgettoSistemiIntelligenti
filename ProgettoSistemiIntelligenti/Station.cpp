@@ -51,18 +51,40 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 	if (available_bikes == 0)
 	{
 		printf("***NO bike avaiable! Choose another station*** \n\n");
+
+		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
+		int fc = this->free_columns;
+		int av_b = this->available_bikes;
+
+		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
+		int cr_e_c = this->critical_empty_counter;						//n° DI VOLTE STAZIONE VUOTA
+		double s_f_t = this->station_full_time;
+
+		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA PIENA PER AGGIORNARE I SOLDI DATI SE RILASCIO LA BICI*/
+		this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1) *cbrt(s_f_t + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else
 	{
 		this->available_bikes--;																				//DECREMENTO NUMERO BICI DISPONIBILI
 		this->free_columns++;																					//INCREMENTO COLONNINE DISPONIBILI
 
+		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
+		int fc = this->free_columns;
+		int av_b = this->available_bikes;
+
+		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
+		int cr_f_c = this->critical_full_counter;						//n° DI VOLTE STAZIONE PIENA
+		int cr_e_c = this->critical_empty_counter;						//n° DI VOLTE STAZIONE VUOTA
+
+
 		/*---------------------------------FEW BIKES AVAIABLE------------------------------*/
 		if (this->available_bikes < 5)
 		{
-			
-			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s)*cbrt(this->critical_empty_counter + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			/*USO IL CRITICAL EMPTY COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO VUOTA.
+			INCENTIVO QUINDI A DEPOSITARE LA BICI QUI E A NON PRELEVARLA USANDO IN ENTRAMBI I CASI IL 
+			CONTATORE DI CRITICITA' DELLA STAZIONE*/
+			this->gift_money_take = -exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
@@ -73,8 +95,11 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 		/*---------------------------------FEW FREE COLUMNS--------------------------------*/
 		else
 		{
-			this->gift_money_take = exp((this->available_bikes - this->free_columns)* (log(n_u) / n_s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-			this->gift_money_release = -exp((this->available_bikes - this->free_columns)* (log(n_u) / n_s));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			/*USO IL CRITICAL FULL COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO PIENA.
+			INCENTIVO QUINDI A PRELEVARE LA BICI QUI E A NON DEPOSITARLA USANDO IN ENTRAMBI I CASI IL
+			CONTATORE DI CRITICITA' DELLA STAZIONE*/
+			this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_release = -exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 		}
 	}
 }
@@ -88,18 +113,40 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 		
 	if (free_columns == 0)
 	{
-	printf("***NO columns avaiable! Please put the bike in another station*** \n\n");
+		printf("***NO columns avaiable! Please put the bike in another station*** \n\n");
+
+		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
+		int fc = this->free_columns;
+		int av_b = this->available_bikes;
+		
+		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
+		int cr_f_c = this->critical_full_counter;						//n° DI VOLTE STAZIONE PIENA
+		double s_e_t = this->station_empty_time;
+		printf("TEMPO VUOTA: %lf \n", s_e_t);
+		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA VUOTA PER AGGIORNARE I SOLDI DATI SE PRELEVO LA BICI*/
+		this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1) *cbrt(s_e_t + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else
 	{
-		this->available_bikes++;																				//INCREMENTO NUMERO BICI DISPONIBILI
-		this->free_columns--;																					//DECREMENTO COLONNINE LIBERE
+		this->available_bikes++;															//INCREMENTO NUMERO BICI DISPONIBILI
+		this->free_columns--;																//DECREMENTO COLONNINE LIBERE
+
+		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
+		int fc = this->free_columns;
+		int av_b = this->available_bikes;
+
+		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
+		int cr_f_c = this->critical_full_counter;						//n° DI VOLTE STAZIONE PIENA
+		int cr_e_c = this->critical_empty_counter;						//n° DI VOLTE STAZIONE VUOTA
 
 		/*---------------------------------FEW BIKES AVAIABLE------------------------------*/
 		if (this->available_bikes < 5)
 		{
-			this->gift_money_take = -exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s));			//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((this->free_columns - this->available_bikes)* (log(n_u) / n_s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			/*USO IL CRITICAL EMPTY COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO VUOTA.
+			INCENTIVO QUINDI A DEPOSITARE LA BICI QUI E A NON PRELEVARLA USANDO IN ENTRAMBI I CASI IL
+			CONTATORE DI CRITICITA' DELLA STAZIONE*/
+			this->gift_money_take = -exp((fc - av_b)* (log(n_u) / n_s)  *cbrt(cr_e_c + 1));	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
@@ -110,8 +157,11 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 		/*---------------------------------FEW FREE COLUMNS--------------------------------*/
 		else
 		{
-			this->gift_money_take = exp((this->available_bikes - this->free_columns)* (log(n_u) / n_s));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-			this->gift_money_release = -exp((this->available_bikes - this->free_columns)* (log(n_u) / n_s));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			/*USO IL CRITICAL FULL COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO PIENA.
+			INCENTIVO QUINDI A PRELEVARE LA BICI QUI E A NON DEPOSITARLA USANDO IN ENTRAMBI I CASI IL
+			CONTATORE DI CRITICITA' DELLA STAZIONE*/
+			this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_release = -exp((av_b - fc)* (log(n_u) / n_s)  *cbrt(cr_f_c + 1));//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 		}
 	}
 }

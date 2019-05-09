@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CriticalStations.cpp" />
     <ClCompile Include="Gnuplot.cpp" />
     <ClCompile Include="inducted_choice.cpp" />
     <ClCompile Include="LiveSystem.cpp" />
