@@ -31,7 +31,7 @@ void plot_gnuplot(Stations *inst) {
 	int n_commands = sizeof(commandsForGnuplot) / sizeof(commandsForGnuplot[0]);
 	if (VERBOSE > 200)
 	{
-		printf("Numero comandi gnuplot: %d \n", n_commands);
+		printf("Number gnuplot commands : %d \n", n_commands);
 	}
 	/*----------------------------------------------------------------------------------*/
 

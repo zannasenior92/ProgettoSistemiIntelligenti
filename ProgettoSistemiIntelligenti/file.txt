@@ -1,7 +1,7 @@
 Input used C:\Users\Luca\source\repos\ProgettoSistemiIntelligenti\ProgettoSistemiIntelligenti\Stazioni2.tsp
 
 Number of stations: 16 
-Numero comandi gnuplot: 10 
+Number gnuplot commands : 10 
 N° of users: 40
 Available Bike Station 0: 5 
 Free Columns Station   0: 5 
@@ -69,626 +69,473 @@ Station 12 criticity = 0.000000
 Station 13 criticity = 0.000000 
 Station 14 criticity = 0.000000 
 Station 15 criticity = 0.000000 
+
 Money in the system at time 0: 1000.000000 
 
 
-User 23 want left from station:    1
-User 23 want arrive to stations:   2
+User 0 want left from station:    2
+User 0 want arrive to stations:   3
 
 
-Gift given by start station   1: 0.000000
-Gift given by arrive station  2: 0.000000
-
--------BIKE REMOVED-------
-User 23 has 0.000000 money
+______________________________________________________________
+Gift given by start station   2: 0.000000
+Gift given by arrive station  3: 0.000000
+______________________________________________________________
+User 0 has 0.000000 money
 -------------------------------------------------
-Remaining bikes station 1:  4 
-Free Columns station    1:  6 
+--------BIKE REMOVED-------
+Remaining bikes station 2:  4 
+Free Columns station    2:  6 
 
-Gift that will be give by start station   1: -1.585833
-Gift that will be give by arrive station  1: 1.585833
-Number of Visit of start station 1 by the user 23 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -1.585833
+Gift that will be give by arrive station  2: 1.585833
+______________________________________________________________
+Number of Visit of start station 2 by the user 0 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 2: 6
-Free Columns station    2: 4 
+Remaining bikes station 3: 6
+Free Columns station    3: 4 
 
-Gift that will be give by start station   2: 1.585833
-Gift that will be give by arrive station  2: -1.585833
+Gift that will be give by start station   3: 1.585833
+Gift that will be give by arrive station  3: -1.585833
 
-Number of Visit of arrive station 2 by the user 23 = 1 
+Number of Visit of arrive station 3 by the user 0 = 1 
 -------------------------------------------------
 Money in the system: 1000.000000 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
 ------------------------------------------------------------------------------
 
-User 4 want left from station:    1
-User 4 want arrive to stations:   2
+User 13 want left from station:    2
+User 13 want arrive to stations:   3
 
 
-Gift given by start station   1: -1.585833
-Gift given by arrive station  2: -1.585833
-
--------BIKE REMOVED-------
-User 4 has -3.171666 money
+______________________________________________________________
+Gift given by start station   2: -1.585833
+Gift given by arrive station  3: -1.585833
+______________________________________________________________
+User 13 has -3.171666 money
 -------------------------------------------------
-Remaining bikes station 1:  3 
-Free Columns station    1:  7 
+--------BIKE REMOVED-------
+Remaining bikes station 2:  3 
+Free Columns station    2:  7 
 
-Gift that will be give by start station   1: -2.514867
-Gift that will be give by arrive station  1: 2.514867
-Number of Visit of start station 1 by the user 4 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -2.514867
+Gift that will be give by arrive station  2: 2.514867
+______________________________________________________________
+Number of Visit of start station 2 by the user 13 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 2: 7
-Free Columns station    2: 3 
+Remaining bikes station 3: 7
+Free Columns station    3: 3 
 
-Gift that will be give by start station   2: 2.514867
-Gift that will be give by arrive station  2: -2.514867
+Gift that will be give by start station   3: 2.514867
+Gift that will be give by arrive station  3: -2.514867
 
-Number of Visit of arrive station 2 by the user 4 = 1 
+Number of Visit of arrive station 3 by the user 13 = 1 
 -------------------------------------------------
 Money in the system: 1003.171666 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
 ------------------------------------------------------------------------------
 
-User 34 want left from station:    1
-User 34 want arrive to stations:   2
+User 34 want left from station:    2
+User 34 want arrive to stations:   3
 
 
-Gift given by start station   1: -2.514867
-Gift given by arrive station  2: -2.514867
-
--------BIKE REMOVED-------
+______________________________________________________________
+Gift given by start station   2: -2.514867
+Gift given by arrive station  3: -2.514867
+______________________________________________________________
 User 34 has -5.029734 money
 -------------------------------------------------
-Remaining bikes station 1:  2 
-Free Columns station    1:  8 
+--------BIKE REMOVED-------
+Remaining bikes station 2:  2 
+Free Columns station    2:  8 
 
-Gift that will be give by start station   1: -3.988159
-Gift that will be give by arrive station  1: 3.988159
-Number of Visit of start station 1 by the user 34 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -3.988159
+Gift that will be give by arrive station  2: 3.988159
+______________________________________________________________
+Number of Visit of start station 2 by the user 34 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 2: 8
-Free Columns station    2: 2 
+Remaining bikes station 3: 8
+Free Columns station    3: 2 
 
-Gift that will be give by start station   2: 3.988159
-Gift that will be give by arrive station  2: -3.988159
+Gift that will be give by start station   3: 3.988159
+Gift that will be give by arrive station  3: -3.988159
 
-Number of Visit of arrive station 2 by the user 34 = 1 
+Number of Visit of arrive station 3 by the user 34 = 1 
 -------------------------------------------------
 Money in the system: 1008.201400 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
 ------------------------------------------------------------------------------
 
-User 36 want left from station:    1
-User 36 want arrive to stations:   2
+User 31 want left from station:    2
+User 31 want arrive to stations:   3
 
 
-Gift given by start station   1: -3.988159
-Gift given by arrive station  2: -3.988159
-
--------BIKE REMOVED-------
-User 36 has -7.976319 money
+______________________________________________________________
+Gift given by start station   2: -3.988159
+Gift given by arrive station  3: -3.988159
+______________________________________________________________
+User 31 has -7.976319 money
 -------------------------------------------------
-Remaining bikes station 1:  1 
-Free Columns station    1:  9 
+--------BIKE REMOVED-------
+Remaining bikes station 2:  1 
+Free Columns station    2:  9 
 
-Gift that will be give by start station   1: -6.324555
-Gift that will be give by arrive station  1: 6.324555
-Number of Visit of start station 1 by the user 36 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -6.324555
+Gift that will be give by arrive station  2: 6.324555
+______________________________________________________________
+Number of Visit of start station 2 by the user 31 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 2: 9
-Free Columns station    2: 1 
+Remaining bikes station 3: 9
+Free Columns station    3: 1 
 
-Gift that will be give by start station   2: 6.324555
-Gift that will be give by arrive station  2: -6.324555
+Gift that will be give by start station   3: 6.324555
+Gift that will be give by arrive station  3: -6.324555
 
-Number of Visit of arrive station 2 by the user 36 = 1 
+Number of Visit of arrive station 3 by the user 31 = 1 
 -------------------------------------------------
 Money in the system: 1016.177719 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
 ------------------------------------------------------------------------------
 
-User 0 want left from station:    1
-User 0 want arrive to stations:   2
+User 23 want left from station:    2
+User 23 want arrive to stations:   3
 
 
-Gift given by start station   1: -6.324555
-Gift given by arrive station  2: -6.324555
-
--------BIKE REMOVED-------
-User 0 has -12.649111 money
+______________________________________________________________
+Gift given by start station   2: -6.324555
+Gift given by arrive station  3: -6.324555
+______________________________________________________________
+User 23 has -12.649111 money
 -------------------------------------------------
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+--------BIKE REMOVED-------
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 10.029690
-Number of Visit of start station 1 by the user 0 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 10.029690
+______________________________________________________________
+Number of Visit of start station 2 by the user 23 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 10.029690
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 10.029690
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 0 = 1 
+Number of Visit of arrive station 3 by the user 23 = 1 
 -------------------------------------------------
 Money in the system: 1028.826829 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 is critical(empty of bikes) 
-Station 2 is critical(full of bikes) 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 is critical(empty of bikes) 
+Station 3 is critical(full of bikes) 
 ------------------------------------------------------------------------------
 
-User 6 want left from station:    1
-User 6 want arrive to stations:   2
+User 6 want left from station:    2
+User 6 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
 User 6 has -20.059379 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 6 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 18.261784
+______________________________________________________________
+Number of Visit of start station 2 by the user 6 = 1 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.000000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 18.261784
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 6 = 1 
+Number of Visit of arrive station 3 by the user 6 = 1 
 -------------------------------------------------
 Money in the system: 1048.886209 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.031000 seconds 
-Station 2 full of bikes for 0.031000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.030000 seconds 
+Station 3 full of bikes for 0.030000 seconds 
 ------------------------------------------------------------------------------
 
-User 16 want left from station:    1
-User 16 want arrive to stations:   2
+User 24 want left from station:    2
+User 24 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
-User 16 has -20.059379 money
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
+User 24 has -20.059379 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 16 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 18.794662
+______________________________________________________________
+Number of Visit of start station 2 by the user 24 = 1 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.030000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 18.794662
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 16 = 1 
+Number of Visit of arrive station 3 by the user 24 = 1 
 -------------------------------------------------
 Money in the system: 1068.945588 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.062000 seconds 
-Station 2 full of bikes for 0.062000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.060000 seconds 
+Station 3 full of bikes for 0.060000 seconds 
 ------------------------------------------------------------------------------
 
-User 11 want left from station:    1
-User 11 want arrive to stations:   2
+User 2 want left from station:    2
+User 2 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
-User 11 has -20.059379 money
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
+User 2 has -20.059379 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 11 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 19.332393
+______________________________________________________________
+Number of Visit of start station 2 by the user 2 = 1 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.060000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 19.332393
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 11 = 1 
+Number of Visit of arrive station 3 by the user 2 = 1 
 -------------------------------------------------
 Money in the system: 1089.004967 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.092000 seconds 
-Station 2 full of bikes for 0.092000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.090000 seconds 
+Station 3 full of bikes for 0.090000 seconds 
 ------------------------------------------------------------------------------
 
-User 28 want left from station:    1
-User 28 want arrive to stations:   2
+User 34 want left from station:    2
+User 34 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
-User 28 has -20.059379 money
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
+User 34 has -25.089113 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 28 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 19.875024
+______________________________________________________________
+Number of Visit of start station 2 by the user 34 = 2 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.090000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 19.875024
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 28 = 1 
+Number of Visit of arrive station 3 by the user 34 = 2 
 -------------------------------------------------
 Money in the system: 1109.064346 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.122000 seconds 
-Station 2 full of bikes for 0.122000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.120000 seconds 
+Station 3 full of bikes for 0.120000 seconds 
 ------------------------------------------------------------------------------
 
-User 24 want left from station:    1
-User 24 want arrive to stations:   2
+User 0 want left from station:    2
+User 0 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
-User 24 has -20.059379 money
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
+User 0 has -20.059379 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 24 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 20.422604
+______________________________________________________________
+Number of Visit of start station 2 by the user 0 = 2 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.120000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 20.422604
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 24 = 1 
+Number of Visit of arrive station 3 by the user 0 = 2 
 -------------------------------------------------
 Money in the system: 1129.123726 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.152000 seconds 
-Station 2 full of bikes for 0.152000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.150000 seconds 
+Station 3 full of bikes for 0.150000 seconds 
 ------------------------------------------------------------------------------
 
-User 39 want left from station:    1
-User 39 want arrive to stations:   2
+User 24 want left from station:    2
+User 24 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
-User 39 has -20.059379 money
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
+User 24 has -40.118759 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 39 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 20.975176
+______________________________________________________________
+Number of Visit of start station 2 by the user 24 = 2 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.150000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 20.975176
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 39 = 1 
+Number of Visit of arrive station 3 by the user 24 = 2 
 -------------------------------------------------
 Money in the system: 1149.183105 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.182000 seconds 
-Station 2 full of bikes for 0.182000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.180000 seconds 
+Station 3 full of bikes for 0.180000 seconds 
 ------------------------------------------------------------------------------
 
-User 26 want left from station:    1
-User 26 want arrive to stations:   2
+User 8 want left from station:    2
+User 8 want arrive to stations:   3
 
 
-Gift given by start station   1: -10.029690
-Gift given by arrive station  2: -10.029690
-
--------BIKE REMOVED-------
-User 26 has -20.059379 money
+______________________________________________________________
+Gift given by start station   2: -10.029690
+Gift given by arrive station  3: -10.029690
+______________________________________________________________
+User 8 has -20.059379 money
 -------------------------------------------------
 ***NO bike avaiable! Choose another station*** 
 
-Remaining bikes station 1:  0 
-Free Columns station    1:  10 
+Remaining bikes station 2:  0 
+Free Columns station    2:  10 
 
-Gift that will be give by start station   1: -10.029690
-Gift that will be give by arrive station  1: 18.261784
-Number of Visit of start station 1 by the user 26 = 1 
+______________________________________________________________
+Gift that will be give by start station   2: -10.029690
+Gift that will be give by arrive station  2: 21.532785
+______________________________________________________________
+Number of Visit of start station 2 by the user 8 = 1 
 -------------------------------------------------
 ***NO columns avaiable! Please put the bike in another station*** 
 
-TEMPO VUOTA: 0.000000 
--------BIKE RELEASED------
-Remaining bikes station 2: 10
-Free Columns station    2: 0 
+Time full station: 0.180000 
+Remaining bikes station 3: 10
+Free Columns station    3: 0 
 
-Gift that will be give by start station   2: 18.261784
-Gift that will be give by arrive station  2: -10.029690
+Gift that will be give by start station   3: 21.532785
+Gift that will be give by arrive station  3: -10.029690
 
-Number of Visit of arrive station 2 by the user 26 = 1 
+Number of Visit of arrive station 3 by the user 8 = 1 
 -------------------------------------------------
 Money in the system: 1169.242484 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.212000 seconds 
-Station 2 full of bikes for 0.212000 seconds 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
-STO AZZERANDO I TEMPI DELLE STAZIONI 
+Station 2 empty of bikes for 0.210000 seconds 
+Station 3 full of bikes for 0.210000 seconds 
 ------------------------------------------------------------------------------
 
-Bikes present in station 1: 0 
-Free columns station     1: 10 
-Bikes present in station 2: 10 
-Free columns station     2: 0 
-Bikes present in station 3: 5 
-Free columns station     3: 5 
+Bikes present in station 1: 5 
+Free columns station     1: 5 
+Bikes present in station 2: 0 
+Free columns station     2: 10 
+Bikes present in station 3: 10 
+Free columns station     3: 0 
 Bikes present in station 4: 5 
 Free columns station     4: 5 
 Bikes present in station 5: 5 
@@ -719,5 +566,5 @@ Free columns station     16: 5
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 is critical
 Station 2 is critical
+Station 3 is critical

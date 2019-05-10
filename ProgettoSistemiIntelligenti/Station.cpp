@@ -58,15 +58,20 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 
 		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
 		int cr_e_c = this->critical_empty_counter;						//n° DI VOLTE STAZIONE VUOTA
-		double s_f_t = this->station_full_time;
-
+		double s_e_t = this->station_empty_time;
+		if (VERBOSE > 300)
+		{
+			printf("Time empty station: %lf \n", s_e_t);
+		}
 		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA PIENA PER AGGIORNARE I SOLDI DATI SE RILASCIO LA BICI*/
-		this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1) *cbrt(s_f_t + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+		this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1) *cbrt(s_e_t + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else
 	{
 		this->available_bikes--;																				//DECREMENTO NUMERO BICI DISPONIBILI
 		this->free_columns++;																					//INCREMENTO COLONNINE DISPONIBILI
+		printf("--------BIKE REMOVED-------\n");
+
 
 		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
 		int fc = this->free_columns;
@@ -113,23 +118,26 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 		
 	if (free_columns == 0)
 	{
-		printf("***NO columns avaiable! Please put the bike in another station*** \n\n");
-
 		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
 		int fc = this->free_columns;
 		int av_b = this->available_bikes;
 		
 		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
 		int cr_f_c = this->critical_full_counter;						//n° DI VOLTE STAZIONE PIENA
-		double s_e_t = this->station_empty_time;
-		printf("TEMPO VUOTA: %lf \n", s_e_t);
+		double s_f_t = this->station_full_time;
+
+		printf("***NO columns avaiable! Please put the bike in another station*** \n\n");
+		printf("Time full station: %lf \n", s_f_t);
+		
 		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA VUOTA PER AGGIORNARE I SOLDI DATI SE PRELEVO LA BICI*/
-		this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1) *cbrt(s_e_t + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+		this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1) *cbrt(s_f_t + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else
 	{
 		this->available_bikes++;															//INCREMENTO NUMERO BICI DISPONIBILI
 		this->free_columns--;																//DECREMENTO COLONNINE LIBERE
+		printf("-------BIKE RELEASED------\n");
+
 
 		/*BICI E COLONNE DISPONIBILI DOPO LA RIMOZIONE*/
 		int fc = this->free_columns;
@@ -175,10 +183,6 @@ void Station_i::set_money(double val){
 
 
 /*--------------------------------STATIONS METHODS----------------------------------*/
-
-int Stations::n_stat(){
-	return n_stations;
-}
 
 void Stations::set_n_stations(int num){
 	this->n_stations = num;

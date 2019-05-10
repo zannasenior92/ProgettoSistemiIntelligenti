@@ -92,7 +92,6 @@ public:
 	
 
 	/*-------------------------------------METHODS---------------------------*/
-	int n_stat();																//RESTITUISCO IL NUMERO DI STAZIONI PRESENTI
 	void set_n_stations(int num);												//SETTO IL NUMERO DI STAZIONI PRESENTI 
 	void set_n_columns_for_station(int n_c);									//SETTO IL NUMERO DI COLONNE PER OGNI STAZIONE
 	void set_n_bikes_for_stations(int n_b);										//SETTO IL NUMERO DI BICI PER OGNI STAZIONE

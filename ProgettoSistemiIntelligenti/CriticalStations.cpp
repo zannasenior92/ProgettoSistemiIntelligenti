@@ -53,7 +53,6 @@ void budget_time_update(Stations *inststations)
 		else//DICO CHE LA STAZIONE NON E' PIU' CRITICA E AZZERO I TEMPI PER CUI E' STATA CRITICA IN MODO DA RIPARTIRE DA 0 SUCESSIVAMENTE
 		{
 			inststations->critical_station[i] = 0;
-			printf("STO AZZERANDO I TEMPI DELLE STAZIONI \n");
 			inststations->all_stations[i].station_empty_time = 0;
 			inststations->all_stations[i].station_full_time = 0;
 		}
