@@ -59,6 +59,11 @@ void User_i::clear_added_gift(int n_s)
 	}
 }
 
+int User_i::get_value_decision()
+{
+	return this->value_decision;
+}
+
 /************************************************************************************/
 
 /*--------------------------------USERS METHODS----------------------------------*/

@@ -183,27 +183,41 @@ void generateTraffic(Stations *inststations, Users *instusers)
 /*METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE*/
 int choose_START_station(Stations *inststations, Users *instusers, int user)
 {
-	int rand_s = rand() % inststations->n_stations;
-	printf("User %d would start from station %d \n", user, rand_s);
+	int start_s = rand() % inststations->n_stations;
+	printf("User %d would start from station %d \n", user, start_s);
 
-	while (inststations->all_stations[rand_s].av_bikes() == 0)
+	//-----------STAZIONE DA CUI VOGLIO PARTIRE
+	double x_a = inststations->xcoords[start_s];
+	double y_a = inststations->ycoords[start_s];
+
+	while (inststations->all_stations[start_s].av_bikes() == 0)//LA STAZIONE DEVE AVERE BICI DISPONIBILI
 	{
 		double x_i;
 		double y_i;
+		int best_station = 0; //INDICE MIGLIOR STAZIONE SCELTA
+		double decision = 0; //VALORE DI DECISIONE CORRENTE
 
-		for (int i = 0; i < inststations->n_stations; i++)
+		for (int i = 0; i < inststations->n_stations && i != start_s ; i++)
 		{
 			/*--------------COORDINATE DA CONFRONTARE-------------*/
 			x_i = inststations->xcoords[i];
 			y_i = inststations->ycoords[i];
 
+			double user_dec_val = instusers->all_users[user].get_value_decision();
 			double gift_take = inststations->all_stations[i].get_gift_take();
-			double distance = 0;
+			double distance = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;
+			double current_dec_val = gift_take / distance;
+			/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
+			if ((current_dec_val > user_dec_val) && (current_dec_val > decision))
+			{
+				best_station = i;
+				decision = current_dec_val;
+			}
 		}
-		rand_s = rand() % inststations->n_stations;
+		start_s = best_station;
 	}
-	printf("User %d choose start station %d \n", user, rand_s);
-	return rand_s;
+	printf("User %d choose start station %d \n", user, start_s);
+	return start_s;
 }
 /*METODO CHE SCEGLIE LA STAZIONE DI ARRIVO IN BASE A QUELLE PIENE*/
 int choose_ARRIVE_station(Stations *inststations)

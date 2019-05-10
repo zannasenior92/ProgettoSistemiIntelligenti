@@ -35,7 +35,9 @@ public:
 	void add_gift(int station_i,double quantity);								//AGGIUNGE CREDITO DA GUADAGNARE ALLA STAZIONE i
 	double get_added_gift(int station_i);										//RESTITUISCE I GIFT AGGIUNTIVI DATI
 	void clear_added_gift(int n_s);												//AZZERA TUTTE I GIFT AGGIUNTIVI DEL SINGOLO UTENTE
-/*---------------------------------PRIVATE VARIABLES-------------------------*/
+	int get_value_decision();													//MI RESTITUISCE IL VALORE DI DECISIONE DELL'UTENTE
+																				
+	/*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
 	int *start_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI PARTENZA
 	int *arrive_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI ARRIVO
