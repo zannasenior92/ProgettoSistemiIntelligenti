@@ -22,12 +22,8 @@ public:
 	{
 		this->available_bikes = b;
 		this->columns = c;
-		this->free_columns = this->columns - this->available_bikes;
-		this->reserve_up_col = new int[free_columns];
-		for (int i = 0; i < free_columns; i++)									//AZZERA LE COLONNINE LIBERE PRENOTATE
-		{
-			reserve_up_col[i] = 0;
-		}
+		this->free_columns = abs(this->columns - this->available_bikes);
+
 		this->gift_money_take = 0;												//ALL'INIZIO NON VIENE DATA MONETA-STAZIONE PARTENZA(5 BICI E 5 COLONNINE LIBERE)
 		this->gift_money_release = 0;											//ALL'INIZIO NON VIENE DATA MONETA-STAZIONE ARRIVO(5 BICI E 5 COLONNINE LIBERE)
 		
@@ -39,9 +35,7 @@ public:
 	}
 	/*-------------------------------------METHODS---------------------------*/
 	void remove_bike(Users *instusers, double n_u, double n_s, int user);													//RIMUOVE UNA BICI DALLA STAZIONE
-	void reserve_col(int i);													//PRENOTA COLONNINA
 	void add_bike(Users *instusers, double n_u, double n_s, int user);														//AGGIUNGE UNA BICI ALLA STAZIONE
-	void set_money(double val);													//SETTA LA MONETA OFFERTA DALLA STAZIONE
 	int av_bikes();																//MI RESTITUISCE IL NUMERO DI BICI
 	int av_columns();															//RESTITUISCE N° COLONNINE LIBERE
 	double g_m_r();																//RESTITUISCE PREMIO PER LA STAZIONE DI PARTENZA

@@ -58,3 +58,16 @@ void budget_time_update(Stations *inststations)
 		}
 	}
 }
+
+/*VERIFICA SE INIZIALMENTE LE STAZIONI SONO CRITICHE*/
+void initial_critical_stations(Stations *inststations)
+{
+	for (int i = 0; i < inststations->n_stations; i++)
+	{
+		if ((inststations->all_stations[i].av_bikes() == 0) || (inststations->all_stations[i].av_columns() == 0))
+		{
+			inststations->critical_station[i] = 1;
+		}
+
+	}
+}

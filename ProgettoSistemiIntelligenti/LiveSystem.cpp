@@ -7,9 +7,11 @@
 /*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
-void inductedBestStartStations(Stations *inststations, Users *instusers,int user, int start_station, int arrive_station);
-void inductedBestArriveStations(Stations *inststations, Users *instusers,int user, int start_station, int arrive_station);
 void budget_time_update(Stations *inststations);
+int choose_START_station(Stations *inststations, Users *instusers, int user);
+int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user);
+void initial_critical_stations(Stations *inststations);
+
 
 
 
@@ -20,9 +22,15 @@ al numero di colonnine per stazione e al numero di stazioni da creare*/
 void createEnv(Stations *inststations, Users *instusers)
 {
 	inststations->all_stations = (Station_i*)malloc(inststations->n_stations * sizeof(Station_i));
-	for (int i = 0; i < inststations->n_stations; i++)
+	
+	/*STAZIONE 0 SENZA BICI*/
+	inststations->all_stations[0] = Station_i(10, 10);
+
+	for (int i = 1; i < inststations->n_stations; i++)
 	{
+
 		inststations->all_stations[i] = Station_i(inststations->num_bikes, inststations->num_columns);
+		
 	}
 	printf("N° of users: %d\n",instusers->n_users);
 
@@ -47,6 +55,7 @@ void createEnv(Stations *inststations, Users *instusers)
 
 	/*INIZIALIZZO CRITICITA' STAZIONI*/
 	inststations->critical_station = (double*)calloc(inststations->n_stations , sizeof(double));
+	//initial_critical_stations(inststations);
 	if (VERBOSE >200)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
@@ -65,8 +74,9 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int n = 0;
 	bool done = true;
 	int rand_user;
-	int rand_start;																								//INDEX START'S STATION
-	int rand_arrive;																							//INDES END'S STATION
+	int rand_start;																	//INDEX START'S STATION
+	int rand_arrive;																//INDES END'S STATION
+
 
 	/*------------------------------------------STAZIONI INIZIALI---------------------------------------*/
 	printf("Money in the system at time 0: %lf \n\n\n", inststations->get_cash_desk());
@@ -82,17 +92,17 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*PRENDERE IL TEMPO QUI DENTRO PER POTER AGGIORNARE LE STAZIONI CRITICHE*/
 
 		rand_user = rand() % instusers->n_users;
-		rand_start = rand() % inststations->n_stations;															//STAZIONE DA CUI VORREBBE PARTIRE L'UTENTE
-		rand_arrive = rand() % inststations->n_stations;														//STAZIONE IN CUI VORREBBE ARRIVARE L'UTENTE
+		rand_start = rand() % inststations->n_stations;
+		rand_arrive = rand() % inststations->n_stations;
+		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
+		//rand_start = choose_START_station(inststations, instusers, rand_user);
+		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
 		double release = inststations->all_stations[rand_arrive].get_gift_release();
 		instusers->all_users[rand_user].update_budget(take, release);											//AGGIORNO IL BUDGET DELL'UTENTE
-		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
-		printf("User %d want left from station:    %d\n", rand_user, rand_start + 1);
-		printf("User %d want arrive to stations:   %d\n", rand_user, rand_arrive + 1);
-		printf("\n");
+		inststations->update_cash_desk(instusers, take, release);												//AGGIORNO I SOLDI PRESENTI NEL SISTEMA		
 		
 		printf("\n");
 		printf("______________________________________________________________\n");
@@ -148,7 +158,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		Sleep(30);		//RITARDO DI 10 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
+		Sleep(300);		//RITARDO DI 10 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
 		if (n > 10)
 		{
 			done = false;
@@ -180,53 +190,4 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	}
 }
 
-/*METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE*/
-int choose_START_station(Stations *inststations, Users *instusers, int user)
-{
-	int start_s = rand() % inststations->n_stations;
-	printf("User %d would start from station %d \n", user, start_s);
 
-	//-----------STAZIONE DA CUI VOGLIO PARTIRE
-	double x_a = inststations->xcoords[start_s];
-	double y_a = inststations->ycoords[start_s];
-
-	while (inststations->all_stations[start_s].av_bikes() == 0)//LA STAZIONE DEVE AVERE BICI DISPONIBILI
-	{
-		double x_i;
-		double y_i;
-		int best_station = 0; //INDICE MIGLIOR STAZIONE SCELTA
-		double decision = 0; //VALORE DI DECISIONE CORRENTE
-
-		for (int i = 0; i < inststations->n_stations && i != start_s ; i++)
-		{
-			/*--------------COORDINATE DA CONFRONTARE-------------*/
-			x_i = inststations->xcoords[i];
-			y_i = inststations->ycoords[i];
-
-			double user_dec_val = instusers->all_users[user].get_value_decision();
-			double gift_take = inststations->all_stations[i].get_gift_take();
-			double distance = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;
-			double current_dec_val = gift_take / distance;
-			/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
-			if ((current_dec_val > user_dec_val) && (current_dec_val > decision))
-			{
-				best_station = i;
-				decision = current_dec_val;
-			}
-		}
-		start_s = best_station;
-	}
-	printf("User %d choose start station %d \n", user, start_s);
-	return start_s;
-}
-/*METODO CHE SCEGLIE LA STAZIONE DI ARRIVO IN BASE A QUELLE PIENE*/
-int choose_ARRIVE_station(Stations *inststations)
-{
-	int rand_a = rand() % inststations->n_stations;
-
-	while (inststations->all_stations[rand_a].av_columns() == 0)
-	{
-		rand_a = rand() % inststations->n_stations;
-	}
-	return rand_a;
-}

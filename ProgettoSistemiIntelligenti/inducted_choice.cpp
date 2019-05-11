@@ -2,93 +2,95 @@
 #include "User.h"
 
 
-#define RADIUS 3	//RAGGIO ENTRO CUI AUMENTARE IL BUDGET(posso modificarlo per vedere come cambia la situazione)
+/*------------------------METODI CHE INDUCONO L'UTENTE A SCEGLIERE UNA STAZIONE PIUTTOSTO DI UN'ALTRA---------------------------*/
 
-/*------------------------METODI CHE INDUCONO L'UTENTE A SCEGLIERE UNA STAZIONE PIUTTOSOT DI UN'ALTRA---------------------------*/
-
-
-/*-----------INDUCE L'UTENTE A PRENDERE LA MIGLIOR STAZIONE DI PARTENZA(POTREBBE NON ESSERE QUELLA INIZIALE)--------------*/
-void inductedBestStartStations(Stations *inststations, Users *instusers, int user, int start_station, int arrive_station)
+/*METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE*/
+int choose_START_station(Stations *inststations, Users *instusers, int user)
 {
-	/*RESETTO A ZERO TUTTE I GIFT AGGIUNTIVI DELL'UTENTE BASATI SULLA DISTANZA*/
-	instusers->all_users[user].clear_added_gift(inststations->n_stations);
+	int start_s = rand() % inststations->n_stations;
+	printf("User %d would start from station: %d \n", user, start_s + 1);
 
-	//----------STAZIONE DA CUI VOGLIO PARTIRE
-	double x_s = inststations->xcoords[start_station];
-	double y_s = inststations->ycoords[start_station];
+	//-----------STAZIONE DA CUI VOGLIO PARTIRE
+	double x_a = inststations->xcoords[start_s];
+	double y_a = inststations->ycoords[start_s];
 
-	printf("Bikes available at station   %d = %d bikes \n", start_station + 1, inststations->all_stations[start_station].av_bikes());
-	/*-------------------------------------------------------------------------------------------------------*/
-	double x_i;
-	double y_i;
-
-	int start_bikes = inststations->all_stations[start_station].av_bikes();					//MASSIMO NUMERO DI BICI DISPONIBILI NEI DINTORNI
-
-	for (int i = 0; i < inststations->n_stations; i++)
+	while (inststations->all_stations[start_s].av_bikes() == 0)//LA STAZIONE DEVE AVERE BICI DISPONIBILI
 	{
-		/*--------------COORDINATE DA CONFRONTARE-------------*/
-		x_i = inststations->xcoords[i];
-		y_i = inststations->ycoords[i];
+		double x_i;
+		double y_i;
+		int best_station = 0;	//INDICE MIGLIOR STAZIONE SCELTA
+		double decision = 0;	//VALORE DI DECISIONE CORRENTE
+		double distance;		//DISTANZA TRA STAZIONI
+		double gift_take;		//PREMIO DATO STAZIONE i-ESIMA
+		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
+		printf("User value decision: %lf \n", user_dec_val);
 
-
-		double dist_s = sqrt(pow(abs(x_s - x_i), 2) + pow(abs(y_s - y_i), 2));
-
-		/*---------------INCREMENTO DEL PREMIO SOLO SE CI SONO PIU' BICI LIBERE NELLE VICINANZE-------------*/
-		if (dist_s < RADIUS && (i != start_station) && (i != arrive_station) && (inststations->all_stations[i].av_bikes() > start_bikes) )
+		for (int i = 0; i < inststations->n_stations && i != start_s; i++)
 		{
-			printf("Near start station %d has %d bikes \n", i + 1, inststations->all_stations[i].av_bikes());
-			/*INSERISCO NEI PREMI DELL'UTENTE QUANTO GLI VIENE DATO SE PARTE DA UNA DELLE STAZIONI VICINE*/
-			instusers->all_users[user].add_gift(i, dist_s);
+			/*--------------DISTANZA DA CONFRONTARE-------------*/
+			x_i = inststations->xcoords[i];
+			y_i = inststations->ycoords[i];
+			distance = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI PARTENZA E STAZIONE i
+			gift_take = inststations->all_stations[i].get_gift_take();//PREMIO FORNITO STAZIONE DI PARTENZA
+			double i_dec_val = gift_take / distance;
 
-			if (VERBOSE > 200)
+			printf("Decision value from my station %d and station %d is: %lf \n", start_s, i, i_dec_val);
+
+			/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
+			if ((i_dec_val > user_dec_val) && (i_dec_val > decision))
 			{
-				printf("Distance from start station %d to %d = %lf \n", start_station + 1, i + 1, dist_s);
+				best_station = i;
+				decision = i_dec_val;
 			}
-			printf("Money added station %d = %lf \n", i + 1, instusers->all_users[user].get_added_gift(i));
 		}
-
-	}
-	printf("\n");
+		start_s = best_station;
+	}   
+	printf("User %d choose start station:     %d \n", user, start_s + 1);
+	return start_s;
 }
 
-/*-----------INDUCE L'UTENTE A SCEGLIERE LA MIGLIOR STAZIONE DI ARRIVO(POTREBBE NON ESSERE QUELLA INIZIALE)--------------*/
-void inductedBestArriveStations(Stations *inststations, Users *instusers, int user, int start_station, int arrive_station)
+
+/*METODO CHE SCEGLIE LA STAZIONE DI ARRIVO IN BASE A QUELLE PIENE*/
+int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 {
-	/*RESETTO A ZERO TUTTE I GIFT AGGIUNTIVI DELL'UTENTE BASATI SULLA DISTANZA*/
-	instusers->all_users[user].clear_added_gift(inststations->n_stations);
+	int arrive_s = rand() % inststations->n_stations;
+	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
 
 	//-----------STAZIONE A CUI VOGLIO ARRIVARE
-	double x_a = inststations->xcoords[arrive_station];
-	double y_a = inststations->ycoords[arrive_station];
+	double x_a = inststations->xcoords[arrive_s];
+	double y_a = inststations->ycoords[arrive_s];
 
-	printf("Columns available at station %d = %d columns \n", arrive_station + 1, inststations->all_stations[arrive_station].av_columns());
-	/*-------------------------------------------------------------------------------------------------------*/
-
-	double x_i;
-	double y_i;
-
-	int arrive_columns = inststations->all_stations[arrive_station].av_columns();					//MASSIMO NUMERO DI COLONNINE DISPONIBILI NEI DINTORNI
-
-	for (int i = 0; i < inststations->n_stations; i++)
+	while (inststations->all_stations[arrive_s].av_columns() == 0)
 	{
-		/*--------------COORDINATE DA CONFRONTARE-------------*/
-		x_i = inststations->xcoords[i];
-		y_i = inststations->ycoords[i];
+		double x_i;
+		double y_i;
+		int best_station = 0;	//INDICE MIGLIOR STAZIONE SCELTA
+		double decision = 0;	//VALORE DI DECISIONE CORRENTE
+		double distance;		//DISTANZA TRA STAZIONI
+		double gift_take;		//PREMIO DATO STAZIONE i-ESIMA
+		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
+		printf("User value decision: %lf \n", user_dec_val);
 
-		double dist_a = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));
-		/*---------------INCREMENTO IL PREMIO SOLO SE CI SONO PIU' COLONNINE LIBERE NELLE VICINANZE----------*/
-		if (dist_a < RADIUS && (i != arrive_station) && (i != start_station) && (inststations->all_stations[i].av_columns() > arrive_columns))
+		for (int i = 0; i < inststations->n_stations && i != arrive_s; i++)
 		{
-			printf("Near arrive station %d has %d columns \n", i + 1, inststations->all_stations[i].av_columns());
-			/*INSERISCO NEI PREMI DELL'UTENTE QUANTO GLI VIENE DATO SE ARRIVA IN UNA DELLE STAZIONI VICINE*/
-			instusers->all_users[user].add_gift(i, dist_a);
-			
-			if (VERBOSE > 200)
+			/*--------------DISTANZA DA CONFRONTARE-------------*/
+			x_i = inststations->xcoords[i];
+			y_i = inststations->ycoords[i];
+			distance = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI PARTENZA E STAZIONE i
+			gift_take = inststations->all_stations[i].get_gift_take();//PREMIO FORNITO STAZIONE DI PARTENZA
+			double i_dec_val = gift_take / distance;
+
+			printf("Decision value from my station %d and station %d is: %lf \n", arrive_s, i, i_dec_val);
+
+			/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
+			if ((i_dec_val > user_dec_val) && (i_dec_val > decision))
 			{
-				printf("Distance from arrive station %d to %d = %lf \n", arrive_station + 1, i + 1, dist_a);
+				best_station = i;
+				decision = i_dec_val;
 			}
-			printf("Money added station %d = %lf \n", i + 1, instusers->all_users[user].get_added_gift(i));
 		}
+		arrive_s = best_station;
 	}
-	printf("\n");
+	printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);
+	return arrive_s;
 }

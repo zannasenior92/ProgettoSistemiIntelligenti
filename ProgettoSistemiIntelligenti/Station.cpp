@@ -109,9 +109,6 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 	}
 }
 
-void Station_i::reserve_col(int i){
-	this->reserve_up_col[i] = 1;
-}
 
 /*INSERIRE CHE SE IN UNA STAZIONE NON CI SONO PIU' COLONNINE CON L'AUMENTARE DEL TEMPO AUMENTA ANCHE L'OFFERTA DATA DAL RAGGIUNGIMENTO DI QUELLA POSTAZIONE*/
 void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
@@ -174,9 +171,6 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 	}
 }
 
-void Station_i::set_money(double val){
-	
-}
 
 
 /*****************************************************************************************************************************************/
