@@ -93,9 +93,9 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;
-		rand_arrive = rand() % inststations->n_stations;
+		rand_arrive = 0;
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
-		//rand_start = choose_START_station(inststations, instusers, rand_user);
+		rand_start = choose_START_station(inststations, instusers, rand_user);
 		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
