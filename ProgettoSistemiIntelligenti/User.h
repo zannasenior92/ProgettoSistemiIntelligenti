@@ -15,7 +15,7 @@ class User_i
 {
 public:
 	/*-------------------DEFINISCO MONETA INIZIALE UTENTE------------------------*/
-	User_i(double M, int n_s , int t, int v_d)													//M = soldi iniziali; t = velocità utente  
+	User_i(double M, int n_s , int t, double v_d)													//M = soldi iniziali; t = velocità utente  v_d = valore di decisione per la scelta di altre stazioni
 	{
 		this->money_pocket = M;
 		this->start_stations_used = new int[n_s] {0};
@@ -35,14 +35,14 @@ public:
 	void add_gift(int station_i,double quantity);								//AGGIUNGE CREDITO DA GUADAGNARE ALLA STAZIONE i
 	double get_added_gift(int station_i);										//RESTITUISCE I GIFT AGGIUNTIVI DATI
 	void clear_added_gift(int n_s);												//AZZERA TUTTE I GIFT AGGIUNTIVI DEL SINGOLO UTENTE
-	int get_value_decision();													//MI RESTITUISCE IL VALORE DI DECISIONE DELL'UTENTE
+	double get_value_decision();												//MI RESTITUISCE IL VALORE DI DECISIONE DELL'UTENTE
 																				
 	/*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
 	int *start_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI PARTENZA
 	int *arrive_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI ARRIVO
 	double money_pocket;														//SOLDI INIZIALI DI BUDGET
-	int value_decision;															//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA - PER LA SCELTA DELLA STAZIONE
+	double value_decision;															//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA - PER LA SCELTA DELLA STAZIONE
 	int transfert_coef;															//COEFFICIENTE CHE ESPRIME IL TEMPO DI TRASFERIMENTO IN BASE AI CHILOMETRI
 	double *added_gift;															//GIFT AGGIUNTIVI RELATIVI AD OGNI STAZIONE
 };

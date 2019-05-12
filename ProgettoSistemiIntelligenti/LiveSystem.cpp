@@ -24,7 +24,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	inststations->all_stations = (Station_i*)malloc(inststations->n_stations * sizeof(Station_i));
 	
 	/*STAZIONE 0 SENZA BICI*/
-	inststations->all_stations[0] = Station_i(10, 10);
+	inststations->all_stations[0] = Station_i(0, 10);
 
 	for (int i = 1; i < inststations->n_stations; i++)
 	{
@@ -49,13 +49,13 @@ void createEnv(Stations *inststations, Users *instusers)
 	int time_user = rand() % 30;																				//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, rand() % 10);
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(rand() % 11)/10);
 	}
 	
 
 	/*INIZIALIZZO CRITICITA' STAZIONI*/
 	inststations->critical_station = (double*)calloc(inststations->n_stations , sizeof(double));
-	//initial_critical_stations(inststations);
+	initial_critical_stations(inststations);
 	if (VERBOSE >200)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
@@ -93,10 +93,10 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		rand_user = rand() % instusers->n_users;
 		rand_start = rand() % inststations->n_stations;
-		rand_arrive = 0;
+		
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		rand_start = choose_START_station(inststations, instusers, rand_user);
-		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
+		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
@@ -158,7 +158,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		Sleep(300);		//RITARDO DI 10 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
+		Sleep(30);		//RITARDO DI 10 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
 		if (n > 10)
 		{
 			done = false;
