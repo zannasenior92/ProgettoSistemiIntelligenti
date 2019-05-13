@@ -77,17 +77,17 @@ Money in the system at time 0: 1000.000000
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 21 would start from station: 1 
-User 21 choose start station:     1 
-User 21 would arrive to stations: 8 
-User 21 choose arrive station:    8 
+User 26 would start from station: 1 
+User 26 choose start station:     1 
+User 26 would arrive to stations: 2 
+User 26 choose arrive station:    2 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   1: 0.000000
-Gift given by arrive station  8: 0.000000
+Gift given by arrive station  2: 0.000000
 ______________________________________________________________
-User 21 has 0.000000 money
+User 26 has 0.000000 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 1:  4 
@@ -98,16 +98,16 @@ Free Columns station    1:  6
 Gift that will be give by start station   1: -1.585833
 Gift that will be give by arrive station  1: 1.585833
 ______________________________________________________________
-Number of Visit of start station 1 by the user 21 = 1 
+Number of Visit of start station 1 by the user 26 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 8: 6
-Free Columns station    8: 4 
+Remaining bikes station 2: 6
+Free Columns station    2: 4 
 
-Gift that will be give by start station   8: 1.585833
-Gift that will be give by arrive station  8: -1.585833
+Gift that will be give by start station   2: 1.585833
+Gift that will be give by arrive station  2: -1.585833
 
-Number of Visit of arrive station 8 by the user 21 = 1 
+Number of Visit of arrive station 2 by the user 26 = 1 
 -------------------------------------------------
 Money in the system: 1000.000000 
 
@@ -117,17 +117,17 @@ Money in the system: 1000.000000
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 22 would start from station: 1 
-User 22 choose start station:     1 
-User 22 would arrive to stations: 2 
-User 22 choose arrive station:    2 
+User 15 would start from station: 1 
+User 15 choose start station:     1 
+User 15 would arrive to stations: 11 
+User 15 choose arrive station:    11 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   1: -1.585833
-Gift given by arrive station  2: 0.000000
+Gift given by arrive station  11: 0.000000
 ______________________________________________________________
-User 22 has -1.585833 money
+User 15 has -1.585833 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 1:  3 
@@ -138,16 +138,16 @@ Free Columns station    1:  7
 Gift that will be give by start station   1: -2.514867
 Gift that will be give by arrive station  1: 2.514867
 ______________________________________________________________
-Number of Visit of start station 1 by the user 22 = 1 
+Number of Visit of start station 1 by the user 15 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 2: 6
-Free Columns station    2: 4 
+Remaining bikes station 11: 6
+Free Columns station    11: 4 
 
-Gift that will be give by start station   2: 1.585833
-Gift that will be give by arrive station  2: -1.585833
+Gift that will be give by start station   11: 1.585833
+Gift that will be give by arrive station  11: -1.585833
 
-Number of Visit of arrive station 2 by the user 22 = 1 
+Number of Visit of arrive station 11 by the user 15 = 1 
 -------------------------------------------------
 Money in the system: 1001.585833 
 
@@ -157,17 +157,17 @@ Money in the system: 1001.585833
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 22 would start from station: 1 
-User 22 choose start station:     1 
-User 22 would arrive to stations: 14 
-User 22 choose arrive station:    14 
+User 10 would start from station: 1 
+User 10 choose start station:     1 
+User 10 would arrive to stations: 1 
+User 10 choose arrive station:    1 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   1: -2.514867
-Gift given by arrive station  14: 0.000000
+Gift given by arrive station  1: 2.514867
 ______________________________________________________________
-User 22 has -4.100700 money
+User 10 has 0.000000 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 1:  2 
@@ -178,18 +178,18 @@ Free Columns station    1:  8
 Gift that will be give by start station   1: -3.988159
 Gift that will be give by arrive station  1: 3.988159
 ______________________________________________________________
-Number of Visit of start station 1 by the user 22 = 2 
+Number of Visit of start station 1 by the user 10 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 14: 6
-Free Columns station    14: 4 
+Remaining bikes station 1: 3
+Free Columns station    1: 7 
 
-Gift that will be give by start station   14: 1.585833
-Gift that will be give by arrive station  14: -1.585833
+Gift that will be give by start station   1: -2.514867
+Gift that will be give by arrive station  1: 2.514867
 
-Number of Visit of arrive station 14 by the user 22 = 1 
+Number of Visit of arrive station 1 by the user 10 = 1 
 -------------------------------------------------
-Money in the system: 1004.100700 
+Money in the system: 1001.585833 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
@@ -199,15 +199,55 @@ Money in the system: 1004.100700
 
 User 28 would start from station: 1 
 User 28 choose start station:     1 
-User 28 would arrive to stations: 8 
-User 28 choose arrive station:    8 
+User 28 would arrive to stations: 12 
+User 28 choose arrive station:    12 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   1: -2.514867
+Gift given by arrive station  12: 0.000000
+______________________________________________________________
+User 28 has -2.514867 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 1:  2 
+Free Columns station    1:  8 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   1: -3.988159
+Gift that will be give by arrive station  1: 3.988159
+______________________________________________________________
+Number of Visit of start station 1 by the user 28 = 1 
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 12: 6
+Free Columns station    12: 4 
+
+Gift that will be give by start station   12: 1.585833
+Gift that will be give by arrive station  12: -1.585833
+
+Number of Visit of arrive station 12 by the user 28 = 1 
+-------------------------------------------------
+Money in the system: 1004.100700 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+User 10 would start from station: 1 
+User 10 choose start station:     1 
+User 10 would arrive to stations: 9 
+User 10 choose arrive station:    9 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   1: -3.988159
-Gift given by arrive station  8: -1.585833
+Gift given by arrive station  9: 0.000000
 ______________________________________________________________
-User 28 has -5.573992 money
+User 10 has -3.988159 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 1:  1 
@@ -218,18 +258,18 @@ Free Columns station    1:  9
 Gift that will be give by start station   1: -6.324555
 Gift that will be give by arrive station  1: 6.324555
 ______________________________________________________________
-Number of Visit of start station 1 by the user 28 = 1 
+Number of Visit of start station 1 by the user 10 = 2 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 8: 7
-Free Columns station    8: 3 
+Remaining bikes station 9: 6
+Free Columns station    9: 4 
 
-Gift that will be give by start station   8: 2.514867
-Gift that will be give by arrive station  8: -2.514867
+Gift that will be give by start station   9: 1.585833
+Gift that will be give by arrive station  9: -1.585833
 
-Number of Visit of arrive station 8 by the user 28 = 1 
+Number of Visit of arrive station 9 by the user 10 = 1 
 -------------------------------------------------
-Money in the system: 1009.674693 
+Money in the system: 1008.088859 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
@@ -237,17 +277,17 @@ Money in the system: 1009.674693
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 36 would start from station: 1 
-User 36 choose start station:     1 
-User 36 would arrive to stations: 8 
-User 36 choose arrive station:    8 
+User 34 would start from station: 1 
+User 34 choose start station:     1 
+User 34 would arrive to stations: 12 
+User 34 choose arrive station:    12 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   1: -6.324555
-Gift given by arrive station  8: -2.514867
+Gift given by arrive station  12: -1.585833
 ______________________________________________________________
-User 36 has -8.839422 money
+User 34 has -7.910388 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 1:  0 
@@ -258,18 +298,18 @@ Free Columns station    1:  10
 Gift that will be give by start station   1: -10.029690
 Gift that will be give by arrive station  1: 10.029690
 ______________________________________________________________
-Number of Visit of start station 1 by the user 36 = 1 
+Number of Visit of start station 1 by the user 34 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 8: 8
-Free Columns station    8: 2 
+Remaining bikes station 12: 7
+Free Columns station    12: 3 
 
-Gift that will be give by start station   8: 3.988159
-Gift that will be give by arrive station  8: -3.988159
+Gift that will be give by start station   12: 2.514867
+Gift that will be give by arrive station  12: -2.514867
 
-Number of Visit of arrive station 8 by the user 36 = 1 
+Number of Visit of arrive station 12 by the user 34 = 1 
 -------------------------------------------------
-Money in the system: 1018.514115 
+Money in the system: 1015.999248 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
@@ -278,28 +318,151 @@ Station 1 is critical(empty of bikes)
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 32 would start from station: 1 
-User 32 choose start station:     14 
-User 32 would arrive to stations: 10 
-User 32 choose arrive station:    10 
+User 11 would start from station: 1 
+User 11 choose start station:     12 
+User 11 would arrive to stations: 7 
+User 11 choose arrive station:    7 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
-Gift given by start station   14: 1.585833
-Gift given by arrive station  10: 0.000000
+Gift given by start station   12: 2.514867
+Gift given by arrive station  7: 0.000000
 ______________________________________________________________
-User 32 has 1.585833 money
+User 11 has 2.514867 money
 -------------------------------------------------
 --------BIKE REMOVED-------
-Remaining bikes station 14:  5 
-Free Columns station    14:  5 
+Remaining bikes station 12:  6 
+Free Columns station    12:  4 
 
 ++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
 
-Gift that will be give by start station   14: 0.000000
-Gift that will be give by arrive station  14: 0.000000
+Gift that will be give by start station   12: 1.585833
+Gift that will be give by arrive station  12: -1.585833
 ______________________________________________________________
-Number of Visit of start station 14 by the user 32 = 1 
+Number of Visit of start station 12 by the user 11 = 1 
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 7: 6
+Free Columns station    7: 4 
+
+Gift that will be give by start station   7: 1.585833
+Gift that will be give by arrive station  7: -1.585833
+
+Number of Visit of arrive station 7 by the user 11 = 1 
+-------------------------------------------------
+Money in the system: 1013.484381 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+Station 1 empty of bikes for 0.030000 seconds 
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+User 27 would start from station: 1 
+User 27 choose start station:     8 
+User 27 would arrive to stations: 9 
+User 27 choose arrive station:    9 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   8: 0.000000
+Gift given by arrive station  9: -1.585833
+______________________________________________________________
+User 27 has -1.585833 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 8:  4 
+Free Columns station    8:  6 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   8: -1.585833
+Gift that will be give by arrive station  8: 1.585833
+______________________________________________________________
+Number of Visit of start station 8 by the user 27 = 1 
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 9: 7
+Free Columns station    9: 3 
+
+Gift that will be give by start station   9: 2.514867
+Gift that will be give by arrive station  9: -2.514867
+
+Number of Visit of arrive station 9 by the user 27 = 1 
+-------------------------------------------------
+Money in the system: 1015.070214 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+Station 1 empty of bikes for 0.060000 seconds 
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+User 22 would start from station: 1 
+User 22 choose start station:     8 
+User 22 would arrive to stations: 7 
+User 22 choose arrive station:    7 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   8: -1.585833
+Gift given by arrive station  7: -1.585833
+______________________________________________________________
+User 22 has -3.171666 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 8:  3 
+Free Columns station    8:  7 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   8: -2.514867
+Gift that will be give by arrive station  8: 2.514867
+______________________________________________________________
+Number of Visit of start station 8 by the user 22 = 1 
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 7: 7
+Free Columns station    7: 3 
+
+Gift that will be give by start station   7: 2.514867
+Gift that will be give by arrive station  7: -2.514867
+
+Number of Visit of arrive station 7 by the user 22 = 1 
+-------------------------------------------------
+Money in the system: 1018.241880 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+Station 1 empty of bikes for 0.090000 seconds 
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+User 4 would start from station: 1 
+User 4 choose start station:     8 
+User 4 would arrive to stations: 10 
+User 4 choose arrive station:    10 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   8: -2.514867
+Gift given by arrive station  10: 0.000000
+______________________________________________________________
+User 4 has -2.514867 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 8:  2 
+Free Columns station    8:  8 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   8: -3.988159
+Gift that will be give by arrive station  8: 3.988159
+______________________________________________________________
+Number of Visit of start station 8 by the user 4 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
 Remaining bikes station 10: 6
@@ -308,162 +471,39 @@ Free Columns station    10: 4
 Gift that will be give by start station   10: 1.585833
 Gift that will be give by arrive station  10: -1.585833
 
-Number of Visit of arrive station 10 by the user 32 = 1 
+Number of Visit of arrive station 10 by the user 4 = 1 
 -------------------------------------------------
-Money in the system: 1016.928282 
+Money in the system: 1020.756747 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.029000 seconds 
+Station 1 empty of bikes for 0.120000 seconds 
 ------------------------------------------------------------------------------
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 22 would start from station: 1 
-User 22 choose start station:     8 
-User 22 would arrive to stations: 9 
-User 22 choose arrive station:    9 
+User 21 would start from station: 1 
+User 21 choose start station:     7 
+User 21 would arrive to stations: 13 
+User 21 choose arrive station:    13 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
-Gift given by start station   8: 3.988159
-Gift given by arrive station  9: 0.000000
-______________________________________________________________
-User 22 has -0.112541 money
--------------------------------------------------
---------BIKE REMOVED-------
-Remaining bikes station 8:  7 
-Free Columns station    8:  3 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   8: 2.514867
-Gift that will be give by arrive station  8: -2.514867
-______________________________________________________________
-Number of Visit of start station 8 by the user 22 = 1 
--------------------------------------------------
--------BIKE RELEASED------
-Remaining bikes station 9: 6
-Free Columns station    9: 4 
-
-Gift that will be give by start station   9: 1.585833
-Gift that will be give by arrive station  9: -1.585833
-
-Number of Visit of arrive station 9 by the user 22 = 1 
--------------------------------------------------
-Money in the system: 1012.940122 
-
-++++++++------------CRITICAL STATIONS------------++++++++
-
-Station 1 empty of bikes for 0.059000 seconds 
-------------------------------------------------------------------------------
-
-+++++++++++++++CHOICE OF STATIONS+++++++++++++++
-
-User 26 would start from station: 1 
-User 26 choose start station:     2 
-User 26 would arrive to stations: 16 
-User 26 choose arrive station:    16 
-_________________________________________________
-+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
-
-Gift given by start station   2: 1.585833
-Gift given by arrive station  16: 0.000000
-______________________________________________________________
-User 26 has 1.585833 money
--------------------------------------------------
---------BIKE REMOVED-------
-Remaining bikes station 2:  5 
-Free Columns station    2:  5 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   2: 0.000000
-Gift that will be give by arrive station  2: 0.000000
-______________________________________________________________
-Number of Visit of start station 2 by the user 26 = 1 
--------------------------------------------------
--------BIKE RELEASED------
-Remaining bikes station 16: 6
-Free Columns station    16: 4 
-
-Gift that will be give by start station   16: 1.585833
-Gift that will be give by arrive station  16: -1.585833
-
-Number of Visit of arrive station 16 by the user 26 = 1 
--------------------------------------------------
-Money in the system: 1011.354289 
-
-++++++++------------CRITICAL STATIONS------------++++++++
-
-Station 1 empty of bikes for 0.089000 seconds 
-------------------------------------------------------------------------------
-
-+++++++++++++++CHOICE OF STATIONS+++++++++++++++
-
-User 9 would start from station: 1 
-User 9 choose start station:     10 
-User 9 would arrive to stations: 2 
-User 9 choose arrive station:    2 
-_________________________________________________
-+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
-
-Gift given by start station   10: 1.585833
-Gift given by arrive station  2: 0.000000
-______________________________________________________________
-User 9 has 1.585833 money
--------------------------------------------------
---------BIKE REMOVED-------
-Remaining bikes station 10:  5 
-Free Columns station    10:  5 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   10: 0.000000
-Gift that will be give by arrive station  10: 0.000000
-______________________________________________________________
-Number of Visit of start station 10 by the user 9 = 1 
--------------------------------------------------
--------BIKE RELEASED------
-Remaining bikes station 2: 6
-Free Columns station    2: 4 
-
-Gift that will be give by start station   2: 1.585833
-Gift that will be give by arrive station  2: -1.585833
-
-Number of Visit of arrive station 2 by the user 9 = 1 
--------------------------------------------------
-Money in the system: 1009.768456 
-
-++++++++------------CRITICAL STATIONS------------++++++++
-
-Station 1 empty of bikes for 0.119000 seconds 
-------------------------------------------------------------------------------
-
-+++++++++++++++CHOICE OF STATIONS+++++++++++++++
-
-User 16 would start from station: 1 
-User 16 choose start station:     2 
-User 16 would arrive to stations: 13 
-User 16 choose arrive station:    13 
-_________________________________________________
-+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
-
-Gift given by start station   2: 1.585833
+Gift given by start station   7: 2.514867
 Gift given by arrive station  13: 0.000000
 ______________________________________________________________
-User 16 has 1.585833 money
+User 21 has 2.514867 money
 -------------------------------------------------
 --------BIKE REMOVED-------
-Remaining bikes station 2:  5 
-Free Columns station    2:  5 
+Remaining bikes station 7:  6 
+Free Columns station    7:  4 
 
 ++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
 
-Gift that will be give by start station   2: 0.000000
-Gift that will be give by arrive station  2: 0.000000
+Gift that will be give by start station   7: 1.585833
+Gift that will be give by arrive station  7: -1.585833
 ______________________________________________________________
-Number of Visit of start station 2 by the user 16 = 1 
+Number of Visit of start station 7 by the user 21 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
 Remaining bikes station 13: 6
@@ -472,129 +512,88 @@ Free Columns station    13: 4
 Gift that will be give by start station   13: 1.585833
 Gift that will be give by arrive station  13: -1.585833
 
-Number of Visit of arrive station 13 by the user 16 = 1 
+Number of Visit of arrive station 13 by the user 21 = 1 
 -------------------------------------------------
-Money in the system: 1008.182623 
+Money in the system: 1018.241880 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.149000 seconds 
+Station 1 empty of bikes for 0.150000 seconds 
 ------------------------------------------------------------------------------
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 38 would start from station: 1 
-User 38 choose start station:     13 
-User 38 would arrive to stations: 4 
-User 38 choose arrive station:    4 
+User 23 would start from station: 1 
+User 23 choose start station:     8 
+User 23 would arrive to stations: 10 
+User 23 choose arrive station:    10 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
-Gift given by start station   13: 1.585833
-Gift given by arrive station  4: 0.000000
+Gift given by start station   8: -3.988159
+Gift given by arrive station  10: -1.585833
 ______________________________________________________________
-User 38 has 1.585833 money
+User 23 has -5.573992 money
 -------------------------------------------------
 --------BIKE REMOVED-------
-Remaining bikes station 13:  5 
-Free Columns station    13:  5 
+Remaining bikes station 8:  1 
+Free Columns station    8:  9 
 
 ++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
 
-Gift that will be give by start station   13: 0.000000
-Gift that will be give by arrive station  13: 0.000000
+Gift that will be give by start station   8: -6.324555
+Gift that will be give by arrive station  8: 6.324555
 ______________________________________________________________
-Number of Visit of start station 13 by the user 38 = 1 
+Number of Visit of start station 8 by the user 23 = 1 
 -------------------------------------------------
 -------BIKE RELEASED------
-Remaining bikes station 4: 6
-Free Columns station    4: 4 
+Remaining bikes station 10: 7
+Free Columns station    10: 3 
 
-Gift that will be give by start station   4: 1.585833
-Gift that will be give by arrive station  4: -1.585833
+Gift that will be give by start station   10: 2.514867
+Gift that will be give by arrive station  10: -2.514867
 
-Number of Visit of arrive station 4 by the user 38 = 1 
+Number of Visit of arrive station 10 by the user 23 = 1 
 -------------------------------------------------
-Money in the system: 1006.596790 
+Money in the system: 1023.815873 
 
 ++++++++------------CRITICAL STATIONS------------++++++++
 
-Station 1 empty of bikes for 0.179000 seconds 
-------------------------------------------------------------------------------
-
-+++++++++++++++CHOICE OF STATIONS+++++++++++++++
-
-User 21 would start from station: 1 
-User 21 choose start station:     4 
-User 21 would arrive to stations: 6 
-User 21 choose arrive station:    6 
-_________________________________________________
-+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
-
-Gift given by start station   4: 1.585833
-Gift given by arrive station  6: 0.000000
-______________________________________________________________
-User 21 has 1.585833 money
--------------------------------------------------
---------BIKE REMOVED-------
-Remaining bikes station 4:  5 
-Free Columns station    4:  5 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   4: 0.000000
-Gift that will be give by arrive station  4: 0.000000
-______________________________________________________________
-Number of Visit of start station 4 by the user 21 = 1 
--------------------------------------------------
--------BIKE RELEASED------
-Remaining bikes station 6: 6
-Free Columns station    6: 4 
-
-Gift that will be give by start station   6: 1.585833
-Gift that will be give by arrive station  6: -1.585833
-
-Number of Visit of arrive station 6 by the user 21 = 1 
--------------------------------------------------
-Money in the system: 1005.010956 
-
-++++++++------------CRITICAL STATIONS------------++++++++
-
-Station 1 empty of bikes for 0.209000 seconds 
+Station 1 empty of bikes for 0.180000 seconds 
 ------------------------------------------------------------------------------
 
 Bikes present in station 1: 0 
 Free columns station     1: 10 
-Bikes present in station 2: 5 
-Free columns station     2: 5 
+Bikes present in station 2: 6 
+Free columns station     2: 4 
 Bikes present in station 3: 5 
 Free columns station     3: 5 
 Bikes present in station 4: 5 
 Free columns station     4: 5 
 Bikes present in station 5: 5 
 Free columns station     5: 5 
-Bikes present in station 6: 6 
-Free columns station     6: 4 
-Bikes present in station 7: 5 
-Free columns station     7: 5 
-Bikes present in station 8: 7 
-Free columns station     8: 3 
-Bikes present in station 9: 6 
-Free columns station     9: 4 
-Bikes present in station 10: 5 
-Free columns station     10: 5 
-Bikes present in station 11: 5 
-Free columns station     11: 5 
-Bikes present in station 12: 5 
-Free columns station     12: 5 
-Bikes present in station 13: 5 
-Free columns station     13: 5 
+Bikes present in station 6: 5 
+Free columns station     6: 5 
+Bikes present in station 7: 6 
+Free columns station     7: 4 
+Bikes present in station 8: 1 
+Free columns station     8: 9 
+Bikes present in station 9: 7 
+Free columns station     9: 3 
+Bikes present in station 10: 7 
+Free columns station     10: 3 
+Bikes present in station 11: 6 
+Free columns station     11: 4 
+Bikes present in station 12: 6 
+Free columns station     12: 4 
+Bikes present in station 13: 6 
+Free columns station     13: 4 
 Bikes present in station 14: 5 
 Free columns station     14: 5 
 Bikes present in station 15: 5 
 Free columns station     15: 5 
-Bikes present in station 16: 6 
-Free columns station     16: 4 
+Bikes present in station 16: 5 
+Free columns station     16: 5 
 ------------------------------------------------------------------------------
 
 ++++++++------------CRITICAL STATIONS------------++++++++
