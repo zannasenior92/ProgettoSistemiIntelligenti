@@ -92,6 +92,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		printf("+++++++++++++++CHOICE OF STATIONS+++++++++++++++\n\n");
 		rand_start = choose_START_station(inststations, instusers, rand_user);
+		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
 		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
 		printf("_________________________________________________\n");
 
