@@ -45,6 +45,9 @@
     <ClCompile Include="CriticalStations.cpp">
       <Filter>SimulationSystem</Filter>
     </ClCompile>
+    <ClCompile Include="ParserFullData.cpp">
+      <Filter>File di risorse</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Station.h">

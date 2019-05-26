@@ -58,10 +58,26 @@ public:
 	int n_users;
 	User_i* all_users;
 
-	/*-------------------------------------METHODS-------------------------------*/
+	/*----------------------------------ALL DATA------------------------------*/
+	int n_trip;
+	int *tripduration;
+	int *start_station_id;
+	char **start_station_name;
+	double *star_station_latitude;
+	double *star_station_longitude;
+	int *end_station_id;
+	char **end_station_name;
+	double *end_station_latitude;
+	double *end_station_longitude;
+	int *bikeid;
+	char **usertype;
+
+	/*----------------------------------METHODS-------------------------------*/
 	
 	
 private:
+	
+
 
 };
 

@@ -21,6 +21,7 @@ al numero di colonnine per stazione e al numero di stazioni da creare*/
 /*----------------------CREO ARRAY DI STAZIONI E UTENTI E LO INIZIALIZZO--------------------------*/
 void createEnv(Stations *inststations, Users *instusers)
 {
+	/*INIZIALIZE STATIONS*/
 	inststations->all_stations = (Station_i*)malloc(inststations->n_stations * sizeof(Station_i));
 	
 	for (int i = 0; i < inststations->n_stations; i++)
@@ -41,7 +42,7 @@ void createEnv(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 	}
 	
-	/*INIZIALIZZO GLI UTENTI*/
+	/*INIZIALIZE USERS*/
 	instusers->all_users = (User_i*)malloc(instusers->n_users * sizeof(User_i));
 	int time_user = rand() % 30;																				//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)

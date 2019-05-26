@@ -62,7 +62,6 @@ private:
 	int free_columns;															//NUMERO COLONNINE LIBERE
 	int *reserve_up_col;														//ARRAY COLONNINA LIBERA PRENOTATO
 	
-	
 };
 
 /**************************************************************************************************/
