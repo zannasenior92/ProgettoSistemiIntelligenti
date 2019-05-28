@@ -73,7 +73,8 @@ public:
 	
 	/*----------------------------PUBLIC VARIABLES---------------------------*/
 	Station_i* all_stations;													//ARRAY DELLE STAZIONI
-
+	
+	char **stations_names;														//NAMES OF ALL STATIONS
 	char input_used[200];
 	char name[20];																//NAME OF FILE USED
 	int n_stations;																//NUMERO STAZIONI

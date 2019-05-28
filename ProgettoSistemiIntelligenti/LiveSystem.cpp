@@ -1,10 +1,11 @@
-/*-----------------------------METHODS TO CREATE A LIVE-SYSTEM OF BIKE USERS--------------------------*/
+/*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
 
 #include "Station.h"
 #include "User.h"
 #include <Windows.h>
 #include <time.h>
-/*-------------------------------VIRTUAL SIMULATOR USERS AND STATIONS---------------------------------*/
+
+/*-----------------------------METHODS TO CREATE A LIVE-SYSTEM OF BIKE USERS--------------------------*/
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
 void budget_time_update(Stations *inststations);
