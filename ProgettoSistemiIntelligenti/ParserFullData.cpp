@@ -10,7 +10,7 @@
 #include "Station.h"
 
 /*----------------------------------------METHODS---------------------------------------*/
-void save_stations(Stations *inststations, Users *instusers);
+void save_NAME_stations(Stations *inststations, Users *instusers);
 
 
 /*----------------------------------COMMAND LINE PARSING--------------------------------*/
@@ -75,68 +75,76 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 		if (data_bike == 1) {
 
 			instusers->tripduration[n] = atoi(par_name);
-			printf("tripduration %d: %d \n", n, instusers->tripduration[n]);
 
 			strtok(NULL, ",");//SKIP START DATE
 			strtok(NULL, ",");//SKIP END DATE
 
 			token1 = strtok(NULL, ",");//------------------------start_station_id
 			instusers->start_station_id[n] = atoi(token1);
-			printf("start_station_id %d: %d \n", n, instusers->start_station_id[n]);
 			
 			token2 = strtok(NULL, ",\"");//----------------------start_station_name
-			instusers->start_station_name[n] = (char*)malloc(150 * sizeof(char));
+			instusers->start_station_name[n] = (char*)malloc(150 * sizeof(char));		//ALLOCATE SPACE FOR THE STRING
 			strcpy(instusers->start_station_name[n],token2);
-			printf("start_station_name %d: %s \n", n, instusers->start_station_name[n]);
 
 			token3 = strtok(NULL, ",");//------------------------star_station_latitude
 			instusers->star_station_latitude[n] = atof(token3); 
-			printf("star_station_latitude %d: %lf \n", n, instusers->star_station_latitude[n]);
 
 			token4 = strtok(NULL, ",");//------------------------star_station_longitude
 			instusers->star_station_longitude[n] = atof(token4);
-			printf("star_station_longitude %d: %lf \n", n, instusers->star_station_longitude[n]);
 
 			token5 = strtok(NULL, ",");//------------------------end_station_id
 			instusers->end_station_id[n] = atoi(token5);
-			printf("end_station_id %d: %d \n", n, instusers->end_station_id[n]);
 
 			token6 = strtok(NULL, ",\"");//----------------------end_station_name
-			instusers->end_station_name[n] = token6;
-			printf("end_station_name %d: %s \n", n, instusers->end_station_name[n]);
+			instusers->end_station_name[n] = (char*)malloc(150 * sizeof(char));		//ALLOCATE SPACE FOR THE STRING
+			strcpy(instusers->end_station_name[n], token6);
 
 			token7 = strtok(NULL, ",");//------------------------end_station_latitude
 			instusers->end_station_latitude[n] = atof(token7);
-			printf("end_station_latitude %d: %lf \n", n, instusers->end_station_latitude[n]);
 
 			token8 = strtok(NULL, ",");//------------------------end_station_longitude
 			instusers->end_station_longitude[n] = atof(token8);
-			printf("end_station_longitude %d: %lf \n", n, instusers->end_station_longitude[n]);
 
 			token9 = strtok(NULL, ",");//------------------------bikeid
 			instusers->bikeid[n] = atoi(token9);
-			printf("bikeid %d: %d \n", n, instusers->bikeid[n]);
 
 			token10 = strtok(NULL, ",\"");//---------------------usertype
-			instusers->usertype[n] = token10;
-			printf("usertype %d: %s \n", n, instusers->usertype[n]);
+			instusers->usertype[n] = (char*)malloc(150 * sizeof(char));		//ALLOCATE SPACE FOR THE STRING
+			strcpy(instusers->usertype[n], token10);
 
-			printf("------------------------------------------------------------------\n");
+			if (PARSERFULLDATA > 1)
+			{
+				printf("------------------------------------------------------------------\n");
+				printf("tripduration %d: %d \n", n, instusers->tripduration[n]);
+				printf("start_station_id %d: %d \n", n, instusers->start_station_id[n]);
+				printf("start_station_name %d: %s \n", n, instusers->start_station_name[n]);
+				printf("star_station_latitude %d: %lf \n", n, instusers->star_station_latitude[n]);
+				printf("star_station_longitude %d: %lf \n", n, instusers->star_station_longitude[n]);
+				printf("end_station_id %d: %d \n", n, instusers->end_station_id[n]);
+				printf("end_station_name %d: %s \n", n, instusers->end_station_name[n]);
+				printf("end_station_latitude %d: %lf \n", n, instusers->end_station_latitude[n]);
+				printf("end_station_longitude %d: %lf \n", n, instusers->end_station_longitude[n]);
+				printf("bikeid %d: %d \n", n, instusers->bikeid[n]);
+				printf("usertype %d: %s \n", n, instusers->usertype[n]);
+				printf("------------------------------------------------------------------\n");
+			}
 			
 			n++;
-			continue;
 		}
 
 
 	}
-	save_stations(inststations, instusers);
-	printf("Number of stations: %d \n", inststations->n_stations);
+	save_NAME_stations(inststations, instusers);
+	if (PARSERFULLDATA > 1)
+	{
+		printf("Number of stations: %d \n", inststations->n_stations);
+	}
 
 	fclose(input);
 }
 
 /*FUNCTION FOR FIND THE NUMBER OF STATIONS AND SAVE STATIONS*/
-void save_stations(Stations *inststations, Users *instusers)
+void save_NAME_stations(Stations *inststations, Users *instusers)
 {
 	char** temporary_stations_names = (char**)malloc(instusers->n_trip * sizeof(char*));
 	int *indexes_stations = (int*)malloc(instusers->n_trip * sizeof(int));
@@ -148,7 +156,7 @@ void save_stations(Stations *inststations, Users *instusers)
 
 		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
 		{
-			if (strcmp(temporary_stations_names[f],station_name) == 0)
+			if (strcmp(temporary_stations_names[f],station_name) == 0 && f!=i)
 			{
 				finded = 1;
 			}
@@ -176,7 +184,7 @@ void save_stations(Stations *inststations, Users *instusers)
 	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_names = (char**)malloc(s * sizeof(char*));
 	inststations->stations_names = temporary_stations_names;
-	if (VERBOSE > 100)
+	if (PARSERFULLDATA > 1)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
 		{
