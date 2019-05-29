@@ -11,6 +11,18 @@
 #include "User.h"
 
 #define VERBOSE 300
+#define	GNUPLOT 300
+#define USERH 300
+#define USERCPP 300
+#define STATIONH 300
+#define STATIONCPP 300
+#define PARSER 300
+#define	PARSERFULLDATA 300
+#define CRITICALSTATIONS 300
+#define UPDATEPRICES 300
+#define INDUCTEDCHOICE 300
+#define LIVESYSTEM 300
+#define MAINPROGRAM 300
 #define SUBSCRIPTION 25															//SOLDI ABBONAMENTO
 
 /*------------------------------------------------STAZIONE BICI-----------------------------------*/

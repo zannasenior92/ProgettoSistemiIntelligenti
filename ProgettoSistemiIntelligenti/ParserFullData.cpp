@@ -80,43 +80,44 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 			strtok(NULL, ",");//SKIP START DATE
 			strtok(NULL, ",");//SKIP END DATE
 
-			token1 = strtok(NULL, ",");						//start_station_id
+			token1 = strtok(NULL, ",");//------------------------start_station_id
 			instusers->start_station_id[n] = atoi(token1);
 			printf("start_station_id %d: %d \n", n, instusers->start_station_id[n]);
 			
-			token2 = strtok(NULL, ",\"");						//start_station_name
-			instusers->start_station_name[n] = token2;
+			token2 = strtok(NULL, ",\"");//----------------------start_station_name
+			instusers->start_station_name[n] = (char*)malloc(150 * sizeof(char));
+			strcpy(instusers->start_station_name[n],token2);
 			printf("start_station_name %d: %s \n", n, instusers->start_station_name[n]);
-			
-			token3 = strtok(NULL, ",");
+
+			token3 = strtok(NULL, ",");//------------------------star_station_latitude
 			instusers->star_station_latitude[n] = atof(token3); 
 			printf("star_station_latitude %d: %lf \n", n, instusers->star_station_latitude[n]);
 
-			token4 = strtok(NULL, ",");
+			token4 = strtok(NULL, ",");//------------------------star_station_longitude
 			instusers->star_station_longitude[n] = atof(token4);
 			printf("star_station_longitude %d: %lf \n", n, instusers->star_station_longitude[n]);
 
-			token5 = strtok(NULL, ",");
+			token5 = strtok(NULL, ",");//------------------------end_station_id
 			instusers->end_station_id[n] = atoi(token5);
 			printf("end_station_id %d: %d \n", n, instusers->end_station_id[n]);
 
-			token6 = strtok(NULL, ",\"");
+			token6 = strtok(NULL, ",\"");//----------------------end_station_name
 			instusers->end_station_name[n] = token6;
 			printf("end_station_name %d: %s \n", n, instusers->end_station_name[n]);
 
-			token7 = strtok(NULL, ",");
+			token7 = strtok(NULL, ",");//------------------------end_station_latitude
 			instusers->end_station_latitude[n] = atof(token7);
 			printf("end_station_latitude %d: %lf \n", n, instusers->end_station_latitude[n]);
 
-			token8 = strtok(NULL, ",");
+			token8 = strtok(NULL, ",");//------------------------end_station_longitude
 			instusers->end_station_longitude[n] = atof(token8);
 			printf("end_station_longitude %d: %lf \n", n, instusers->end_station_longitude[n]);
 
-			token9 = strtok(NULL, ",");
+			token9 = strtok(NULL, ",");//------------------------bikeid
 			instusers->bikeid[n] = atoi(token9);
 			printf("bikeid %d: %d \n", n, instusers->bikeid[n]);
 
-			token10 = strtok(NULL, ",\"");
+			token10 = strtok(NULL, ",\"");//---------------------usertype
 			instusers->usertype[n] = token10;
 			printf("usertype %d: %s \n", n, instusers->usertype[n]);
 
@@ -149,8 +150,6 @@ void save_stations(Stations *inststations, Users *instusers)
 		{
 			if (strcmp(temporary_stations_names[f],station_name) == 0)
 			{
-				printf("%d\n",i);
-
 				finded = 1;
 			}
 		}
@@ -177,7 +176,14 @@ void save_stations(Stations *inststations, Users *instusers)
 	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_names = (char**)malloc(s * sizeof(char*));
 	inststations->stations_names = temporary_stations_names;
+	if (VERBOSE > 100)
+	{
+		for (int i = 0; i < inststations->n_stations; i++)
+		{
+			printf("Station_%d is: %s \n", i, inststations->stations_names[i]);
+		}
 
+	}
 	free(indexes_stations);
 	free(temporary_stations_names);
 }
