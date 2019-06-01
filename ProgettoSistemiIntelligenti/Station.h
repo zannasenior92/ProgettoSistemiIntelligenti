@@ -87,6 +87,7 @@ public:
 	Station_i* all_stations;													//ARRAY DELLE STAZIONI
 	
 	char **stations_names;														//NAMES OF ALL STATIONS
+	int *stations_id;															//ID DELLE STAZIONI
 	char input_used[200];
 	char name[20];																//NAME OF FILE USED
 	int n_stations;																//NUMERO STAZIONI

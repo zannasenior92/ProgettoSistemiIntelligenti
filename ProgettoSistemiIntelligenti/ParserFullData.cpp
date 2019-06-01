@@ -11,6 +11,7 @@
 
 /*----------------------------------------METHODS---------------------------------------*/
 void save_NAME_stations(Stations *inststations, Users *instusers);
+void save_id_stations(Stations *inststations, Users *instusers);
 
 
 /*----------------------------------COMMAND LINE PARSING--------------------------------*/
@@ -53,7 +54,7 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 
 		if (strncmp(par_name, "\"tripduration\"", 12) == 0)							//SKIP LINE Stations(first line of file)
 		{
-			instusers->n_trip = 18303;							//NUMBER OF TRIPS (LINE OF THE CVS)
+			instusers->n_trip = 66882;							//NUMBER OF TRIPS (LINE OF THE CVS)
 			
 			
 			/*---------------------INIZIALIZE ALL INPUT DATA--------------------------------------*/
@@ -112,7 +113,7 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 			instusers->usertype[n] = (char*)malloc(150 * sizeof(char));		//ALLOCATE SPACE FOR THE STRING
 			strcpy(instusers->usertype[n], token10);
 
-			if (PARSERFULLDATA > 1)
+			if (PARSERFULLDATA > 100)
 			{
 				printf("------------------------------------------------------------------\n");
 				printf("tripduration %d: %d \n", n, instusers->tripduration[n]);
@@ -135,6 +136,7 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 
 	}
 	save_NAME_stations(inststations, instusers);
+
 	if (PARSERFULLDATA > 1)
 	{
 		printf("Number of stations: %d \n", inststations->n_stations);
@@ -143,6 +145,86 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 	fclose(input);
 }
 
+/*FUNCTION FOR FIND THE NUMBER OF STATIONS*/
+void save_id_stations(Stations *inststations, Users *instusers)
+{
+	int *temporary_id = (int*)malloc(instusers->n_trip * sizeof(int));
+	int *indexes_stations = (int*)malloc(instusers->n_trip * sizeof(int));
+	int s = 0;												//COUNTER OF NUMBER OF STATIONS
+	int finded = 0;											//FLAG FOR STATION ALREADY PRESENT
+	
+	/*----------------------START STATIONS ID---------------------------------*/
+	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
+	{
+		int current_id = instusers->start_station_id[i];
+
+		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
+		{
+			if (temporary_id[f] == current_id)
+			{
+				finded = 1;
+			}
+		}
+		if (finded == 0)//SAVE THE NEW STATION
+		{
+
+			indexes_stations[s] = i;
+			temporary_id[s] = current_id;
+			s++;
+		}
+		finded = 0;
+	}
+	/*****************************************/
+	/*------------------------END STATIONS ID---------------------------------*/
+	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
+	{
+		int current_id = instusers->end_station_id[i];
+
+		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
+		{
+			if (temporary_id[f] == current_id)
+			{
+				finded = 1;
+			}
+		}
+		if (finded == 0)//SAVE THE NEW STATION
+		{
+
+			indexes_stations[s] = i;
+			temporary_id[s] = current_id;
+			s++;
+		}
+		finded = 0;
+	}
+
+	inststations->n_stations = s;							//INIZIALIZE THE NUMBER OF STATIONS
+
+	/*----------------------------CREATE THE STATIONS COORDS-------------------------*/
+	inststations->xcoords = (double *)calloc(inststations->n_stations, sizeof(double));
+	inststations->ycoords = (double *)calloc(inststations->n_stations, sizeof(double));
+	for (int k = 0; k < inststations->n_stations; k++)
+	{
+		inststations->xcoords[k] = instusers->star_station_latitude[indexes_stations[k]];
+		inststations->ycoords[k] = instusers->star_station_longitude[indexes_stations[k]];
+	}
+
+	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
+	inststations->stations_id = (int*)malloc(s * sizeof(int*));
+	inststations->stations_id = temporary_id;
+	if (PARSERFULLDATA > 200)
+	{
+		for (int i = 0; i < inststations->n_stations; i++)
+		{
+			int id = instusers->start_station_id[indexes_stations[i]];
+			printf("id: %d \n", inststations->stations_id[i]);
+		}
+
+	}
+	free(indexes_stations);
+	free(temporary_id);
+}
+
+
 /*FUNCTION FOR FIND THE NUMBER OF STATIONS AND SAVE STATIONS*/
 void save_NAME_stations(Stations *inststations, Users *instusers)
 {
@@ -150,13 +232,37 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	int *indexes_stations = (int*)malloc(instusers->n_trip * sizeof(int));
 	int s = 0;												//COUNTER OF NUMBER OF STATIONS
 	int finded = 0;											//FLAG FOR STATION ALREADY PRESENT
+
+	/*--------------------START STATIONS NAME*/
 	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
 	{
 		char *station_name = instusers->start_station_name[i];
 
 		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
 		{
-			if (strcmp(temporary_stations_names[f],station_name) == 0 && f!=i)
+			if (strcmp(temporary_stations_names[f], station_name) == 0)
+			{
+				finded = 1;
+			}
+		}
+		if (finded == 0)//SAVE THE NEW STATION
+		{
+
+			indexes_stations[s] = i;
+			temporary_stations_names[s] = station_name;
+			s++;
+		}
+		finded = 0;
+	}
+	/*****************************************/
+	/*----------------------END STATIONS NAME*/
+	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
+	{
+		char *station_name = instusers->end_station_name[i];
+
+		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
+		{
+			if (strcmp(temporary_stations_names[f], station_name) == 0)
 			{
 				finded = 1;
 			}
@@ -188,13 +294,15 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
 		{
-			printf("Station_%d is: %s \n", i, inststations->stations_names[i]);
+			int id = instusers->start_station_id[indexes_stations[i]];
+			printf("Station_%d is: %s - id: %d \n", i, inststations->stations_names[i], id);
 		}
 
 	}
 	free(indexes_stations);
 	free(temporary_stations_names);
 }
+
 
 double dist_stations(int station_i, int station_j, Stations *inststations) {
 
