@@ -6,7 +6,7 @@
 void plot_gnuplot(Stations *inst) {
 
 	char title[150];										//NAME FILE
-	strcpy(title, "set title \"Punti Stazioni ");
+	strcpy(title, "set title \"Punti Stazioni\"");
 	strcat(title, inst->name);
 
 	const char * commandsForGnuplot[] = {
