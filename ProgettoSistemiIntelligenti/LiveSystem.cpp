@@ -45,10 +45,10 @@ void createEnv(Stations *inststations, Users *instusers)
 	
 	/*INIZIALIZE USERS*/
 	instusers->all_users = (User_i*)malloc(instusers->n_users * sizeof(User_i));
-	int time_user = rand() % 30;																				//TEMPO RANDOM PERCORSO UTENTI
+	int time_user = rand() % 30;														//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(rand() % 11)/10);
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(rand() % 11));
 	}
 	
 
@@ -158,7 +158,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 
 		Sleep(30);		//RITARDO DI 10 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
-		if (n > 10)
+		if (n > 100)
 		{
 			done = false;
 		}
