@@ -28,7 +28,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 		double best_dist = INFINITY;	//MIGLIOR DISTANZA
 		double gift_take;				//PREMIO DATO STAZIONE i-ESIMA
 		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
-		if (VERBOSE > 10)
+		if (INDUCTEDCHOICE > 10)
 		{
 			printf("User value decision: %lf \n", user_dec_val);
 		}
@@ -45,7 +45,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 				distance = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI PARTENZA E STAZIONE i
 				gift_take = inststations->all_stations[i].get_gift_take();//PREMIO FORNITO STAZIONE i-ESIMA
 				double i_dec_val = gift_take / distance;
-				if (VERBOSE > 10)
+				if (INDUCTEDCHOICE > 10)
 				{
 					printf("Decision value from my station %d and station %d is: %lf \n", start_s + 1, i + 1, i_dec_val);
 				}
@@ -73,6 +73,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 		}
 		start_s = best_start_station;
 	}
+	/*---SE LA STAZIONE HA BICI DISPONIBILI TROVO LA STAZIONE MIGLIORE DA CUI PARTIRE---*/
 	else
 	{
 		//-----------STAZIONE DA CUI VOGLIO PARTIRE
@@ -91,7 +92,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 
 		double start_gift_take = inststations->all_stations[start_s].get_gift_take();//PREMIO DATO DALLA STAZIONE DI PARTENZA
 		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
-		if (VERBOSE > 10)
+		if (INDUCTEDCHOICE > 10)
 		{
 			printf("User value decision: %lf \n", user_dec_val);
 		}
@@ -113,9 +114,13 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 			
 		}
 		
+		/*SE C'E' UN'ALTRA STAZIONE CHE MI GARANTISCE UN MIGLIOR GUADAGNO RISPETTO A QUESTO VALORE INIZIALE
+		DI DEFAULT ALLORA SCELGO QUELLA STAZIONE*/
+
 		//VALORE DI DECISIONE PER LA STAZIONE DI PARTENZA (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA)
 		double s_dec_val = start_gift_take / s_virtual_dist;
 		printf("Value decision at initial station %d: %lf \n", start_s + 1, s_dec_val);
+
 		/*-----------------------------TROVO LA STAZIONE MIGLIORE DA CUI PARTIRE---------------------*/
 		for (int i = 0; i < inststations->n_stations; i++)//LA STAZIONE DEVE AVERE BICI DISPONIBILI
 		{
@@ -127,7 +132,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 				distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI PARTENZA E STAZIONE i
 				gift_take = inststations->all_stations[i].get_gift_take();//PREMIO FORNITO STAZIONE i-ESIMA
 				double i_dec_val = gift_take / distance_i;
-				if (VERBOSE > 10)
+				if (INDUCTEDCHOICE > 10)
 				{
 					printf("Decision value from my station %d and station %d is: %lf \n", start_s + 1, i + 1, i_dec_val);
 				}
@@ -146,6 +151,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 					best_start_station = i;
 					decision = i_dec_val;
 				}
+				/*--SE L'UTENTE NON HA TROVATO UNA STAZIONE CONVENIENTE ALLORA SCEGLIE LA STAZIONE PIU' VICINA--*/
 				else if (find_altern_station == 0)
 				{
 					/*---------TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA--------------------------*/
@@ -197,7 +203,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 		double best_dist = INFINITY;	//MIGLIOR DISTANZA
 		double gift_release;			//PREMIO DATO STAZIONE i-ESIMA
 		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
-		if (VERBOSE > 10)
+		if (INDUCTEDCHOICE > 10)
 		{
 			printf("User value decision: %lf \n", user_dec_val);
 		}
@@ -214,7 +220,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 				gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE DI PARTENZA
 				double i_dec_val = gift_release / distance_i;
 
-				if (VERBOSE > 10)
+				if (INDUCTEDCHOICE > 10)
 				{
 					printf("Decision value from my station %d and station %d is: %lf \n", arrive_s + 1, i + 1, i_dec_val);
 				}
@@ -261,7 +267,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 
 		double start_gift_take = inststations->all_stations[arrive_s].get_gift_release();//PREMIO DATO DALLA STAZIONE DI PARTENZA
 		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
-		if (VERBOSE > 10)
+		if (INDUCTEDCHOICE > 10)
 		{
 			printf("User value decision: %lf \n", user_dec_val);
 		}
@@ -297,7 +303,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 				distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI PARTENZA E STAZIONE i
 				gift_take = inststations->all_stations[i].get_gift_take();//PREMIO FORNITO STAZIONE i-ESIMA
 				double i_dec_val = gift_take / distance_i;
-				if (VERBOSE > 10)
+				if (INDUCTEDCHOICE > 10)
 				{
 					printf("Decision value from my station %d and station %d is: %lf \n", arrive_s + 1, i + 1, i_dec_val);
 				}

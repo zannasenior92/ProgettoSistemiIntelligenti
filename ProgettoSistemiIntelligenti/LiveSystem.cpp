@@ -34,7 +34,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	printf("N° of users: %d\n",instusers->n_users);
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
-	if (VERBOSE >= 100){
+	if (LIVESYSTEM >= 100){
 		for (int k = 0; k < inststations->n_stations; k++){
 			printf("Available Bike Station %d: %d \n", k, inststations->all_stations[k].av_bikes());
 			printf("Free Columns Station   %d: %d \n", k, inststations->all_stations[k].av_columns());
@@ -56,7 +56,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	inststations->critical_station = (double*)calloc(inststations->n_stations , sizeof(double));
 	budget_time_update(inststations);
 
-	if (VERBOSE >200)
+	if (LIVESYSTEM >200)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
 		{
@@ -166,7 +166,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	}
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
-	if (VERBOSE >= 50){
+	if (LIVESYSTEM >= 50){
 		for (int k = 0; k < inststations->n_stations; k++){
 			printf("Bikes present in station %d: %d \n", k + 1, inststations->all_stations[k].av_bikes());
 			printf("Free columns station     %d: %d \n", k + 1, inststations->all_stations[k].av_columns());
@@ -174,7 +174,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 	}
 	/*-----------------------------PRINT CRITICAL STATIONS-------------------------------*/
-	if (VERBOSE >= 50 )
+	if (LIVESYSTEM >= 50 )
 	{
 		printf("++++++++------------CRITICAL STATIONS------------++++++++\n\n");
 		for (int m = 0; m < inststations->n_stations; m++)

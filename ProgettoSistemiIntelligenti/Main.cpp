@@ -12,9 +12,9 @@ void plot_gnuplot(Stations *inststations);
 void free_instance(Stations *inststations,Users *instusers) {
 	free(inststations->xcoords);
 	free(inststations->ycoords);
-//	free(inststations->all_stations);
-//	free(instusers->all_users);
-//	free(inststations->critical_station);
+	free(inststations->all_stations);
+	free(instusers->all_users);
+	free(inststations->critical_station);
 	free(instusers->bikeid);
 	free(instusers->end_station_id);
 	free(instusers->end_station_latitude);

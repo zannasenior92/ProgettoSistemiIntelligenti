@@ -290,7 +290,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_names = (char**)malloc(s * sizeof(char*));
 	inststations->stations_names = temporary_stations_names;
-	if (PARSERFULLDATA > 1)
+	if (PARSERFULLDATA > 50)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
 		{

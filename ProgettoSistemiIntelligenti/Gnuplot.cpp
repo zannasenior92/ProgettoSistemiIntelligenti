@@ -3,11 +3,10 @@
 
 
 /*-------------------------------GNUPLOT PLOT-------------------------------------------*/
-void plot_gnuplot(Stations *inst) {
+void plot_gnuplot(Stations *inststations) {
 
 	char title[150];										//NAME FILE
-	strcpy(title, "set title \"Punti Stazioni\"");
-	strcat(title, inst->name);
+	strcpy(title, "set title \"Punti Stazioni\" ");
 
 	const char * commandsForGnuplot[] = {
 
@@ -39,9 +38,9 @@ void plot_gnuplot(Stations *inst) {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("stations.txt", "w");
 
-	for (int i = 0; i < inst->n_stations; i++)
+	for (int i = 0; i < inststations->n_stations; i++)
 	{
-		fprintf(temp, "%lf %lf %d \n", inst->xcoords[i], inst->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
+		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
 	}
 	fclose(temp);
 	/*----------------------------------------------------------------------------------*/
