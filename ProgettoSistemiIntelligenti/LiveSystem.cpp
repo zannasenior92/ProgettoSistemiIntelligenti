@@ -48,7 +48,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	int time_user = rand() % 30;														//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(rand() % 11));
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(20 + rand() % 11));
 	}
 	
 
@@ -127,7 +127,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("______________________________________________________________\n");
 
 		int startCounter = instusers->all_users[rand_user].get_counter_Start_Visits(rand_start);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
-		printf("Number of Visit of start station %d by the user %d = %d \n",rand_start + 1,rand_user,startCounter);	
+		//printf("Number of Visit of start station %d by the user %d = %d \n",rand_start + 1,rand_user,startCounter);	
 		printf("-------------------------------------------------\n");
 		/*---------------------------------------------------------------------------------------------------*/
 
@@ -146,7 +146,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("Gift that will be give by arrive station  %d: %lf\n\n", rand_arrive + 1, inststations->all_stations[rand_arrive].get_gift_release());
 		
 		int arriveCounter = instusers->all_users[rand_user].get_counter_Arrive_Visits(rand_arrive);							//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
-		printf("Number of Visit of arrive station %d by the user %d = %d \n", rand_arrive + 1, rand_user, arriveCounter);		//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
+		//printf("Number of Visit of arrive station %d by the user %d = %d \n", rand_arrive + 1, rand_user, arriveCounter);		//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
 
 		printf("-------------------------------------------------\n");
 

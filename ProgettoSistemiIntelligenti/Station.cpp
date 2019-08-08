@@ -64,7 +64,7 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 			printf("Time empty station: %lf \n", s_e_t);
 		}
 		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA PIENA PER AGGIORNARE I SOLDI DATI SE RILASCIO LA BICI*/
-		this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1) *cbrt(s_e_t + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+		this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *sqrt(cr_e_c + 1) *cbrt(s_e_t + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else
 	{
@@ -88,8 +88,8 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 			/*USO IL CRITICAL EMPTY COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO VUOTA.
 			INCENTIVO QUINDI A DEPOSITARE LA BICI QUI E A NON PRELEVARLA USANDO IN ENTRAMBI I CASI IL 
 			CONTATORE DI CRITICITA' DELLA STAZIONE*/
-			this->gift_money_take = -exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_take = -exp((fc - av_b)* (log(n_u) / n_s) *sqrt(cr_e_c + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *sqrt(cr_e_c + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
@@ -103,8 +103,8 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 			/*USO IL CRITICAL FULL COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO PIENA.
 			INCENTIVO QUINDI A PRELEVARE LA BICI QUI E A NON DEPOSITARLA USANDO IN ENTRAMBI I CASI IL
 			CONTATORE DI CRITICITA' DELLA STAZIONE*/
-			this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-			this->gift_money_release = -exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *sqrt(cr_f_c + 1));			//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_release = -exp((av_b - fc)* (log(n_u) / n_s) *sqrt(cr_f_c + 1));		//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 		}
 	}
 }
@@ -121,13 +121,13 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 		
 		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
 		int cr_f_c = this->critical_full_counter;						//n° DI VOLTE STAZIONE PIENA
-		double s_f_t = this->station_full_time;
+		double s_f_t = this->station_full_time;							//TEMPO STAZIONE RIMASTA PIENA
 
 		printf("***NO columns avaiable! Please put the bike in another station*** \n\n");
 		printf("Time full station: %lf \n", s_f_t);
 		
 		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA VUOTA PER AGGIORNARE I SOLDI DATI SE PRELEVO LA BICI*/
-		this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1) *cbrt(s_f_t + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+		this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *sqrt(cr_f_c + 1) *cbrt(s_f_t + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else
 	{
@@ -150,8 +150,8 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 			/*USO IL CRITICAL EMPTY COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO VUOTA.
 			INCENTIVO QUINDI A DEPOSITARE LA BICI QUI E A NON PRELEVARLA USANDO IN ENTRAMBI I CASI IL
 			CONTATORE DI CRITICITA' DELLA STAZIONE*/
-			this->gift_money_take = -exp((fc - av_b)* (log(n_u) / n_s)  *cbrt(cr_e_c + 1));	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
-			this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *cbrt(cr_e_c + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_take = -exp((fc - av_b)* (log(n_u) / n_s)  *sqrt(cr_e_c + 1));	//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *sqrt(cr_e_c + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 		}
 		/*---------------------------STATE 0 - EQUAL BIKES AND COLUMNS---------------------*/
 		else if ((this->available_bikes - this->free_columns) == 0)
@@ -165,8 +165,8 @@ void Station_i::add_bike(Users *instusers, double n_u, double n_s, int user){
 			/*USO IL CRITICAL FULL COUNTER PERCHE' NON VOGLIO CHE LA STAZIONE RIMANGA DI NUOVO PIENA.
 			INCENTIVO QUINDI A PRELEVARE LA BICI QUI E A NON DEPOSITARLA USANDO IN ENTRAMBI I CASI IL
 			CONTATORE DI CRITICITA' DELLA STAZIONE*/
-			this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *cbrt(cr_f_c + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
-			this->gift_money_release = -exp((av_b - fc)* (log(n_u) / n_s)  *cbrt(cr_f_c + 1));//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
+			this->gift_money_take = exp((av_b - fc)* (log(n_u) / n_s) *sqrt(cr_f_c + 1));//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
+			this->gift_money_release = -exp((av_b - fc)* (log(n_u) / n_s)  *sqrt(cr_f_c + 1));//DECREMENTO MONETA RILASCIATA DALLA STAZIONE DI PARTENZA (VOGLIO EVITARE CHE SI PRENDANO BICI QUI)
 		}
 	}
 }
