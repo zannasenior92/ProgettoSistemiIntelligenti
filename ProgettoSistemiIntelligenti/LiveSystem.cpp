@@ -141,6 +141,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("Free Columns station    %d: %d \n\n",rand_arrive + 1,inststations->all_stations[rand_arrive].av_columns());
 		
 											/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
+		printf("++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++\n\n");
 		printf("Gift that will be give by start station   %d: %lf\n", rand_arrive + 1, inststations->all_stations[rand_arrive].get_gift_take());
 		printf("Gift that will be give by arrive station  %d: %lf\n\n", rand_arrive + 1, inststations->all_stations[rand_arrive].get_gift_release());
 		
@@ -157,8 +158,8 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		Sleep(30);		//RITARDO DI 10 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
-		if (n > 100)
+		//Sleep(30);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
+		if (n > 1000)
 		{
 			done = false;
 		}

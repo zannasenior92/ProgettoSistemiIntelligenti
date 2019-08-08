@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 	/*se volessi inserirle random basta fare "rand() % 10" per generare da 0 a 10*/
 
 	/*-----------------------------------INSERT NUMBER OF USERS------------------------------*/
-	usrs.n_users = 40;
+	usrs.n_users = 400;
 	stat.set_cash_desk(usrs);
 	/*------------------------CREATE THE ENVIROENMENTS(BIKE & USERS)-------------------------*/
 	createEnv(&stat,&usrs);
