@@ -126,7 +126,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="ParserFullData.cpp" />
-    <ClCompile Include="PlotTrasfert.cpp" />
+    <ClCompile Include="UpdateChoosenStat.cpp" />
     <ClCompile Include="Station.cpp" />
     <ClCompile Include="UpdatePrizes.cpp" />
     <ClCompile Include="User.cpp" />

@@ -19,9 +19,8 @@ void plot_gnuplot(Stations *inststations) {
 		"unset xtics",											//remove axis x
 		"unset ytics",											//remove axis y
 		"unset key",											//remove path legend
-		"plot 'trasfert.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
-		"pause 1",
-		"refresh"
+		"plot 'stations.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
+		"exit"
 		/*------------------------------------------------------------------------------*/
 	};
 	/*----------------------------------------------------------------------------------*/
@@ -59,12 +58,30 @@ void plot_gnuplot(Stations *inststations) {
 
 
 /*--------------------------------METHOD TO REFRESH GNUPLOT GRAPH-----------------------*/
-void refresh_plot(Stations *inst)
+void refresh_plot(Stations *inststations)
 {
 	const char* commGnuRefresh[] = {
-
-		"plot 'stations.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
-		"pause 1",
-		"reread"
+		
+		"set terminal windows 1",
+		"plot 'trasfert.txt' with point pointtype 7 lc variable",
+		"pause 2",
+		"exit"
 	};
+
+	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
+	int n_commands = sizeof(commGnuRefresh) / sizeof(commGnuRefresh[0]);
+	if (VERBOSE > 200)
+	{
+		printf("Number gnuplot commands : %d \n", n_commands);
+	}
+	/*----------------------------------------------------------------------------------*/
+
+	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
+	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+
+	for (int i = 0; i < n_commands; i++)
+	{
+		fprintf(gnuplotPipe2, "%s \n", commGnuRefresh[i]);					//Send commands to gnuplot one by one.
+	}
+	_pclose(gnuplotPipe2);
 }

@@ -48,7 +48,7 @@
     <ClCompile Include="ParserFullData.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="PlotTrasfert.cpp">
+    <ClCompile Include="UpdateChoosenStat.cpp">
       <Filter>SimulationSystem</Filter>
     </ClCompile>
   </ItemGroup>

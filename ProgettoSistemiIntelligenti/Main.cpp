@@ -54,7 +54,6 @@ int main(int argc, char **argv)
 	/*------------------------CREATE THE ENVIROENMENTS(BIKE & USERS)-------------------------*/
 	createEnv(&stat,&usrs);
 	generateTraffic(&stat,&usrs);																		//GENERO IL TRAFFICO DI UTENTI
-		
 	free_instance(&stat,&usrs);																		//LIBERO LA MEMORIA OCCUPATA DA stat
 	return 0;
 }
