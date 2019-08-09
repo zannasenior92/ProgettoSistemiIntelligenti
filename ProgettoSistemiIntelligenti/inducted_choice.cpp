@@ -1,9 +1,8 @@
 #include "Station.h"
 #include "User.h"
 
-int start_STATION = 1000;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO SCELTO IN PARTENZA 
-
-
+int start_STATION;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO SCELTO IN PARTENZA 
+int arrive_STATION;
 /*------------------------METODI CHE INDUCONO L'UTENTE A SCEGLIERE UNA STAZIONE PIUTTOSTO DI UN'ALTRA---------------------------*/
 
 /*--METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE--*/
@@ -195,6 +194,8 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 	}
 	printf("\n");
 	printf("User %d change station and choose %d as start station \n", user, start_s + 1);
+
+	
 	return start_s;
 }
 

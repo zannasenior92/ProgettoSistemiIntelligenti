@@ -199,15 +199,6 @@ void save_id_stations(Stations *inststations, Users *instusers)
 
 	inststations->n_stations = s;							//INIZIALIZE THE NUMBER OF STATIONS
 
-	/*----------------------------CREATE THE STATIONS COORDS-------------------------*/
-	inststations->xcoords = (double *)calloc(inststations->n_stations, sizeof(double));
-	inststations->ycoords = (double *)calloc(inststations->n_stations, sizeof(double));
-	for (int k = 0; k < inststations->n_stations; k++)
-	{
-		inststations->xcoords[k] = instusers->star_station_latitude[indexes_stations[k]];
-		inststations->ycoords[k] = instusers->star_station_longitude[indexes_stations[k]];
-	}
-
 	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_id = (int*)malloc(s * sizeof(int*));
 	inststations->stations_id = temporary_id;
@@ -283,8 +274,8 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	inststations->ycoords = (double *)calloc(inststations->n_stations, sizeof(double));
 	for (int k = 0; k < inststations->n_stations; k++)
 	{
-		inststations->xcoords[k] = instusers->star_station_latitude[indexes_stations[k]];
-		inststations->ycoords[k] = instusers->star_station_longitude[indexes_stations[k]];
+		inststations->xcoords[k] = instusers->star_station_longitude[indexes_stations[k]];
+		inststations->ycoords[k] = instusers->star_station_latitude[indexes_stations[k]];
 	}
 
 	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/

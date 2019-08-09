@@ -16,7 +16,6 @@ void plot_gnuplot(Stations *inststations) {
 		"set output 'nodes.eps'",
 		"set style line 1 \
 	linecolor rgb '#0060ad' ",									//set the color line
-		"unset border",											//remove the bordes
 		"unset xtics",											//remove axis x
 		"unset ytics",											//remove axis y
 		"unset key",											//remove path legend

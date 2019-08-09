@@ -48,7 +48,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	int time_user = rand() % 30;														//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(20 + rand() % 11));
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(40 + rand() % 11));
 	}
 	
 
@@ -189,5 +189,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 	}
 }
+
+
 
 
