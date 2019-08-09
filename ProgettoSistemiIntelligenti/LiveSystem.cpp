@@ -158,7 +158,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		//Sleep(30);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
+		Sleep(30);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
 		if (n > 1000)
 		{
 			done = false;

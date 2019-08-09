@@ -79,14 +79,14 @@ void print_initial_start_stations(Stations *inststations, int start_s)
 }
 
 /*--METODO CHE COLORA NEL GRAFICO LA STAZIONE DI PARTENZA (SCELTA DEFINITIVAMENTE)--*/
-void print_choosen_start_stations(Stations *inststations, int start_s)
+void print_choosen_start_stations(Stations *inststations, int def_start_s)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("trasfert.txt", "w");
 	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
-		if (i == start_s)
+		if (i == def_start_s)
 		{
 			fprintf(temp, "%lf %lf %d %s \n", inststations->xcoords[i], inststations->ycoords[i], i + 1, "green");  //WRITE DATA TO A TEMPORARY FILE
 		}
@@ -121,14 +121,14 @@ void print_initial_arrive_stations(Stations *inststations, int arrive_s)
 }
 
 /*--METODO CHE COLORA NEL GRAFICO LA STAZIONE DI ARRIVO (SCELTA DEFINITIVAMENTE)--*/
-void print_choosen_arrive_stations(Stations *inststations, int arrive_s)
+void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("trasfert.txt", "w");
 	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
-		if (i == arrive_s)
+		if (i == def_arrive_s)
 		{
 			fprintf(temp, "%lf %lf %d %s \n", inststations->xcoords[i], inststations->ycoords[i], i + 1, "green");  //WRITE DATA TO A TEMPORARY FILE
 		}

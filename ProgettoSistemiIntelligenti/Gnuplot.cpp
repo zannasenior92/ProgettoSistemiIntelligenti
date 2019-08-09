@@ -19,8 +19,9 @@ void plot_gnuplot(Stations *inststations) {
 		"unset xtics",											//remove axis x
 		"unset ytics",											//remove axis y
 		"unset key",											//remove path legend
-		"plot 'stations.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
-		"exit"
+		"plot 'trasfert.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
+		"pause 1",
+		"refresh"
 		/*------------------------------------------------------------------------------*/
 	};
 	/*----------------------------------------------------------------------------------*/

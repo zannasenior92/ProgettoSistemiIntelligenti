@@ -1,6 +1,11 @@
 #include "Station.h"
 #include "User.h"
 
+void print_initial_start_stations(Stations *inststations, int start_s);//STAZIONE PARTENZA PROVVISORIA
+void print_choosen_start_stations(Stations *inststations, int def_start_s);//STAZIONE PARTENZA DEFINITIVA
+void print_initial_arrive_stations(Stations *inststations, int arrive_s);//STAZIONE ARRIVO PROVVISORIA
+void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s);//STAZIONE ARRIVO DEFINITIVA
+
 int start_STATION;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO SCELTO IN PARTENZA 
 int arrive_STATION;
 /*------------------------METODI CHE INDUCONO L'UTENTE A SCEGLIERE UNA STAZIONE PIUTTOSTO DI UN'ALTRA---------------------------*/
@@ -11,6 +16,9 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 	start_STATION = 1000;//AZZERO LA STAZIONE SCELTA
 
 	int start_s = rand() % inststations->n_stations;
+	/*STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO*/
+	print_initial_start_stations(inststations,start_s);
+
 	printf("User %d would start from station: %d \n", user, start_s + 1);
 	
 	int av_b = inststations->all_stations[start_s].av_bikes();//BICI DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
@@ -195,7 +203,9 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 	printf("\n");
 	printf("User %d change station and choose %d as start station \n", user, start_s + 1);
 
-	
+	/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
+	print_choosen_start_stations(inststations, start_s);
+	/*******************************************************/
 	return start_s;
 }
 
@@ -208,6 +218,9 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 	{
 		arrive_s = rand() % inststations->n_stations;
 	}
+	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
+	print_initial_arrive_stations(inststations, arrive_s);
+	/****************************************************************/
 	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
 
 	int av_c = inststations->all_stations[arrive_s].av_columns();//COLONNE DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
@@ -387,5 +400,9 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 	}
 	printf("\n");
 	printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
+
+	/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
+	print_choosen_arrive_stations(inststations, arrive_s);
+	/*****************************************************/
 	return arrive_s;
 }
