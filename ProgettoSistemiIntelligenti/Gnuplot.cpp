@@ -63,7 +63,8 @@ void refresh_plot(Stations *inststations)
 	const char* commGnuRefresh[] = {
 
 		"set terminal windows 1 size 1300,700",
-		"plot 'trasfert.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' , 'start_s.txt' with point pointtype 7 lc variable, 'def_start_s.txt' with point pointtype 7 lc variable, 'arrive_s.txt' with point pointtype 7 lc variable, 'def_arrive_s.txt' with point pointtype 7 lc variable, 'travel.txt' with lp pointtype 7 lc rgb 'red' ",
+		"plot 'trasfert.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad' ,\
+ 'start_s.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#ad0000', 'def_start_s.txt' with labels offset char 1,1 point pointtype 7 lc rgb '#65ad00', 'arrive_s.txt' with labels offset char 1,-1.0 point pointtype 7 lc '#263CA9', 'def_arrive_s.txt' with labels offset char 1,1 point pointtype 7 lc '#F38115', 'travel.txt' with lp pointtype 7 lc rgb 'red' ",
 		"pause 2"
 	};
 
