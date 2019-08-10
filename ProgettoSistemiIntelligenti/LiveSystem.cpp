@@ -12,6 +12,8 @@ void budget_time_update(Stations *inststations);
 int choose_START_station(Stations *inststations, Users *instusers, int user);
 int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user);
 void initial_critical_stations(Stations *inststations);
+void print_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
+void refresh_plot(Stations *inststations);
 
 
 
@@ -97,6 +99,8 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
 		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
 		printf("_________________________________________________\n");
+		print_transfert(inststations, rand_start, rand_arrive);
+		refresh_plot(inststations);
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();

@@ -63,7 +63,7 @@ void refresh_plot(Stations *inststations)
 	const char* commGnuRefresh[] = {
 		
 		"set terminal windows 1",
-		"plot 'trasfert.txt' with point pointtype 7 lc variable",
+		"plot 'trasfert.txt' with point pointtype 7 lc variable ,'trasfert2.txt' with lp pointtype 7 lc variable",
 		"pause 2",
 		"exit"
 	};
@@ -74,6 +74,16 @@ void refresh_plot(Stations *inststations)
 	{
 		printf("Number gnuplot commands : %d \n", n_commands);
 	}
+	/*----------------------------------------------------------------------------------*/
+
+	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
+	FILE * temp = fopen("trasfert.txt", "w");
+	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
+	for (int i = 0; i < inststations->n_stations; i++)
+	{
+		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], 1);  //WRITE DATA TO A TEMPORARY FILE
+	}
+	fclose(temp);
 	/*----------------------------------------------------------------------------------*/
 
 	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/

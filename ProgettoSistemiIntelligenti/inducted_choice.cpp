@@ -1,10 +1,6 @@
 #include "Station.h"
 #include "User.h"
 /*-------------------------------METODI-----------------------------------------------------------------*/
-void print_initial_start_stations(Stations *inststations, int start_s);//STAZIONE PARTENZA PROVVISORIA
-void print_choosen_start_stations(Stations *inststations, int def_start_s);//STAZIONE PARTENZA DEFINITIVA
-void print_initial_arrive_stations(Stations *inststations, int arrive_s);//STAZIONE ARRIVO PROVVISORIA
-void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s);//STAZIONE ARRIVO DEFINITIVA
 void refresh_plot(Stations *inststations);
 void plot_gnuplot(Stations *inststations);
 /*------------------------------------------------------------------------------------------------------*/
@@ -19,9 +15,6 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 	start_STATION = 1000;//AZZERO LA STAZIONE SCELTA
 
 	int start_s = rand() % inststations->n_stations;
-	/*STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO*/
-	print_initial_start_stations(inststations,start_s);
-	refresh_plot(inststations);
 	printf("User %d would start from station: %d \n", user, start_s + 1);
 	
 	int av_b = inststations->all_stations[start_s].av_bikes();//BICI DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
@@ -196,11 +189,6 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 			printf("User %d choose start station:     %d \n", user, start_s + 1);
 			start_STATION = start_s;
 
-			/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
-			print_choosen_start_stations(inststations, start_s);
-			refresh_plot(inststations);
-			/*******************************************************/
-
 			return start_s;
 		}
 		else
@@ -211,12 +199,6 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 	}
 	printf("\n");
 	printf("User %d change station and choose %d as start station \n", user, start_s + 1);
-
-	/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
-	print_choosen_start_stations(inststations, start_s);
-	refresh_plot(inststations);
-	/*******************************************************/
-
 	return start_s;
 }
 
@@ -229,10 +211,6 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 	{
 		arrive_s = rand() % inststations->n_stations;
 	}
-	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
-	print_initial_arrive_stations(inststations, arrive_s);
-	refresh_plot(inststations);
-	/****************************************************************/
 	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
 
 	int av_c = inststations->all_stations[arrive_s].av_columns();//COLONNE DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
@@ -402,13 +380,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 		if (s_dec_val >= decision)//SE LA STAZIONE DI ARRIVO CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
 		{
 			printf("\n");
-			printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);
-
-			/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-			print_choosen_arrive_stations(inststations, arrive_s);
-			refresh_plot(inststations);
-			/*****************************************************/
-			
+			printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);			
 			return arrive_s;
 		}
 		else
@@ -420,8 +392,8 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 	printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
 
 	/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-	print_choosen_arrive_stations(inststations, arrive_s);
-	refresh_plot(inststations);
+	//print_choosen_arrive_stations(inststations, arrive_s);
+	//refresh_plot(inststations);
 	/*****************************************************/
 	return arrive_s;
 }
