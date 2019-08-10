@@ -195,6 +195,12 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 			printf("\n");
 			printf("User %d choose start station:     %d \n", user, start_s + 1);
 			start_STATION = start_s;
+
+			/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
+			print_choosen_start_stations(inststations, start_s);
+			refresh_plot(inststations);
+			/*******************************************************/
+
 			return start_s;
 		}
 		else
@@ -210,6 +216,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 	print_choosen_start_stations(inststations, start_s);
 	refresh_plot(inststations);
 	/*******************************************************/
+
 	return start_s;
 }
 
@@ -396,6 +403,12 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 		{
 			printf("\n");
 			printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);
+
+			/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
+			print_choosen_arrive_stations(inststations, arrive_s);
+			refresh_plot(inststations);
+			/*****************************************************/
+			
 			return arrive_s;
 		}
 		else

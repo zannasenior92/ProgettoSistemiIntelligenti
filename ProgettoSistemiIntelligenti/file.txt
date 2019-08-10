@@ -12,112 +12,159 @@ Money in the system at time 0: 10000.000000
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
 Number gnuplot commands : 4 
-User 221 would start from station: 131 
-User value decision: 43.000000 
-Value DEFAULT decision at initial station 131: 0.000000 
-Choosen nearest station
-
-User 221 choose start station:     131 
-::::::::::::::::::::::::::::::::::::::::::::::::
-Number gnuplot commands : 4 
-User 221 would arrive to stations: 55 
-User value decision: 43.000000 
-Value DEFAULT decision at initial station 55: 0.000000 
-Choosen nearest station
-
-User 221 choose arrive station:    55 
-_________________________________________________
-+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
-
-Gift given by start station   131: 0.000000
-Gift given by arrive station  55: 0.000000
-______________________________________________________________
-User 221 has 0.000000 money
--------------------------------------------------
---------BIKE REMOVED-------
-Remaining bikes station 131:  4 
-Free Columns station    131:  6 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   131: -1.061429
-Gift that will be give by arrive station  131: 1.061429
-______________________________________________________________
--------------------------------------------------
--------BIKE RELEASED------
-Remaining bikes station 55: 6
-Free Columns station    55: 4 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   55: 1.061429
-Gift that will be give by arrive station  55: -1.061429
-
--------------------------------------------------
-Money in the system: 10000.000000 
-
-++++++++------------CRITICAL STATIONS------------++++++++
-
-------------------------------------------------------------------------------
-
-+++++++++++++++CHOICE OF STATIONS+++++++++++++++
-
-Number gnuplot commands : 4 
-User 8 would start from station: 122 
-User value decision: 47.000000 
-Value DEFAULT decision at initial station 122: 0.000000 
-Choosen nearest station
-
-User 8 choose start station:     122 
-::::::::::::::::::::::::::::::::::::::::::::::::
-Number gnuplot commands : 4 
-User 8 would arrive to stations: 50 
-User value decision: 47.000000 
-Value DEFAULT decision at initial station 50: 0.000000 
-Choosen nearest station
-
-User 8 choose arrive station:    50 
-_________________________________________________
-+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
-
-Gift given by start station   122: 0.000000
-Gift given by arrive station  50: 0.000000
-______________________________________________________________
-User 8 has 0.000000 money
--------------------------------------------------
---------BIKE REMOVED-------
-Remaining bikes station 122:  4 
-Free Columns station    122:  6 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   122: -1.061429
-Gift that will be give by arrive station  122: 1.061429
-______________________________________________________________
--------------------------------------------------
--------BIKE RELEASED------
-Remaining bikes station 50: 6
-Free Columns station    50: 4 
-
-++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
-
-Gift that will be give by start station   50: 1.061429
-Gift that will be give by arrive station  50: -1.061429
-
--------------------------------------------------
-Money in the system: 10000.000000 
-
-++++++++------------CRITICAL STATIONS------------++++++++
-
-------------------------------------------------------------------------------
-
-+++++++++++++++CHOICE OF STATIONS+++++++++++++++
-
-Number gnuplot commands : 4 
-User 242 would start from station: 30 
+User 18 would start from station: 118 
 User value decision: 49.000000 
-Value DEFAULT decision at initial station 30: 0.000000 
+Value DEFAULT decision at initial station 118: 0.000000 
 Choosen nearest station
 
-User 242 choose start station:     30 
-:::::::::::::::::::::::::::::::
+User 18 choose start station:     118 
+::::::::::::::::::::::::::::::::::::::::::::::::
+Number gnuplot commands : 4 
+User 18 would arrive to stations: 123 
+User value decision: 49.000000 
+Value DEFAULT decision at initial station 123: 0.000000 
+Choosen nearest station
+
+User 18 choose arrive station:    123 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   118: 0.000000
+Gift given by arrive station  123: 0.000000
+______________________________________________________________
+User 18 has 0.000000 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 118:  4 
+Free Columns station    118:  6 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   118: -1.061429
+Gift that will be give by arrive station  118: 1.061429
+______________________________________________________________
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 123: 6
+Free Columns station    123: 4 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   123: 1.061429
+Gift that will be give by arrive station  123: -1.061429
+
+-------------------------------------------------
+Money in the system: 10000.000000 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+Number gnuplot commands : 4 
+User 399 would start from station: 123 
+User value decision: 47.000000 
+Value DEFAULT decision at initial station 123: 1005.125937 
+Choosen nearest station
+
+User 399 choose start station:     123 
+::::::::::::::::::::::::::::::::::::::::::::::::
+Number gnuplot commands : 4 
+User 399 would arrive to stations: 164 
+User value decision: 47.000000 
+Value DEFAULT decision at initial station 164: 0.000000 
+Choosen nearest station
+
+User 399 choose arrive station:    164 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   123: 1.061429
+Gift given by arrive station  164: 0.000000
+______________________________________________________________
+User 399 has 1.061429 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 123:  5 
+Free Columns station    123:  5 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   123: 0.000000
+Gift that will be give by arrive station  123: 0.000000
+______________________________________________________________
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 164: 6
+Free Columns station    164: 4 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   164: 1.061429
+Gift that will be give by arrive station  164: -1.061429
+
+-------------------------------------------------
+Money in the system: 9998.938571 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+Number gnuplot commands : 4 
+User 104 would start from station: 9 
+User value decision: 49.000000 
+Value DEFAULT decision at initial station 9: 0.000000 
+Choosen nearest station
+
+User 104 choose start station:     9 
+::::::::::::::::::::::::::::::::::::::::::::::::
+Number gnuplot commands : 4 
+User 104 would arrive to stations: 158 
+User value decision: 49.000000 
+Value DEFAULT decision at initial station 158: 0.000000 
+Choosen nearest station
+
+User 104 choose arrive station:    158 
+_________________________________________________
++++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
+
+Gift given by start station   9: 0.000000
+Gift given by arrive station  158: 0.000000
+______________________________________________________________
+User 104 has 0.000000 money
+-------------------------------------------------
+--------BIKE REMOVED-------
+Remaining bikes station 9:  4 
+Free Columns station    9:  6 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   9: -1.061429
+Gift that will be give by arrive station  9: 1.061429
+______________________________________________________________
+-------------------------------------------------
+-------BIKE RELEASED------
+Remaining bikes station 158: 6
+Free Columns station    158: 4 
+
+++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++
+
+Gift that will be give by start station   158: 1.061429
+Gift that will be give by arrive station  158: -1.061429
+
+-------------------------------------------------
+Money in the system: 9998.938571 
+
+++++++++------------CRITICAL STATIONS------------++++++++
+
+------------------------------------------------------------------------------
+
++++++++++++++++CHOICE OF STATIONS+++++++++++++++
+
+Number gnuplot commands : 4 
+User 353 would start from station: 103 
+User value decision: 40.000000 
+Value DEFAULT decision at initial station 103: 0.000000 

@@ -54,7 +54,7 @@ void print_initial_arrive_stations(Stations *inststations, int arrive_s)
 	{
 		if (i == arrive_s)
 		{
-			fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], 2);  //WRITE DATA TO A TEMPORARY FILE
+			fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], 5);  //WRITE DATA TO A TEMPORARY FILE
 		}
 		else
 		{
@@ -75,7 +75,7 @@ void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s)
 	{
 		if (i == def_arrive_s)
 		{
-			fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], 4);  //WRITE DATA TO A TEMPORARY FILE
+			fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], 6);  //WRITE DATA TO A TEMPORARY FILE
 		}
 		else
 		{
