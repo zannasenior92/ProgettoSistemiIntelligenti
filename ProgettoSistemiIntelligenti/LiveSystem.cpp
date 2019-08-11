@@ -108,8 +108,6 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		refresh_plot(inststations);
 		/*--------------------------------------------------------------------------------------------------*/
 
-		reset_print_transfert(inststations);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
-
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();
 		double release = inststations->all_stations[rand_arrive].get_gift_release();

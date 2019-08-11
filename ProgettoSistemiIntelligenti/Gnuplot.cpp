@@ -19,7 +19,8 @@ void plot_gnuplot(Stations *inststations) {
 		"unset xtics",											//remove axis x
 		"unset ytics",											//remove axis y
 		"unset key",											//remove path legend
-		"plot 'stations.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#0060ad' ",
+		"set pointsize 0.7",									//set size of every point in the plot
+		"plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad' ",
 		"exit"
 		/*------------------------------------------------------------------------------*/
 	};
@@ -27,7 +28,7 @@ void plot_gnuplot(Stations *inststations) {
 	   
 	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
 	int n_commands = sizeof(commandsForGnuplot) / sizeof(commandsForGnuplot[0]);
-	if (VERBOSE > 200)
+	if (VERBOSE > 500)
 	{
 		printf("Number gnuplot commands : %d \n", n_commands);
 	}
@@ -63,18 +64,19 @@ void refresh_plot(Stations *inststations)
 	const char* commGnuRefresh[] = {
 
 		"set terminal windows 1 size 1300,700",
+		"set pointsize 0.7",									//set size of every point in the plot
 		"plot 'trasfert.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad' ,\
-		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 lc rgb '#ad0000',\
-		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 lc rgb '#65ad00',\
-		'arrive_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 lc '#263CA9',\
-		'def_arrive_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 lc '#F38115',\
+		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#ad0000',\
+		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#65ad00',\
+		'arrive_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#26D4DF',\
+		'def_arrive_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#F38115',\
 		'travel.txt' with lp pointtype 7 lc rgb 'red' ",
 		"pause 3"
 	};
 
 	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
 	int n_commands = sizeof(commGnuRefresh) / sizeof(commGnuRefresh[0]);
-	if (VERBOSE > 200)
+	if (VERBOSE > 500)
 	{
 		printf("Number gnuplot commands : %d \n", n_commands);
 	}
@@ -91,7 +93,7 @@ void refresh_plot(Stations *inststations)
 	/*----------------------------------------------------------------------------------*/
 
 	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
-	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe -persist", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
 
 	for (int i = 0; i < n_commands; i++)
 	{
@@ -101,7 +103,27 @@ void refresh_plot(Stations *inststations)
 }
 
 /*METODO USATO SOLO PER APRIRE LA FINESTRA DI GNUPLOT- DOVRO' POI TOGLIERE L'APERTURA DI UNA NUOVA FINESTRA OGNI VOLTA*/
-void open_gnuplot window()
+void open_gnuplot_window()
 {
+	const char* commGnuRefresh[] = {
 
+		"set terminal windows 1 size 1300,700"
+	};
+
+	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
+	int n_commands = sizeof(commGnuRefresh) / sizeof(commGnuRefresh[0]);
+	if (VERBOSE > 200)
+	{
+		printf("Number gnuplot commands : %d \n", n_commands);
+	}
+	/*----------------------------------------------------------------------------------*/
+
+	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
+	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+
+	for (int i = 0; i < n_commands; i++)
+	{
+		fprintf(gnuplotPipe2, "%s \n", commGnuRefresh[i]);					//Send commands to gnuplot one by one.
+	}
+	_pclose(gnuplotPipe2);
 }

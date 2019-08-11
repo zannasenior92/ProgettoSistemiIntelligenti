@@ -6,7 +6,7 @@ void print_initial_start_stations(Stations *inststations, int start_s)
 {
 	FILE * temp = fopen("start_s.txt", "w");
 	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
-	fprintf(temp, "%lf %lf %s \n", inststations->xcoords[start_s], inststations->ycoords[start_s], "start-s");  //WRITE DATA TO A TEMPORARY FILE
+	fprintf(temp, "%lf %lf %s \n", inststations->xcoords[start_s], inststations->ycoords[start_s], "start");  //WRITE DATA TO A TEMPORARY FILE
 	fclose(temp);
 	/*----------------------------------------------------------------------------------*/
 }
@@ -27,7 +27,7 @@ void print_initial_arrive_stations(Stations *inststations, int arrive_s)
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("arrive_s.txt", "w");
 	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
-	fprintf(temp, "%lf %lf %s \n", inststations->xcoords[arrive_s], inststations->ycoords[arrive_s], "arrive-s");  //WRITE DATA TO A TEMPORARY FILE
+	fprintf(temp, "%lf %lf %s \n", inststations->xcoords[arrive_s], inststations->ycoords[arrive_s], "arrive");  //WRITE DATA TO A TEMPORARY FILE
 	fclose(temp);
 	/*----------------------------------------------------------------------------------*/
 }
@@ -60,15 +60,15 @@ void print_transfert(Stations *inststations,int def_start_s,int def_arrive_s)
 void reset_print_transfert(Stations *inststations)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
-	FILE * temp = fopen("start_s.txt", "w+");
+	FILE * temp = fopen("start_s.txt", "w");
 	fclose(temp);
-	FILE * temp2 = fopen("def_start_s.txt", "w+");
+	FILE * temp2 = fopen("def_start_s.txt", "w");
 	fclose(temp2);
-	FILE * temp3 = fopen("arrive_s.txt", "w+");
+	FILE * temp3 = fopen("arrive_s.txt", "w");
 	fclose(temp3);
-	FILE * temp4 = fopen("def_arrive_s.txt", "w+");
+	FILE * temp4 = fopen("def_arrive_s.txt", "w");
 	fclose(temp4);
-	FILE * temp5 = fopen("travel.txt", "w+");
+	FILE * temp5 = fopen("travel.txt", "w");
 	fclose(temp5);
 	/*----------------------------------------------------------------------------------*/
 }
