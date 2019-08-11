@@ -14,6 +14,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user);
 void initial_critical_stations(Stations *inststations);
 void print_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
 void refresh_plot(Stations *inststations);
+void reset_print_transfert(Stations *inststations);
 
 
 
@@ -93,6 +94,10 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	{	
 		/*-------------------------------------UTENTE RANDOM------------------------------------------------*/
 		rand_user = rand() % instusers->n_users;
+		/*--------------------------------------------------------------------------------------------------*/
+
+		reset_print_transfert(inststations);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
+
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		printf("+++++++++++++++CHOICE OF STATIONS+++++++++++++++\n\n");
 		rand_start = choose_START_station(inststations, instusers, rand_user);
@@ -101,6 +106,9 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("_________________________________________________\n");
 		print_transfert(inststations, rand_start, rand_arrive);
 		refresh_plot(inststations);
+		/*--------------------------------------------------------------------------------------------------*/
+
+		reset_print_transfert(inststations);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take = inststations->all_stations[rand_start].get_gift_take();

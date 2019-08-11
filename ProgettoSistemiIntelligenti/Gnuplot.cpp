@@ -64,8 +64,12 @@ void refresh_plot(Stations *inststations)
 
 		"set terminal windows 1 size 1300,700",
 		"plot 'trasfert.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad' ,\
- 'start_s.txt' with labels offset char 1,-1.0 point pointtype 7 lc rgb '#ad0000', 'def_start_s.txt' with labels offset char 1,1 point pointtype 7 lc rgb '#65ad00', 'arrive_s.txt' with labels offset char 1,-1.0 point pointtype 7 lc '#263CA9', 'def_arrive_s.txt' with labels offset char 1,1 point pointtype 7 lc '#F38115', 'travel.txt' with lp pointtype 7 lc rgb 'red' ",
-		"pause 2"
+		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 lc rgb '#ad0000',\
+		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 lc rgb '#65ad00',\
+		'arrive_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 lc '#263CA9',\
+		'def_arrive_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 lc '#F38115',\
+		'travel.txt' with lp pointtype 7 lc rgb 'red' ",
+		"pause 3"
 	};
 
 	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
@@ -78,7 +82,7 @@ void refresh_plot(Stations *inststations)
 
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("trasfert.txt", "w");
-	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
+
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
 		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
@@ -87,11 +91,17 @@ void refresh_plot(Stations *inststations)
 	/*----------------------------------------------------------------------------------*/
 
 	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
-	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe -persist", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
 
 	for (int i = 0; i < n_commands; i++)
 	{
 		fprintf(gnuplotPipe2, "%s \n", commGnuRefresh[i]);					//Send commands to gnuplot one by one.
 	}
 	_pclose(gnuplotPipe2);
+}
+
+/*METODO USATO SOLO PER APRIRE LA FINESTRA DI GNUPLOT- DOVRO' POI TOGLIERE L'APERTURA DI UNA NUOVA FINESTRA OGNI VOLTA*/
+void open_gnuplot window()
+{
+
 }

@@ -225,14 +225,15 @@ int choose_START_station(Stations *inststations, Users *instusers, int user)
 /*METODO CHE SCEGLIE LA STAZIONE DI ARRIVO IN BASE A QUELLE PIENE*/
 int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user)
 {
+	arrive_STATION = 1000;
 	int arrive_s = rand() % inststations->n_stations;
 	while (arrive_s==start_STATION)//NON VOGLIO ARRIVARE NELLA STAZIONE DI PARTENZA
 	{
 		arrive_s = rand() % inststations->n_stations;
 	}
 	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
-	//print_initial_arrive_stations(inststations, arrive_s);
-	//refresh_plot(inststations);
+	print_initial_arrive_stations(inststations, arrive_s);
+	refresh_plot(inststations);
 	/****************************************************************/
 	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
 
