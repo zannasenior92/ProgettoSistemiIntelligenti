@@ -12,9 +12,10 @@ void budget_time_update(Stations *inststations);
 int choose_START_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
 int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
 void initial_critical_stations(Stations *inststations);
-void update_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
-void reset_plot(Stations *inststations, FILE *gnuplotPipe2);
-void print_travel(Stations *inststations, FILE *gnuplotPipe2);
+void update_travel(Stations *inststations, int def_start_s, int def_arrive_s);
+void reset_plot(FILE *gnuplotPipe2);
+void print_travel(FILE *gnuplotPipe2);
+void reset_print_transfert(Stations *inststations);
 
 
 
@@ -96,7 +97,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{	
-		reset_plot(inststations,gnuplotPipe2);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
+		reset_plot(gnuplotPipe2);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
 
 		/*-------------------------------------UTENTE RANDOM------------------------------------------------*/
 		rand_user = rand() % instusers->n_users;
@@ -108,8 +109,8 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
 		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
-		update_transfert(inststations, rand_start, rand_arrive);
-		print_travel(inststations, gnuplotPipe2);
+		update_travel(inststations, rand_start, rand_arrive);
+		print_travel(gnuplotPipe2);
 		/*--------------------------------------------------------------------------------------------------*/
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
@@ -172,7 +173,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("------------------------------------------------------------------------------\n\n");
 
 
-		//Sleep(30);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
+		//Sleep(3000);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
 		if (n > 1000)
 		{
 			done = false;
