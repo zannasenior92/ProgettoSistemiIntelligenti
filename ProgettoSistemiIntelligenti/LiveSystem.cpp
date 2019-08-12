@@ -89,17 +89,20 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 	srand((int)time(NULL));//CAMBIO IL SEME RANDOM
 	
-
-
+	
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{	
-		FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+
+		/*-------------------APERTURA PIPE GNUPLOT--------------------*/
+		FILE *gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+		/*------------------------------------------------------------*/
 		fprintf(gnuplotPipe2, "%s \n", "set terminal windows 1 size 1300,700");
 		fprintf(gnuplotPipe2, "%s \n", "set title 'SIMULAZIONE UTENTI'");
 		fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
+		/*------------------------------------------------------------*/
 
-		reset_plot(gnuplotPipe2);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
+		reset_plot(gnuplotPipe2);//STAMPO SOLO LE STAZIONI
 
 		/*-------------------------------------UTENTE RANDOM------------------------------------------------*/
 		rand_user = rand() % instusers->n_users;
@@ -113,6 +116,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("_________________________________________________\n");
 		update_travel(inststations, rand_start, rand_arrive);
 		print_travel(gnuplotPipe2);
+
 		/*--------------------------------------------------------------------------------------------------*/
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
@@ -181,10 +185,14 @@ void generateTraffic(Stations *inststations, Users *instusers)
 			done = false;
 		}
 		n++;
-
-		_pclose(gnuplotPipe2);//CLOSE THE PIPE FOR GNUPLOT
-
+		
+		/*-------------CHIUSURA PIPE GNUPLOT--------------*/
+		_pclose(gnuplotPipe2);
+		/*------------------------------------------------*/
 	}
+
+	
+
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (LIVESYSTEM >= 50){
@@ -206,7 +214,6 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 			}
 		}
-
 	}
 }
 

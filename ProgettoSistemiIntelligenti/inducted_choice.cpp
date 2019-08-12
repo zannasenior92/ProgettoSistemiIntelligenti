@@ -25,11 +25,13 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 	start_STATION = 1000;//AZZERO LA STAZIONE SCELTA
 
 	int start_s = rand() % inststations->n_stations;
-	/*STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO*/
-	update_initial_start_stations(inststations,start_s);
-	print_start(gnuplotPipe2);
-	/*****************************************************/
+	
 	printf("User %d would start from station: %d \n", user, start_s + 1);
+
+	/*--STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO--*/
+	update_initial_start_stations(inststations, start_s);
+	print_start(gnuplotPipe2);
+	/*-------------------------------------------------------*/
 	
 	int av_b = inststations->all_stations[start_s].av_bikes();//BICI DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
 	
@@ -240,11 +242,13 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 	{
 		arrive_s = rand() % inststations->n_stations;
 	}
+	
+	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
+
 	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
 	update_initial_arrive_stations(inststations, arrive_s);
 	print_arrive(gnuplotPipe2);
-	/****************************************************************/
-	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
+	/*--------------------------------------------------------------*/
 
 	int av_c = inststations->all_stations[arrive_s].av_columns();//COLONNE DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
 	
