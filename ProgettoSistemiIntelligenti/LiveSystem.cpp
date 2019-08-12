@@ -9,13 +9,12 @@
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);
 void budget_time_update(Stations *inststations);
-int choose_START_station(Stations *inststations, Users *instusers, int user);
-int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user);
+int choose_START_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
+int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
 void initial_critical_stations(Stations *inststations);
-void print_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
-void refresh_plot(Stations *inststations);
-void reset_print_transfert(Stations *inststations);
-
+void choose_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
+void reset_plot(Stations *inststations, FILE *gnuplotPipe2);
+void print_travel(Stations *inststations, FILE *gnuplotPipe2);
 
 
 
@@ -88,24 +87,29 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int numU = instusers->n_users;
 
 	srand((int)time(NULL));//CAMBIO IL SEME RANDOM
+	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+	fprintf(gnuplotPipe2, "%s \n", "set terminal windows 1 size 1300,700");
+	fprintf(gnuplotPipe2, "%s \n", "set title 'SIMULAZIONE UTENTI'");
+	fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
+
 
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{	
+		reset_plot(inststations,gnuplotPipe2);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
+
 		/*-------------------------------------UTENTE RANDOM------------------------------------------------*/
 		rand_user = rand() % instusers->n_users;
 		/*--------------------------------------------------------------------------------------------------*/
 
-		reset_print_transfert(inststations);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
-
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		printf("+++++++++++++++CHOICE OF STATIONS+++++++++++++++\n\n");
-		rand_start = choose_START_station(inststations, instusers, rand_user);
+		rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
-		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user);
+		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
-		print_transfert(inststations, rand_start, rand_arrive);
-		refresh_plot(inststations);
+		choose_transfert(inststations, rand_start, rand_arrive);
+		print_travel(inststations, gnuplotPipe2);
 		/*--------------------------------------------------------------------------------------------------*/
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
@@ -175,6 +179,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		}
 		n++;
 	}
+	_pclose(gnuplotPipe2);//CLOSE THE PIPE FOR GNUPLOT
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (LIVESYSTEM >= 50){

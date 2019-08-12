@@ -57,49 +57,56 @@ void plot_gnuplot(Stations *inststations) {
 }
 /*--------------------------------------------------------------------------------------*/
 
-
-/*--------------------------------METHOD TO REFRESH GNUPLOT GRAPH-----------------------*/
-void refresh_plot(Stations *inststations)
+void reset_plot(Stations *inststations, FILE *gnuplotPipe2)
 {
-	const char* commGnuRefresh[] = {
 
-		"set terminal windows 1 size 1300,700",
-		"set pointsize 0.7",									//set size of every point in the plot
-		"plot 'trasfert.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad' ,\
+	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad'");
+	fprintf(gnuplotPipe2, "%s \n", "pause 1");
+}
+
+void print_start(Stations *inststations, FILE *gnuplotPipe2)
+{
+	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad',\
+		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#ad0000'");
+	fprintf(gnuplotPipe2, "%s \n", "pause 1");
+}
+
+void print_def_start(Stations *inststations, FILE *gnuplotPipe2)
+{
+	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad',\
+		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#ad0000',\
+		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#65ad00'");
+	fprintf(gnuplotPipe2, "%s \n", "pause 1");
+}
+
+void print_arrive(Stations *inststations, FILE *gnuplotPipe2)
+{
+	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad',\
+		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#ad0000',\
+		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#65ad00',\
+		'arrive_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#26D4DF'");
+	fprintf(gnuplotPipe2, "%s \n", "pause 1");
+}
+
+void print_def_arrive(Stations *inststations, FILE *gnuplotPipe2)
+{
+	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad',\
+		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#ad0000',\
+		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#65ad00',\
+		'arrive_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#26D4DF',\
+		'def_arrive_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#F38115'");
+	fprintf(gnuplotPipe2, "%s \n", "pause 1");
+}
+
+void print_travel(Stations *inststations, FILE *gnuplotPipe2)
+{
+	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad',\
 		'start_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#ad0000',\
 		'def_start_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc rgb '#65ad00',\
 		'arrive_s.txt' with labels offset char 0.5,-0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#26D4DF',\
 		'def_arrive_s.txt' with labels offset char 0.5,0.5 font 'Times Bold,12' point pointtype 7 pointsize 1 lc '#F38115',\
-		'travel.txt' with lp pointtype 7 lc rgb 'red' ",
-		"pause 3"
-	};
-
-	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
-	int n_commands = sizeof(commGnuRefresh) / sizeof(commGnuRefresh[0]);
-	if (VERBOSE > 500)
-	{
-		printf("Number gnuplot commands : %d \n", n_commands);
-	}
-	/*----------------------------------------------------------------------------------*/
-
-	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
-	FILE * temp = fopen("trasfert.txt", "w");
-
-	for (int i = 0; i < inststations->n_stations; i++)
-	{
-		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
-	}
-	fclose(temp);
-	/*----------------------------------------------------------------------------------*/
-
-	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
-	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
-
-	for (int i = 0; i < n_commands; i++)
-	{
-		fprintf(gnuplotPipe2, "%s \n", commGnuRefresh[i]);					//Send commands to gnuplot one by one.
-	}
-	_pclose(gnuplotPipe2);
+		'travel.txt' with lp pointtype 7 lc rgb 'red' ");
+	fprintf(gnuplotPipe2, "%s \n", "pause 1");
 }
 
 /*METODO USATO SOLO PER APRIRE LA FINESTRA DI GNUPLOT- DOVRO' POI TOGLIERE L'APERTURA DI UNA NUOVA FINESTRA OGNI VOLTA*/

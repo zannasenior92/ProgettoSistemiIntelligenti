@@ -43,7 +43,7 @@ void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s)
 	/*----------------------------------------------------------------------------------*/
 }
 
-void print_transfert(Stations *inststations,int def_start_s,int def_arrive_s)
+void choose_transfert(Stations *inststations,int def_start_s,int def_arrive_s)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("travel.txt", "w");
@@ -54,21 +54,5 @@ void print_transfert(Stations *inststations,int def_start_s,int def_arrive_s)
 	fprintf(temp, "\n");
 	
 	fclose(temp);
-	/*----------------------------------------------------------------------------------*/
-}
-
-void reset_print_transfert(Stations *inststations)
-{
-	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
-	FILE * temp = fopen("start_s.txt", "w");
-	fclose(temp);
-	FILE * temp2 = fopen("def_start_s.txt", "w");
-	fclose(temp2);
-	FILE * temp3 = fopen("arrive_s.txt", "w");
-	fclose(temp3);
-	FILE * temp4 = fopen("def_arrive_s.txt", "w");
-	fclose(temp4);
-	FILE * temp5 = fopen("travel.txt", "w");
-	fclose(temp5);
 	/*----------------------------------------------------------------------------------*/
 }
