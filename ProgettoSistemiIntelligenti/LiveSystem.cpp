@@ -12,7 +12,7 @@ void budget_time_update(Stations *inststations);
 int choose_START_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
 int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
 void initial_critical_stations(Stations *inststations);
-void choose_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
+void update_transfert(Stations *inststations, int def_start_s, int def_arrive_s);
 void reset_plot(Stations *inststations, FILE *gnuplotPipe2);
 void print_travel(Stations *inststations, FILE *gnuplotPipe2);
 
@@ -108,7 +108,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
 		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
-		choose_transfert(inststations, rand_start, rand_arrive);
+		update_transfert(inststations, rand_start, rand_arrive);
 		print_travel(inststations, gnuplotPipe2);
 		/*--------------------------------------------------------------------------------------------------*/
 

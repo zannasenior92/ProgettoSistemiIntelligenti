@@ -2,7 +2,7 @@
 #include <string.h>
 
 /*--METODO CHE COLORA NEL GRAFICO LA STAZIONE DI PARTENZA (SCELTA PROVVISORIAMENTE)--*/
-void print_initial_start_stations(Stations *inststations, int start_s)
+void update_initial_start_stations(Stations *inststations, int start_s)
 {
 	FILE * temp = fopen("start_s.txt", "w");
 	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
@@ -12,7 +12,7 @@ void print_initial_start_stations(Stations *inststations, int start_s)
 }
 
 /*--METODO CHE COLORA NEL GRAFICO LA STAZIONE DI PARTENZA (SCELTA DEFINITIVAMENTE)--*/
-void print_choosen_start_stations(Stations *inststations, int def_start_s)
+void update_choosen_start_stations(Stations *inststations, int def_start_s)
 {
 	FILE * temp = fopen("def_start_s.txt", "w");
 	/*--------------------STAMPO IN ROSSO LA STAZIONE CHE HO SCELTO ALL'INIZIO----------*/
@@ -22,7 +22,7 @@ void print_choosen_start_stations(Stations *inststations, int def_start_s)
 }
 
 /*--METODO CHE COLORA NEL GRAFICO LA STAZIONE DI ARRIVO (SCELTA PROVVISORIAMENTE)--*/
-void print_initial_arrive_stations(Stations *inststations, int arrive_s)
+void update_initial_arrive_stations(Stations *inststations, int arrive_s)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("arrive_s.txt", "w");
@@ -33,7 +33,7 @@ void print_initial_arrive_stations(Stations *inststations, int arrive_s)
 }
 
 /*--METODO CHE COLORA NEL GRAFICO LA STAZIONE DI ARRIVO (SCELTA DEFINITIVAMENTE)--*/
-void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s)
+void update_choosen_arrive_stations(Stations *inststations, int def_arrive_s)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("def_arrive_s.txt", "w");
@@ -43,7 +43,7 @@ void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s)
 	/*----------------------------------------------------------------------------------*/
 }
 
-void choose_transfert(Stations *inststations,int def_start_s,int def_arrive_s)
+void update_transfert(Stations *inststations,int def_start_s,int def_arrive_s)
 {
 	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
 	FILE * temp = fopen("travel.txt", "w");

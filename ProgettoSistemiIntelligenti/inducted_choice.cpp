@@ -1,10 +1,10 @@
 #include "Station.h"
 #include "User.h"
 /*-------------------------------METODI-----------------------------------------------------------------*/
-void print_initial_start_stations(Stations *inststations, int start_s);//STAZIONE PARTENZA PROVVISORIA
-void print_choosen_start_stations(Stations *inststations, int def_start_s);//STAZIONE PARTENZA DEFINITIVA
-void print_initial_arrive_stations(Stations *inststations, int arrive_s);//STAZIONE ARRIVO PROVVISORIA
-void print_choosen_arrive_stations(Stations *inststations, int def_arrive_s);//STAZIONE ARRIVO DEFINITIVA
+void update_initial_start_stations(Stations *inststations, int start_s);//STAZIONE PARTENZA PROVVISORIA
+void update_choosen_start_stations(Stations *inststations, int def_start_s);//STAZIONE PARTENZA DEFINITIVA
+void update_initial_arrive_stations(Stations *inststations, int arrive_s);//STAZIONE ARRIVO PROVVISORIA
+void update_choosen_arrive_stations(Stations *inststations, int def_arrive_s);//STAZIONE ARRIVO DEFINITIVA
 void plot_gnuplot(Stations *inststations);
 void print_start(Stations *inststations, FILE *gnuplotPipe2);
 void print_def_start(Stations *inststations, FILE *gnuplotPipe2);
@@ -26,7 +26,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 
 	int start_s = rand() % inststations->n_stations;
 	/*STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO*/
-	print_initial_start_stations(inststations,start_s);
+	update_initial_start_stations(inststations,start_s);
 	print_start(inststations,gnuplotPipe2);
 	/*****************************************************/
 	printf("User %d would start from station: %d \n", user, start_s + 1);
@@ -204,7 +204,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 			start_STATION = start_s;
 
 			/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
-			print_choosen_start_stations(inststations, start_s);
+			update_choosen_start_stations(inststations, start_s);
 			print_def_start(inststations, gnuplotPipe2);
 			/*******************************************************/
 
@@ -220,7 +220,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 	printf("User %d change station and choose %d as start station \n", user, start_s + 1);
 
 	/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
-	print_choosen_start_stations(inststations, start_s);
+	update_choosen_start_stations(inststations, start_s);
 	print_def_start(inststations, gnuplotPipe2);
 	/*******************************************************/
 
@@ -238,7 +238,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 		arrive_s = rand() % inststations->n_stations;
 	}
 	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
-	print_initial_arrive_stations(inststations, arrive_s);
+	update_initial_arrive_stations(inststations, arrive_s);
 	print_arrive(inststations, gnuplotPipe2);
 	/****************************************************************/
 	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
@@ -413,7 +413,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 			printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);
 
 			/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-			print_choosen_arrive_stations(inststations, arrive_s);
+			update_choosen_arrive_stations(inststations, arrive_s);
 			print_def_arrive(inststations, gnuplotPipe2);
 			/*****************************************************/
 			
@@ -428,7 +428,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 	printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
 
 	/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-	print_choosen_arrive_stations(inststations, arrive_s);
+	update_choosen_arrive_stations(inststations, arrive_s);
 	print_def_arrive(inststations, gnuplotPipe2);
 	/*****************************************************/
 	return arrive_s;
