@@ -88,15 +88,17 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int numU = instusers->n_users;
 
 	srand((int)time(NULL));//CAMBIO IL SEME RANDOM
-	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
-	fprintf(gnuplotPipe2, "%s \n", "set terminal windows 1 size 1300,700");
-	fprintf(gnuplotPipe2, "%s \n", "set title 'SIMULAZIONE UTENTI'");
-	fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
+	
 
 
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{	
+		FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+		fprintf(gnuplotPipe2, "%s \n", "set terminal windows 1 size 1300,700");
+		fprintf(gnuplotPipe2, "%s \n", "set title 'SIMULAZIONE UTENTI'");
+		fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
+
 		reset_plot(gnuplotPipe2);//RESETTO I PUNTI NEL GRAFICO E LA LINEA DI TRASFERIMENTO
 
 		/*-------------------------------------UTENTE RANDOM------------------------------------------------*/
@@ -179,8 +181,10 @@ void generateTraffic(Stations *inststations, Users *instusers)
 			done = false;
 		}
 		n++;
+
+		_pclose(gnuplotPipe2);//CLOSE THE PIPE FOR GNUPLOT
+
 	}
-	_pclose(gnuplotPipe2);//CLOSE THE PIPE FOR GNUPLOT
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
 	if (LIVESYSTEM >= 50){

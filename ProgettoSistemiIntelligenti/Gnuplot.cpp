@@ -62,6 +62,8 @@ void reset_plot(FILE *gnuplotPipe2)
 
 	fprintf(gnuplotPipe2, "%s \n", "plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad'");
 	fprintf(gnuplotPipe2, "%s \n", "pause 2");
+	fprintf(gnuplotPipe2, "%s \n", "refresh");
+
 }
 
 void print_start(FILE *gnuplotPipe2)
