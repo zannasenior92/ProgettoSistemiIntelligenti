@@ -429,6 +429,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 		else
 		{
 			arrive_s = best_arrive_station;
+			arrive_STATION = arrive_s;
 		}
 	}
 	printf("\n");

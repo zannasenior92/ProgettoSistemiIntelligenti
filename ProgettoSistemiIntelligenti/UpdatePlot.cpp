@@ -73,3 +73,14 @@ void update_critical_stations(Stations *inststations)
 	}
 	fclose(crSt);
 }
+
+/*--FUNZIONE CHE STAMPA SU FILE I SOLDI CHE CI SONO NEL SISTEMA--*/
+void money_in_the_system(Users *instusers, int number_of_transition)
+{
+	FILE * money_in_sy = fopen("money.txt", "w");
+	for (int i = 0; i < number_of_transition; i++)
+	{
+		fprintf(money_in_sy, "%lf \n", instusers->money_in_the_system[i]);
+	}
+	fclose(money_in_sy);
+}

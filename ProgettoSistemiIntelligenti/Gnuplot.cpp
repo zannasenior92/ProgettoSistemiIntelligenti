@@ -107,3 +107,53 @@ void print_travel(FILE *gnuplotPipe2)
 		'travel.txt' title 'Travel' with lp pointtype 7 lc rgb 'red' ");
 	fprintf(gnuplotPipe2, "%s \n", "pause 1");
 }
+
+void print_money_in_system(Stations *inststations)
+{
+
+	char title[150];										//NAME FILE
+	strcpy(title, "set title \"Andamento Moneta Disponibile\" ");
+
+	const char * commandsForGnuplot[] = {
+
+		/*-------------------------PLOTTING COMMANDS TO PRINT NODES---------------------*/
+		"set terminal windows 3",
+		title,													//set title from input file
+		"unset key",											//remove path legend
+		"set pointsize 0.7",									//set size of every point in the plot
+		"set style line 1 lc rgb '#0060ad'",
+		"plot 'money.txt' with lines",
+		"exit"
+		/*------------------------------------------------------------------------------*/
+	};
+	/*----------------------------------------------------------------------------------*/
+
+	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
+	int n_commands = sizeof(commandsForGnuplot) / sizeof(commandsForGnuplot[0]);
+	if (VERBOSE > 500)
+	{
+		printf("Number gnuplot commands : %d \n", n_commands);
+	}
+	/*----------------------------------------------------------------------------------*/
+
+
+	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
+	FILE * temp = fopen("stations.txt", "w");
+
+	for (int i = 0; i < inststations->n_stations; i++)
+	{
+		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
+	}
+	fclose(temp);
+	/*----------------------------------------------------------------------------------*/
+
+
+	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
+	FILE * gnuplotPipe = _popen("C:/gnuplot/bin/gnuplot.exe -persistent", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+
+	for (int i = 0; i < n_commands; i++)
+	{
+		fprintf(gnuplotPipe, "%s \n", commandsForGnuplot[i]);					//Send commands to gnuplot one by one.
+	}
+	_pclose(gnuplotPipe);
+}
