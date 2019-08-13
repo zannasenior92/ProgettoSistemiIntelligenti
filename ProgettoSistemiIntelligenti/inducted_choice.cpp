@@ -29,7 +29,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 	printf("User %d would start from station: %d \n", user, start_s + 1);
 
 	/*--STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO--*/
-	if (INDUCTEDCHOICE > 100)
+	if (INDUCTEDCHOICE > 300)
 	{
 		update_initial_start_stations(inststations, start_s);
 		print_start(gnuplotPipe2);
@@ -213,7 +213,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 			start_STATION = start_s;
 
 			/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
-			if (INDUCTEDCHOICE > 100)
+			if (INDUCTEDCHOICE > 300)
 			{
 				update_choosen_start_stations(inststations, start_s);
 				print_def_start(gnuplotPipe2);
@@ -233,7 +233,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 	printf("User %d change station and choose %d as start station \n", user, start_s + 1);
 
 	/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
-	if (INDUCTEDCHOICE > 100)
+	if (INDUCTEDCHOICE > 300)
 	{
 		update_choosen_start_stations(inststations, start_s);
 		print_def_start(gnuplotPipe2);
@@ -257,7 +257,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
 
 	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
-	if (INDUCTEDCHOICE > 100)
+	if (INDUCTEDCHOICE > 300)
 	{
 		update_initial_arrive_stations(inststations, arrive_s);
 		print_arrive(gnuplotPipe2);
@@ -435,7 +435,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 			printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);
 
 			/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-			if (INDUCTEDCHOICE > 100)
+			if (INDUCTEDCHOICE > 300)
 			{
 				update_choosen_arrive_stations(inststations, arrive_s);
 				print_def_arrive(gnuplotPipe2);
@@ -455,7 +455,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 	printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
 
 	/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-	if (INDUCTEDCHOICE > 100)
+	if (INDUCTEDCHOICE > 300)
 	{
 		update_choosen_arrive_stations(inststations, arrive_s);
 		print_def_arrive(gnuplotPipe2);

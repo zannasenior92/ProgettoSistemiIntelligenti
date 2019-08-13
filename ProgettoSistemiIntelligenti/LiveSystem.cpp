@@ -11,6 +11,8 @@ void createEnv(Stations *inststations,Users *instusers);
 void budget_time_update(Stations *inststations);
 int choose_START_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
 int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2);
+int parse_travel_start_station_index(Stations *inststations, Users *instusers, int index_row_csv);
+int parse_travel_end_station_index(Stations *inststations, Users *instusers, int index_row_csv);
 void initial_critical_stations(Stations *inststations);
 void update_travel(Stations *inststations, int def_start_s, int def_arrive_s);
 void reset_plot(FILE *gnuplotPipe2);
@@ -117,9 +119,11 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		printf("+++++++++++++++CHOICE OF STATIONS+++++++++++++++\n\n");
-		rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
+		rand_start = parse_travel_start_station_index(inststations, instusers, n);
+		//rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
-		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
+		rand_arrive = parse_travel_end_station_index(inststations, instusers, n);
+		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
 		if (INDUCTEDCHOICE > 100)
 		{
@@ -229,6 +233,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		}
 	}
 
+	/*------STAMPO L'ANDAMENTO DEI SOLDI DEL SISTEMA-------*/
 	print_money_in_system(inststations,Number_Of_Transition);
 }
 

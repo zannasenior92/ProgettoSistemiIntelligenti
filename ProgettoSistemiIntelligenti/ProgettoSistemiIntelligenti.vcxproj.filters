@@ -51,6 +51,9 @@
     <ClCompile Include="UpdatePlot.cpp">
       <Filter>SimulationSystem</Filter>
     </ClCompile>
+    <ClCompile Include="parse_travel.cpp">
+      <Filter>SimulationSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Station.h">

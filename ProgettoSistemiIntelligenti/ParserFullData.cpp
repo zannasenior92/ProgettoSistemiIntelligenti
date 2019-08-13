@@ -213,12 +213,12 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 		inststations->ycoords[k] = instusers->star_station_latitude[indexes_stations[k]];
 	}
 
-	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
+	/*SAVE THE STATION NAME IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_names = (char**)malloc(s * sizeof(char*));
 	for (int i = 0; i < inststations->n_stations; i++) { inststations->stations_names[i] = temporary_stations_names[i]; }
 	
 
-	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
+	/*SAVE THE STATION id IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_id = (int*)malloc(s * sizeof(int*));
 	for (int j = 0; j < inststations->n_stations; j++){inststations->stations_id[j] = temporary_id[j];}
 	
