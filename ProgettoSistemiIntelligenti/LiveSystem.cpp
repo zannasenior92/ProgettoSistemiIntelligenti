@@ -193,7 +193,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 
 		//Sleep(3000);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
-		if (n > Number_Of_Transition)
+		if (n >= Number_Of_Transition - 1)
 		{
 			done = false;
 		}
