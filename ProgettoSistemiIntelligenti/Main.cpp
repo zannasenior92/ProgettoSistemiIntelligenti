@@ -21,14 +21,14 @@ void free_instance(Stations *inststations,Users *instusers) {
 
 	free(instusers->all_users);
 	free(instusers->bikeid);
-	free(instusers->end_station_id);
-	free(instusers->end_station_latitude);
-	free(instusers->end_station_longitude);
-	free(instusers->end_station_name);
 	free(instusers->start_station_id);
 	free(instusers->start_station_name);
 	free(instusers->star_station_latitude);
 	free(instusers->star_station_longitude);
+	free(instusers->end_station_id);
+	free(instusers->end_station_latitude);
+	free(instusers->end_station_longitude);
+	free(instusers->end_station_name);
 	free(instusers->tripduration);
 	free(instusers->usertype);
 	
