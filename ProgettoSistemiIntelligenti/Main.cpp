@@ -10,12 +10,14 @@ void read_input_csv(Stations *inst, Users *instusers);
 void read_input(Stations *inststations);
 void plot_gnuplot(Stations *inststations);
 void free_instance(Stations *inststations,Users *instusers) {
+	
+	free(inststations->all_stations);
+	free(inststations->stations_names);
+	free(inststations->stations_id);
 	free(inststations->xcoords);
 	free(inststations->ycoords);
-	free(inststations->all_stations);
-	free(inststations->money_in_the_system);
 	free(inststations->critical_station);
-	free(inststations->stations_id);
+	free(inststations->money_in_the_system);
 
 	free(instusers->all_users);
 	free(instusers->bikeid);
