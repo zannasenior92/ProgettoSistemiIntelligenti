@@ -13,8 +13,11 @@ void free_instance(Stations *inststations,Users *instusers) {
 	free(inststations->xcoords);
 	free(inststations->ycoords);
 	free(inststations->all_stations);
-	free(instusers->all_users);
+	free(inststations->money_in_the_system);
 	free(inststations->critical_station);
+	free(inststations->stations_id);
+
+	free(instusers->all_users);
 	free(instusers->bikeid);
 	free(instusers->end_station_id);
 	free(instusers->end_station_latitude);
@@ -26,6 +29,7 @@ void free_instance(Stations *inststations,Users *instusers) {
 	free(instusers->star_station_longitude);
 	free(instusers->tripduration);
 	free(instusers->usertype);
+	
 }
 void generateTraffic(Stations *inststations, Users *instusers);
 void createEnv(Stations *inststations,Users *instusers);

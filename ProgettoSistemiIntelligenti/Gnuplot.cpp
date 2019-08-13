@@ -40,7 +40,7 @@ void plot_gnuplot(Stations *inststations) {
 
 	for (int i = 0; i < inststations->n_stations; i++)
 	{
-		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
+		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], inststations->stations_id[i]);  //WRITE DATA TO A TEMPORARY FILE
 	}
 	fclose(temp);
 	/*----------------------------------------------------------------------------------*/

@@ -11,8 +11,6 @@
 
 /*----------------------------------------METHODS---------------------------------------*/
 void save_NAME_stations(Stations *inststations, Users *instusers);
-void save_id_stations(Stations *inststations, Users *instusers);
-
 
 /*----------------------------------COMMAND LINE PARSING--------------------------------*/
 void parse_command_line_csv(int argc, char** argv, Stations *inst) {
@@ -146,80 +144,12 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 	fclose(input);
 }
 
-/*FUNCTION FOR FIND THE NUMBER OF STATIONS*/
-void save_id_stations(Stations *inststations, Users *instusers)
-{
-	int *temporary_id = (int*)malloc(instusers->n_trip * sizeof(int));
-	int *indexes_stations = (int*)malloc(instusers->n_trip * sizeof(int));
-	int s = 0;												//COUNTER OF NUMBER OF STATIONS
-	int finded = 0;											//FLAG FOR STATION ALREADY PRESENT
-	
-	/*----------------------START STATIONS ID---------------------------------*/
-	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
-	{
-		int current_id = instusers->start_station_id[i];
-
-		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
-		{
-			if (temporary_id[f] == current_id)
-			{
-				finded = 1;
-			}
-		}
-		if (finded == 0)//SAVE THE NEW STATION
-		{
-
-			indexes_stations[s] = i;
-			temporary_id[s] = current_id;
-			s++;
-		}
-		finded = 0;
-	}
-	/*****************************************/
-	/*------------------------END STATIONS ID---------------------------------*/
-	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
-	{
-		int current_id = instusers->end_station_id[i];
-
-		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
-		{
-			if (temporary_id[f] == current_id)
-			{
-				finded = 1;
-			}
-		}
-		if (finded == 0)//SAVE THE NEW STATION
-		{
-
-			indexes_stations[s] = i;
-			temporary_id[s] = current_id;
-			s++;
-		}
-		finded = 0;
-	}
-
-	inststations->n_stations = s;							//INIZIALIZE THE NUMBER OF STATIONS
-
-	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
-	inststations->stations_id = (int*)malloc(s * sizeof(int*));
-	inststations->stations_id = temporary_id;
-	if (PARSERFULLDATA > 200)
-	{
-		for (int i = 0; i < inststations->n_stations; i++)
-		{
-			int id = instusers->start_station_id[indexes_stations[i]];
-			printf("id: %d \n", inststations->stations_id[i]);
-		}
-
-	}
-	free(indexes_stations);
-	free(temporary_id);
-}
-
-
 /*FUNCTION FOR FIND THE NUMBER OF STATIONS AND SAVE STATIONS*/
 void save_NAME_stations(Stations *inststations, Users *instusers)
 {
+	/*----------------------ID SECTION---------------------*/
+	int *temporary_id = (int*)malloc(instusers->n_trip * sizeof(int));
+	/*---------------------NAME SECTION--------------------*/
 	char** temporary_stations_names = (char**)malloc(instusers->n_trip * sizeof(char*));
 	int *indexes_stations = (int*)malloc(instusers->n_trip * sizeof(int));
 	int s = 0;												//COUNTER OF NUMBER OF STATIONS
@@ -229,6 +159,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
 	{
 		char *station_name = instusers->start_station_name[i];
+		int current_id = instusers->start_station_id[i];
 
 		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
 		{
@@ -242,6 +173,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 
 			indexes_stations[s] = i;
 			temporary_stations_names[s] = station_name;
+			temporary_id[s] = current_id;
 			s++;
 		}
 		finded = 0;
@@ -251,6 +183,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	for (int i = 0; i < instusers->n_trip; i++)				//SCAN ALL TRIP
 	{
 		char *station_name = instusers->end_station_name[i];
+		int current_id = instusers->end_station_id[i];
 
 		for (int f = 0; f < s; f++)//FIND IF THE STATION NAME IS ALREADY PRESENT
 		{
@@ -264,6 +197,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 
 			indexes_stations[s] = i;
 			temporary_stations_names[s] = station_name;
+			temporary_id[s] = current_id;
 			s++;
 		}
 		finded = 0;
@@ -281,18 +215,25 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 
 	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
 	inststations->stations_names = (char**)malloc(s * sizeof(char*));
-	inststations->stations_names = temporary_stations_names;
+	for (int i = 0; i < inststations->n_stations; i++) { inststations->stations_names[i] = temporary_stations_names[i]; }
+	
+
+	/*SAVE THE STATION IN AN ARRAY WITH CORRECT DIMENSION*/
+	inststations->stations_id = (int*)malloc(s * sizeof(int*));
+	for (int j = 0; j < inststations->n_stations; j++){inststations->stations_id[j] = temporary_id[j];}
+	
+
 	if (PARSERFULLDATA > 50)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
 		{
-			int id = instusers->start_station_id[indexes_stations[i]];
-			printf("Station_%d is: %s - id: %d \n", i, inststations->stations_names[i], id);
+			printf("Station_%d is: %s - id: %d \n", i, inststations->stations_names[i], inststations->stations_id[i]);
 		}
 
 	}
 	free(indexes_stations);
 	free(temporary_stations_names);
+	free(temporary_id);
 }
 
 
