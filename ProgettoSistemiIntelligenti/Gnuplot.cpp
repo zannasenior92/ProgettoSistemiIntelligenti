@@ -101,29 +101,3 @@ void refresh_plot(Stations *inststations)
 	}
 	_pclose(gnuplotPipe2);
 }
-
-/*METODO USATO SOLO PER APRIRE LA FINESTRA DI GNUPLOT- DOVRO' POI TOGLIERE L'APERTURA DI UNA NUOVA FINESTRA OGNI VOLTA*/
-void open_gnuplot_window()
-{
-	const char* commGnuRefresh[] = {
-
-		"set terminal windows 1 size 1300,700"
-	};
-
-	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
-	int n_commands = sizeof(commGnuRefresh) / sizeof(commGnuRefresh[0]);
-	if (VERBOSE > 200)
-	{
-		printf("Number gnuplot commands : %d \n", n_commands);
-	}
-	/*----------------------------------------------------------------------------------*/
-
-	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/
-	FILE * gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
-
-	for (int i = 0; i < n_commands; i++)
-	{
-		fprintf(gnuplotPipe2, "%s \n", commGnuRefresh[i]);					//Send commands to gnuplot one by one.
-	}
-	_pclose(gnuplotPipe2);
-}
