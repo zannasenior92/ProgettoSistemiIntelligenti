@@ -71,7 +71,6 @@ public:
 	double *end_station_longitude;
 	int *bikeid;
 	char **usertype;
-	double *money_in_the_system;
 
 	/*----------------------------------METHODS-------------------------------*/
 	

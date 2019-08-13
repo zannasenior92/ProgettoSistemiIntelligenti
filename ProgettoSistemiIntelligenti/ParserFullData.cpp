@@ -115,18 +115,19 @@ void read_input_csv(Stations *inststations, Users *instusers) {
 
 			if (PARSERFULLDATA > 100)
 			{
+				/*RICORDO CHE L'INDICE n PARTE DA 0 E NEL FILE CSV LE STAZIONI INIZIANO DALL'INDICE 2 DI RIGA*/
 				printf("------------------------------------------------------------------\n");
-				printf("tripduration %d: %d \n", n, instusers->tripduration[n]);
-				printf("start_station_id %d: %d \n", n, instusers->start_station_id[n]);
-				printf("start_station_name %d: %s \n", n, instusers->start_station_name[n]);
-				printf("star_station_latitude %d: %lf \n", n, instusers->star_station_latitude[n]);
-				printf("star_station_longitude %d: %lf \n", n, instusers->star_station_longitude[n]);
-				printf("end_station_id %d: %d \n", n, instusers->end_station_id[n]);
-				printf("end_station_name %d: %s \n", n, instusers->end_station_name[n]);
-				printf("end_station_latitude %d: %lf \n", n, instusers->end_station_latitude[n]);
-				printf("end_station_longitude %d: %lf \n", n, instusers->end_station_longitude[n]);
-				printf("bikeid %d: %d \n", n, instusers->bikeid[n]);
-				printf("usertype %d: %s \n", n, instusers->usertype[n]);
+				printf("tripduration %d: %d \n", n + 2, instusers->tripduration[n]);
+				printf("start_station_id %d: %d \n", n + 2, instusers->start_station_id[n]);
+				printf("start_station_name %d: %s \n", n + 2, instusers->start_station_name[n]);
+				printf("star_station_latitude %d: %lf \n", n + 2, instusers->star_station_latitude[n]);
+				printf("star_station_longitude %d: %lf \n", n + 2, instusers->star_station_longitude[n]);
+				printf("end_station_id %d: %d \n", n + 2, instusers->end_station_id[n]);
+				printf("end_station_name %d: %s \n", n + 2, instusers->end_station_name[n]);
+				printf("end_station_latitude %d: %lf \n", n + 2, instusers->end_station_latitude[n]);
+				printf("end_station_longitude %d: %lf \n", n + 2, instusers->end_station_longitude[n]);
+				printf("bikeid %d: %d \n", n + 2, instusers->bikeid[n]);
+				printf("usertype %d: %s \n", n + 2, instusers->usertype[n]);
 				printf("------------------------------------------------------------------\n");
 			}
 			

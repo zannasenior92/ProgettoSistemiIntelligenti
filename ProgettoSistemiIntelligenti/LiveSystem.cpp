@@ -16,8 +16,9 @@ void update_travel(Stations *inststations, int def_start_s, int def_arrive_s);
 void reset_plot(FILE *gnuplotPipe2);
 void print_travel(FILE *gnuplotPipe2);
 void reset_print_transfert(Stations *inststations);
+void print_money_in_system(Stations *inststations, int number_of_transition);
 
-
+#define Number_Of_Transition 500 //NUMERO DI VIAGGI DEGLI UTENTI
 
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
@@ -81,8 +82,11 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	int rand_arrive;																//INDES END'S STATION
 
 
-	/*------------------------------------------STAZIONI INIZIALI---------------------------------------*/
+	/*------------------------------------------SOLDI NEL SISTEMA---------------------------------------*/
 	printf("Money in the system at time 0: %lf \n\n\n", inststations->get_cash_desk());
+	/*--------------INIZIALIZZO UN ARRAY CON I VALORI DELLA MONETA PRESENTE NEL SISTEMA-----------------*/
+	inststations->money_in_the_system = (double*)malloc(Number_Of_Transition * sizeof(double));
+	inststations->money_in_the_system[n] = inststations->get_cash_desk();
 
 	int numS = inststations->n_stations;
 	int numU = instusers->n_users;
@@ -102,7 +106,10 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
 		/*------------------------------------------------------------*/
 
-		reset_plot(gnuplotPipe2);//STAMPO SOLO LE STAZIONI
+		if (INDUCTEDCHOICE > 100)
+		{
+			reset_plot(gnuplotPipe2);//STAMPO SOLO LE STAZIONI
+		}
 
 		/*-------------------------------------UTENTE RANDOM------------------------------------------------*/
 		rand_user = rand() % instusers->n_users;
@@ -114,8 +121,12 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
 		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
-		update_travel(inststations, rand_start, rand_arrive);
-		print_travel(gnuplotPipe2);
+		if (INDUCTEDCHOICE > 100)
+		{
+			update_travel(inststations, rand_start, rand_arrive);
+			print_travel(gnuplotPipe2);
+		}
+		
 
 		/*--------------------------------------------------------------------------------------------------*/
 
@@ -148,7 +159,6 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		printf("______________________________________________________________\n");
 
 		int startCounter = instusers->all_users[rand_user].get_counter_Start_Visits(rand_start);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
-		//printf("Number of Visit of start station %d by the user %d = %d \n",rand_start + 1,rand_user,startCounter);	
 		printf("-------------------------------------------------\n");
 		/*---------------------------------------------------------------------------------------------------*/
 
@@ -171,7 +181,10 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		printf("-------------------------------------------------\n");
 
+
 		printf("Money in the system: %lf \n\n", inststations->get_cash_desk());
+		/*-----------------STAMPO IN UN ARRAY IL VALORE DELLA MONETA PRESENTE NEL SISTEMA-------------------*/
+		inststations->money_in_the_system[n] = inststations->get_cash_desk();
 		/*---------------------------------------------------------------------------------------------------*/
 		
 		/*-------------------------------CONTROLLO LA CRITICITA' DELLE STAZIONI------------------------------*/
@@ -180,7 +193,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 
 		//Sleep(3000);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)
-		if (n > 1000)
+		if (n > Number_Of_Transition)
 		{
 			done = false;
 		}
@@ -215,6 +228,8 @@ void generateTraffic(Stations *inststations, Users *instusers)
 			}
 		}
 	}
+
+	print_money_in_system(inststations,Number_Of_Transition);
 }
 
 

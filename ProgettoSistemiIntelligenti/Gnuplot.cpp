@@ -108,7 +108,7 @@ void print_travel(FILE *gnuplotPipe2)
 	fprintf(gnuplotPipe2, "%s \n", "pause 1");
 }
 
-void print_money_in_system(Stations *inststations)
+void print_money_in_system(Stations *inststations, int number_of_transition)
 {
 
 	char title[150];										//NAME FILE
@@ -120,7 +120,6 @@ void print_money_in_system(Stations *inststations)
 		"set terminal windows 3",
 		title,													//set title from input file
 		"unset key",											//remove path legend
-		"set pointsize 0.7",									//set size of every point in the plot
 		"set style line 1 lc rgb '#0060ad'",
 		"plot 'money.txt' with lines",
 		"exit"
@@ -136,16 +135,13 @@ void print_money_in_system(Stations *inststations)
 	}
 	/*----------------------------------------------------------------------------------*/
 
-
-	/*---------------------------PRINTING POINTS IN FILE--------------------------------*/
-	FILE * temp = fopen("stations.txt", "w");
-
-	for (int i = 0; i < inststations->n_stations; i++)
+	/*--FUNZIONE CHE STAMPA SU FILE I SOLDI CHE CI SONO NEL SISTEMA--*/
+	FILE * money_in_sy = fopen("money.txt", "w");
+	for (int i = 0; i < number_of_transition; i++)
 	{
-		fprintf(temp, "%lf %lf %d \n", inststations->xcoords[i], inststations->ycoords[i], i + 1);  //WRITE DATA TO A TEMPORARY FILE
+		fprintf(money_in_sy, "%lf \n", inststations->money_in_the_system[i]);
 	}
-	fclose(temp);
-	/*----------------------------------------------------------------------------------*/
+	fclose(money_in_sy);
 
 
 	/*----------------USING A PIPE FOR GNUPLOT TO PRINT POINTS--------------------------*/

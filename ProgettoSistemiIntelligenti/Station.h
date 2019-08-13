@@ -17,7 +17,7 @@
 #define STATIONH 50
 #define STATIONCPP 50
 #define PARSER 50
-#define	PARSERFULLDATA 5
+#define	PARSERFULLDATA 500
 #define CRITICALSTATIONS 50
 #define UPDATEPRICES 50
 #define INDUCTEDCHOICE 50
@@ -96,7 +96,8 @@ public:
 	int num_bikes;																//NUMERO TOTALE BICI PRESENTI
 	int num_columns;															//NUMERO TOTALE COLONNINE
 	double *critical_station;													//ARRAY CHE IDENTIFICA COME CRITICA UNA STAZIONE
-	
+	double *money_in_the_system;												//SOLDI NEL SISTEMA OGNI MOMENTO
+
 
 	/*-------------------------------------METHODS---------------------------*/
 	void set_n_stations(int num);												//SETTO IL NUMERO DI STAZIONI PRESENTI 
