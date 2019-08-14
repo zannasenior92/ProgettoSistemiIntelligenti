@@ -18,7 +18,7 @@ void budget_time_update(Stations *inststations)
 			//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
 			if (inststations->critical_station[i] == 0)
 			{
-				printf("Station %d is critical(full of bikes) \n", i + 1);
+				printf("Station %d is critical(full of bikes) \n", inststations->stations_id[i]);
 
 				inststations->critical_station[i] = 1;
 				inststations->all_stations[i].critical_full_counter++;//AGGIORNO CONTATORE CRITICITA' STAZIONE i-ESIMA PIENA
@@ -28,7 +28,7 @@ void budget_time_update(Stations *inststations)
 			{
 				double current_time_full = (double)clock();
 				inststations->all_stations[i].station_full_time = (double)(current_time_full - inststations->all_stations[i].time0_full_station) / CLOCKS_PER_SEC;
-				printf("Station %d full of bikes for %lf seconds \n", i + 1, inststations->all_stations[i].station_full_time);
+				printf("Station %d full of bikes for %lf seconds \n", inststations->stations_id[i], inststations->all_stations[i].station_full_time);
 			}
 		}
 		else if ((bikes == 0))//STAZIONE SENZA BICI
@@ -36,7 +36,7 @@ void budget_time_update(Stations *inststations)
 			//SE NON E' STATA MAI SELEZIONATA COME CRITICA ALLORA LA SELEZIONO E FACCIO PARTIRE IL TEMPO
 			if (inststations->critical_station[i] == 0)
 			{
-				printf("Station %d is critical(empty of bikes) \n", i + 1);
+				printf("Station %d is critical(empty of bikes) \n", inststations->stations_id[i]);
 
 				inststations->critical_station[i] = 1;
 				inststations->all_stations[i].critical_empty_counter++;//AGGIORNO CONTATORE CRITICITA' STAZIONE i-ESIMA VUOTA
@@ -46,7 +46,7 @@ void budget_time_update(Stations *inststations)
 			{
 				double current_time_empty = (double)clock();
 				inststations->all_stations[i].station_empty_time = (double)(current_time_empty - inststations->all_stations[i].time0_empty_station) / CLOCKS_PER_SEC;
-				printf("Station %d empty of bikes for %lf seconds \n", i + 1, inststations->all_stations[i].station_empty_time);
+				printf("Station %d empty of bikes for %lf seconds \n", inststations->stations_id[i], inststations->all_stations[i].station_empty_time);
 			}
 
 		}

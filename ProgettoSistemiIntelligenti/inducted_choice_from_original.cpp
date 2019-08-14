@@ -20,13 +20,15 @@ void print_travel(FILE *gnuplotPipe2);
 
 
 /*------------------------------------------------------------------------------------------------------*/
+int start_STATION_cvs;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO SCELTO IN PARTENZA 
 
 /*------------------------METODI CHE INDUCONO L'UTENTE A SCEGLIERE UNA STAZIONE PIUTTOSTO DI UN'ALTRA---------------------------*/
 
 /*--METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE--*/
 int choose_START_station_from_csv_start(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2,int n)
 {
-	
+	start_STATION_cvs = 1000;
+
 	int start_s = parse_travel_start_station_index(inststations, instusers, n);
 
 	printf("User %d would start from station: %d \n", user, inststations->stations_id[start_s]);
@@ -105,6 +107,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 		}
 		if (find_altern_station == 0) { printf("Choosen nearest station\n"); }
 		start_s = best_start_station;
+		start_STATION_cvs = start_s;
 	}
 	/************************************************************************************/
 
@@ -212,6 +215,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 		{
 			printf("\n");
 			printf("User %d choose start station:     %d \n", user, inststations->stations_id[start_s]);
+			start_STATION_cvs = start_s;
 
 			/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
 			if (INDUCTEDCHOICE > 300)
@@ -227,6 +231,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 		else
 		{
 			start_s = best_start_station;
+			start_STATION_cvs = start_s;
 		}
 	}
 	printf("\n");
@@ -289,7 +294,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 			av_c = inststations->all_stations[i].av_columns();
 
 			//LA STAZIONE DEVE AVERE COLONNE DISPONIBILI
-			if ((i != arrive_s) && (av_c != 0))
+			if ((i != arrive_s) && (av_c != 0) && (i != start_STATION_cvs))
 			{
 				/*--------------DISTANZA DA CONFRONTARE-------------*/
 				x_i = inststations->xcoords[i];
@@ -384,7 +389,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 		{
 			av_c = inststations->all_stations[i].av_columns();
 
-			if ((i != arrive_s) && (av_c != 0))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
+			if ((i != arrive_s) && (av_c != 0) && (i != start_STATION_cvs))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
 			{
 				/*--------------DISTANZA DA CONFRONTARE-------------*/
 				x_i = inststations->xcoords[i];

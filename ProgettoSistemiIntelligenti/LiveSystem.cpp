@@ -22,7 +22,7 @@ void print_travel(FILE *gnuplotPipe2);
 void reset_print_transfert(Stations *inststations);
 void print_money_in_system(Stations *inststations, int number_of_transition);
 
-#define Number_Of_Transition 50 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Number_Of_Transition 500 //NUMERO DI VIAGGI DEGLI UTENTI
 
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
