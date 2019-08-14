@@ -22,7 +22,7 @@ void print_travel(FILE *gnuplotPipe2);
 void reset_print_transfert(Stations *inststations);
 void print_money_in_system(Stations *inststations, int number_of_transition);
 
-#define Number_Of_Transition 500 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Number_Of_Transition 1000 //NUMERO DI VIAGGI DEGLI UTENTI
 
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
@@ -56,7 +56,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	int time_user = rand() % 30;														//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(40 + rand() % 11));
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(20 + rand() % 11));
 	}
 	
 
@@ -121,11 +121,11 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		printf("+++++++++++++++CHOICE OF STATIONS+++++++++++++++\n\n");
-		rand_start = choose_START_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
-		//rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
+		//rand_start = choose_START_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
+		rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
-		rand_arrive = choose_ARRIVE_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
-		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
+		//rand_arrive = choose_ARRIVE_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
+		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
 		if (INDUCTEDCHOICE > 100)
 		{
@@ -242,10 +242,21 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		{
 			if (inststations->critical_station[m]== 1)
 			{
-				printf("Station %d is critical\n",m + 1);
+				printf("Station %d is critical\n",inststations->stations_id[m]);
 
 			}
 		}
+	}
+	if (LIVESYSTEM >= 50)
+	{
+		int number_of_times_critical = 0;
+		for (int i = 0; i < inststations->n_stations; i++)
+		{
+			int e_counter = inststations->all_stations[i].critical_empty_counter;
+			int f_counter = inststations->all_stations[i].critical_full_counter;
+			number_of_times_critical += e_counter + f_counter;
+		}
+		printf("Stations are been critical for %d times", number_of_times_critical);
 	}
 
 	/*------STAMPO L'ANDAMENTO DEI SOLDI DEL SISTEMA-------*/

@@ -47,8 +47,8 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		double x_a = inststations->xcoords[start_s];
 		double y_a = inststations->ycoords[start_s];
 
-		double x_i;
-		double y_i;
+		double x_i;						//COORDINATA x PROVVISORIE PER CONFRONTO
+		double y_i;						//COORDINATA y PROVVISORIE PER CONFRONTO
 		int find_altern_station = 0;	//TROVATA STAZIONE ALTERNATIVA
 		int best_start_station = 0;		//INDICE MIGLIOR STAZIONE SCELTA
 		double decision = 0;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
