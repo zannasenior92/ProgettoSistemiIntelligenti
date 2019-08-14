@@ -1,4 +1,4 @@
-/*-----------------PARSER DEL FILE CONTENENTE DATI ORIGINALI--------------*/
+/*-----------------PARSER DEL FILE CONTENENTE DATI TRAGITTI ORIGINALI-------------------*/
 
 
 /*-----------------------------------PARSER FUNCTION------------------------------------*/
@@ -227,7 +227,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 	{
 		for (int i = 0; i < inststations->n_stations; i++)
 		{
-			printf("Station_%d is: %s - id: %d \n", i, inststations->stations_names[i], inststations->stations_id[i]);
+			printf("Station_%d is: id: %d - S: %s \n", i, inststations->stations_id[i], inststations->stations_names[i]);
 		}
 
 	}

@@ -20,7 +20,7 @@
 #define	PARSERFULLDATA 60
 #define CRITICALSTATIONS 50
 #define UPDATEPRICES 50
-#define INDUCTEDCHOICE 200
+#define INDUCTEDCHOICE 100
 #define LIVESYSTEM 50
 #define MAINPROGRAM 50
 #define SUBSCRIPTION 25															//SOLDI ABBONAMENTO
@@ -87,7 +87,7 @@ public:
 	Station_i* all_stations;													//ARRAY DELLE STAZIONI
 	
 	char **stations_names;														//NAMES OF ALL STATIONS
-	int *stations_id;															//ID DELLE STAZIONI
+	int *stations_id;															//ID DELLE STAZIONI NELL'ARRAY DELLE STAZIONI SALVATE
 	char input_used[200];
 	char name[20];																//NAME OF FILE USED
 	int n_stations;																//NUMERO STAZIONI

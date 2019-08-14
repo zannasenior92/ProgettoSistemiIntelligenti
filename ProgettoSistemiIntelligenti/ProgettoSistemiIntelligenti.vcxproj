@@ -122,6 +122,7 @@
     <ClCompile Include="CriticalStations.cpp" />
     <ClCompile Include="Gnuplot.cpp" />
     <ClCompile Include="inducted_choice.cpp" />
+    <ClCompile Include="inducted_choice_from_original.cpp" />
     <ClCompile Include="LiveSystem.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Parser.cpp" />

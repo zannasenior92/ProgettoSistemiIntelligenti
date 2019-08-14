@@ -1,3 +1,7 @@
+/*QUESTI METODI PRENDONO LA STAZIONE DI PARTENZA E LA STAZIONE DI ARRIVO DIRETTAMENTE DAL FILE CSV E POI TROVANO LE STAZIONI
+DEFINITIVE DI PARTENZA E ARRIVO*/
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
 #include "Station.h"
 #include "User.h"
 /*-------------------------------METODI-----------------------------------------------------------------*/
@@ -5,8 +9,10 @@ void update_initial_start_stations(Stations *inststations, int start_s);//STAZIO
 void update_choosen_start_stations(Stations *inststations, int def_start_s);//STAZIONE PARTENZA DEFINITIVA
 void update_initial_arrive_stations(Stations *inststations, int arrive_s);//STAZIONE ARRIVO PROVVISORIA
 void update_choosen_arrive_stations(Stations *inststations, int def_arrive_s);//STAZIONE ARRIVO DEFINITIVA
+int parse_travel_start_station_index(Stations *inststations, Users *instusers, int index_row_csv);
+int parse_travel_end_station_index(Stations *inststations, Users *instusers, int index_row_csv);
 void plot_gnuplot(Stations *inststations);
-void print_start( FILE *gnuplotPipe2);
+void print_start(FILE *gnuplotPipe2);
 void print_def_start(FILE *gnuplotPipe2);
 void print_arrive(FILE *gnuplotPipe2);
 void print_def_arrive(FILE *gnuplotPipe2);
@@ -15,18 +21,15 @@ void print_travel(FILE *gnuplotPipe2);
 
 /*------------------------------------------------------------------------------------------------------*/
 
-int start_STATION;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO SCELTO IN PARTENZA 
-int arrive_STATION;
 /*------------------------METODI CHE INDUCONO L'UTENTE A SCEGLIERE UNA STAZIONE PIUTTOSTO DI UN'ALTRA---------------------------*/
 
 /*--METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE--*/
-int choose_START_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2)
+int choose_START_station_from_csv_start(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2,int n)
 {
-	start_STATION = 1000;//AZZERO LA STAZIONE SCELTA
-
-	int start_s = rand() % inststations->n_stations;
 	
-	printf("User %d would start from station: %d \n", user, start_s + 1);
+	int start_s = parse_travel_start_station_index(inststations, instusers, n);
+
+	printf("User %d would start from station: %d \n", user, inststations->stations_id[start_s]);
 
 	/*--STAMPO IL PUNTO DI PARTENZA PROVVISORIO NEL GRAFICO--*/
 	if (INDUCTEDCHOICE > 300)
@@ -34,11 +37,11 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		update_initial_start_stations(inststations, start_s);
 		print_start(gnuplotPipe2);
 	}
-	
+
 	/*-------------------------------------------------------*/
-	
+
 	int av_b = inststations->all_stations[start_s].av_bikes();//BICI DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
-	
+
 	/*---SE LA STAZIONE E' VUOTA ALLORA PROVVEDO A SCEGLIERE UN'ALTRA STAZIONE---*/
 	if (av_b == 0)
 	{
@@ -65,7 +68,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		{
 			av_b = inststations->all_stations[i].av_bikes();//BICI DISPONIBILI ALLA STAZIONE i CORRENTE
 
-			if ((i != start_s) && ( av_b != 0 ))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
+			if ((i != start_s) && (av_b != 0))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
 			{
 				/*--------------DISTANZA DA CONFRONTARE-------------*/
 				x_i = inststations->xcoords[i];
@@ -75,7 +78,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 				double i_dec_val = gift_take / distance;
 				if (INDUCTEDCHOICE > 10)
 				{
-					printf("Decision value from my station %d and station %d is: %lf \n", start_s + 1, i + 1, i_dec_val);
+					printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[start_s], inststations->stations_id[i], i_dec_val);
 				}
 
 				/*--TROVO LA MIGLIORE STAZIONE IN CUI SPOSTARMI TRA QUELLE PER CUI SONO DISPOSTO A SPOSTARMI--*/
@@ -90,7 +93,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 				}
 
 				/*--TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA--*/
-				else if(find_altern_station == 0)
+				else if (find_altern_station == 0)
 				{
 					if (distance < best_dist)
 					{
@@ -100,9 +103,8 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 				}
 			}
 		}
-		if (find_altern_station == 0){printf("Choosen nearest station\n");}
+		if (find_altern_station == 0) { printf("Choosen nearest station\n"); }
 		start_s = best_start_station;
-		start_STATION = start_s;//VARIABILE ESTERNA AI METODI RELATIVA ALLA STAZIONE DI PARTENZA SCELTA
 	}
 	/************************************************************************************/
 
@@ -124,7 +126,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		int best_start_station = 0;		//INDICE MIGLIOR STAZIONE SCELTA
 		double decision = 0;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
 		double distance_i;				//DISTANZA TRA STAZIONI
-		double s_virtual_dist =INFINITY;//DISTANZA FITTIZZIA PER COMPARARE LA SCELTA ANCHE CON LA STAZIONE INIZIALE
+		double s_virtual_dist = INFINITY;//DISTANZA FITTIZZIA PER COMPARARE LA SCELTA ANCHE CON LA STAZIONE INIZIALE
 		double best_dist = INFINITY;	//MIGLIOR DISTANZA
 		double gift_take;				//PREMIO DATO STAZIONE i-ESIMA
 
@@ -134,7 +136,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		{
 			printf("User value decision: %lf \n", user_dec_val);
 		}
-		
+
 		/*MI CALCOLO LA DISTANZA MINIMA TRA LA STAZIONE DI PARTENZA E LE ALTRE STAZIONI*/
 		for (int k = 0; k < inststations->n_stations; k++)
 		{
@@ -149,19 +151,19 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 					s_virtual_dist = distance_i;
 				}
 			}
-			
+
 		}
-		
+
 		/*--SE C'E' UN'ALTRA STAZIONE CHE MI GARANTISCE UN MIGLIOR GUADAGNO RISPETTO A QUESTO VALORE INIZIALE
 		DI DEFAULT ALLORA SCELGO QUELLA STAZIONE--*/
 
-		/*--VALORE DI DECISIONE PER LA STAZIONE DI PARTENZA (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA 
+		/*--VALORE DI DECISIONE PER LA STAZIONE DI PARTENZA (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA
 		PERCHE' POTREBBE ESSERCI IL CASO IN CUI IL VALORE DI DECISIONE E' UGUALE A QUELLO DELLA STAZIONE DI PARTENZA
 		E QUINDI TRA LE DUE OVVIO CHE DOVRO' SCEGLIERE LA STAZIONE IN CUI SONO PERCHE' ALTRIMENTI DOVREI MUOVERMI
 		PER GUADAGNARE LA STESSA CIFRA)--*/
 
 		double s_dec_val = start_gift_take / (s_virtual_dist / 2);
-		printf("Value DEFAULT decision at initial station %d: %lf \n", start_s + 1, s_dec_val);
+		printf("Value DEFAULT decision at initial station %d: %lf \n", inststations->stations_id[start_s], s_dec_val);
 
 		/*-----------------------------TROVO LA STAZIONE MIGLIORE DA CUI PARTIRE---------------------*/
 		for (int i = 0; i < inststations->n_stations; i++)
@@ -178,7 +180,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 				double i_dec_val = gift_take / distance_i;
 				if (INDUCTEDCHOICE > 50)
 				{
-					printf("Decision value from my station %d and station %d is: %lf \n", start_s + 1, i + 1, i_dec_val);
+					printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[start_s], inststations->stations_id[i], i_dec_val);
 				}
 
 				/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
@@ -209,8 +211,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		if (s_dec_val >= decision)
 		{
 			printf("\n");
-			printf("User %d choose start station:     %d \n", user, start_s + 1);
-			start_STATION = start_s;
+			printf("User %d choose start station:     %d \n", user, inststations->stations_id[start_s]);
 
 			/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
 			if (INDUCTEDCHOICE > 300)
@@ -218,7 +219,7 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 				update_choosen_start_stations(inststations, start_s);
 				print_def_start(gnuplotPipe2);
 			}
-			
+
 			/*******************************************************/
 
 			return start_s;
@@ -226,11 +227,10 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 		else
 		{
 			start_s = best_start_station;
-			start_STATION = start_s;
 		}
 	}
 	printf("\n");
-	printf("User %d change station and choose %d as start station \n", user, start_s + 1);
+	printf("User %d change station and choose %d as start station \n", user, inststations->stations_id[start_s]);
 
 	/*STAMPO LA STAZIONE DEFINITIVA DI PARTENZA NEL GRAFICO*/
 	if (INDUCTEDCHOICE > 300)
@@ -245,12 +245,11 @@ int choose_START_station(Stations *inststations, Users *instusers, int user, FIL
 
 
 /*METODO CHE SCEGLIE LA STAZIONE DI ARRIVO IN BASE A QUELLE PIENE*/
-int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2)
+int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2,int n)
 {
-	arrive_STATION = 1000;
-	int arrive_s = rand() % inststations->n_stations;
-	
-	printf("User %d would arrive to stations: %d \n", user, arrive_s + 1);
+	int arrive_s = parse_travel_end_station_index(inststations,instusers,n);
+
+	printf("User %d would arrive to stations: %d \n", user, inststations->stations_id[arrive_s]);
 
 	/*-----STAMPO LA STAZIONE DI ARRIVO PROVVISORIA NEL GRAFICO-----*/
 	if (INDUCTEDCHOICE > 300)
@@ -258,11 +257,11 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 		update_initial_arrive_stations(inststations, arrive_s);
 		print_arrive(gnuplotPipe2);
 	}
-	
+
 	/*--------------------------------------------------------------*/
 
 	int av_c = inststations->all_stations[arrive_s].av_columns();//COLONNE DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
-	
+
 	/*---SE LA STAZIONE E' VUOTA ALLORA PROVVEDO A SCEGLIERE UN'ALTRA STAZIONE---*/
 	if (av_c == 0)
 	{
@@ -289,8 +288,8 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 		{
 			av_c = inststations->all_stations[i].av_columns();
 
-			//LA STAZIONE DEVE AVERE COLONNE DISPONIBILI E NON DEVE ESSERE QUELLA DI PARTENZA
-			if (( i != arrive_s ) && ( av_c != 0 ) && (i!= start_STATION))
+			//LA STAZIONE DEVE AVERE COLONNE DISPONIBILI
+			if ((i != arrive_s) && (av_c != 0))
 			{
 				/*--------------DISTANZA DA CONFRONTARE-------------*/
 				x_i = inststations->xcoords[i];
@@ -301,9 +300,9 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 
 				if (INDUCTEDCHOICE > 50)
 				{
-					printf("Decision value from my station %d and station %d is: %lf \n", arrive_s + 1, i + 1, i_dec_val);
+					printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);
 				}
-				
+
 				/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
 				if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
 				{
@@ -314,7 +313,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 					best_arrive_station = i;
 					decision = i_dec_val;
 				}
-				else if(find_altern_station == 0)
+				else if (find_altern_station == 0)
 				{
 					/*---------TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA----------------------*/
 					if (distance_i < best_dist)
@@ -373,19 +372,19 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 			}
 		}
 
-		/*VALORE DI DECISIONE PER LA STAZIONE DI ARRIVO (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA
+		/*--VALORE DI DECISIONE PER LA STAZIONE DI ARRIVO (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA
 		PERCHE' POTREBBE ESSERCI IL CASO IN CUI IL VALORE DI DECISIONE E' UGUALE A QUELLO DELLA STAZIONE DI ARRIVO
 		E QUINDI TRA LE DUE OVVIO CHE DOVRO' SCEGLIERE LA STAZIONE IN CUI SONO PERCHE' ALTRIMENTI DOVREI MUOVERMI
 		PER GUADAGNARE LA STESSA CIFRA)--*/
 		double s_dec_val = arrive_gift_take / (s_virtual_dist / 2);
-		printf("Value DEFAULT decision at initial station %d: %lf \n", arrive_s + 1, s_dec_val);
+		printf("Value DEFAULT decision at initial station %d: %lf \n", inststations->stations_id[arrive_s], s_dec_val);
 
 		/*-----------------------------TROVO LA STAZIONE MIGLIORE DA CUI PARTIRE---------------------*/
 		for (int i = 0; i < inststations->n_stations; i++)
 		{
 			av_c = inststations->all_stations[i].av_columns();
 
-			if ((i != arrive_s) && (av_c != 0) && (i != start_STATION))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
+			if ((i != arrive_s) && (av_c != 0))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
 			{
 				/*--------------DISTANZA DA CONFRONTARE-------------*/
 				x_i = inststations->xcoords[i];
@@ -395,7 +394,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 				double i_dec_val = gift_release / distance_i;
 				if (INDUCTEDCHOICE > 50)
 				{
-					printf("Decision value from my station %d and station %d is: %lf \n", arrive_s + 1, i + 1, i_dec_val);
+					printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);
 				}
 
 				if (distance_i < best_dist)
@@ -428,7 +427,7 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 		if (s_dec_val >= decision)//SE LA STAZIONE DI ARRIVO CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
 		{
 			printf("\n");
-			printf("User %d choose arrive station:    %d \n", user, arrive_s + 1);
+			printf("User %d choose arrive station:    %d \n", user, inststations->stations_id[arrive_s]);
 
 			/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
 			if (INDUCTEDCHOICE > 300)
@@ -436,15 +435,14 @@ int choose_ARRIVE_station(Stations *inststations, Users *instusers, int user, FI
 				update_choosen_arrive_stations(inststations, arrive_s);
 				print_def_arrive(gnuplotPipe2);
 			}
-			
+
 			/*****************************************************/
-			
+
 			return arrive_s;
 		}
 		else
 		{
 			arrive_s = best_arrive_station;
-			arrive_STATION = arrive_s;
 		}
 	}
 	printf("\n");

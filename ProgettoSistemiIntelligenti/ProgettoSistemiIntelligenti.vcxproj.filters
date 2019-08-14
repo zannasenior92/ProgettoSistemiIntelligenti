@@ -54,6 +54,9 @@
     <ClCompile Include="parse_travel.cpp">
       <Filter>SimulationSystem</Filter>
     </ClCompile>
+    <ClCompile Include="inducted_choice_from_original.cpp">
+      <Filter>SimulationSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Station.h">
