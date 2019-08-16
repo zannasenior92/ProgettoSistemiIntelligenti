@@ -22,8 +22,9 @@ void print_travel(FILE *gnuplotPipe2);
 void reset_print_transfert(Stations *inststations);
 void print_money_in_system(Stations *inststations, int number_of_transition);
 
-#define Number_Of_Transition 1000 //NUMERO DI VIAGGI DEGLI UTENTI
-
+#define Number_Of_Transition 500 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Pre_to_move 10 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
+#define V_p_t_m 100
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
 
@@ -56,7 +57,7 @@ void createEnv(Stations *inststations, Users *instusers)
 	int time_user = rand() % 30;														//TEMPO RANDOM PERCORSO UTENTI
 	for (int j = 0; j < instusers->n_users; j++)
 	{
-		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(20 + rand() % 11));
+		instusers->all_users[j] = User_i(0, inststations->n_stations, rand() % 15, (double)(Pre_to_move + rand() % (V_p_t_m +1)));
 	}
 	
 
@@ -121,11 +122,11 @@ void generateTraffic(Stations *inststations, Users *instusers)
 
 		/*--------------------L'UTENTE SCEGLIE STAZIONE DI PARTENZA E STAZIONE DI ARRIVO--------------------*/
 		printf("+++++++++++++++CHOICE OF STATIONS+++++++++++++++\n\n");
-		//rand_start = choose_START_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
-		rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
+		rand_start = choose_START_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
+		//rand_start = choose_START_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("::::::::::::::::::::::::::::::::::::::::::::::::\n");
-		//rand_arrive = choose_ARRIVE_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
-		rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
+		rand_arrive = choose_ARRIVE_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
+		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
 		if (INDUCTEDCHOICE > 100)
 		{
