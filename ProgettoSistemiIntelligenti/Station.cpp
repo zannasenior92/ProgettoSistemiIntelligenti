@@ -56,14 +56,14 @@ void Station_i::remove_bike(Users *instusers ,double n_u,double n_s,int user){
 		int fc = this->free_columns;
 		int av_b = this->available_bikes;
 
-		/*CONTATORI CRITICITA' PER STAZIONE PIENA O VUOTA (FULL/EMPTY)*/
+		/*CONTATORI CRITICITA' PER STAZIONE VUOTA (EMPTY)*/
 		int cr_e_c = this->critical_empty_counter;						//n° DI VOLTE STAZIONE VUOTA
 		double s_e_t = this->station_empty_time;
 		if (VERBOSE > 300)
 		{
 			printf("Time empty station: %lf \n", s_e_t);
 		}
-		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA PIENA PER AGGIORNARE I SOLDI DATI SE RILASCIO LA BICI*/
+		/*USO IL TEMPO PER CUI LA STAZIONE E' RIMASTA VUOTA PER AGGIORNARE I SOLDI DATI SE RILASCIO LA BICI*/
 		this->gift_money_release = exp((fc - av_b)* (log(n_u) / n_s) *sqrt(cr_e_c + 1) *cbrt(s_e_t + 1));	//INCREMENTO MONETA RILASCIATA DALLA STAZIONE DI ARRIVO (VOGLIO CONVOGLIARE QUI LE BICI)
 	}
 	else

@@ -64,6 +64,11 @@ double User_i::get_value_decision()
 	return this->value_decision;
 }
 
+void User_i::update_satisfaction(double s)
+{
+	this->user_satisfaction += s;
+}
+
 /************************************************************************************/
 
 /*--------------------------------USERS METHODS----------------------------------*/

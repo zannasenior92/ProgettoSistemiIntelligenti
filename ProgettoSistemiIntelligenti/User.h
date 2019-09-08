@@ -36,15 +36,17 @@ public:
 	double get_added_gift(int station_i);										//RESTITUISCE I GIFT AGGIUNTIVI DATI
 	void clear_added_gift(int n_s);												//AZZERA TUTTE I GIFT AGGIUNTIVI DEL SINGOLO UTENTE
 	double get_value_decision();												//MI RESTITUISCE IL VALORE DI DECISIONE DELL'UTENTE
-																				
+	void update_satisfaction(double s);											//AGGIORNA IL VALORE DI SODDISFAZIONE DELL'UTENTE IN BASE ALLA STAZIONE SCELTA
+
 	/*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:
 	int *start_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI PARTENZA
 	int *arrive_stations_used;													//PUNTATORE AD ARRAY CONTATORE DEGLI ACCESSI AD OGNI STAZIONE DI ARRIVO
 	double money_pocket;														//SOLDI INIZIALI DI BUDGET
-	double value_decision;															//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA - PER LA SCELTA DELLA STAZIONE
+	double value_decision;														//VALORE CHE ESPRIME IL RAPPORTO TRA GUADAGNO E DISTANZA - PER LA SCELTA DELLA STAZIONE
 	int transfert_coef;															//COEFFICIENTE CHE ESPRIME IL TEMPO DI TRASFERIMENTO IN BASE AI CHILOMETRI
 	double *added_gift;															//GIFT AGGIUNTIVI RELATIVI AD OGNI STAZIONE
+	double user_satisfaction;													//LIVELLO DI SODDISFAZIONE DELL'UTENTE RIGUARDO AL SERVIZIO OFFERTO
 };
 
 /**************************************************************************************************/
@@ -71,6 +73,7 @@ public:
 	double *end_station_longitude;
 	int *bikeid;
 	char **usertype;
+	int travel_deleted;					//FLAG PER INDICARE CHE IL VIAGGIO DELL'UTENTE E' STATO ANNULLATO CAUSA BICI MANCANTE IN STAZIONE DI PARTENZA E VALORE DI DECISIONE PARI A 0(UTENTE CHE VUOLE PARTIRE ASSOLUTAMENTE DA QUELLA STAZIONE)
 
 	/*----------------------------------METHODS-------------------------------*/
 	

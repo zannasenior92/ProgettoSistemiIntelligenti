@@ -20,7 +20,7 @@ void plot_gnuplot(Stations *inststations) {
 		"unset ytics",											//remove axis y
 		"unset key",											//remove path legend
 		"set pointsize 0.7",									//set size of every point in the plot
-		"plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,7' point pointtype 7 lc rgb '#0060ad' ",
+		"plot 'stations.txt' with labels offset char 1,-1.0 font 'Times,9' point pointtype 7 lc rgb '#0060ad' ",
 		"exit"
 		/*------------------------------------------------------------------------------*/
 	};

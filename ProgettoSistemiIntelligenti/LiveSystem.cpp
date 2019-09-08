@@ -24,7 +24,7 @@ void print_money_in_system(Stations *inststations, int number_of_transition);
 
 #define Number_Of_Transition 500 //NUMERO DI VIAGGI DEGLI UTENTI
 #define Pre_to_move 10 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
-#define V_p_t_m 100
+#define V_p_t_m 100 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
 
@@ -140,7 +140,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 		double take;
 		double release;
-		if (rand_start!=rand_arrive)//--GUADAGO SOLO SE LA STAZIONE DI PARTENZA E' DIVERSA DA QUELLA DI ARRIVO
+		if (rand_start!=rand_arrive)//--GUADAGNO SOLO SE LA STAZIONE DI PARTENZA E' DIVERSA DA QUELLA DI ARRIVO
 		{
 			take = inststations->all_stations[rand_start].get_gift_take();
 			release = inststations->all_stations[rand_arrive].get_gift_release();

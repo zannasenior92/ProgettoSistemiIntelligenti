@@ -18,7 +18,6 @@ void print_arrive(FILE *gnuplotPipe2);
 void print_def_arrive(FILE *gnuplotPipe2);
 void print_travel(FILE *gnuplotPipe2);
 
-
 /*------------------------------------------------------------------------------------------------------*/
 int start_STATION_cvs;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO SCELTO IN PARTENZA 
 
@@ -27,6 +26,7 @@ int start_STATION_cvs;	//MI SERVE PER NON DOVER RITORNARE ALLA STAZIONE CHE HO S
 /*--METODO CHE SCEGLIE LA STAZIONE DI PARTENZA IN BASE A QUELLE VUOTE--*/
 int choose_START_station_from_csv_start(Stations *inststations, Users *instusers, int user, FILE *gnuplotPipe2,int n)
 {
+	instusers->travel_deleted = 0; //AZZERO LA VARIABILE RIGUARDANTE L'ANNULLAMENTO DEL VIAGGIO
 	start_STATION_cvs = 1000;
 
 	int start_s = parse_travel_start_station_index(inststations, instusers, n);
@@ -47,6 +47,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 	/*---SE LA STAZIONE E' VUOTA ALLORA PROVVEDO A SCEGLIERE UN'ALTRA STAZIONE---*/
 	if (av_b == 0)
 	{
+		
 		printf("EMPTY STATION-I CAN'T START FROM THIS STATION\n\n");
 		//-----------STAZIONE DA CUI VOGLIO PARTIRE
 		double x_a = inststations->xcoords[start_s];
@@ -92,6 +93,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 					}
 					best_start_station = i;			//INDICE MIGLIOR STAZIONE VERSO CUI POSSO SPOSTARMI
 					decision = i_dec_val;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
+
 				}
 
 				/*--TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA--*/
@@ -105,7 +107,19 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 				}
 			}
 		}
-		if (find_altern_station == 0) { printf("Choosen nearest station\n"); }
+		if (find_altern_station == 0)
+		{
+			printf("Choosen nearest station\n"); 
+			
+			//L'UTENTE SI RIFIUTA DI USARE IL SERVIZIO POICHE' SCONTENTO(SAREBBE COSTRETTO A SELEZIONARE UNA STAZIONE VICINA MA NON VORREBBE CAMMINARE)
+			instusers->travel_deleted = 1;
+			instusers->all_users[n].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+
+		}
+		else
+		{
+			instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
+		}
 		start_s = best_start_station;
 		start_STATION_cvs = start_s;
 	}
@@ -208,8 +222,15 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 				}
 			}
 		}
-		if (find_altern_station == 0) { printf("Choosen nearest station\n"); }
+		if (find_altern_station == 0)
+		{
+			printf("Choosen nearest station\n"); 
 
+			instusers->travel_deleted = 1;
+			instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+
+		}
+		
 		//SE LA STAZIONE DI PARTENZA CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
 		if (s_dec_val >= decision)
 		{
@@ -226,12 +247,19 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 
 			/*******************************************************/
 
+			instusers->all_users[user].update_satisfaction(2.0);//SODDISFAZIONE DELL'UTENTE
+
 			return start_s;
 		}
 		else
 		{
 			start_s = best_start_station;
 			start_STATION_cvs = start_s;
+
+			if (find_altern_station == 1)
+			{
+				instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
+			}
 		}
 	}
 	printf("\n");
@@ -316,7 +344,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 						find_altern_station = 1;
 					}
 					best_arrive_station = i;
-					decision = i_dec_val;
+					decision = i_dec_val;					
 				}
 				else if (find_altern_station == 0)
 				{
@@ -329,7 +357,17 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 				}
 			}
 		}
-		if (find_altern_station == 0) { printf("Choosen nearest station\n"); }
+		if (find_altern_station == 0) 
+		{
+			printf("Choosen nearest station\n");  
+
+			instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+			
+		}
+		else
+		{
+			instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
+		}
 		arrive_s = best_arrive_station;
 	}
 	/************************************************************************************/
@@ -427,7 +465,13 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 				}
 			}
 		}
-		if (find_altern_station == 0) { printf("Choosen nearest station\n"); }
+		if (find_altern_station == 0)
+		{ 
+			printf("Choosen nearest station\n");
+
+			instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+
+		}
 
 		if (s_dec_val >= decision)//SE LA STAZIONE DI ARRIVO CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
 		{
@@ -443,11 +487,19 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 
 			/*****************************************************/
 
+			instusers->all_users[user].update_satisfaction(2.0);//SODDISFAZIONE DELL'UTENTE
+
+
 			return arrive_s;
 		}
 		else
 		{
 			arrive_s = best_arrive_station;
+
+			if (find_altern_station == 1)
+			{
+				instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
+			}
 		}
 	}
 	printf("\n");
