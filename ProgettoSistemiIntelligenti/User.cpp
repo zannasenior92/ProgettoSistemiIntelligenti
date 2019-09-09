@@ -69,6 +69,11 @@ void User_i::update_satisfaction(double s)
 	this->user_satisfaction += s;
 }
 
+double User_i::get_satisfaction()
+{
+	return this->user_satisfaction;
+}
+
 /************************************************************************************/
 
 /*--------------------------------USERS METHODS----------------------------------*/

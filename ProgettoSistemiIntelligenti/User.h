@@ -23,6 +23,7 @@ public:
 		this->transfert_coef = t;
 		this->added_gift = new double[n_s] {0};
 		this->value_decision = v_d;
+		this->user_satisfaction = 0;
 	}
 	/*-------------------------------------METHODS-------------------------------*/
 	void update_budget(double start, double arrive);							//AGGIORNA IL BUDGET DELL'UTENTE(PREMIO STAZIONE PARTENZA+PREMIO STAZIONE ARRIVO)
@@ -37,6 +38,7 @@ public:
 	void clear_added_gift(int n_s);												//AZZERA TUTTE I GIFT AGGIUNTIVI DEL SINGOLO UTENTE
 	double get_value_decision();												//MI RESTITUISCE IL VALORE DI DECISIONE DELL'UTENTE
 	void update_satisfaction(double s);											//AGGIORNA IL VALORE DI SODDISFAZIONE DELL'UTENTE IN BASE ALLA STAZIONE SCELTA
+	double get_satisfaction();
 
 	/*---------------------------------PRIVATE VARIABLES-------------------------*/
 private:

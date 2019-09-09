@@ -222,16 +222,8 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 				}
 			}
 		}
-		if (find_altern_station == 0)
-		{
-			printf("Choosen nearest station\n"); 
-
-			instusers->travel_deleted = 1;
-			instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
-
-		}
 		
-		//SE LA STAZIONE DI PARTENZA CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
+		//SE LA STAZIONE DI PARTENZA CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO POICHE' C'E' UNA BICI DISPONIBILE
 		if (s_dec_val >= decision)
 		{
 			printf("\n");
@@ -253,13 +245,20 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 		}
 		else
 		{
-			start_s = best_start_station;
-			start_STATION_cvs = start_s;
+			if (find_altern_station == 0)//NON HO TROVATO STAZIONI MIGLIORI VERSO CUI SPOSTARMI (ENTRO IL MIO COEFF. DI SCELTA)
+			{
+				printf("Choosen nearest station\n");
 
-			if (find_altern_station == 1)
+				instusers->travel_deleted = 1;
+				instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+			}
+			else if (find_altern_station == 1)//HO TROVATO STAZIONE MIGLIORE VERSO CUI SPOSTARMI (ENTRO IL MIO COEFFICIENTE DI SCELTA)
 			{
 				instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
 			}
+			
+			start_s = best_start_station;
+			start_STATION_cvs = start_s;	
 		}
 	}
 	printf("\n");
@@ -368,6 +367,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 		{
 			instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
 		}
+
 		arrive_s = best_arrive_station;
 	}
 	/************************************************************************************/
@@ -465,13 +465,6 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 				}
 			}
 		}
-		if (find_altern_station == 0)
-		{ 
-			printf("Choosen nearest station\n");
-
-			instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
-
-		}
 
 		if (s_dec_val >= decision)//SE LA STAZIONE DI ARRIVO CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
 		{
@@ -494,12 +487,19 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 		}
 		else
 		{
-			arrive_s = best_arrive_station;
+			if (find_altern_station == 0)
+			{
+				printf("Choosen nearest station\n");
+
+				instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+			}
 
 			if (find_altern_station == 1)
 			{
 				instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
 			}
+
+			arrive_s = best_arrive_station;
 		}
 	}
 	printf("\n");
