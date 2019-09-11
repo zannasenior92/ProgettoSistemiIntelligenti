@@ -211,21 +211,21 @@ Money in the system at time 0: 10000.000000
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 22 would start from station: 180 
-User value decision: 449.000000 
+User 134 would start from station: 180 
+User value decision: 581.000000 
 Value DEFAULT decision at initial station 180: 0.000000 
 
-User 22 choose start station:     180 
+User 134 choose start station:     180 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 22 would arrive to stations: 180 
-User 22 return to the start station 180 
+User 134 would arrive to stations: 180 
+User 134 return to the start station 180 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   180: 0.000000
 Gift given by arrive station  180: 0.000000
 ______________________________________________________________
-User 22 has 0.000000 money
+User 134 has 0.000000 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 180:  4 
@@ -255,24 +255,24 @@ Money in the system: 10000.000000
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 263 would start from station: 180 
-User value decision: 597.000000 
+User 216 would start from station: 180 
+User value decision: 533.000000 
 Value DEFAULT decision at initial station 180: 0.000000 
 
-User 263 choose start station:     180 
+User 216 choose start station:     180 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 263 would arrive to stations: 29 
-User value decision: 597.000000 
+User 216 would arrive to stations: 29 
+User value decision: 533.000000 
 Value DEFAULT decision at initial station 29: 0.000000 
 
-User 263 choose arrive station:    29 
+User 216 choose arrive station:    29 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   180: 0.000000
 Gift given by arrive station  29: 0.000000
 ______________________________________________________________
-User 263 has 0.000000 money
+User 216 has 0.000000 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 180:  4 
@@ -302,24 +302,24 @@ Money in the system: 10000.000000
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 359 would start from station: 29 
-User value decision: 480.000000 
+User 38 would start from station: 29 
+User value decision: 398.000000 
 Value DEFAULT decision at initial station 29: 1215.060229 
 
-User 359 choose start station:     29 
+User 38 choose start station:     29 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 359 would arrive to stations: 190 
-User value decision: 480.000000 
+User 38 would arrive to stations: 190 
+User value decision: 398.000000 
 Value DEFAULT decision at initial station 190: 0.000000 
 
-User 359 choose arrive station:    190 
+User 38 choose arrive station:    190 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   29: 1.061429
 Gift given by arrive station  190: 0.000000
 ______________________________________________________________
-User 359 has 1.061429 money
+User 38 has 1.061429 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 29:  5 
@@ -349,21 +349,21 @@ Money in the system: 9998.938571
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 185 would start from station: 190 
-User value decision: 312.000000 
+User 126 would start from station: 190 
+User value decision: 489.000000 
 Value DEFAULT decision at initial station 190: 830.056158 
 
-User 185 choose start station:     190 
+User 126 choose start station:     190 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 185 would arrive to stations: 190 
-User 185 return to the start station 190 
+User 126 would arrive to stations: 190 
+User 126 return to the start station 190 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   190: 0.000000
 Gift given by arrive station  190: 0.000000
 ______________________________________________________________
-User 185 has 0.000000 money
+User 126 has 0.000000 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 190:  5 
@@ -393,24 +393,24 @@ Money in the system: 9998.938571
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 142 would start from station: 190 
-User value decision: 469.000000 
+User 242 would start from station: 190 
+User value decision: 326.000000 
 Value DEFAULT decision at initial station 190: 830.056158 
 
-User 142 choose start station:     190 
+User 242 choose start station:     190 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 142 would arrive to stations: 21 
-User value decision: 469.000000 
+User 242 would arrive to stations: 21 
+User value decision: 326.000000 
 Value DEFAULT decision at initial station 21: 0.000000 
 
-User 142 choose arrive station:    21 
+User 242 choose arrive station:    21 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   190: 1.061429
 Gift given by arrive station  21: 0.000000
 ______________________________________________________________
-User 142 has 1.061429 money
+User 242 has 1.061429 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 190:  5 
@@ -440,24 +440,24 @@ Money in the system: 9997.877141
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 48 would start from station: 21 
-User value decision: 576.000000 
+User 323 would start from station: 21 
+User value decision: 308.000000 
 Value DEFAULT decision at initial station 21: 1215.060229 
 
-User 48 choose start station:     21 
+User 323 choose start station:     21 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 48 would arrive to stations: 16 
-User value decision: 576.000000 
+User 323 would arrive to stations: 16 
+User value decision: 308.000000 
 Value DEFAULT decision at initial station 16: 0.000000 
 
-User 48 choose arrive station:    16 
+User 323 choose arrive station:    16 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   21: 1.061429
 Gift given by arrive station  16: 0.000000
 ______________________________________________________________
-User 48 has 1.061429 money
+User 323 has 1.061429 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 21:  5 
@@ -487,24 +487,24 @@ Money in the system: 9996.815712
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 230 would start from station: 16 
-User value decision: 500.000000 
+User 201 would start from station: 16 
+User value decision: 560.000000 
 Value DEFAULT decision at initial station 16: 496.086165 
 
-User 230 choose start station:     16 
+User 201 choose start station:     16 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 230 would arrive to stations: 189 
-User value decision: 500.000000 
+User 201 would arrive to stations: 189 
+User value decision: 560.000000 
 Value DEFAULT decision at initial station 189: 0.000000 
 
-User 230 choose arrive station:    189 
+User 201 choose arrive station:    189 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   16: 1.061429
 Gift given by arrive station  189: 0.000000
 ______________________________________________________________
-User 230 has 1.061429 money
+User 201 has 1.061429 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 16:  5 
@@ -534,24 +534,24 @@ Money in the system: 9995.754282
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 388 would start from station: 189 
-User value decision: 582.000000 
+User 120 would start from station: 189 
+User value decision: 399.000000 
 Value DEFAULT decision at initial station 189: 1012.535889 
 
-User 388 choose start station:     189 
+User 120 choose start station:     189 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 388 would arrive to stations: 35 
-User value decision: 582.000000 
+User 120 would arrive to stations: 35 
+User value decision: 399.000000 
 Value DEFAULT decision at initial station 35: 0.000000 
 
-User 388 choose arrive station:    35 
+User 120 choose arrive station:    35 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   189: 1.061429
 Gift given by arrive station  35: 0.000000
 ______________________________________________________________
-User 388 has 1.061429 money
+User 120 has 1.061429 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 189:  5 
@@ -581,21 +581,21 @@ Money in the system: 9994.692853
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 329 would start from station: 35 
-User value decision: 481.000000 
+User 99 would start from station: 35 
+User value decision: 483.000000 
 Value DEFAULT decision at initial station 35: 552.506788 
 
-User 329 choose start station:     35 
+User 99 choose start station:     35 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 329 would arrive to stations: 35 
-User 329 return to the start station 35 
+User 99 would arrive to stations: 35 
+User 99 return to the start station 35 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   35: 0.000000
 Gift given by arrive station  35: 0.000000
 ______________________________________________________________
-User 329 has 0.000000 money
+User 99 has 0.000000 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 35:  5 
@@ -625,24 +625,24 @@ Money in the system: 9994.692853
 
 +++++++++++++++CHOICE OF STATIONS+++++++++++++++
 
-User 95 would start from station: 35 
-User value decision: 444.000000 
+User 93 would start from station: 35 
+User value decision: 476.000000 
 Value DEFAULT decision at initial station 35: 552.506788 
 
-User 95 choose start station:     35 
+User 93 choose start station:     35 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-User 95 would arrive to stations: 113 
-User value decision: 444.000000 
+User 93 would arrive to stations: 113 
+User value decision: 476.000000 
 Value DEFAULT decision at initial station 113: 0.000000 
 
-User 95 choose arrive station:    113 
+User 93 choose arrive station:    113 
 _________________________________________________
 +++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++
 
 Gift given by start station   35: 1.061429
 Gift given by arrive station  113: 0.000000
 ______________________________________________________________
-User 95 has 1.061429 money
+User 93 has 1.061429 money
 -------------------------------------------------
 --------BIKE REMOVED-------
 Remaining bikes station 35:  5 
@@ -961,7 +961,9 @@ Free columns station     144: 5
 Bikes present in station 145: 5 
 Free columns station     145: 5 
 Bikes present in station 146: 5 
-Free columns station     146: 5 
+Free columns station            line 0: undefined variable: exit
+
+  146: 5 
 Bikes present in station 147: 5 
 Free columns station     147: 5 
 Bikes present in station 148: 5 

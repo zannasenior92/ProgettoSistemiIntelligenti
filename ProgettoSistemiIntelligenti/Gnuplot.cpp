@@ -122,6 +122,9 @@ void print_money_in_system(Stations *inststations, int number_of_transition)
 		"set terminal windows 3",
 		title,													//set title from input file
 		"unset key",											//remove path legend
+		"set ylabel 'Amount of Budget'",
+		"set xlabel 'Trips'",
+		"set xrange [0:66882]",
 		"plot 'money.txt' with lines lc rgb '#000dff'",
 		"exit"
 		/*------------------------------------------------------------------------------*/
