@@ -21,13 +21,15 @@ void reset_plot(FILE *gnuplotPipe2);
 void print_travel(FILE *gnuplotPipe2);
 void reset_print_transfert(Stations *inststations);
 void print_money_in_system(Stations *inststations, int number_of_transition);
+void print_satisfactions(Users *instusers);
+
 
 #define USERS_SATISFACTION 50 //SODDISFAZIONE DEGLI UTENTI
 #define CRITICAL_STATIONS 50
 
-#define Number_Of_Transition 150 //NUMERO DI VIAGGI DEGLI UTENTI
-#define Pre_to_move 50 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
-#define V_p_t_m 100 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
+#define Number_Of_Transition 10 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Pre_to_move 300 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
+#define V_p_t_m 300 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
 
@@ -102,6 +104,8 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	srand((int)time(NULL));//CAMBIO IL SEME RANDOM
 	
 	
+
+
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{	
@@ -109,10 +113,11 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*-------------------APERTURA PIPE GNUPLOT--------------------*/
 		FILE *gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
 		/*------------------------------------------------------------*/
-		fprintf(gnuplotPipe2, "%s \n", "set terminal windows 1 size 1300,700");
+		fprintf(gnuplotPipe2, "%s \n", "set terminal wxt 0 size 1300,700");
 		fprintf(gnuplotPipe2, "%s \n", "set title 'SIMULAZIONE UTENTI'");
 		fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
 		/*------------------------------------------------------------*/
+
 
 		if (INDUCTEDCHOICE > 100)
 		{
@@ -209,7 +214,6 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		}
 		
 
-
 		printf("Money in the system: %lf \n\n", inststations->get_cash_desk());
 		/*-----------------STAMPO IN UN ARRAY IL VALORE DELLA MONETA PRESENTE NEL SISTEMA-------------------*/
 		inststations->money_in_the_system[n] = inststations->get_cash_desk();
@@ -231,8 +235,6 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		_pclose(gnuplotPipe2);
 		/*------------------------------------------------*/
 	}
-
-	
 
 
 	/*--------------------PRINT BIKES AND FREE COLUMNS IN EVERY STATIONS-----------------*/
@@ -275,6 +277,9 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		}
 
 	}
+
+	/*--------STAMPO I VALORI DI SODDISFAZIONE-------------*/
+	print_satisfactions(instusers);
 
 	/*------STAMPO L'ANDAMENTO DEI SOLDI DEL SISTEMA-------*/
 	print_money_in_system(inststations,Number_Of_Transition);

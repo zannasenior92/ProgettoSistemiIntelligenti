@@ -108,6 +108,8 @@ void print_travel(FILE *gnuplotPipe2)
 	fprintf(gnuplotPipe2, "%s \n", "pause 1");
 }
 
+
+
 void print_money_in_system(Stations *inststations, int number_of_transition)
 {
 
@@ -120,8 +122,7 @@ void print_money_in_system(Stations *inststations, int number_of_transition)
 		"set terminal windows 3",
 		title,													//set title from input file
 		"unset key",											//remove path legend
-		"set style line 1 lc rgb '#0060ad'",
-		"plot 'money.txt' with lines",
+		"plot 'money.txt' with lines lc rgb '#000dff'",
 		"exit"
 		/*------------------------------------------------------------------------------*/
 	};
@@ -152,4 +153,64 @@ void print_money_in_system(Stations *inststations, int number_of_transition)
 		fprintf(gnuplotPipe, "%s \n", commandsForGnuplot[i]);					//Send commands to gnuplot one by one.
 	}
 	_pclose(gnuplotPipe);
+}
+
+void print_satisfactions(Users *instusers)
+{
+	char title[150];										//NAME FILE
+	strcpy(title, "set title \"Soddisfazione Utenti\" ");
+
+	const char * commandsForGnuplot[] = {
+
+		/*-------------------------PLOTTING COMMANDS TO PRINT NODES---------------------*/
+		"set terminal wxt 4",
+		title,													//set title from input file
+		"unset key",											//remove path legend
+		"plot 'satisfactions.txt' with boxes lc rgb '#00aaff',\
+		'mean_sat.txt' with lines lw 2 lc rgb '#ff0000'",
+		"pause 4",
+		"exit"
+		/*------------------------------------------------------------------------------*/
+	};
+	/*----------------------------------------------------------------------------------*/
+
+	/*--------------------NUMBER OF GNUPLOT COMMANDS------------------------------------*/
+	int n_commands = sizeof(commandsForGnuplot) / sizeof(commandsForGnuplot[0]);
+	if (VERBOSE > 500)
+	{
+		printf("Number gnuplot commands : %d \n", n_commands);
+	}
+	/*----------------------------------------------------------------------------------*/
+
+	/*--FUNZIONE CHE STAMPA SU FILE I SOLDI CHE CI SONO NEL SISTEMA--*/
+	FILE * satisfactions = fopen("satisfactions.txt", "w");
+	for (int user = 0; user < instusers->n_users; user++)
+	{
+		fprintf(satisfactions, "%lf \n", instusers->all_users[user].get_satisfaction());
+	}
+	fclose(satisfactions);
+
+	FILE * mean_satisfaction = fopen("mean_sat.txt", "w");
+	double mean_sat = 0;//MEDIA SODDISFAZIONE
+	double sum_sat = 0;//SOMMA SODDISFAZIONI UTENTI
+	for (int user = 0; user < instusers->n_users; user++)
+	{
+		sum_sat = sum_sat + instusers->all_users[user].get_satisfaction();
+	}
+
+	mean_sat = sum_sat / instusers->n_users;
+
+	for (int user = 0; user < instusers->n_users; user++)
+	{
+		fprintf(mean_satisfaction, "%lf \n", mean_sat);
+	}
+	fclose(mean_satisfaction);
+
+	FILE *gnuplotPipe3 = _popen("C:/gnuplot/bin/gnuplot.exe -persistent", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+	for (int i = 0; i < n_commands; i++)
+	{
+		fprintf(gnuplotPipe3, "%s \n", commandsForGnuplot[i]);					//Send commands to gnuplot one by one.
+	}
+	_pclose(gnuplotPipe3);
+
 }
