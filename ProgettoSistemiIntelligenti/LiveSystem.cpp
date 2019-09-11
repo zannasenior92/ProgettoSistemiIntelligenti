@@ -26,7 +26,7 @@ void print_money_in_system(Stations *inststations, int number_of_transition);
 #define CRITICAL_STATIONS 50
 
 #define Number_Of_Transition 150 //NUMERO DI VIAGGI DEGLI UTENTI
-#define Pre_to_move 200 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
+#define Pre_to_move 50 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
 #define V_p_t_m 100 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
@@ -136,17 +136,17 @@ void generateTraffic(Stations *inststations, Users *instusers)
 			update_travel(inststations, rand_start, rand_arrive);
 			print_travel(gnuplotPipe2);
 		}
-
-		printf("Travel deleted: %d \n\n",instusers->travel_deleted);
 		
 		if (instusers->travel_deleted !=1)
 		{
-			/*--------------------------------------------------------------------------------------------------*/
+		/*--------------------------------------------------------------------------------------------------*/
 
 		/*-----------------------------------AGGIORNO BUDGET GUADAGNATO/PERSO-------------------------------*/
 			double take;
 			double release;
-			if (rand_start != rand_arrive)//--GUADAGNO SOLO SE LA STAZIONE DI PARTENZA E' DIVERSA DA QUELLA DI ARRIVO
+
+			//GUADAGNO SOLO SE LA STAZIONE DI PARTENZA E' DIVERSA DA QUELLA DI ARRIVO
+			if (rand_start != rand_arrive)
 			{
 				take = inststations->all_stations[rand_start].get_gift_take();
 				release = inststations->all_stations[rand_arrive].get_gift_release();

@@ -291,220 +291,228 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 	}
 
 	/*--------------------------------------------------------------*/
-
+	
 	int av_c = inststations->all_stations[arrive_s].av_columns();//COLONNE DISPONIBILI ALLA STAZIONE SCELTA INIZIALMENTE
 
-	/*---SE LA STAZIONE E' VUOTA ALLORA PROVVEDO A SCEGLIERE UN'ALTRA STAZIONE---*/
-	if (av_c == 0)
+	/*********************************************************************************************************/
+	/*ESEGUO LA RICERCA DELLA MIGLIOR STAZIONE SOLO SE LA STAZIONE DI ARRIVO E' DIVERSA DA QUELLA DI PARTENZA*/
+	if (arrive_s != start_STATION_cvs)
 	{
-		printf("FULL STATION - I CAN'T ARRIVE IN THIS STATION\n\n");
-		//-----------STAZIONE A CUI VOGLIO ARRIVARE
-		double x_a = inststations->xcoords[arrive_s];
-		double y_a = inststations->ycoords[arrive_s];
-
-		double x_i;
-		double y_i;
-		int find_altern_station = 0;	//TROVATA STAZIONE ALTERNATIVA
-		int best_arrive_station = 0;	//INDICE MIGLIOR STAZIONE SCELTA
-		double decision = 0;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
-		double distance_i;				//DISTANZA TRA STAZIONI
-		double best_dist = INFINITY;	//MIGLIOR DISTANZA
-		double gift_release;			//PREMIO DATO STAZIONE i-ESIMA
-		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
-		if (INDUCTEDCHOICE > 10)
+		/*---SE LA STAZIONE E' VUOTA ALLORA PROVVEDO A SCEGLIERE UN'ALTRA STAZIONE---*/
+		if (av_c == 0)
 		{
-			printf("User value decision: %lf \n", user_dec_val);
-		}
+			printf("FULL STATION - I CAN'T ARRIVE IN THIS STATION\n\n");
+			//-----------STAZIONE A CUI VOGLIO ARRIVARE
+			double x_a = inststations->xcoords[arrive_s];
+			double y_a = inststations->ycoords[arrive_s];
 
-		for (int i = 0; i < inststations->n_stations; i++)//COLONNE DISPONIBILI ALLA STAZIONE i-ESIMA
-		{
-			av_c = inststations->all_stations[i].av_columns();
-
-			//LA STAZIONE DEVE AVERE COLONNE DISPONIBILI
-			if ((i != arrive_s) && (av_c != 0) && (i != start_STATION_cvs))
+			double x_i;
+			double y_i;
+			int find_altern_station = 0;	//TROVATA STAZIONE ALTERNATIVA
+			int best_arrive_station = 0;	//INDICE MIGLIOR STAZIONE SCELTA
+			double decision = 0;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
+			double distance_i;				//DISTANZA TRA STAZIONI
+			double best_dist = INFINITY;	//MIGLIOR DISTANZA
+			double gift_release;			//PREMIO DATO STAZIONE i-ESIMA
+			double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
+			if (INDUCTEDCHOICE > 10)
 			{
-				/*--------------DISTANZA DA CONFRONTARE-------------*/
-				x_i = inststations->xcoords[i];
-				y_i = inststations->ycoords[i];
-				distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI ARRIVO E STAZIONE i
-				gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE DI ARRIVO
-				double i_dec_val = gift_release / distance_i;
+				printf("User value decision: %lf \n", user_dec_val);
+			}
 
-				if (INDUCTEDCHOICE > 50)
-				{
-					printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);
-				}
+			for (int i = 0; i < inststations->n_stations; i++)//COLONNE DISPONIBILI ALLA STAZIONE i-ESIMA
+			{
+				av_c = inststations->all_stations[i].av_columns();
 
-				/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
-				if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
+				//LA STAZIONE DEVE AVERE COLONNE DISPONIBILI
+				if ((i != arrive_s) && (av_c != 0) && (i != start_STATION_cvs))
 				{
-					if (find_altern_station == 0)//METTO IL FLAG A 1 CIOE' HO TROVATO UNA STAZIONE POSSIBILE SU CUI ANDARE
+					/*--------------DISTANZA DA CONFRONTARE-------------*/
+					x_i = inststations->xcoords[i];
+					y_i = inststations->ycoords[i];
+					distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI ARRIVO E STAZIONE i
+					gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE DI ARRIVO
+					double i_dec_val = gift_release / distance_i;
+
+					if (INDUCTEDCHOICE > 50)
 					{
-						find_altern_station = 1;
+						printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);
 					}
-					best_arrive_station = i;
-					decision = i_dec_val;					
-				}
-				else if (find_altern_station == 0)
-				{
-					/*---------TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA----------------------*/
-					if (distance_i < best_dist)
+
+					/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
+					if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
 					{
-						best_dist = distance_i;
+						if (find_altern_station == 0)//METTO IL FLAG A 1 CIOE' HO TROVATO UNA STAZIONE POSSIBILE SU CUI ANDARE
+						{
+							find_altern_station = 1;
+						}
 						best_arrive_station = i;
+						decision = i_dec_val;
 					}
-				}
-			}
-		}
-		if (find_altern_station == 0) 
-		{
-			printf("Choosen nearest station\n");  
-
-			instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
-			
-		}
-		else
-		{
-			instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
-		}
-
-		arrive_s = best_arrive_station;
-	}
-	/************************************************************************************/
-	/*---SE LA STAZIONE HA BICI DISPONIBILI TROVO LA STAZIONE MIGLIORE A CUI ARRIVARE---
-	INFATTI POTREBBERO ESSERCI STAZIONI MOLTO PIU' VANTAGGIOSE DI QUELLA DOVE VOGLIO ARRIVARE E
-	PER TROVARLE CALCOLO COME VALORE DI CONFRONTO IL VALORE DI DECISIONE USANDO I GIFT DELLA STAZIONE
-	IN CUI VOGLIO ARRIVARE E COME DISTANZA LA DISTANZA MINIMA TRA LA STAZIONE IN CUI VOGLIO ARRIVARE
-	E LE ALTRE STAZIONI--*/
-	else
-	{
-		//-----------STAZIONE A CUI VOGLIO ARRIVARE
-		double x_a = inststations->xcoords[arrive_s];
-		double y_a = inststations->ycoords[arrive_s];
-
-		double x_i;
-		double y_i;
-		int find_altern_station = 0;	//TROVATA STAZIONE ALTERNATIVA
-		int best_arrive_station = 0;	//INDICE MIGLIOR STAZIONE SCELTA
-		double decision = 0;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
-		double distance_i;				//DISTANZA TRA STAZIONI
-		double s_virtual_dist = INFINITY;//DISTANZA FITTIZZIA PER COMPARARE LA SCELTA ANCHE CON LA STAZIONE INIZIALE
-		double best_dist = INFINITY;	//MIGLIOR DISTANZA
-		double gift_release;			//PREMIO DATO STAZIONE i-ESIMA
-
-		double arrive_gift_take = inststations->all_stations[arrive_s].get_gift_release();//PREMIO DATO DALLA STAZIONE DI ARRIVO
-		double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
-		if (INDUCTEDCHOICE > 10)
-		{
-			printf("User value decision: %lf \n", user_dec_val);
-		}
-
-		/*MI CALCOLO LA DISTANZA MINIMA TRA LA STAZIONE DI ARRIVO E LE ALTRE STAZIONI*/
-		for (int k = 0; k < inststations->n_stations; k++)
-		{
-			if (k != arrive_s)
-			{
-				/*--------------DISTANZA DA CONFRONTARE-------------*/
-				x_i = inststations->xcoords[k];
-				y_i = inststations->ycoords[k];
-				distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI ARRIVO E STAZIONE i
-				if (distance_i < s_virtual_dist)
-				{
-					s_virtual_dist = distance_i;
-				}
-			}
-		}
-
-		/*--VALORE DI DECISIONE PER LA STAZIONE DI ARRIVO (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA
-		PERCHE' POTREBBE ESSERCI IL CASO IN CUI IL VALORE DI DECISIONE E' UGUALE A QUELLO DELLA STAZIONE DI ARRIVO
-		E QUINDI TRA LE DUE OVVIO CHE DOVRO' SCEGLIERE LA STAZIONE IN CUI SONO PERCHE' ALTRIMENTI DOVREI MUOVERMI
-		PER GUADAGNARE LA STESSA CIFRA)--*/
-		double s_dec_val = arrive_gift_take / (s_virtual_dist / 2);
-		printf("Value DEFAULT decision at initial station %d: %lf \n", inststations->stations_id[arrive_s], s_dec_val);
-
-		/*-----------------------------TROVO LA STAZIONE MIGLIORE DA CUI PARTIRE---------------------*/
-		for (int i = 0; i < inststations->n_stations; i++)
-		{
-			av_c = inststations->all_stations[i].av_columns();
-
-			if ((i != arrive_s) && (av_c != 0) && (i != start_STATION_cvs))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
-			{
-				/*--------------DISTANZA DA CONFRONTARE-------------*/
-				x_i = inststations->xcoords[i];
-				y_i = inststations->ycoords[i];
-				distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI ARRIVO E STAZIONE i
-				gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE i-ESIMA
-				double i_dec_val = gift_release / distance_i;
-				if (INDUCTEDCHOICE > 50)
-				{
-					printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);
-				}
-
-				if (distance_i < best_dist)
-				{
-					best_dist = distance_i;
-				}
-				/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
-				if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
-				{
-					if (find_altern_station == 0)//METTO IL FLAG A 1 CIOE' HO TROVATO UNA STAZIONE POSSIBILE DA CUI PARTIRE
+					else if (find_altern_station == 0)
 					{
-						find_altern_station = 1;
-					}
-					best_arrive_station = i;
-					decision = i_dec_val;
-				}
-				else if (find_altern_station == 0)
-				{
-					/*---------TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA--------------------------*/
-					if (distance_i < best_dist)
-					{
-						best_dist = distance_i;
-						best_arrive_station = i;
+						/*---------TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA----------------------*/
+						if (distance_i < best_dist)
+						{
+							best_dist = distance_i;
+							best_arrive_station = i;
+						}
 					}
 				}
 			}
-		}
-
-		if (s_dec_val >= decision)//SE LA STAZIONE DI ARRIVO CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
-		{
-			printf("\n");
-			printf("User %d choose arrive station:    %d \n", user, inststations->stations_id[arrive_s]);
-
-			/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
-			if (INDUCTEDCHOICE > 300)
-			{
-				update_choosen_arrive_stations(inststations, arrive_s);
-				print_def_arrive(gnuplotPipe2);
-			}
-
-			/*****************************************************/
-
-			instusers->all_users[user].update_satisfaction(2.0);//SODDISFAZIONE DELL'UTENTE
-
-
-			return arrive_s;
-		}
-		else
-		{
 			if (find_altern_station == 0)
 			{
 				printf("Choosen nearest station\n");
 
 				instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
-			}
 
-			if (find_altern_station == 1)
+			}
+			else
 			{
 				instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
 			}
 
 			arrive_s = best_arrive_station;
 		}
-	}
-	printf("\n");
-	printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
+		/************************************************************************************/
+		/*---SE LA STAZIONE HA BICI DISPONIBILI TROVO LA STAZIONE MIGLIORE A CUI ARRIVARE---
+		INFATTI POTREBBERO ESSERCI STAZIONI MOLTO PIU' VANTAGGIOSE DI QUELLA DOVE VOGLIO ARRIVARE E
+		PER TROVARLE CALCOLO COME VALORE DI CONFRONTO IL VALORE DI DECISIONE USANDO I GIFT DELLA STAZIONE
+		IN CUI VOGLIO ARRIVARE E COME DISTANZA LA DISTANZA MINIMA TRA LA STAZIONE IN CUI VOGLIO ARRIVARE
+		E LE ALTRE STAZIONI--*/
+		else
+		{
+			//-----------STAZIONE A CUI VOGLIO ARRIVARE
+			double x_a = inststations->xcoords[arrive_s];
+			double y_a = inststations->ycoords[arrive_s];
 
+			double x_i;
+			double y_i;
+			int find_altern_station = 0;	//TROVATA STAZIONE ALTERNATIVA
+			int best_arrive_station = 0;	//INDICE MIGLIOR STAZIONE SCELTA
+			double decision = 0;			//MIGLIOR VALORE DI DECISIONE DELLA STAZIONE VERSO CUI MI POSSO SPOSTARE
+			double distance_i;				//DISTANZA TRA STAZIONI
+			double s_virtual_dist = INFINITY;//DISTANZA FITTIZZIA PER COMPARARE LA SCELTA ANCHE CON LA STAZIONE INIZIALE
+			double best_dist = INFINITY;	//MIGLIOR DISTANZA
+			double gift_release;			//PREMIO DATO STAZIONE i-ESIMA
+
+			double arrive_gift_take = inststations->all_stations[arrive_s].get_gift_release();//PREMIO DATO DALLA STAZIONE DI ARRIVO
+			double user_dec_val = instusers->all_users[user].get_value_decision();//VALORE DECISIONE UTENTE
+			if (INDUCTEDCHOICE > 10)
+			{
+				printf("User value decision: %lf \n", user_dec_val);
+			}
+
+			/*MI CALCOLO LA DISTANZA MINIMA TRA LA STAZIONE DI ARRIVO E LE ALTRE STAZIONI*/
+			for (int k = 0; k < inststations->n_stations; k++)
+			{
+				if (k != arrive_s)
+				{
+					/*--------------DISTANZA DA CONFRONTARE-------------*/
+					x_i = inststations->xcoords[k];
+					y_i = inststations->ycoords[k];
+					distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI ARRIVO E STAZIONE i
+					if (distance_i < s_virtual_dist)
+					{
+						s_virtual_dist = distance_i;
+					}
+				}
+			}
+
+			/*--VALORE DI DECISIONE PER LA STAZIONE DI ARRIVO (PRENDO LA META' DELLA DISTANZA MINIMA TROVATA
+			PERCHE' POTREBBE ESSERCI IL CASO IN CUI IL VALORE DI DECISIONE E' UGUALE A QUELLO DELLA STAZIONE DI ARRIVO
+			E QUINDI TRA LE DUE OVVIO CHE DOVRO' SCEGLIERE LA STAZIONE IN CUI SONO PERCHE' ALTRIMENTI DOVREI MUOVERMI
+			PER GUADAGNARE LA STESSA CIFRA)--*/
+			double s_dec_val = arrive_gift_take / (s_virtual_dist / 2);
+			printf("Value DEFAULT decision at initial station %d: %lf \n", inststations->stations_id[arrive_s], s_dec_val);
+
+			/*-----------------------------TROVO LA STAZIONE MIGLIORE DA CUI PARTIRE---------------------*/
+			for (int i = 0; i < inststations->n_stations; i++)
+			{
+				av_c = inststations->all_stations[i].av_columns();
+
+				if ((i != arrive_s) && (av_c != 0) && (i != start_STATION_cvs))//LA STAZIONE DEVE AVERE BICI DISPONIBILI
+				{
+					/*--------------DISTANZA DA CONFRONTARE-------------*/
+					x_i = inststations->xcoords[i];
+					y_i = inststations->ycoords[i];
+					distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI ARRIVO E STAZIONE i
+					gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE i-ESIMA
+					double i_dec_val = gift_release / distance_i;
+					if (INDUCTEDCHOICE > 50)
+					{
+						printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);
+					}
+
+					if (distance_i < best_dist)
+					{
+						best_dist = distance_i;
+					}
+					/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
+					if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
+					{
+						if (find_altern_station == 0)//METTO IL FLAG A 1 CIOE' HO TROVATO UNA STAZIONE POSSIBILE DA CUI PARTIRE
+						{
+							find_altern_station = 1;
+						}
+						best_arrive_station = i;
+						decision = i_dec_val;
+					}
+					else if (find_altern_station == 0)
+					{
+						/*---------TROVO LA STAZIONE PIU' VICINA AL DI FUORI DEL MIO COEFFICIENTE DI SCELTA--------------------------*/
+						if (distance_i < best_dist)
+						{
+							best_dist = distance_i;
+							best_arrive_station = i;
+						}
+					}
+				}
+			}
+
+			if (s_dec_val >= decision)//SE LA STAZIONE DI ARRIVO CONVIENE RISPETTO ALLE ALTRE ALLORA LA SCELGO
+			{
+				printf("\n");
+				printf("User %d choose arrive station:    %d \n", user, inststations->stations_id[arrive_s]);
+
+				/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
+				if (INDUCTEDCHOICE > 300)
+				{
+					update_choosen_arrive_stations(inststations, arrive_s);
+					print_def_arrive(gnuplotPipe2);
+				}
+
+				/*****************************************************/
+
+				instusers->all_users[user].update_satisfaction(2.0);//SODDISFAZIONE DELL'UTENTE
+
+
+				return arrive_s;
+			}
+			else
+			{
+				if (find_altern_station == 0)
+				{
+					printf("Choosen nearest station\n");
+
+					instusers->all_users[user].update_satisfaction(-1.0);//SODDISFAZIONE DELL'UTENTE
+				}
+
+				if (find_altern_station == 1)
+				{
+					instusers->all_users[user].update_satisfaction(1.0);//SODDISFAZIONE DELL'UTENTE
+				}
+
+				arrive_s = best_arrive_station;
+			}
+		}
+		printf("\n");
+		printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
+	}
+	else
+	{
+	printf("User %d return to the start station %d \n", user, inststations->stations_id[arrive_s]);
+	}
 	/*STAMPO LA STAZIONE DI ARRIVO DEFINITIVA NEL GRAFICO*/
 	if (INDUCTEDCHOICE > 300)
 	{
