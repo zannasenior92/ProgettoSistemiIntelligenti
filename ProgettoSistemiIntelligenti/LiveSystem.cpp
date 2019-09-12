@@ -26,10 +26,11 @@ void print_satisfactions(Users *instusers);
 
 #define USERS_SATISFACTION 50 //SODDISFAZIONE DEGLI UTENTI
 #define CRITICAL_STATIONS 50
+#define PRINT_TRAVEL_INFO 50 //STAMPO LE INFORMAZIONI DI OGNI VIAGGIO
 
-#define Number_Of_Transition 10 //NUMERO DI VIAGGI DEGLI UTENTI
-#define Pre_to_move 300 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
-#define V_p_t_m 300 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
+#define Number_Of_Transition 2000 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Pre_to_move 1000 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
+#define V_p_t_m 1000 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
 
@@ -104,23 +105,21 @@ void generateTraffic(Stations *inststations, Users *instusers)
 	srand((int)time(NULL));//CAMBIO IL SEME RANDOM
 	
 	
-
+	FILE *gnuplotPipe2;
 
 	/*---------------------SIMULATE USERS THAT TAKES BIKE AND DEPOSIT------------------------*/
 	while (done)
 	{	
-
 		/*-------------------APERTURA PIPE GNUPLOT--------------------*/
-		FILE *gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+		gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
+		
+		if (INDUCTEDCHOICE > 100)
+		{
 		/*------------------------------------------------------------*/
 		fprintf(gnuplotPipe2, "%s \n", "set terminal wxt 0 size 1300,700");
 		fprintf(gnuplotPipe2, "%s \n", "set title 'SIMULAZIONE UTENTI'");
 		fprintf(gnuplotPipe2, "%s \n", "set pointsize 0.7");//set size of every point in the plot
 		/*------------------------------------------------------------*/
-
-
-		if (INDUCTEDCHOICE > 100)
-		{
 			reset_plot(gnuplotPipe2);//STAMPO SOLO LE STAZIONI
 		}
 
@@ -167,28 +166,35 @@ void generateTraffic(Stations *inststations, Users *instusers)
 			instusers->all_users[rand_user].update_budget(take, release);
 			//AGGIORNO I SOLDI PRESENTI NEL SISTEMA
 			inststations->update_cash_desk(instusers, take, release);
+			if (PRINT_TRAVEL_INFO >=100)
+			{
+				printf("+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++\n\n");
+				printf("Gift given by start station   %d: %lf\n", inststations->stations_id[rand_start], take);
+				printf("Gift given by arrive station  %d: %lf\n", inststations->stations_id[rand_arrive], release);
+				printf("______________________________________________________________\n");
 
-			printf("+++++++++++++++++++++++++GIFT FOR THE USER++++++++++++++++++++\n\n");
-			printf("Gift given by start station   %d: %lf\n", inststations->stations_id[rand_start], take);
-			printf("Gift given by arrive station  %d: %lf\n", inststations->stations_id[rand_arrive], release);
-			printf("______________________________________________________________\n");
+				printf("User %d has %lf money\n", rand_user, instusers->all_users[rand_user].get_budget());
 
-			printf("User %d has %lf money\n", rand_user, instusers->all_users[rand_user].get_budget());
-
-			printf("-------------------------------------------------\n");
+				printf("-------------------------------------------------\n");
+			}
+			
 
 			/*------------------------------------STAZIONE DI PARTENZA RIMUOVO BICI-----------------------------*/
 			inststations->all_stations[rand_start].remove_bike(instusers, numU, numS, rand_user);//RIMUOVO LA BICI
 			instusers->all_users[rand_user].visit_counter_start(rand_start);//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
 
-												/*COLONNINE LIBERE E BICI MANCANTI*/
-			printf("Remaining bikes station %d:  %d \n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].av_bikes());
-			printf("Free Columns station    %d:  %d \n\n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].av_columns());
-			/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
-			printf("++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++\n\n");
-			printf("Gift that will be give by start station   %d: %lf\n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].get_gift_take());
-			printf("Gift that will be give by arrive station  %d: %lf\n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].get_gift_release());
-			printf("______________________________________________________________\n");
+			if (PRINT_TRAVEL_INFO >= 100)
+			{
+				/*COLONNINE LIBERE E BICI MANCANTI*/
+				printf("Remaining bikes station %d:  %d \n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].av_bikes());
+				printf("Free Columns station    %d:  %d \n\n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].av_columns());
+				/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
+				printf("++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++\n\n");
+				printf("Gift that will be give by start station   %d: %lf\n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].get_gift_take());
+				printf("Gift that will be give by arrive station  %d: %lf\n", inststations->stations_id[rand_start], inststations->all_stations[rand_start].get_gift_release());
+				printf("______________________________________________________________\n");
+			}
+			
 
 			int startCounter = instusers->all_users[rand_user].get_counter_Start_Visits(rand_start);				//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN PARTENZA
 			printf("-------------------------------------------------\n");
@@ -199,29 +205,33 @@ void generateTraffic(Stations *inststations, Users *instusers)
 			inststations->all_stations[rand_arrive].add_bike(instusers, numU, numS, rand_user);
 			instusers->all_users[rand_user].visit_countet_arrive(rand_arrive);										//AGGIORNO IL CONTATORE DELLE STAZIONI VISITATE DALL'UTENTE
 
-												/*COLONNINE LIBERE E BICI MANCANTI*/
-			printf("Remaining bikes station %d: %d\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].av_bikes());
-			printf("Free Columns station    %d: %d \n\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].av_columns());
+			if (PRINT_TRAVEL_INFO >= 100)
+			{
+				/*COLONNINE LIBERE E BICI MANCANTI*/
+				printf("Remaining bikes station %d: %d\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].av_bikes());
+				printf("Free Columns station    %d: %d \n\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].av_columns());
 
-			/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
-			printf("++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++\n\n");
-			printf("Gift that will be give by start station   %d: %lf\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].get_gift_take());
-			printf("Gift that will be give by arrive station  %d: %lf\n\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].get_gift_release());
+				/*PREMI STAZIONE DI PARTENZA E ARRIVO*/
+				printf("++++++++++++++++++++++++UPDATE OF GIFT++++++++++++++++++++++++\n\n");
+				printf("Gift that will be give by start station   %d: %lf\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].get_gift_take());
+				printf("Gift that will be give by arrive station  %d: %lf\n\n", inststations->stations_id[rand_arrive], inststations->all_stations[rand_arrive].get_gift_release());
 
-			int arriveCounter = instusers->all_users[rand_user].get_counter_Arrive_Visits(rand_arrive);	//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
 
-			printf("-------------------------------------------------\n");
+				int arriveCounter = instusers->all_users[rand_user].get_counter_Arrive_Visits(rand_arrive);	//NUMERO DI VOLTE CHE L'UTENTE HA VISITATO QUELLA STAZIONE IN ARRIVO
+
+				printf("-------------------------------------------------\n");
+			}
 		}
 		
+		if (PRINT_TRAVEL_INFO >= 100){printf("Money in the system: %lf \n\n", inststations->get_cash_desk());}
 
-		printf("Money in the system: %lf \n\n", inststations->get_cash_desk());
 		/*-----------------STAMPO IN UN ARRAY IL VALORE DELLA MONETA PRESENTE NEL SISTEMA-------------------*/
 		inststations->money_in_the_system[n] = inststations->get_cash_desk();
 		/*---------------------------------------------------------------------------------------------------*/
 		
 		/*-------------------------------CONTROLLO LA CRITICITA' DELLE STAZIONI------------------------------*/
 		budget_time_update(inststations);
-		printf("------------------------------------------------------------------------------\n\n");
+		if (PRINT_TRAVEL_INFO >= 100){printf("------------------------------------------------------------------------------\n\n");}
 
 
 		//Sleep(3000);		//RITARDO DI 30 MILLISECONDI (nella realtà dovranno corrispondere a 10 minuti)

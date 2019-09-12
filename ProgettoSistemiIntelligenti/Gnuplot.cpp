@@ -119,12 +119,13 @@ void print_money_in_system(Stations *inststations, int number_of_transition)
 	const char * commandsForGnuplot[] = {
 
 		/*-------------------------PLOTTING COMMANDS TO PRINT NODES---------------------*/
-		"set terminal windows 3",
+		"set terminal wxt 3",
 		title,													//set title from input file
 		"unset key",											//remove path legend
 		"set ylabel 'Amount of Budget'",
 		"set xlabel 'Trips'",
-		"set xrange [0:66882]",
+		"set yrange [22000:25000]"
+		"set xrange [0:2000]",
 		"plot 'money.txt' with lines lc rgb '#000dff'",
 		"exit"
 		/*------------------------------------------------------------------------------*/
@@ -169,6 +170,8 @@ void print_satisfactions(Users *instusers)
 		"set terminal wxt 4",
 		title,													//set title from input file
 		"unset key",											//remove path legend
+		"set xlabel 'Users'",
+		"set ylabel 'Satisfaction Value'",
 		"plot 'satisfactions.txt' with boxes lc rgb '#00aaff',\
 		'mean_sat.txt' with lines lw 2 lc rgb '#ff0000'",
 		"pause 4",
