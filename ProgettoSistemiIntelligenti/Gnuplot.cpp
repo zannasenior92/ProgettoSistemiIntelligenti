@@ -124,7 +124,7 @@ void print_money_in_system(Stations *inststations, int number_of_transition)
 		"unset key",											//remove path legend
 		"set ylabel 'Amount of Budget'",
 		"set xlabel 'Trips'",
-		"set yrange [22000:25000]"
+		"set yrange [16000:25000]"
 		"set xrange [0:2000]",
 		"plot 'money.txt' with lines lc rgb '#000dff'",
 		"exit"

@@ -28,7 +28,7 @@ void print_satisfactions(Users *instusers);
 #define CRITICAL_STATIONS 50
 #define PRINT_TRAVEL_INFO 50 //STAMPO LE INFORMAZIONI DI OGNI VIAGGIO
 
-#define Number_Of_Transition 2000 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Number_Of_Transition 5000 //NUMERO DI VIAGGI DEGLI UTENTI
 #define Pre_to_move 1000 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
 #define V_p_t_m 1000 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
