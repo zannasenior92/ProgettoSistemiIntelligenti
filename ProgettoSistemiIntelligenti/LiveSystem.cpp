@@ -26,11 +26,12 @@ void print_satisfactions(Users *instusers);
 
 #define USERS_SATISFACTION 50 //SODDISFAZIONE DEGLI UTENTI
 #define CRITICAL_STATIONS 50
-#define PRINT_TRAVEL_INFO 50 //STAMPO LE INFORMAZIONI DI OGNI VIAGGIO
+#define PRINT_TRAVEL_INFO 500 //STAMPO LE INFORMAZIONI DI OGNI VIAGGIO
+#define PRINT_REALTIME_PLOT_TRAVEL 200 //STAMPO CON GNUPLOT LA SELEZIONE DELLE STAZIONI E IL VIAGGIO
 
-#define Number_Of_Transition 5000 //NUMERO DI VIAGGI DEGLI UTENTI
-#define Pre_to_move 1000 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
-#define V_p_t_m 1000 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
+#define Number_Of_Transition 10 //NUMERO DI VIAGGI DEGLI UTENTI
+#define Pre_to_move 10 //PREDISPOSIZIONE CHE HA OGNI UTENTE A MUOVERSI (PIU' ALTO PIU' MENO PREDISPOSTI, PIU' BASSO PIU' PREDISPOSTI)
+#define V_p_t_m 10 //VALORE PROPENSION TO MOVE (QUANTO E' DISPOSTO UN UTENDE A SPOSTARSI)
 /*viene passato come argomento l'istanza stazione e in questo modo posso accedere al numero di bici per stazione
 al numero di colonnine per stazione e al numero di stazioni da creare*/
 
@@ -113,7 +114,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		/*-------------------APERTURA PIPE GNUPLOT--------------------*/
 		gnuplotPipe2 = _popen("C:/gnuplot/bin/gnuplot.exe", "w");	//"-persistent" KEEPS THE PLOT OPEN EVEN AFTER YOUR C PROGRAM QUIT
 		
-		if (INDUCTEDCHOICE > 100)
+		if (PRINT_REALTIME_PLOT_TRAVEL > 100)
 		{
 		/*------------------------------------------------------------*/
 		fprintf(gnuplotPipe2, "%s \n", "set terminal wxt 0 size 1300,700");
@@ -135,7 +136,7 @@ void generateTraffic(Stations *inststations, Users *instusers)
 		rand_arrive = choose_ARRIVE_station_from_csv_start(inststations, instusers, rand_user, gnuplotPipe2, n);
 		//rand_arrive = choose_ARRIVE_station(inststations, instusers, rand_user,gnuplotPipe2);
 		printf("_________________________________________________\n");
-		if (INDUCTEDCHOICE > 100)
+		if (PRINT_REALTIME_PLOT_TRAVEL > 100)
 		{
 			update_travel(inststations, rand_start, rand_arrive);
 			print_travel(gnuplotPipe2);

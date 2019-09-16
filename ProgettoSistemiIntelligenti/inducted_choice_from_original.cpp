@@ -78,7 +78,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 				gift_take = inststations->all_stations[i].get_gift_take();//PREMIO FORNITO STAZIONE i-ESIMA
 				double i_dec_val = gift_take / distance;
 
-				if (INDUCTEDCHOICE > 100){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[start_s], inststations->stations_id[i], i_dec_val);}
+				if (INDUCTEDCHOICE > 600){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[start_s], inststations->stations_id[i], i_dec_val);}
 
 				/*--TROVO LA MIGLIORE STAZIONE IN CUI SPOSTARMI TRA QUELLE PER CUI SONO DISPOSTO A SPOSTARMI--*/
 				if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
@@ -190,7 +190,7 @@ int choose_START_station_from_csv_start(Stations *inststations, Users *instusers
 				distance_i = sqrt(pow(abs(x_a - x_i), 2) + pow(abs(y_a - y_i), 2));;//DISTANZA TRA STAZIONE DI PARTENZA E STAZIONE i
 				gift_take = inststations->all_stations[i].get_gift_take();			//PREMIO FORNITO STAZIONE i-ESIMA
 				double i_dec_val = gift_take / distance_i;
-				if (INDUCTEDCHOICE > 100){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[start_s], inststations->stations_id[i], i_dec_val);}
+				if (INDUCTEDCHOICE > 600){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[start_s], inststations->stations_id[i], i_dec_val);}
 
 				/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
 				if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
@@ -332,7 +332,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 					gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE DI ARRIVO
 					double i_dec_val = gift_release / distance_i;
 
-					if (INDUCTEDCHOICE > 100){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);}
+					if (INDUCTEDCHOICE > 600){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);}
 
 					/*--SE L'UTENTE E' PREDISPOSTO A SPOSTARSI VERSO LA STAZIONE E SE LA STAZIONE ESAMINATA E' PIU' CONVENIENTE--*/
 					if ((i_dec_val >= 0) && (i_dec_val >= user_dec_val) && (i_dec_val > decision))
@@ -432,7 +432,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 					gift_release = inststations->all_stations[i].get_gift_release();//PREMIO FORNITO STAZIONE i-ESIMA
 					double i_dec_val = gift_release / distance_i;
 
-					if (INDUCTEDCHOICE > 100){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);}
+					if (INDUCTEDCHOICE > 600){printf("Decision value from my station %d and station %d is: %lf \n", inststations->stations_id[arrive_s], inststations->stations_id[i], i_dec_val);}
 
 					if (distance_i < best_dist)
 					{
@@ -503,7 +503,7 @@ int choose_ARRIVE_station_from_csv_start(Stations *inststations, Users *instuser
 		if (INDUCTEDCHOICE > 100)
 		{
 			printf("\n");
-			printf("User %d change station and choose %d as arrive station \n", user, arrive_s + 1);
+			printf("User %d change station and choose %d as arrive station \n", user, inststations->stations_id[arrive_s]);
 		}
 	}
 	else

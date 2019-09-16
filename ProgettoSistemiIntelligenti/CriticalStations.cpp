@@ -57,6 +57,7 @@ void budget_time_update(Stations *inststations)
 			inststations->all_stations[i].station_full_time = 0;
 		}
 	}
+	printf("---------------------------------------------------------------\n");
 }
 
 /*VERIFICA SE INIZIALMENTE LE STAZIONI SONO CRITICHE*/

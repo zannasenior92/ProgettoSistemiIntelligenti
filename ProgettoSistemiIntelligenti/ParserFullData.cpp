@@ -229,7 +229,7 @@ void save_NAME_stations(Stations *inststations, Users *instusers)
 		{
 			printf("Station_%d is: id: %d - S: %s \n", i, inststations->stations_id[i], inststations->stations_names[i]);
 		}
-
+		printf("\n\n");
 	}
 	free(indexes_stations);
 	free(temporary_stations_names);
